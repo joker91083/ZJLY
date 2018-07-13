@@ -15,4 +15,67 @@ class MapViewModel() : BaseViewModel() {
         this.mView = mapModel
         this.mDataRepository = dataRepository
     }
+
+    /**
+     * 图层信息
+     */
+    fun showInfo() {
+        mView?.showToast(0, "图层信息")
+    }
+
+    /**
+     * 测距
+     */
+    fun getDistance() {
+        mView?.showToast(0, "测距")
+    }
+
+    /**
+     * 勾绘
+     */
+    fun onSketch() {
+        mView?.showToast(0, "勾绘")
+    }
+
+    /**
+     * 清除编辑
+     */
+    fun onClean() {
+        mView?.showToast(0, "清除编辑")
+    }
+
+    /**
+     * 当前位置
+     */
+    fun getLocation() {
+        mView?.showToast(0, "当前位置")
+    }
+
+    /**
+     * 图层控制
+     */
+    fun layerControl() {
+        mView?.showToast(0, "图层控制")
+    }
+
+    /**
+     * GPS设置
+     */
+    fun systemSetting() {
+        mView?.showToast(0, "GPS设置")
+    }
+
+    /**
+     * 数据采集
+     */
+    fun dataCollection() {
+        mView?.showToast(0, "数据采集")
+    }
+
+    /**
+     * 小班编辑
+     */
+    fun classEditor() {
+        mView?.showToast(0, "小班编辑")
+    }
 }

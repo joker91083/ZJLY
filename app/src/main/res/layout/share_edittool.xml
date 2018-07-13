@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="mapViewModel"
+            type="com.otitan.zjly.map.MapViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_linearlayout"
+                android:orientation="horizontal">
+
+                <!--图层控制-->
+                <TextView
+                    android:id="@+id/tckz_imageview"
+                    android:background="@drawable/bg_view_rounded_image"
+                    android:drawableTop="@drawable/ic_mainmenu_layers"
+                    android:onClick="@{()->mapViewModel.layerControl()}"
+                    android:text="@string/classEdit_layer"
+                    style="@style/editTool_testView"/>
+
+                <!--<TextView
+                    android:id="@+id/share_gjcx"
+                    android:background="@drawable/bg_view_rounded_image"
+                    android:drawableTop="@drawable/ic_mainmenu_track"
+                    android:text="@string/mainmenu_trackquery"
+                    style="@style/editTool_testView"/>-->
+
+                <!--GPS设置-->
+                <TextView
+                    android:id="@+id/share_xtsz"
+                    android:background="@drawable/bg_view_rounded_image"
+                    android:drawableTop="@drawable/ic_mainmenu_setting"
+                    android:onClick="@{()->mapViewModel.systemSetting()}"
+                    android:text="@string/classEdit_system"
+                    style="@style/editTool_testView"/>
+
+                <!--数据采集-->
+                <TextView
+                    android:id="@+id/share_xcxxsb"
+                    android:background="@drawable/bg_view_rounded_image"
+                    android:drawableTop="@drawable/ic_mainmenu_upload"
+                    android:onClick="@{()->mapViewModel.dataCollection()}"
+                    android:text="@string/classEdit_collection"
+                    style="@style/editTool_testView"/>
+
+                <!--小班编辑-->
+                <TextView
+                    android:id="@+id/share_tcxr"
+                    android:background="@drawable/bg_view_rounded_image"
+                    android:drawableTop="@drawable/ic_mainmenu_render"
+                    android:onClick="@{()->mapViewModel.classEditor()}"
+                    android:text="@string/classEdit_editor"
+                    style="@style/editTool_testView"/>
+
+                <!--<TextView
+                    android:id="@+id/shuxing_lable"
+                    android:background="@drawable/bg_view_rounded_image"
+                    android:drawableTop="@drawable/ic_mainmenu_lebal"
+                    android:text="@string/mainmenu_callout"
+                    style="@style/editTool_testView"/>-->
+            </LinearLayout>
+        </HorizontalScrollView>
+    </FrameLayout>
+</layout>
