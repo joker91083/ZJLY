@@ -18,8 +18,14 @@
     <!--SD卡读写权限-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--SD权限，用于写入离线定位数据-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!--相机-->
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--<uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />-->
 
     <application
         android:allowBackup="true"
@@ -28,6 +34,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoTitle">
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="CPObBjFHrtBKUqG9gD49WjUYHm9XBbEu" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
 
         <!--<activity android:name=".MainActivity">-->
         <activity android:name=".map.MapActivity">

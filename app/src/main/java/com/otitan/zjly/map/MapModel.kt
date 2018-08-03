@@ -7,4 +7,9 @@ import com.otitan.zjly.base.Base
  * 地图
  */
 interface MapModel : Base {
+
+    /**
+     * 当前位置
+     */
+    fun myLocation()
 }

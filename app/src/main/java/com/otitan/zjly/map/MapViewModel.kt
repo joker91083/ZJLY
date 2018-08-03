@@ -1,5 +1,6 @@
 package com.otitan.zjly.map
 
+import com.esri.arcgisruntime.geometry.Point
 import com.otitan.zjly.base.BaseViewModel
 import com.otitan.zjly.base.DataRepository
 
@@ -10,6 +11,8 @@ import com.otitan.zjly.base.DataRepository
 class MapViewModel() : BaseViewModel() {
 
     private var mView: MapModel ?= null
+
+    var currentPoint : Point? = Point(0.0, 0.0)
 
     constructor(mapModel: MapModel?, dataRepository: DataRepository) : this() {
         this.mView = mapModel
@@ -49,6 +52,7 @@ class MapViewModel() : BaseViewModel() {
      */
     fun getLocation() {
         mView?.showToast(0, "当前位置")
+        mView?.myLocation()
     }
 
     /**
@@ -78,4 +82,15 @@ class MapViewModel() : BaseViewModel() {
     fun classEditor() {
         mView?.showToast(0, "小班编辑")
     }
+
+    /*inner class MyBDLocation: BDAbstractLocationListener(){
+        override fun onReceiveLocation(p0: BDLocation?) {
+            if (p0 != null) {
+                val lat = p0.latitude
+                val lon = p0.longitude
+
+                currentPoint = Point(p0.longitude, p0.latitude)
+            }
+        }
+    }*/
 }
