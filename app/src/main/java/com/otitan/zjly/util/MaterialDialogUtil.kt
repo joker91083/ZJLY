@@ -22,7 +22,7 @@ class MaterialDialogUtil {
                     .negativeText("取消")
                     .content(msg)
                     .onNegative {
-                        dialog, which -> dialog.dismiss()
+                        dialog,_ -> dialog.dismiss()
                     }
                     .onPositive(callback)
                     .build()
@@ -60,7 +60,7 @@ class MaterialDialogUtil {
                     .positiveText("确定")
                     .content(msg)
                     .onNegative {
-                        dialog, which -> dialog.dismiss()
+                        dialog, _ -> dialog.dismiss()
                     }
         }
     }

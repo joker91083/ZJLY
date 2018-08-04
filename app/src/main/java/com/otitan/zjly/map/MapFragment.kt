@@ -4,13 +4,14 @@ import android.Manifest
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.afollestad.materialdialogs.MaterialDialog
 import com.baidu.location.BDLocation
 import com.baidu.location.BDLocationListener
 import com.baidu.location.LocationClient
 import com.baidu.location.LocationClientOption
-import com.esri.arcgisruntime.data.TileCache
 import com.esri.arcgisruntime.geometry.Point
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.esri.arcgisruntime.mapping.ArcGISMap
@@ -20,6 +21,8 @@ import com.otitan.zjly.R
 import com.otitan.zjly.base.BaseFragment
 import com.otitan.zjly.databinding.FmMapBinding
 import com.otitan.zjly.permissions.PermissionsChecker
+import org.jetbrains.anko.toast
+
 
 /**
  * Created by sp on 2018/7/10.
@@ -27,26 +30,33 @@ import com.otitan.zjly.permissions.PermissionsChecker
  */
 class MapFragment : BaseFragment(), MapModel {
 
-    var binding :  FmMapBinding ?= null
-    var viewModel : MapViewModel ?= null
-    var dialog : MaterialDialog ?= null
+    var binding: FmMapBinding? = null
+    var viewModel: MapViewModel? = null
+    var dialog: MaterialDialog? = null
 
     /** 动态获取权限 */
     val REQUEST_CODE = 10000 // 权限请求码
-    var permissionsChecker : PermissionsChecker? = null
+    var permissionsChecker: PermissionsChecker? = null
     val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION)
 
-    var currentPoint : Point? = null
+    var currentPoint: Point? = null
+    //是否是第一次定位 true是 false否
+    var isFirst = true
 
     companion object {
-        fun getInstance() : MapFragment {
+        fun getInstance(): MapFragment {
             return MapFragment()
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        myLocation()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FmMapBinding.inflate(inflater, container,false)
+        binding = FmMapBinding.inflate(inflater, container, false)
         binding?.mapViewModel = viewModel
 
         permissionsChecker = PermissionsChecker(activity)
@@ -69,10 +79,8 @@ class MapFragment : BaseFragment(), MapModel {
      */
     private fun initMap() {
         try {
-            val arcGISMap : ArcGISMap ?= ArcGISMap(Basemap.createImagery())
-            val tileCache: TileCache? = TileCache(activity?.resources?.getString(R.string.World_Imagery))
-            val layer = ArcGISTiledLayer(tileCache)
-            arcGISMap?.basemap?.baseLayers?.add(layer)
+            val layer = ArcGISTiledLayer(getString(R.string.World_Imagery))
+            val arcGISMap: ArcGISMap? = ArcGISMap(Basemap(layer))
             binding?.mvMap?.map = arcGISMap
 
             // 去除下方 powered by esri 按钮
@@ -80,7 +88,7 @@ class MapFragment : BaseFragment(), MapModel {
 
         } catch (e: Exception) {
             Log.e("tag", "地图初始化异常:$e")
-            showToast(0, "地图初始化异常:$e")
+            activity?.toast("地图初始化异常:$e")
         }
     }
 
@@ -88,7 +96,7 @@ class MapFragment : BaseFragment(), MapModel {
      * 百度定位
      */
     fun bdLocation() {
-        val mLocClient : LocationClient?= LocationClient(activity)
+        val mLocClient: LocationClient? = LocationClient(activity)
         val mCliOption = LocationClientOption()
         mCliOption.locationMode = LocationClientOption.LocationMode.Hight_Accuracy // 设置定位模式
         mCliOption.isOpenGps = true // 打开GPS
@@ -122,24 +130,32 @@ class MapFragment : BaseFragment(), MapModel {
         // 当前位置
         val mLocDisplay = binding?.mvMap?.locationDisplay
         // 当位置符号移动到范围之外时，通过重新定位位置符号来保持屏幕上的位置符号
-        mLocDisplay?.autoPanMode = LocationDisplay.AutoPanMode.COMPASS_NAVIGATION
+        mLocDisplay?.autoPanMode = LocationDisplay.AutoPanMode.RECENTER
         // 设置显示的位置
         mLocDisplay?.navigationPointHeightFactor = 0.5.toFloat()
+        mLocDisplay?.isShowLocation = true
         // 定位显示
         mLocDisplay?.let {
-            if (!it.isStarted){
+            if (!it.isStarted) {
                 it.startAsync()
             }
         }
-        // 设置位置变化监听
-        mLocDisplay?.addLocationChangedListener {
-            p0 -> currentPoint = p0?.location?.position
-        }
-        mLocDisplay?.addLocationChangedListener(object :LocationDisplay.LocationChangedListener{
-            override fun onLocationChanged(p0: LocationDisplay.LocationChangedEvent?) {
-                currentPoint = p0?.location?.position
+        mLocDisplay?.addDataSourceStatusChangedListener { p0 ->
+            if (!p0.isStarted || p0.error != null) {
+                val message = String.format("Error in DataSourceStatusChangedListener:",
+                        p0.source.locationDataSource.error.message)
+                Log.e("tag", "error:$message")
             }
-        })
+        }
+        // 设置位置变化监听
+        mLocDisplay?.addLocationChangedListener { p0 ->
+            currentPoint = p0?.location?.position
+            if (isFirst && currentPoint != null) {
+                myLocation()
+                isFirst = false
+            }
+            Log.e("tag", "flag:${mLocDisplay.isStarted},${p0.location},${p0.location.position}")
+        }
     }
 
     /**
@@ -147,9 +163,24 @@ class MapFragment : BaseFragment(), MapModel {
      */
     override fun myLocation() {
         currentPoint?.let {
-            binding?.mvMap?.setViewpointCenterAsync(it)
+            binding?.mvMap?.setViewpointCenterAsync(it, 10000.0)
             return
         }
-        showToast(0,"没有获取到当前位置")
+        activity?.toast("没有获取到当前位置")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding?.mvMap?.resume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding?.mvMap?.pause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding?.mvMap?.dispose()
     }
 }
