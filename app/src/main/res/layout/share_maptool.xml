@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="mapViewModel"
-            type="com.otitan.zjly.map.MapViewModel" />
+            name="viewmodel"
+            type="com.otitan.ui.vm.MapViewModel" />
     </data>
 
     <LinearLayout
@@ -19,7 +19,7 @@
             style="@style/mapTool_imageButton"
             android:background="@drawable/map_tools_bg"
             android:contentDescription="@null"
-            android:onClick="@{()->mapViewModel.showInfo()}"
+            android:onClick="@{()->viewmodel.showInfo()}"
             android:src="@drawable/icon_info" />
 
         <ImageButton
@@ -27,7 +27,7 @@
             style="@style/mapTool_imageButton"
             android:background="@drawable/map_tools_bg"
             android:contentDescription="@null"
-            android:onClick="@{()->mapViewModel.getDistance()}"
+            android:onClick="@{()->viewmodel.getDistance()}"
             android:src="@drawable/icon_distance" />
 
         <ImageButton
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:background="@drawable/map_tools_bg"
             android:contentDescription="@null"
-            android:onClick="@{()->mapViewModel.onSketch()}"
+            android:onClick="@{()->viewmodel.onSketch()}"
             android:src="@drawable/icon_sketch" />
 
         <ImageButton
@@ -44,7 +44,7 @@
             style="@style/mapTool_imageButton"
             android:background="@drawable/map_tools_bg"
             android:contentDescription="@null"
-            android:onClick="@{()->mapViewModel.onClean()}"
+            android:onClick="@{()->viewmodel.onClean()}"
             android:src="@drawable/icon_clean" />
 
         <ImageButton
@@ -52,7 +52,7 @@
             style="@style/mapTool_imageButton"
             android:background="@drawable/map_tools_bg"
             android:contentDescription="@null"
-            android:onClick="@{()->mapViewModel.getLocation()}"
+            android:onClick="@{()->viewmodel.getLocation()}"
             android:src="@drawable/icon_location" />
     </LinearLayout>
 </layout>

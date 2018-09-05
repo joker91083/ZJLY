@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="mapViewModel"
-            type="com.otitan.zjly.map.MapViewModel" />
+            name="viewmodel"
+            type="com.otitan.ui.vm.MapViewModel" />
     </data>
 
     <android.support.percent.PercentFrameLayout
@@ -31,7 +31,7 @@
                 <include
                     android:id="@+id/ic_mapTool"
                     layout="@layout/share_maptool"
-                    app:mapViewModel="@{mapViewModel}"
+                    app:viewmodel="@{viewmodel}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -42,7 +42,7 @@
                 <include
                     android:id="@+id/ic_editTool"
                     layout="@layout/share_edittool"
-                    app:mapViewModel="@{mapViewModel}"
+                    app:viewmodel="@{viewmodel}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"/>

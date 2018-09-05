@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.ui.vm.LayerManagerViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_view_rounded_blue"
+        android:orientation="vertical"
+        android:padding="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/titleTextView"
+                style="@style/tv_dialogtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/classEdit_layer"
+                android:textColor="@color/white"
+                tools:ignore="RtlSymmetry" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/close_tuceng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/background_view_rounded_image"
+                android:contentDescription="@null"
+                android:onClick="@{()->viewmodel.closeView()}"
+                android:padding="4dp"
+                app:srcCompat="@drawable/ic_close_black_24dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_linearlayout"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_sl"
+                style="@style/CustomCheckboxTheme"
+                android:checked="@={viewmodel.base}"
+                android:focusable="false"
+                android:onClick="@{()->viewmodel.showLayer(1)}"
+                android:text="@string/base_layer" />
+
+            <ImageView
+                android:id="@+id/tile_extent"
+                style="@style/tckz_loc_style"
+                android:onClick="@{()->viewmodel.setExtent()}"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/blue" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_linearlayout"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_ys"
+                style="@style/CustomCheckboxTheme"
+                android:checked="@={viewmodel.img}"
+                android:text="@string/img_layer" />
+
+            <ImageView
+                android:id="@+id/image_extent"
+                style="@style/tckz_loc_style" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/blue" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_linearlayout"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <CheckBox
+                android:id="@+id/cb_dxt"
+                style="@style/CustomCheckboxTheme"
+                android:checked="@={viewmodel.relief}"
+                android:text="@string/relief_layer" />
+
+
+            <ImageView
+                android:id="@+id/dxt_extent"
+                style="@style/tckz_loc_style" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/blue" />
+
+        <!-- 自定义的ExpandableListView -->
+
+        <ExpandableListView
+            android:id="@+id/tc_expandlistview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:cacheColorHint="@color/white" />
+
+    </LinearLayout>
+</layout>

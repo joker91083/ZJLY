@@ -1,15 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.ui.vm.MapViewModel" />
+    </data>
+
+    <android.support.percent.PercentFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.titan.mursery.main.MainActivity">
+        android:layout_height="match_parent">
 
         <FrameLayout
-            android:id="@+id/fragment_map"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </LinearLayout>
+            android:layout_height="match_parent">
+
+            <com.esri.arcgisruntime.mapping.view.MapView
+                android:id="@+id/mv_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--地图工具-->
+                <include
+                    android:id="@+id/ic_mapTool"
+                    layout="@layout/share_maptool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="16dp"
+                    app:viewmodel="@{viewmodel}" />
+
+                <!--小班编辑工具-->
+                <include
+                    android:id="@+id/ic_editTool"
+                    layout="@layout/share_edittool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    app:viewmodel="@{viewmodel}" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <include
+            android:id="@+id/icTckz"
+            layout="@layout/share_tckz"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:visibility="gone"
+            app:viewmodel="@{viewmodel.layerManagerViewModel}"
+            app:layout_marginBottomPercent="10%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="40%" />
+    </android.support.percent.PercentFrameLayout>
 </layout>
