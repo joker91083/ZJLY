@@ -6,7 +6,7 @@ interface ILayerManager{
      */
     fun showLayer(type: Int)
 
-    fun setExtent()
+    fun setExtent(type: Int)
     /**
      * 关闭窗口
      */

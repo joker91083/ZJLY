@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.otitan.ui.vm.MapViewModel" />
+            type="com.otitan.ui.vm.MapToolViewModel" />
     </data>
 
     <LinearLayout
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:background="@drawable/map_tools_bg"
             android:contentDescription="@null"
-            android:onClick="@{()->viewmodel.onSketch()}"
+            android:onClick="@{()->viewmodel.getArea()}"
             android:src="@drawable/icon_sketch" />
 
         <ImageButton

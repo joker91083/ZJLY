@@ -20,7 +20,7 @@
             <com.esri.arcgisruntime.mapping.view.MapView
                 android:id="@+id/mv_map"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -48,16 +48,28 @@
             </RelativeLayout>
         </FrameLayout>
 
+        <!--图层控制-->
         <include
             android:id="@+id/icTckz"
             layout="@layout/share_tckz"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:visibility="gone"
-            app:viewmodel="@{viewmodel.layerManagerViewModel}"
             app:layout_marginBottomPercent="10%"
             app:layout_marginTopPercent="10%"
-            app:layout_widthPercent="40%" />
+            app:layout_widthPercent="40%"
+            app:viewmodel="@{viewmodel.layerManagerViewModel}" />
+
+        <!--图层控制 影像图列表-->
+        <include
+            android:id="@+id/icImg"
+            layout="@layout/img_tuceng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="35%"
+            android:visibility="gone"
+            app:viewmodel="@{viewmodel.imgManagerViewModel}"/>
     </android.support.percent.PercentFrameLayout>
 </layout>

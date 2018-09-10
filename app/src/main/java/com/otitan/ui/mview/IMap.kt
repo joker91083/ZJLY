@@ -1,7 +1,7 @@
 package com.otitan.ui.mview
 
-import android.view.View
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
+import com.otitan.model.MyLayer
 
 /**
  * Created by sp on 2018/7/10.
@@ -21,5 +21,5 @@ interface IMap {
 
     fun getTiledLayer(): ArcGISTiledLayer?
 
-    fun getLayerManagerView(): View
+    fun getLayers(): ArrayList<MyLayer>
 }

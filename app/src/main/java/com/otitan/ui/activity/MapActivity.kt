@@ -1,8 +1,6 @@
 package com.otitan.ui.activity
 
 import android.Manifest
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,18 +10,24 @@ import com.baidu.location.LocationClient
 import com.baidu.location.LocationClientOption
 import com.esri.arcgisruntime.geometry.Point
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
+import com.esri.arcgisruntime.layers.FeatureLayer
+import com.esri.arcgisruntime.layers.Layer
 import com.esri.arcgisruntime.mapping.ArcGISMap
 import com.esri.arcgisruntime.mapping.Basemap
 import com.esri.arcgisruntime.mapping.view.LocationDisplay
 import com.otitan.base.BaseActivity
-import com.otitan.model.Test
+import com.otitan.model.MyLayer
 import com.otitan.permissions.PermissionsActivity
 import com.otitan.permissions.PermissionsChecker
 import com.otitan.ui.mview.IMap
+import com.otitan.ui.view.ImgManagerView
 import com.otitan.ui.view.LayerManagerView
+import com.otitan.ui.view.MapToolView
+import com.otitan.ui.vm.ImgManagerViewModel
 import com.otitan.ui.vm.LayerManagerViewModel
 import com.otitan.ui.vm.MapViewModel
 import com.otitan.util.ResourcesManager
+import com.otitan.util.SpatialUtil
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.ActivityMapBinding
@@ -39,7 +43,11 @@ import kotlin.properties.Delegates
 class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
     private var viewmodel: MapViewModel? = null
     private var layerManager: LayerManagerView by Delegates.notNull()
+    var imgManager: ImgManagerView by Delegates.notNull()
+    var mapTool: MapToolView by Delegates.notNull()
     var tiledlayer: ArcGISTiledLayer? = null
+    //矢量图层数据集合
+    val layerList = ArrayList<MyLayer>()
 
     override fun initVariableId(): Int {
         return BR.viewmodel
@@ -58,7 +66,8 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
 
     /** 动态获取权限 */
     val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_COARSE_LOCATION)
+            Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
     var currentPoint: Point? = null
     //是否是第一次定位 true是 false否
@@ -84,6 +93,13 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
         layerManager = LayerManagerView(this, this)
         viewModel.layerManagerViewModel = LayerManagerViewModel(this, layerManager)
         layerManager.viewModel = viewModel.layerManagerViewModel
+
+        imgManager = ImgManagerView(this, this)
+        viewModel.imgManagerViewModel = ImgManagerViewModel(this, imgManager)
+
+        mapTool = MapToolView(this)
+
+
     }
 
     /**
@@ -97,8 +113,51 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
             } else {
                 ArcGISTiledLayer(getString(R.string.World_Imagery))
             }
-            val arcGISMap = ArcGISMap(Basemap(tiledlayer))
+
+            val arcGISMap = ArcGISMap()
             binding.mvMap.map = arcGISMap
+//            binding.mvMap.map.basemap.addLoadStatusChangedListener {
+//                if (it.source is ArcGISTiledLayer) {
+//                    if (it?.newLoadStatus?.name == "LOADED") {
+//                        Log.e("tag", "tiledLayer1 FAILED_TO_LOAD")
+//                        SpatialUtil.defaultSpatialReference = binding.mvMap.spatialReference
+//                    }
+//                }
+//                if (it.source is FeatureLayer) {
+//                    when (it?.newLoadStatus?.name) {
+//                        "FAILED_TO_LOAD" -> {
+//                            Log.e("tag", "layer1 FAILED_TO_LOAD")
+//                            toast("数据加载错误")
+//                        }
+//                        "LOADED" -> {
+//                            Log.e("tag", "layer1 LOADED")
+//                            toast("数据加载成功")
+//                        }
+//                    }
+//                }
+//            }
+            binding.mvMap.map.addLoadStatusChangedListener {
+                if (it.source is ArcGISTiledLayer) {
+                    if (it?.newLoadStatus?.name == "LOADED") {
+                        Log.e("tag", "tiledLayer FAILED_TO_LOAD")
+                        SpatialUtil.defaultSpatialReference = binding.mvMap.spatialReference
+                    }
+                }
+                if (it.source is FeatureLayer) {
+                    when (it?.newLoadStatus?.name) {
+                        "FAILED_TO_LOAD" -> {
+                            Log.e("tag", "layer FAILED_TO_LOAD")
+                            toast("数据加载错误")
+                        }
+                        "LOADED" -> {
+                            Log.e("tag", "layer LOADED")
+                            toast("数据加载成功")
+                        }
+                    }
+                }
+            }
+            binding.mvMap.map.basemap = Basemap(tiledlayer)
+//            binding.mvMap.seton
             // 去除下方 powered by esri 按钮
             binding.mvMap.isAttributionTextVisible = false
 
@@ -185,14 +244,15 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
 
     override fun showTckz() {
         icTckz.visibility = View.VISIBLE
+        layerManager.initView()
     }
 
     override fun getTiledLayer(): ArcGISTiledLayer? {
         return tiledlayer
     }
 
-    override fun getLayerManagerView(): View {
-        return icTckz
+    override fun getLayers(): ArrayList<MyLayer> {
+        return layerList
     }
 
     override fun onResume() {

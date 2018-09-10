@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.ui.vm.LayerManagerItemViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_view_rounded_image"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_child"
+            style="@style/tckzCheckboxTheme"
+            android:checked="@={viewmodel.checked}"
+            android:focusable="false"
+            android:onClick="@{()->viewmodel.addLayer()}"
+            android:padding="5dp"
+            android:text="@{viewmodel.title}"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/featurelayer_extent"
+            style="@style/tckz_loc_style"
+            android:onClick="@{()->viewmodel.setExtent()}" />
+
+    </LinearLayout>
+</layout>

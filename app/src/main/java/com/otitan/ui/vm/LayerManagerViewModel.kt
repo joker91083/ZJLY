@@ -24,9 +24,18 @@ class LayerManagerViewModel() : BaseViewModel() {
         mView.showLayer(type)
     }
 
-    fun setExtent(){
-
+    fun setExtent(type: Int) {
+        var check = false
+        when (type) {
+            1 -> check = base.get()
+            2 -> check = img.get()
+            3 -> check = relief.get()
+        }
+        if (check) {
+            mView.setExtent(type)
+        }
     }
+
     /**
      * 关闭窗口
      */

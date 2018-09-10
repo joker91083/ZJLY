@@ -54,7 +54,7 @@
 
             <CheckBox
                 android:id="@+id/cb_sl"
-                style="@style/CustomCheckboxTheme"
+                style="@style/tckzCheckboxTheme"
                 android:checked="@={viewmodel.base}"
                 android:focusable="false"
                 android:onClick="@{()->viewmodel.showLayer(1)}"
@@ -63,7 +63,7 @@
             <ImageView
                 android:id="@+id/tile_extent"
                 style="@style/tckz_loc_style"
-                android:onClick="@{()->viewmodel.setExtent()}"/>
+                android:onClick="@{()->viewmodel.setExtent(1)}" />
 
         </LinearLayout>
 
@@ -80,13 +80,15 @@
 
             <CheckBox
                 android:id="@+id/cb_ys"
-                style="@style/CustomCheckboxTheme"
+                style="@style/tckzCheckboxTheme"
                 android:checked="@={viewmodel.img}"
+                android:onClick="@{()->viewmodel.showLayer(2)}"
                 android:text="@string/img_layer" />
 
             <ImageView
                 android:id="@+id/image_extent"
-                style="@style/tckz_loc_style" />
+                style="@style/tckz_loc_style"
+                android:onClick="@{()->viewmodel.setExtent(2)}" />
         </LinearLayout>
 
         <View
@@ -103,29 +105,24 @@
 
             <CheckBox
                 android:id="@+id/cb_dxt"
-                style="@style/CustomCheckboxTheme"
+                style="@style/tckzCheckboxTheme"
                 android:checked="@={viewmodel.relief}"
+                android:onClick="@{()->viewmodel.showLayer(3)}"
                 android:text="@string/relief_layer" />
 
 
             <ImageView
                 android:id="@+id/dxt_extent"
-                style="@style/tckz_loc_style" />
+                style="@style/tckz_loc_style"
+                android:onClick="@{()->viewmodel.setExtent(3)}" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/blue" />
-
-        <!-- 自定义的ExpandableListView -->
-
         <ExpandableListView
-            android:id="@+id/tc_expandlistview"
+            android:id="@+id/tckzExplv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:cacheColorHint="@color/white" />
-
+            android:cacheColorHint="@color/white"
+            android:groupIndicator="@null" />
     </LinearLayout>
 </layout>

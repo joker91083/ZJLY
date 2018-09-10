@@ -2,9 +2,12 @@ package com.otitan.util
 
 import android.content.Context
 import android.os.storage.StorageManager
+import com.otitan.zjly.R
 import java.io.File
 import java.io.Serializable
 import java.lang.reflect.InvocationTargetException
+import java.util.ArrayList
+import java.util.HashMap
 import kotlin.properties.Delegates
 
 class ResourcesManager : Serializable {
@@ -12,6 +15,7 @@ class ResourcesManager : Serializable {
 
     val ROOT_MAPS = "/maps"
     private val otitan_map = "/otitan.map"
+    val otms = "/otms"
 
     companion object {
         private var mContext: Context by Delegates.notNull()
@@ -65,5 +69,88 @@ class ResourcesManager : Serializable {
     fun getTitlePath(): String {
         val name = "$otitan_map/title.tpk"
         return getFilePath(name)
+    }
+
+    /** 获取影像文件列表  */
+    fun getImgTitlePath(): List<File> {
+        val fileter = ArrayList<String>()
+        fileter.add("image")
+        return getPahts(otitan_map, fileter)
+    }
+
+    fun getPahts(path: String, keywords: List<String>): List<File> {
+        val list = ArrayList<File>()
+        val array = getMemoryPath()
+        for (i in array!!.indices) {
+            val file = File(array[i] + ROOT_MAPS + path)
+            if (file.exists()) {
+                for (m in 0 until file.listFiles().size) {
+                    if (file.listFiles()[m].isFile && (file.listFiles()[m].name.contains(keywords[0]))) {
+                        list.add(file.listFiles()[m])
+                    }
+                }
+            }
+        }
+        return list
+    }
+
+    /** 获取otms文件夹下的文件夹  */
+    fun getOtmsFolder(): List<File> {
+        val path = otms
+        val files = File(getFolderPath(path)).listFiles()
+        val groups = ArrayList<File>()
+        val filesLength = files.size
+        for (i in 0 until filesLength) {
+            if (!files[i].isDirectory) {
+                continue
+            }
+            groups.add(files[i])
+        }
+        return groups
+    }
+
+    /** 获取文件夹可用地址  */
+    fun getFolderPath(path: String): String {
+        var dataPath = "文件夹可用地址"
+        val memoryPath = getMemoryPath()
+        for (i in memoryPath!!.indices) {
+            val file = File(memoryPath[i] + ROOT_MAPS + path)
+            if (file.exists()) {
+                dataPath = memoryPath[i] + ROOT_MAPS + path
+                break
+            } else {
+                if (path == "") {
+                    file.mkdirs()
+                }
+            }
+        }
+        return dataPath
+    }
+
+    /** 获取otms中每个文件夹下的.otms或者.geodatabase数据  */
+    fun getChildData(groups: List<File>): List<Map<String, List<File>>> {
+        val childs = ArrayList<Map<String, List<File>>>()
+        for (i in 0 until groups.size) {
+            val path = otms + "/" + groups[i].name
+            val files = File(getFolderPath(path)).listFiles()
+            val map = HashMap<String, List<File>>()
+            map[groups[i].name] = getOtmsData(files)
+            childs.add(map)
+        }
+        return childs
+    }
+
+    fun getOtmsData(files: Array<File>): ArrayList<File> {
+        val list = ArrayList<File>()
+        if (files.isNotEmpty()) {
+            for (file in files) {
+                if (file.isDirectory)
+                    continue
+                if (file.name.endsWith(".otms") || file.name.endsWith(".geodatabase")) {
+                    list.add(file)
+                }
+            }
+        }
+        return list
     }
 }

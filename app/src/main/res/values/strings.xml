@@ -11,6 +11,8 @@
     <string name="base_layer">基础图</string>
     <string name="img_layer">影像图</string>
     <string name="relief_layer">地形图</string>
+    <string name="img_select">影像图层</string>
+
     <!--在线地图-->
     <string name="World_Imagery">http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer</string>
     <string name="World_Street_Map">http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer</string>
