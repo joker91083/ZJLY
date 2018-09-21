@@ -68,4 +68,37 @@
         <item name="android:padding">5dp</item>
         <item name="android:src">@drawable/icon_map_loction</item>
     </style>
+
+    <!--底部radiobutton-->
+    <style name="style_RadioButton">
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@drawable/rb_focus_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--导航栏-->
+    <style name="toolbar_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:theme">@style/ToolbarTheme</item>
+    </style>
+
+    <!-- ToolBar菜单样式 -->
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="actionMenuTextColor">@color/white</item> <!--  颜色-->
+        <item name="android:textSize">18sp</item> <!--  字体大小-->
+    </style>
+    <!-- toolbar标题样式 -->
+    <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
 </resources>

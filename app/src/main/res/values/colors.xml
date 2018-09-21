@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="blue">#368bc1</color>
@@ -129,4 +129,32 @@
     <color name="light_blue">#1e80d2</color>
     <color name="nocolor">#000</color>
     <color name="txt_blue">#1962CE</color>
+
+    <color name="gray1">#E7E6E6</color>
+
+    <color name="doc">#FFFCF5</color>
+
+    <!--background-->
+    <color name="bg">#F1F1F1</color>
+    <color name="bg1">#eee</color>
+
+    <color name="line">#d6d6d6</color>
+
+    <color name="foresttv1">#FF0000</color>
+    <color name="foresttv2">#07D124</color>
+    <color name="foresttv3">#0294EE</color>
+    <color name="lightgray">#B0B0B0</color>
+
+    <color name="main_bottom_text_normal">#9B9DB1</color>
+    <color name="main_bottom_text_press">#3c8df7</color>
+
+    <color name="Blue200">#90CAF9</color>
+    <color name="Blue400">#1565C0</color>
+    <color name="point">#3286FF</color>
+    <color name="polyine">#1266E6</color>
+    <color name="bg_gray">#efeef3</color>
+
+    <color name="wheel_transparent">#00000000</color>
+    <color name="wheel_blue">#0000ff</color>
+    <color name="wheel_gray">#999999</color>
 </resources>

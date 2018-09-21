@@ -25,6 +25,7 @@ import com.otitan.ui.view.LayerManagerView
 import com.otitan.ui.view.MapToolView
 import com.otitan.ui.vm.ImgManagerViewModel
 import com.otitan.ui.vm.LayerManagerViewModel
+import com.otitan.ui.vm.MapToolViewModel
 import com.otitan.ui.vm.MapViewModel
 import com.otitan.util.ResourcesManager
 import com.otitan.util.SpatialUtil
@@ -97,8 +98,8 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
         imgManager = ImgManagerView(this, this)
         viewModel.imgManagerViewModel = ImgManagerViewModel(this, imgManager)
 
-        mapTool = MapToolView(this)
-
+        mapTool = MapToolView(this,this)
+        viewModel.mapToolViewModel = MapToolViewModel(this, mapTool)
 
     }
 

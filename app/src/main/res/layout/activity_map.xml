@@ -34,8 +34,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="16dp"
-                    android:layout_marginStart="16dp"
-                    app:viewmodel="@{viewmodel}" />
+                    android:layout_marginStart="16dp" />
+                <!--app:viewmodel="@{viewmodel.mapToolViewModel}"-->
 
                 <!--小班编辑工具-->
                 <include

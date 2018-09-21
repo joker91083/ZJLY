@@ -25,42 +25,6 @@ class MapViewModel(val context: Context) : BaseViewModel() {
     }
 
     /**
-     * 图层信息
-     */
-    fun showInfo() {
-        mContext?.toast("图层信息")
-    }
-
-    /**
-     * 测距
-     */
-    fun getDistance() {
-        mContext?.toast("测距")
-    }
-
-    /**
-     * 勾绘
-     */
-    fun onSketch() {
-        mContext?.toast("勾绘")
-    }
-
-    /**
-     * 清除编辑
-     */
-    fun onClean() {
-        mContext?.toast("清除编辑")
-    }
-
-    /**
-     * 当前位置
-     */
-    fun getLocation() {
-        mContext?.toast("当前位置")
-        mView?.myLocation()
-    }
-
-    /**
      * 图层控制
      */
     fun layerControl() {
@@ -87,13 +51,5 @@ class MapViewModel(val context: Context) : BaseViewModel() {
     fun classEditor() {
         mContext?.toast("小班编辑")
     }
-
-    fun closeView(viewName: String) {
-        val view = viewMap[viewName]
-        if (view != null) {
-            view.visibility = View.GONE
-        }
-    }
-
 
 }
