@@ -4,17 +4,21 @@ buildscript {
     ext.support_version = '26.1.0'
     ext.kotlin_version = '1.2.61'
     ext.anko_version = '0.8.2'
+    ext.gradl_version = '3.0.1'
+    ext.butterknife_version = '8.6.0'
 
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath "com.android.tools.build:gradle:$gradl_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
 
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
+        //classpath "com.jakewharton:butterknife-gradle-plugin:$butterknife_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -32,4 +36,14 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+
+subprojects {
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:appcompat-v7:27.0.1'
+//        resolutionStrategy.force 'com.android.support:design:27.1.0'
+//        resolutionStrategy.force 'com.android.support:support-v4:27.1.0'
+//        resolutionStrategy.force 'com.android.support:recyclerview-v7:27.1.0'
+    }
 }

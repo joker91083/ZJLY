@@ -4,7 +4,7 @@
     <!--顶部菜单-->
     <string name="classEdit_layer">图层控制</string>
     <string name="classEdit_system">系统设置</string>
-    <string name="classEdit_collection">数据采集</string>
+    <string name="classEdit_sjsb">事件上报</string>
     <string name="classEdit_editor">小班编辑</string>
 
     <!--图层控制-->
@@ -13,8 +13,49 @@
     <string name="relief_layer">地形图</string>
     <string name="img_select">影像图层</string>
 
+    <!--登录界面-->
+    <string name="loginname">用户名</string>
+    <string name="loginpsw">密码</string>
+    <string name="login_dl">登录</string>
+    <string name="remaberpsw">记住密码</string>
+
+    <!--主页-->
+    <string name="main_lqgl">林情概览</string>
+    <string name="main_zybj">资源编辑</string>
+    <string name="main_zjjc">指尖决策</string>
+    <string name="main_grzx">个人中心</string>
+
     <!--在线地图-->
     <string name="World_Imagery">http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer</string>
     <string name="World_Street_Map">http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer</string>
+    <string name="updata_url">http://101.201.54.143:8031/apk/zjly/zjly_version.xml</string>
+    <!--后台接口地址-->
+    <string name="SERVER_HOST">http://sys.gyforest.com:8020/EcolMonitorManage/EcolWebService.asmx/</string>
+
+
+    <!--数据中心-->
+    <array name="data_center">
+        <item>林情概览</item>
+        <item>指尖决策</item>
+        <item>资源管理</item>
+        <item>个人中心</item>
+    </array>
+
+    <!--个人中心-->
+    <string name="txt_smdl">扫码登录</string>
+    <string name="txt_setting">我的设置</string>
+    <string name="txt_xgmm">修改密码</string>
+    <string name="txt_bbgx">版本更新</string>
+
+
+    <!---->
+    <string name="upinfo">事件上传</string>
+    <string name="selpic">选择照片</string>
+    <string name="sure">确定</string>
+    <string name="cancle">取消</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

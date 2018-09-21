@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.otitan.main.view.MapCenterActivity">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.esri.arcgisruntime.mapping.view.MapView
+            android:id="@+id/mapview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--地图工具-->
+            <include
+                android:id="@+id/ic_mapTool"
+                layout="@layout/include_maptool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="16dp" />
+
+            <!--小班编辑工具-->
+            <include
+                android:id="@+id/ic_editTool"
+                layout="@layout/share_edittool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"/>
+
+        </RelativeLayout>
+    </FrameLayout>
+
+    <!--图层控制-->
+    <include
+        android:id="@+id/icTckz"
+        layout="@layout/share_tckz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:visibility="gone"
+        app:layout_marginBottomPercent="10%"
+        app:layout_marginTopPercent="10%"
+        app:layout_widthPercent="40%" />
+
+    <!--图层控制 影像图列表-->
+    <include
+        android:id="@+id/icImg"
+        layout="@layout/img_tuceng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_marginTopPercent="10%"
+        app:layout_widthPercent="35%" />
+
+
+</android.support.percent.PercentFrameLayout>

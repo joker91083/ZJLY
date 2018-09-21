@@ -30,4 +30,6 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
     override fun getWeather(citykey: String, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.getWeather(citykey, callback)
     }
+
+
 }

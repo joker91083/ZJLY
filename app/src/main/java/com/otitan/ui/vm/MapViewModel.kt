@@ -2,15 +2,13 @@ package com.otitan.ui.vm
 
 import android.content.Context
 import android.view.View
-import com.esri.arcgisruntime.geometry.Point
 import com.otitan.base.BaseViewModel
-import com.otitan.data.DataRepository
 import com.otitan.ui.mview.IMap
-import com.otitan.ui.view.ImgManagerView
 import org.jetbrains.anko.toast
 import kotlin.properties.Delegates
 
 class MapViewModel(val context: Context) : BaseViewModel() {
+    /*arcgismap*/
     private var mView: IMap? = null
     var layerManagerViewModel:LayerManagerViewModel by Delegates.notNull()
     var imgManagerViewModel:ImgManagerViewModel by Delegates.notNull()
@@ -94,6 +92,7 @@ class MapViewModel(val context: Context) : BaseViewModel() {
             view.visibility = View.GONE
         }
     }
+
 
 
 }

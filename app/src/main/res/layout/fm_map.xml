@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewmodel"
             type="com.otitan.ui.vm.MapViewModel" />
+
     </data>
 
     <android.support.percent.PercentFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="match_parent">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -20,8 +23,7 @@
             <com.esri.arcgisruntime.mapping.view.MapView
                 android:id="@+id/mv_map"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </com.esri.arcgisruntime.mapping.view.MapView>
+                android:layout_height="match_parent" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -30,22 +32,21 @@
                 <!--地图工具-->
                 <include
                     android:id="@+id/ic_mapTool"
-                    layout="@layout/share_maptool"
-                    app:viewmodel="@{viewmodel}"
+                    layout="@layout/include_maptool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginBottom="16dp"
-                    android:layout_alignParentBottom="true"/>
+                    android:layout_marginStart="16dp"
+                    bind:mapToolViewModel="@{viewmodel.mapToolViewModel}" />
 
                 <!--小班编辑工具-->
                 <include
                     android:id="@+id/ic_editTool"
                     layout="@layout/share_edittool"
-                    app:viewmodel="@{viewmodel}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true" />
             </RelativeLayout>
         </FrameLayout>
     </android.support.percent.PercentFrameLayout>

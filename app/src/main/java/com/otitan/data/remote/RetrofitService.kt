@@ -16,4 +16,7 @@ interface RetrofitService {
     fun getWeather(@Query("app") app: String, @Query("weaid") weaid: String,
                    @Query("appkey") appkey: String, @Query("sign") sign: String,
                    @Query("format") format: String): Observable<String>
+
+
+
 }

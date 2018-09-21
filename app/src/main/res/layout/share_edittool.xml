@@ -5,13 +5,13 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.otitan.ui.vm.MapViewModel" />
+            type="com.otitan.main.viewmodel.BootViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:background="@drawable/bg_ellipse_layout">
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
@@ -20,7 +20,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_linearlayout"
                 android:orientation="horizontal">
 
                 <!--图层控制-->
@@ -28,8 +27,9 @@
                     android:id="@+id/tckz_imageview"
                     android:background="@drawable/bg_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_layers"
-                    android:onClick="@{()->viewmodel.layerControl()}"
+                    android:layout_marginLeft="30dp"
                     android:text="@string/classEdit_layer"
+                    android:onClick="@{()-> viewmodel.layerManger()}"
                     style="@style/editTool_testView"/>
 
                 <!--<TextView
@@ -44,17 +44,17 @@
                     android:id="@+id/share_xtsz"
                     android:background="@drawable/bg_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_setting"
-                    android:onClick="@{()->viewmodel.systemSetting()}"
                     android:text="@string/classEdit_system"
                     style="@style/editTool_testView"/>
 
                 <!--数据采集-->
                 <TextView
                     android:id="@+id/share_xcxxsb"
-                    android:background="@drawable/bg_view_rounded_image"
+                    android:src="@drawable/bg_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_upload"
-                    android:onClick="@{()->viewmodel.dataCollection()}"
-                    android:text="@string/classEdit_collection"
+                    android:onClick="@{()->viewmodel.upInfo()}"
+                    android:text="@string/classEdit_sjsb"
+                    android:background="@drawable/background_view_rounded_image"
                     style="@style/editTool_testView"/>
 
                 <!--小班编辑-->
@@ -62,8 +62,8 @@
                     android:id="@+id/share_tcxr"
                     android:background="@drawable/bg_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_render"
-                    android:onClick="@{()->viewmodel.classEditor()}"
                     android:text="@string/classEdit_editor"
+                    android:layout_marginRight="30dp"
                     style="@style/editTool_testView"/>
 
                 <!--<TextView

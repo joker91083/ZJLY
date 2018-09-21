@@ -17,7 +17,7 @@ open class BaseViewModel() : BaseObservable(), IBaseViewModel {
         this.mContext = mContext
     }
 
-    constructor(fragment: Fragment) : this(fragment.context) {
+    constructor(fragment: Fragment) : this() {
         this.fragment = fragment
     }
 
@@ -45,16 +45,17 @@ open class BaseViewModel() : BaseObservable(), IBaseViewModel {
     /**
      * 跳转页面
      *
-     * @param clz 所跳转的目的Activity类
+     * @param clz 所跳转的目的mContext类
      */
     fun startActivity(clz: Class<*>) {
-        mContext?.startActivity(Intent(mContext, clz))
+        var intent = Intent(mContext,clz)
+        mContext?.startActivity(intent)
     }
 
     /**
      * 跳转页面
      *
-     * @param clz    所跳转的目的Activity类
+     * @param clz    所跳转的目的mContext类
      * @param bundle 跳转所携带的信息
      */
     fun startActivity(clz: Class<*>, bundle: Bundle?) {

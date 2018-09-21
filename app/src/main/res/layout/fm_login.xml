@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginModel"
+            type="com.otitan.login.LoginModel" />
+
+    </data>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_vertical"
+        tools:context="com.otitan.login.LoginActivity">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/logo_vertical"
+            android:padding="15dp"
+            android:scaleType="fitXY"
+            app:layout_marginTopPercent="15%" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            app:layout_marginLeftPercent="10%"
+            app:layout_marginRightPercent="10%">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/login_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_username"
+                    android:drawablePadding="10dp"
+                    android:ems="10"
+                    android:hint="@string/loginname"
+                    android:inputType="textPassword"
+                    android:text="@={loginModel.name}" />
+
+                <EditText
+                    android:id="@+id/login_psw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_password"
+                    android:drawablePadding="10dp"
+                    android:ems="10"
+                    android:hint="@string/loginpsw"
+                    android:inputType="textPassword"
+                    android:text="@={loginModel.password}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_view_rounded_green"
+                    android:onClick="@{()->loginModel.login()}"
+                    android:text="@string/login_dl"
+                    android:textSize="18sp"
+                    android:textColor="@color/white" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:checked="@={loginModel.checked}"
+                    android:text="@string/remaberpsw" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</layout>
