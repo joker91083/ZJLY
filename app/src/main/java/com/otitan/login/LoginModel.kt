@@ -49,14 +49,13 @@ class LoginModel() : BaseViewModel(),ILoginView{
             onSuccess("用户名和密码正确")
             if(loginUser.checked){
                 TitanApplication.sharedPreferences.edit().putBoolean("remember ",true).apply()
-
                 TitanApplication.sharedPreferences.edit().putString("name",loginUser.name).apply()
                 TitanApplication.sharedPreferences.edit().putString("password",loginUser.password).apply()
             }
 
             startActivity(MainActivity::class.java)
         } else if (loginUser.name != "admin" && loginUser.password == "admin") {
-            onFail("登录失败,用户名错误");
+            onFail("登录失败,用户名错误")
         } else if (loginUser.name == "admin" && loginUser.password != "admin") {
             onFail("登录失败,密码错误")
         } else {

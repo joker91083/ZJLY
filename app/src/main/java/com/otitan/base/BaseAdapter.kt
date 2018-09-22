@@ -6,6 +6,7 @@ import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.otitan.util.MyComponent
 
 /**
  * Created by hanyw on 2018/1/26
@@ -13,7 +14,7 @@ import android.view.ViewGroup
 abstract class BaseAdapter: RecyclerView.Adapter<BaseViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),viewType,parent,false)
+        val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),viewType,parent,false,MyComponent())
         return BaseViewHolder(binding)
 
     }

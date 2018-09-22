@@ -1,7 +1,10 @@
 package com.otitan.main.fragment;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.otitan.base.BaseFragment;
@@ -15,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  */
-public class SettingFragment extends BaseFragment<FmSettingBinding,SettingViewModel> {
+public class SettingFragment extends BaseFragment<FmSettingBinding, SettingViewModel> {
 
     private SettingViewModel viewModel;
 
@@ -26,15 +29,32 @@ public class SettingFragment extends BaseFragment<FmSettingBinding,SettingViewMo
 
     @Override
     public int initVariableId() {
-        return BR.settingViewModel;
+        return BR.viewmodel;
     }
 
     @NotNull
     @Override
     public SettingViewModel initViewModel() {
-        if(viewModel == null){
-            viewModel = new SettingViewModel();
+        if (viewModel == null) {
+            viewModel = new SettingViewModel(getActivity());
         }
         return viewModel;
+    }
+
+    @Override
+    public void initData() {
+        super.initData();
+        setHasOptionsMenu(true);
+        Toolbar toolbar = getBinding().toolbar;
+        toolbar.setTitle("我的设置");
+        if (getActivity() != null) {
+            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    getActivity().finish();
+                }
+            });
+        }
     }
 }

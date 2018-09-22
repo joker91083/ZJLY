@@ -1,5 +1,5 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -7,16 +7,59 @@
             type="com.otitan.main.viewmodel.LqglViewModel"/>
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.otitan.main.fragment.LqglFragment">
+        android:orientation="vertical">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/home_toolbar_style"
+            android:layout_height="40dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textSize="20sp" />
+        </android.support.v7.widget.Toolbar>
+
+        <!--<com.bigkoo.convenientbanner.ConvenientBanner-->
+        <!--android:id="@+id/picBanner"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--app:canLoop="true" />-->
+        <com.youth.banner.Banner
+            android:id="@+id/picBanner"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/main_lqgl"/>
+            android:layout_height="180dp"/>
 
-    </FrameLayout>
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvLqgl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/organizer"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:background="@color/gray1"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
 </layout>

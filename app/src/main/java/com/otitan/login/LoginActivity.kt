@@ -76,7 +76,7 @@ class LoginActivity : BaseFragmentActivity() {
         var url = this.getString(R.string.updata_url)
         var flag = VersionUpdata(loginFragment!!.activity).checkVersion(url)
         if(!flag){
-            ToastUtil.setToast(this.mContext,"已经是最新版本")
+//            ToastUtil.setToast(this.mContext,"已经是最新版本")
         }
     }
 

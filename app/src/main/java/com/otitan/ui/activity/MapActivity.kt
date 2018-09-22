@@ -98,8 +98,8 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
         imgManager = ImgManagerView(this, this)
         viewModel.imgManagerViewModel = ImgManagerViewModel(this, imgManager)
 
-        mapTool = MapToolView(this,this)
-        viewModel.mapToolViewModel = MapToolViewModel(this, mapTool)
+//        mapTool = MapToolView(this,this)
+//        viewModel.mapToolViewModel = MapToolViewModel(this, mapTool)
 
     }
 

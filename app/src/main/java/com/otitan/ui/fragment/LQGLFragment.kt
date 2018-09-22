@@ -31,10 +31,10 @@ class LQGLFragment : BaseFragment<FragLqglBinding, LQGLViewModel>(), ILQGL {
             "http://img2.3lian.com/2014/f2/37/d/36.jpg",
             "http://img2.3lian.com/2014/f2/37/d/37.jpg")
     private val mDrawables = arrayOf(
-            R.drawable.project,R.drawable.forest,R.drawable.forestownership,R.drawable.information,
-            R.drawable.industry,R.drawable.forestation,R.drawable.demonstrationarea,R.drawable.welfare,
-            R.drawable.reform,R.drawable.afforest,R.drawable.fireproofing,R.drawable.seedlings,
-            R.drawable.pest,R.drawable.wetland,R.drawable.treefarm,R.drawable.scientific )
+            R.drawable.icon_zllhcx,R.drawable.icon_zmsccx,R.drawable.icon_zyghqk,R.drawable.icon_zhfkqk,
+            R.drawable.icon_lycf,R.drawable.icon_tghl,R.drawable.icon_hmh,R.drawable.icon_gyl,
+            R.drawable.icon_sthly,R.drawable.icon_yzl,R.drawable.icon_slfh,R.drawable.icon_zmsc,
+            R.drawable.icon_lyyhsw,R.drawable.icon_lycy,R.drawable.icon_lygg,R.drawable.icon_bhqgy )
     private val titles = arrayOf("标题1","标题2","标题3","标题4","标题5")
     override fun initContentView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): Int {
         return R.layout.frag_lqgl

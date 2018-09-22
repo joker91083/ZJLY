@@ -85,9 +85,11 @@ open class BaseViewModel() : BaseObservable(), IBaseViewModel {
      * @param canonicalName 规范名 : Fragment.class.getCanonicalName()
      */
     fun startContainerActivity(canonicalName: String) {
-        val intent = Intent(mContext, ContainerActivity::class.java)
-        intent.putExtra(ContainerActivity.FRAGMENT, canonicalName)
-        mContext?.startActivity(intent)
+        mContext?.let {
+            val intent = Intent(mContext, ContainerActivity::class.java)
+            intent.putExtra(ContainerActivity.FRAGMENT, canonicalName)
+            mContext?.startActivity(intent)
+        }
     }
 
     override fun onCreate() {

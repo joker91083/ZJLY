@@ -26,7 +26,7 @@ class PersonalFragment : BaseFragment<FmMainBinding, PersonalViewModel>() {
 
     override fun initViewModel(): PersonalViewModel {
         if (personalViewModel == null) {
-            personalViewModel = PersonalViewModel(this)
+            personalViewModel = PersonalViewModel(this,activity)
         }
         return personalViewModel as PersonalViewModel
     }

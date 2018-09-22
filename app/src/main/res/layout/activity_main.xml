@@ -53,6 +53,7 @@
                 android:drawableTop="@drawable/radiobutton_bg_zjjc"
                 android:gravity="center"
                 android:text="@string/main_zjjc"
+                android:visibility="gone"
                 android:textColor="@drawable/radiobutton_textcolor" />
 
             <View
@@ -91,4 +92,5 @@
                 android:textColor="@drawable/radiobutton_textcolor" />
         </RadioGroup>
 
-</android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>
