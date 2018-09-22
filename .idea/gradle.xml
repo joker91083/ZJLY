@@ -7,8 +7,14 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
+            <option value="$PROJECT_DIR$/../LibraryManager" />
+            <option value="$PROJECT_DIR$/../LibraryManager/baselibrary" />
+            <option value="$PROJECT_DIR$/../LibraryManager/photopicker" />
+            <option value="$PROJECT_DIR$/../LibraryManager/versionupdata" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/pullrefresh_library" />
+            <option value="$PROJECT_DIR$/tabpagerindictor" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -29,13 +29,12 @@
                 <!--地图工具-->
                 <include
                     android:id="@+id/ic_mapTool"
-                    layout="@layout/share_maptool"
+                    layout="@layout/include_maptool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="16dp"
                     android:layout_marginStart="16dp" />
-                <!--app:viewmodel="@{viewmodel.mapToolViewModel}"-->
 
                 <!--小班编辑工具-->
                 <include
@@ -43,8 +42,7 @@
                     layout="@layout/share_edittool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    app:viewmodel="@{viewmodel}" />
+                    android:layout_centerHorizontal="true"/>
             </RelativeLayout>
         </FrameLayout>
 
@@ -58,8 +56,7 @@
             android:visibility="gone"
             app:layout_marginBottomPercent="10%"
             app:layout_marginTopPercent="10%"
-            app:layout_widthPercent="40%"
-            app:viewmodel="@{viewmodel.layerManagerViewModel}" />
+            app:layout_widthPercent="40%"/>
 
         <!--图层控制 影像图列表-->
         <include
@@ -69,7 +66,6 @@
             android:layout_height="wrap_content"
             app:layout_marginTopPercent="10%"
             app:layout_widthPercent="35%"
-            android:visibility="gone"
-            app:viewmodel="@{viewmodel.imgManagerViewModel}"/>
+            android:visibility="gone"/>
     </android.support.percent.PercentFrameLayout>
 </layout>

@@ -1,0 +1,200 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="upinfoViewModel"
+            type="com.otitan.main.viewmodel.UpinfoViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.otitan.main.fragment.UpinfoFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_view_rounded_green"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp"
+                    android:background="@drawable/background_view_rounded_image"
+                    android:onClick="@{()-> upinfoViewModel.finish()}"
+                    app:srcCompat="@drawable/ic_chevron_left_black_24dp"
+                    android:contentDescription="@null" />
+
+                <TextView
+                    android:id="@+id/back_upinfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_view_rounded_image"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/upinfo"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_20" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:text="经度:" />
+
+                <EditText
+                    android:id="@+id/upinfo_lon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={upinfoViewModel.lon}"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:text="纬度:" />
+
+                <EditText
+                    android:id="@+id/upinfo_lat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={upinfoViewModel.lat}"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:text="地址:" />
+
+                <EditText
+                    android:id="@+id/upinfo_addr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={upinfoViewModel.addr}"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:text="描述:" />
+
+                <EditText
+                    android:id="@+id/upinfo_discripe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={upinfoViewModel.discrip}"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:text="备注:" />
+
+                <EditText
+                    android:id="@+id/upinfo_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={upinfoViewModel.remark}"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_view_rounded_green"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:onClick="@{()-> upinfoViewModel.showSelPic()}"
+                android:text="@string/selpic" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/upinfo_recyc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"/>
+
+            <TextView
+                android:id="@+id/upinfo_sure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_view_rounded_green"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/sure"
+                android:onClick="@{()-> upinfoViewModel.sure()}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_18" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

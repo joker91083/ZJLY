@@ -77,4 +77,7 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel> : Fragment(
     fun onBackPressed(): Boolean {
         return false
     }
+
+
+
 }

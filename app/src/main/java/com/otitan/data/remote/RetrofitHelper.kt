@@ -1,6 +1,11 @@
 package com.otitan.data.remote
 
+import android.annotation.SuppressLint
+import android.content.Context
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonDeserializationContext
+import com.otitan.TitanApplication
+import com.otitan.zjly.R
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
@@ -56,16 +61,17 @@ class RetrofitHelper() {
 
 
     private object Holder {
-        val single = RetrofitHelper()
+        var single = RetrofitHelper()
     }
 
     companion object {
         //超时时间
         const val DEFAULT_TIMEOUT = 20L
+        var SERVER_HOST = TitanApplication.instances.resources.getString(R.string.SERVER_HOST)
         //接口地址
-        const val SERVER_HOST = "http://sys.gyforest.com:8020/EcolMonitorManage/EcolWebService.asmx/"
-        const val HOST_ZHWNL = "http://zhwnlapi.etouch.cn/Ecalender/api/v2/"
-        val instance: RetrofitHelper by lazy { Holder.single }
+        var HOST_ZHWNL = "http://zhwnlapi.etouch.cn/Ecalender/api/v2/"
+        val instance: RetrofitHelper by lazy {Holder.single }
     }
+
 }
 

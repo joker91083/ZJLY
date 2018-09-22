@@ -10,4 +10,5 @@ interface IBaseViewModel {
      * View的界面销毁时回调
      */
     fun onDestroy()
+
 }

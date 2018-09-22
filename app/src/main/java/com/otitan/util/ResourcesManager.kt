@@ -16,10 +16,12 @@ class ResourcesManager : Serializable {
     val ROOT_MAPS = "/maps"
     private val otitan_map = "/otitan.map"
     val otms = "/otms"
+    val filePath = "文件可用地址"
 
     companion object {
         private var mContext: Context by Delegates.notNull()
         private var manager: ResourcesManager? = null
+
         fun getInstances(context: Context): ResourcesManager {
             mContext = context
             if (manager == null) {
@@ -53,7 +55,7 @@ class ResourcesManager : Serializable {
 
     /** 取文件可用地址  */
     fun getFilePath(path: String): String {
-        var dataPath = "文件可用地址"
+        var dataPath = filePath
         val memoryPath = getMemoryPath()
         for (i in memoryPath!!.indices) {
             val file = File(memoryPath[i] + ROOT_MAPS + path)
@@ -111,7 +113,7 @@ class ResourcesManager : Serializable {
 
     /** 获取文件夹可用地址  */
     fun getFolderPath(path: String): String {
-        var dataPath = "文件夹可用地址"
+        var dataPath = filePath
         val memoryPath = getMemoryPath()
         for (i in memoryPath!!.indices) {
             val file = File(memoryPath[i] + ROOT_MAPS + path)

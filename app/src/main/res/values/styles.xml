@@ -23,6 +23,15 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">bottom</item>
         <item name="android:layout_margin">2dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <!--左侧地图工具——按钮样式-->
+    <style name="mapTool_imageButton_pad">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_margin">2dp</item>
         <item name="android:padding">5dp</item>
     </style>
 
@@ -100,5 +109,21 @@
     <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">20sp</item>
         <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="FetionTheme.Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textColor">#ff747474</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:scrollbarSize">3dp</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <style name="FetionTheme.Dialog.Toast" parent="@style/FetionTheme.Dialog">
+        <item name="android:background">@drawable/toast_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 </resources>

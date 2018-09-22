@@ -18,4 +18,6 @@ interface RemoteDataSource {
      * 获取天气信息
      */
     fun getWeather(citykey: String,callback: RemoteDataSource.mCallback)
+
+
 }

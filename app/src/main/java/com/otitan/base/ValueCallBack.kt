@@ -5,7 +5,7 @@ package com.otitan.base
  * ValueCallBack
  */
 
-interface ValueCallBack<T> {
+public interface ValueCallBack<T> {
 
     fun onSuccess(t: T)
 

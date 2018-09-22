@@ -51,9 +51,7 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompat
 
     //刷新布局
     fun refreshLayout() {
-        if (viewModel != null) {
-            binding.setVariable(initVariableId(), viewModel)
-        }
+        binding.setVariable(initVariableId(), viewModel)
     }
 
     /**
@@ -77,9 +75,14 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompat
      */
     abstract fun initViewModel(): VM
 
-    override fun initData() {}
+    /**
+     * 初始化数据
+     */
+    override fun initData(){}
 
     override fun initParam() {}
 
     override fun initViewObservable() {}
+
+
 }

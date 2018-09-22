@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.otitan.zjly">
 
-    <!--wifi权限-->
+    <!-- wifi权限 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--网络权限-->
+    <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--查看当前网络状态-->
+    <!-- 查看当前网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--网络定位-->
+    <!-- 网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!--GPS定位-->
+    <!-- GPS定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--读取手机当前的状态-->
+    <!-- 读取手机当前的状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--SD卡读写权限-->
+    <!-- SD卡读写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--SD权限，用于写入离线定位数据-->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <!--相机-->
+    <!-- SD权限，用于写入离线定位数据 -->
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <!-- 相机 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- 用于获取系统日志 -->
-    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -37,7 +42,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoTitle">
-
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="CPObBjFHrtBKUqG9gD49WjUYHm9XBbEu" />
@@ -48,26 +52,33 @@
             android:process=":remote" />
 
         <activity
-            android:name="com.otitan.ui.activity.MapActivity"
+            android:name="com.otitan.login.LoginActivity"
             android:configChanges="screenSize|keyboardHidden|orientation">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.otitan.base.ContainerActivity"
             android:configChanges="screenSize|keyboardHidden|orientation" />
         <activity
             android:name="com.otitan.permissions.PermissionsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation" />
-        <activity android:name="com.otitan.ui.activity.MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity
+            android:name="com.otitan.ui.activity.MapActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation" />
+        <activity
+            android:name="com.otitan.main.view.MainActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation" />
+        <activity
+            android:name="com.otitan.main.view.MapCenterActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation" />
+
+        <activity android:name="com.otitan.main.view.UpInfoActivity" />
+
+        <activity android:name="com.otitan.main.view.ImageBrowseActivity"/>
     </application>
 
 </manifest>
