@@ -7,6 +7,6 @@ public enum ActionModel {
     /*测面积*/
     AREA,
     /*小班信息*/
-    INFORMATION,
+    IQUERY,
 
 }

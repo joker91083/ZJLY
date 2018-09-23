@@ -1,5 +1,6 @@
 package com.otitan.ui.view
 
+import android.app.Activity
 import android.util.Log
 import android.view.View
 import com.esri.arcgisruntime.data.Geodatabase
@@ -8,6 +9,7 @@ import com.esri.arcgisruntime.geometry.GeometryEngine
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.esri.arcgisruntime.layers.FeatureLayer
 import com.esri.arcgisruntime.layers.Layer
+import com.otitan.main.view.MapCenterActivity
 import com.otitan.model.MyLayer
 import com.otitan.ui.activity.MapActivity
 import com.otitan.ui.adapter.LayerManagerAdapter
@@ -28,14 +30,14 @@ import kotlin.properties.Delegates
  * 图层控制
  */
 class LayerManagerView() : ILayerManager, ILayerManagerItem {
-    private var activity: MapActivity by Delegates.notNull()
+    private var activity: MapCenterActivity by Delegates.notNull()
     private var iMap: IMap by Delegates.notNull()
     var viewModel: LayerManagerViewModel by Delegates.notNull()
     var imgLayer: ArcGISTiledLayer? = null
     var adapter: LayerManagerAdapter? = null
     val checked = HashMap<String, Boolean>()
 
-    constructor(activity: MapActivity, iMap: IMap) : this() {
+    constructor(activity: MapCenterActivity, iMap: IMap) : this() {
         this.activity = activity
         this.iMap = iMap
     }

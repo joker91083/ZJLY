@@ -10,11 +10,6 @@ import com.otitan.model.MyLayer
 interface IMap {
 
     /**
-     * 当前位置
-     */
-    fun myLocation()
-
-    /**
      * 图层控制
      */
     fun showTckz()

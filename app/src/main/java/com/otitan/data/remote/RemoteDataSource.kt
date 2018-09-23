@@ -1,5 +1,7 @@
 package com.otitan.data.remote
 
+import com.otitan.base.ValueCallBack
+
 
 /**
  * Created by hanyw on 2018/8/7
@@ -19,5 +21,8 @@ interface RemoteDataSource {
      */
     fun getWeather(citykey: String,callback: RemoteDataSource.mCallback)
 
-
+    /**
+     * 上传轨迹数据
+     */
+    fun addPointToServer(lon:String, lat:String, sbh:String, callback: ValueCallBack<Any>)
 }

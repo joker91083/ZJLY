@@ -49,10 +49,9 @@
         layout="@layout/share_tckz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:visibility="gone"
-        app:layout_marginBottomPercent="10%"
+        app:layout_marginBottomPercent="15%"
         app:layout_marginTopPercent="10%"
+        android:visibility="gone"
         app:layout_widthPercent="40%" />
 
     <!--图层控制 影像图列表-->

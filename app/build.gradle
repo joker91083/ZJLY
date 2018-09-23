@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+//apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     compileSdkVersion 26
@@ -39,10 +41,32 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
     dataBinding {
         enabled true
     }
-    buildToolsVersion '27.0.3'
+
+    //multiDexEnabled true
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+
+
+    greendao {
+        schemaVersion 1 //数据库版本号
+        daoPackage 'com.titan.zjly.greendao'// 设置DaoMaster、DaoSession、Dao 包名
+        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
+    }
+
 }
 
 dependencies {
@@ -87,9 +111,14 @@ dependencies {
     /*butterknife*/
     implementation 'com.jakewharton:butterknife:8.8.1'
     kapt 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    /*使用GreenDao3.2*/
+    compile 'org.greenrobot:greendao:3.2.2' // add library
+
     implementation project(':LibraryManager:versionupdata')
     implementation project(':LibraryManager:baselibrary')
     implementation project(':LibraryManager:photopicker')
+
     /*图片轮播*/
     implementation 'com.youth.banner:banner:1.4.10'
     /*图片加载*/

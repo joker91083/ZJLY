@@ -16,6 +16,8 @@ interface RetrofitService {
     fun getWeather(@Query("app") app: String, @Query("weaid") weaid: String,
                    @Query("appkey") appkey: String, @Query("sign") sign: String,
                    @Query("format") format: String): Observable<String>
+    @GET("addPoint")
+    fun addPointToServer(@Query("lon")lon:String,@Query("lat")lat:String,@Query("sbh")sbh:String):Observable<String>
 
 
 

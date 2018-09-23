@@ -37,6 +37,7 @@ object Constant{
 
 
     val filePath = "文件可用地址"
+    val fileNotFound = "文件不存在"
     val defalutScale = 3000.0
 
     val tFormat = DecimalFormat(".00")

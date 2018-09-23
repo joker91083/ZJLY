@@ -20,4 +20,7 @@ package com.otitan.data.local
  * Main entry point for accessing tasks data.
  */
 interface LocalDataSource{
+
+    fun addLocalPoint(lon:String,lat:String,sbh:String,state:String)
+
 }

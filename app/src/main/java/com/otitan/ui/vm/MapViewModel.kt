@@ -55,7 +55,7 @@ class MapViewModel(val context: Context) : BaseViewModel() {
      */
     fun getLocation() {
         mContext?.toast("当前位置")
-        mView?.myLocation()
+        //mView?.myLocation()
     }
 
     /**
