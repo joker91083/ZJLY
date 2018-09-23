@@ -10,13 +10,16 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral() // add repository greenDao
     }
+
     dependencies {
         classpath "com.android.tools.build:gradle:$gradl_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
 
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
 
         //classpath "com.jakewharton:butterknife-gradle-plugin:$butterknife_version"
         // NOTE: Do not place your application dependencies here; they belong

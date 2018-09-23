@@ -53,7 +53,8 @@
 
         <activity
             android:name="com.otitan.login.LoginActivity"
-            android:configChanges="screenSize|keyboardHidden|orientation">
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -78,7 +79,7 @@
 
         <activity android:name="com.otitan.main.view.UpInfoActivity" />
 
-        <activity android:name="com.otitan.main.view.ImageBrowseActivity"/>
+        <activity android:name="com.otitan.main.view.ImageBrowseActivity" />
     </application>
 
 </manifest>

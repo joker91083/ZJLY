@@ -6,12 +6,16 @@ import android.content.SharedPreferences
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import com.tencent.bugly.Bugly
+import com.titan.baselibrary.util.MemoryUtil
+import com.titan.baselibrary.util.MobileInfoUtil
 import com.titan.baselibrary.util.ScreenTool
+import com.titan.baselibrary.util.StorageUtil
 import kotlin.properties.Delegates
 
 class TitanApplication : Application() {
 
     var screen: ScreenTool.Screen? = null
+    var sbh:String ? = null
 
     companion object {
         var instances: TitanApplication by Delegates.notNull()
@@ -43,6 +47,8 @@ class TitanApplication : Application() {
 
         /* 获取屏幕分辨率 */
         screen = ScreenTool.getScreenPix(this)
+
+        sbh = MobileInfoUtil.getMAC(this)
     }
 
 

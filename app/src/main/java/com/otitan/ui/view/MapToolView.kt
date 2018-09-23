@@ -18,7 +18,7 @@ class MapToolView() : IMapTool {
     }
 
     override fun myLocation() {
-        iMap?.myLocation()
+
     }
 
 }

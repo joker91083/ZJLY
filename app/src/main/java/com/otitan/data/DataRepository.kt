@@ -1,5 +1,8 @@
 package com.otitan.data
 
+import com.otitan.TitanApplication
+import com.otitan.base.ValueCallBack
+import com.otitan.data.local.LocalDataSource
 import com.otitan.data.local.LocalDataSourceImpl
 import com.otitan.data.remote.RemoteDataSource
 import com.otitan.data.remote.RemoteDataSourceImpl
@@ -9,7 +12,8 @@ import com.otitan.data.remote.RemoteDataSourceImpl
  * 数据访问层
  */
 
-class DataRepository private constructor(private val localDataSource: LocalDataSourceImpl, private val mRemoteDataSource: RemoteDataSourceImpl) : RemoteDataSource {
+class DataRepository private constructor(private val localDataSource: LocalDataSourceImpl, private val mRemoteDataSource: RemoteDataSourceImpl) : RemoteDataSource,LocalDataSource {
+
 
     companion object {
         @Volatile
@@ -31,5 +35,14 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
         mRemoteDataSource.getWeather(citykey, callback)
     }
 
+
+    override fun addLocalPoint(lon:String,lat:String,sbh:String,state:String) {
+        localDataSource.addLocalPoint(lon,lat,sbh,state)
+    }
+
+
+    override fun addPointToServer(lon: String, lat: String, sbh: String,callback:ValueCallBack<Any>) {
+        return mRemoteDataSource.addPointToServer(lon,lat,sbh,callback)
+    }
 
 }

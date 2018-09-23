@@ -2,6 +2,7 @@ package com.otitan.main.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
@@ -31,7 +32,12 @@ import com.esri.arcgisruntime.mapping.view.SketchStyle;
 import com.esri.arcgisruntime.symbology.SimpleFillSymbol;
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol;
+import com.otitan.TitanApplication;
 import com.otitan.base.ValueCallBack;
+import com.otitan.data.DataRepository;
+import com.otitan.data.Injection;
+import com.otitan.data.local.LocalDataSource;
+import com.otitan.data.remote.RemoteDataSource;
 import com.otitan.main.listener.ArcgisLocation;
 import com.otitan.main.listener.GeometryChangedListener;
 import com.otitan.main.model.ActionModel;
@@ -42,6 +48,10 @@ import com.otitan.main.viewmodel.CalloutViewModel;
 import com.otitan.main.viewmodel.GeoViewModel;
 import com.otitan.main.viewmodel.InitViewModel;
 import com.otitan.main.viewmodel.ToolViewModel;
+import com.otitan.model.MyLayer;
+import com.otitan.ui.mview.IMap;
+import com.otitan.ui.view.ImgManagerView;
+import com.otitan.ui.view.LayerManagerView;
 import com.otitan.ui.vm.MapToolViewModel;
 import com.otitan.ui.vm.MapViewModel;
 import com.otitan.util.Constant;
@@ -49,14 +59,17 @@ import com.otitan.util.ConverterUtils;
 import com.otitan.zjly.R;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MapCenterActivity extends AppCompatActivity implements ValueCallBack<Object>,ArcgisLocation {
+public class MapCenterActivity extends AppCompatActivity implements ValueCallBack<Object>,
+        ArcgisLocation,IMap {
 
 
     @BindView(R.id.mapview)
@@ -117,6 +130,11 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     private ArcGISTiledLayer tiledLayer;
     private Location location;
     private ActionModel actionModel;
+    private boolean isFirst = true;
+    private DataRepository dataRepository;
+    private String sbh;
+    private LayerManagerView layerManagerView;
+    public ImgManagerView imgManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +147,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
     void initData() {
 
+        sbh = TitanApplication.Companion.getInstances().getSbh();
         mapView.setAttributionTextVisible(false);
 
         SimpleMarkerSymbol mPointSymbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.Style.SQUARE, 0xFFFF0000, 20);
@@ -150,13 +169,15 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         toolViewModel = ToolViewModel.getInstance(this);
         calloutViewModel = CalloutViewModel.getInstance(this);
         geoViewModel = GeoViewModel.getInstance(this);
-        bootViewModel = BootViewModel.getInstance(this);
+        bootViewModel = BootViewModel.getInstance(this,this);
 
 
         initViewModel.addTileLayer(mapView);
         location = gisLocation(mapView);
 
-
+        layerManagerView = new LayerManagerView(this,this);
+        imgManager = new ImgManagerView(this,this);
+        dataRepository = Injection.INSTANCE.provideDataRepository();
     }
 
 
@@ -166,7 +187,9 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     public void showInfo(View view){
         switch (view.getId()){
             case R.id.share_isearch:
-                actionModel = ActionModel.INFORMATION;
+                toolViewModel.cleanAllGraphics(mapView);
+                toolViewModel.cleanSketch(mapView);
+                actionModel = ActionModel.IQUERY;
                 toolViewModel.showInfo(mapView);
                 break;
             case R.id.ib_location:
@@ -177,15 +200,22 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 toolViewModel.cleanSketch(mapView);
                 break;
             case R.id.ib_distance:
+                toolViewModel.cleanAllGraphics(mapView);
+                toolViewModel.cleanSketch(mapView);
                 actionModel = ActionModel.DISTANCE;
                 toolViewModel.distance(mapView);
                 break;
             case R.id.ib_sketch:
+                toolViewModel.cleanAllGraphics(mapView);
+                toolViewModel.cleanSketch(mapView);
                 actionModel = ActionModel.AREA;
                 toolViewModel.area(mapView);
                 break;
             case R.id.share_xcxxsb:
                 startActivity(UpInfoActivity.class);
+                break;
+            case R.id.largeLabel:
+
                 break;
         }
     }
@@ -204,12 +234,20 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
                 calloutViewModel.showValueInmap(mapView,point,length," 米");
             }
-        }else if(actionModel == ActionModel.AREA){
+        }
+
+        if(actionModel == ActionModel.AREA){
             Point point = geometry.getExtent().getCenter();
             if(GeometryType.POLYGON == geometry.getGeometryType()){
                 double area = Math.abs(GeometryEngine.area((Polygon) geometry));
                 calloutViewModel.showValueInmap(mapView,point,area," 平方米");
             }
+        }
+
+        if(actionModel == ActionModel.IQUERY){
+
+
+
         }
 
     }
@@ -245,7 +283,11 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 Point point = event.getLocation().getPosition();
                 if(point != null){
                     location.setGpspoint(point);
+                }
+
+                if(isFirst){
                     mapView.setViewpointCenterAsync(point,Constant.INSTANCE.getDefalutScale());
+                    isFirst = false;
                 }
 
                 Point map = display.getMapLocation();
@@ -253,11 +295,64 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                     location.setMappoint(map);
                 }
 
-
+                addPoint(location);
             }
         });
         display.startAsync();
         location.setMapView(mapView);
         return location;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isFirst = true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isFirst = true;
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        isFirst = true;
+    }
+
+    void addPoint(Location location){
+        final String lon = ConverterUtils.toString(location.getGpspoint().getX());
+        final String lat = ConverterUtils.toString(location.getGpspoint().getY());
+        dataRepository.addPointToServer(lon, lat, sbh, new ValueCallBack<Object>() {
+            @Override
+            public void onSuccess(Object o) {
+                dataRepository.addLocalPoint(lon,lat,sbh,"1");
+            }
+
+            @Override
+            public void onFail(@NotNull String code) {
+                dataRepository.addLocalPoint(lon,lat,sbh,"0");
+            }
+        });
+
+    }
+
+
+    @Override
+    public void showTckz() {
+        tckzImageview.setVisibility(View.VISIBLE);
+    }
+
+    @Nullable
+    @Override
+    public ArcGISTiledLayer getTiledLayer() {
+        return null;
+    }
+
+    @NotNull
+    @Override
+    public ArrayList<MyLayer> getLayers() {
+        return null;
     }
 }

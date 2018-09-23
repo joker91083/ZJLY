@@ -91,7 +91,7 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
      * 初始化页面
      */
     fun initView() {
-        layerManager = LayerManagerView(this, this)
+        //layerManager = //LayerManagerView(this, this)
         viewModel.layerManagerViewModel = LayerManagerViewModel(this, layerManager)
         layerManager.viewModel = viewModel.layerManagerViewModel
 
@@ -226,7 +226,7 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
         mLocDisplay?.addLocationChangedListener { p0 ->
             currentPoint = p0?.location?.position
             if (isFirst && currentPoint != null) {
-                myLocation()
+                //myLocation()
                 isFirst = false
             }
             Log.e("tag", "flag:${mLocDisplay.isStarted},${p0.location},${p0.location.position}")
@@ -236,12 +236,12 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
     /**
      * 当前位置
      */
-    override fun myLocation() {
-        currentPoint?.let {
-            binding.mvMap.setViewpointCenterAsync(it, 10000.0)
-            return
-        }
-    }
+//    override fun myLocation() {
+//        currentPoint?.let {
+//            binding.mvMap.setViewpointCenterAsync(it, 10000.0)
+//            return
+//        }
+//    }
 
     override fun showTckz() {
         icTckz.visibility = View.VISIBLE

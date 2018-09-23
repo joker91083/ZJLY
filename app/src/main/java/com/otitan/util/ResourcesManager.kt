@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.storage.StorageManager
 import com.otitan.zjly.R
 import java.io.File
+import java.io.FileNotFoundException
 import java.io.Serializable
 import java.lang.reflect.InvocationTargetException
 import java.util.ArrayList
@@ -15,6 +16,7 @@ class ResourcesManager : Serializable {
 
     val ROOT_MAPS = "/maps"
     private val otitan_map = "/otitan.map"
+    private val sqlite = "/sqlite"
     val otms = "/otms"
     val filePath = "文件可用地址"
 
@@ -155,4 +157,28 @@ class ResourcesManager : Serializable {
         }
         return list
     }
+
+
+    fun getDataBase(dbname:String):String{
+        var db: File? = null
+        if (dbname == null)
+            return ""
+        db = File(getFilePath(sqlite + "/" + dbname))
+        if (db.exists()) {
+            return db.toString()
+        }
+        throw FileNotFoundException(Constant.fileNotFound)
+    }
+
+    fun getOtms(key:String){
+        getFolderPath(otms);
+
+    }
+
+    fun getOtmsChild(){
+
+    }
+
+
+
 }

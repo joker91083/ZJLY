@@ -3,6 +3,7 @@ package com.otitan.ui.view
 import android.app.Activity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.otitan.ui.adapter.ImgManagerAdapter
@@ -31,7 +32,7 @@ class ImgManagerView() : IImgManager, ILayerManagerItem {
 
     fun initView() {
         val rvImg = activity.rvImg
-        rvImg.layoutManager = LinearLayoutManager(activity, OrientationHelper.VERTICAL, false)
+        rvImg.layoutManager = LinearLayoutManager(activity, OrientationHelper.VERTICAL, false) as RecyclerView.LayoutManager?
         rvImg.addItemDecoration(TitanItemDecoration(activity, LinearLayoutManager.VERTICAL, 10))
         val list = ArrayList<File>()
         if (adapter == null) {

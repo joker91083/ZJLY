@@ -25,7 +25,7 @@
                 <!--图层控制-->
                 <TextView
                     android:id="@+id/tckz_imageview"
-                    android:background="@drawable/bg_view_rounded_image"
+                    android:background="@drawable/background_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_layers"
                     android:layout_marginLeft="30dp"
                     android:text="@string/classEdit_layer"
