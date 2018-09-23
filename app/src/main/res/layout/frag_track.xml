@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.otitan.main.viewmodel.TrackManagerViewModel"/>
+    </data>
+    <RelativeLayout
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/trackmanager_title"
+                style="@style/dialog_title"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_title"
+                android:id="@+id/til_stratime"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tet_starttime"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:focusable="false"
+                    android:onClick="@{()->viewmodel.onDateSelect(1)}"
+                    android:text="@={viewmodel.startValue}"
+                    android:hint="@string/trackmanager_strattime"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/til_endtime"
+                android:layout_below="@+id/til_stratime">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tet_endtime"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:focusable="false"
+                    android:text="@={viewmodel.endValue}"
+                    android:onClick="@{()->viewmodel.onDateSelect(2)}"
+                    android:hint="@string/trackmanager_endtime"/>
+            </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:layout_toStartOf="@+id/tv_concel"
+            android:layout_below="@+id/til_endtime"
+            android:id="@+id/tv_confirm"
+            android:text="@string/trackmanager_comfirm"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:padding="16dp"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:onClick="@{()->viewmodel.onConfirm()}"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/til_endtime"
+            android:id="@+id/tv_concel"
+            android:background="@null"
+            android:text="@string/trackmanager_concel"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:padding="16dp"
+            android:onClick="@{()->viewmodel.onConcel()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</layout>

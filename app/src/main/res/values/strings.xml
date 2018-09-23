@@ -46,6 +46,7 @@
     <string name="txt_setting">我的设置</string>
     <string name="txt_xgmm">修改密码</string>
     <string name="txt_bbgx">版本更新</string>
+    <string name="txt_gjcx">轨迹查询</string>
 
 
     <!---->
@@ -53,6 +54,15 @@
     <string name="selpic">选择照片</string>
     <string name="sure">确定</string>
     <string name="cancle">取消</string>
+
+    <!--轨迹管理-->
+    <string name="trackmanager_strattime">请选择开始时间</string>
+    <string name="trackmanager_endtime">清选择结束时间</string>
+    <string name="trackmanager_comfirm">确定</string>
+    <string name="trackmanager_concel">取消</string>
+    <string name="trackmanager_title">轨迹查询</string>
+    <string name="trackmanager_date1">请选择开始时间</string>
+    <string name="trackmanager_date2">请选择结束时间</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

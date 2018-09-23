@@ -28,7 +28,7 @@ class PersonalViewModel() : BaseViewModel(), ValueCallBack<Any> {
         this.mContext = context
     }
 
-    constructor(fragment: PersonalFragment,context: Context?) : this() {
+    constructor(fragment: PersonalFragment, context: Context?) : this() {
         this.fragment = fragment
         this.mContext = context
     }
@@ -53,7 +53,6 @@ class PersonalViewModel() : BaseViewModel(), ValueCallBack<Any> {
 
     /*个人中心===密码修改*/
     fun updataPassword() {
-        val bundle = Bundle()
         startContainerActivity(ChangePWFragment::class.java.canonicalName)
     }
 
@@ -67,5 +66,9 @@ class PersonalViewModel() : BaseViewModel(), ValueCallBack<Any> {
 
     }
 
+    /*个人中心===轨迹查询*/
+    fun searchGuiji() {
+
+    }
 
 }

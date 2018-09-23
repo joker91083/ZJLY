@@ -71,5 +71,18 @@
             android:padding="10dp"
             android:text="@string/txt_bbgx" />
 
+        <TextView
+            android:id="@+id/grzx_gjcx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_view_rounded_white"
+            android:drawableLeft="@drawable/user_xgmm"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+            android:gravity="center|left"
+            android:onClick="@{()-> personalViewModel.searchGuiji()}"
+            android:padding="10dp"
+            android:text="@string/txt_gjcx" />
+
     </LinearLayout>
 </layout>
