@@ -1,5 +1,6 @@
 package com.otitan.ui.mview
 
+import com.esri.arcgisruntime.geometry.SpatialReference
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.otitan.model.MyLayer
 
@@ -17,4 +18,6 @@ interface IMap {
     fun getTiledLayer(): ArcGISTiledLayer?
 
     fun getLayers(): ArrayList<MyLayer>
+
+    fun setSpatial(spatialReference: SpatialReference)
 }

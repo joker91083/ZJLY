@@ -22,9 +22,14 @@ import com.esri.arcgisruntime.geometry.Geometry;
 import com.esri.arcgisruntime.geometry.GeometryEngine;
 import com.esri.arcgisruntime.geometry.GeometryType;
 import com.esri.arcgisruntime.geometry.Point;
+import com.esri.arcgisruntime.geometry.PointCollection;
 import com.esri.arcgisruntime.geometry.Polygon;
 import com.esri.arcgisruntime.geometry.Polyline;
+import com.esri.arcgisruntime.geometry.PolylineBuilder;
+import com.esri.arcgisruntime.geometry.SpatialReference;
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer;
+import com.esri.arcgisruntime.mapping.view.Graphic;
+import com.esri.arcgisruntime.mapping.view.GraphicsOverlay;
 import com.esri.arcgisruntime.mapping.view.LocationDisplay;
 import com.esri.arcgisruntime.mapping.view.MapView;
 import com.esri.arcgisruntime.mapping.view.SketchEditor;
@@ -38,16 +43,19 @@ import com.otitan.data.DataRepository;
 import com.otitan.data.Injection;
 import com.otitan.data.local.LocalDataSource;
 import com.otitan.data.remote.RemoteDataSource;
+import com.otitan.main.fragment.TrackManagerFragment;
 import com.otitan.main.listener.ArcgisLocation;
 import com.otitan.main.listener.GeometryChangedListener;
 import com.otitan.main.model.ActionModel;
 import com.otitan.main.model.Location;
 import com.otitan.main.model.MainModel;
+import com.otitan.main.model.TrackPoint;
 import com.otitan.main.viewmodel.BootViewModel;
 import com.otitan.main.viewmodel.CalloutViewModel;
 import com.otitan.main.viewmodel.GeoViewModel;
 import com.otitan.main.viewmodel.InitViewModel;
 import com.otitan.main.viewmodel.ToolViewModel;
+import com.otitan.main.viewmodel.TrackManagerViewModel;
 import com.otitan.model.MyLayer;
 import com.otitan.ui.mview.IMap;
 import com.otitan.ui.view.ImgManagerView;
@@ -56,6 +64,9 @@ import com.otitan.ui.vm.MapToolViewModel;
 import com.otitan.ui.vm.MapViewModel;
 import com.otitan.util.Constant;
 import com.otitan.util.ConverterUtils;
+import com.otitan.util.SpatialUtil;
+import com.otitan.util.SymbolUtil;
+import com.otitan.util.ToastUtil;
 import com.otitan.zjly.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -63,13 +74,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MapCenterActivity extends AppCompatActivity implements ValueCallBack<Object>,
-        ArcgisLocation,IMap {
+        ArcgisLocation, IMap, TrackManagerFragment.TrackManagerDialogListener {
 
 
     @BindView(R.id.mapview)
@@ -126,7 +138,6 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     private BootViewModel bootViewModel;
 
 
-
     private ArcGISTiledLayer tiledLayer;
     private Location location;
     private ActionModel actionModel;
@@ -135,6 +146,13 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     private String sbh;
     private LayerManagerView layerManagerView;
     public ImgManagerView imgManager;
+    //轨迹查询对话框
+    private TrackManagerFragment mTrackManager;
+    public SpatialReference spatialReference;
+    //绘制图层
+    public GraphicsOverlay mGraphicsOverlay;
+    //轨迹状态 0查询轨迹
+    int guijiState = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,30 +180,44 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         sketchEditor.setSketchStyle(sketchStyle);
 
 
-        sketchEditor.addGeometryChangedListener(new GeometryChangedListener(mapView,this));
+        sketchEditor.addGeometryChangedListener(new GeometryChangedListener(mapView, this));
         mapView.setSketchEditor(sketchEditor);
 
         initViewModel = InitViewModel.getInstance(this);
         toolViewModel = ToolViewModel.getInstance(this);
         calloutViewModel = CalloutViewModel.getInstance(this);
         geoViewModel = GeoViewModel.getInstance(this);
-        bootViewModel = BootViewModel.getInstance(this,this);
+        bootViewModel = BootViewModel.getInstance(this, this);
 
 
-        initViewModel.addTileLayer(mapView);
+        initViewModel.addTileLayer(mapView, this);
         location = gisLocation(mapView);
+        mGraphicsOverlay = new GraphicsOverlay();
+        mapView.getGraphicsOverlays().add(mGraphicsOverlay);
 
-        layerManagerView = new LayerManagerView(this,this);
-        imgManager = new ImgManagerView(this,this);
+        layerManagerView = new LayerManagerView(this, this);
+        imgManager = new ImgManagerView(this, this);
         dataRepository = Injection.INSTANCE.provideDataRepository();
+
+        mTrackManager = TrackManagerFragment.Companion.getInstance();
+        TrackManagerViewModel model = new TrackManagerViewModel(mTrackManager, this);
+        mTrackManager.setMViewModel(model);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            guijiState = bundle.getInt("guiji");
+            if (guijiState == 0) {
+                mTrackManager.show(getSupportFragmentManager(), "trackmanager");
+            }
+        }
     }
 
 
-
-    @OnClick({R.id.share_isearch,R.id.ib_location,R.id.ib_clean,R.id.ib_distance,
-            R.id.ib_sketch,R.id.share_xcxxsb})
-    public void showInfo(View view){
-        switch (view.getId()){
+    @OnClick({R.id.share_isearch, R.id.ib_location, R.id.ib_clean, R.id.ib_distance,
+            R.id.ib_sketch, R.id.share_xcxxsb})
+    public void showInfo(View view) {
+        switch (view.getId()) {
             case R.id.share_isearch:
                 toolViewModel.cleanAllGraphics(mapView);
                 toolViewModel.cleanSketch(mapView);
@@ -226,26 +258,25 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         toolViewModel.cleanAllGraphics(mapView);
 
         Geometry geometry = mapView.getSketchEditor().getGeometry();
-        if(actionModel == ActionModel.DISTANCE){
+        if (actionModel == ActionModel.DISTANCE) {
 
-            if(GeometryType.POLYLINE == geometry.getGeometryType()){
+            if (GeometryType.POLYLINE == geometry.getGeometryType()) {
                 Point point = geometry.getExtent().getCenter();
                 double length = Math.abs(GeometryEngine.length((Polyline) geometry));
 
-                calloutViewModel.showValueInmap(mapView,point,length," 米");
+                calloutViewModel.showValueInmap(mapView, point, length, " 米");
             }
         }
 
-        if(actionModel == ActionModel.AREA){
+        if (actionModel == ActionModel.AREA) {
             Point point = geometry.getExtent().getCenter();
-            if(GeometryType.POLYGON == geometry.getGeometryType()){
+            if (GeometryType.POLYGON == geometry.getGeometryType()) {
                 double area = Math.abs(GeometryEngine.area((Polygon) geometry));
-                calloutViewModel.showValueInmap(mapView,point,area," 平方米");
+                calloutViewModel.showValueInmap(mapView, point, area, " 平方米");
             }
         }
 
-        if(actionModel == ActionModel.IQUERY){
-
+        if (actionModel == ActionModel.IQUERY) {
 
 
         }
@@ -258,10 +289,10 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     }
 
     /*activity跳转*/
-    private void startActivity(Class<?> clz){
-        Intent intent = new Intent(MapCenterActivity.this,clz);
+    private void startActivity(Class<?> clz) {
+        Intent intent = new Intent(MapCenterActivity.this, clz);
         intent.putExtra("lon", ConverterUtils.toDouble(location.getGpspoint().getX()));
-        intent.putExtra("lat",ConverterUtils.toDouble(location.getGpspoint().getY()));
+        intent.putExtra("lat", ConverterUtils.toDouble(location.getGpspoint().getY()));
         startActivity(intent);
     }
 
@@ -269,7 +300,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        
+
     }
 
     @Override
@@ -281,17 +312,17 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
             @Override
             public void onLocationChanged(LocationDisplay.LocationChangedEvent event) {
                 Point point = event.getLocation().getPosition();
-                if(point != null){
+                if (point != null) {
                     location.setGpspoint(point);
                 }
 
-                if(isFirst){
-                    mapView.setViewpointCenterAsync(point,Constant.INSTANCE.getDefalutScale());
+                if (isFirst) {
+                    mapView.setViewpointCenterAsync(point, Constant.INSTANCE.getDefalutScale());
                     isFirst = false;
                 }
 
                 Point map = display.getMapLocation();
-                if(map != null){
+                if (map != null) {
                     location.setMappoint(map);
                 }
 
@@ -321,23 +352,56 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         isFirst = true;
     }
 
-    void addPoint(Location location){
+    void addPoint(Location location) {
         final String lon = ConverterUtils.toString(location.getGpspoint().getX());
         final String lat = ConverterUtils.toString(location.getGpspoint().getY());
         dataRepository.addPointToServer(lon, lat, sbh, new ValueCallBack<Object>() {
             @Override
             public void onSuccess(Object o) {
-                dataRepository.addLocalPoint(lon,lat,sbh,"1");
+                dataRepository.addLocalPoint(lon, lat, sbh, "1");
             }
 
             @Override
             public void onFail(@NotNull String code) {
-                dataRepository.addLocalPoint(lon,lat,sbh,"0");
+                dataRepository.addLocalPoint(lon, lat, sbh, "0");
             }
         });
 
     }
 
+    @Override
+    public void drawTrackLine(@NotNull List<? extends TrackPoint> list) {
+        PointCollection points = new PointCollection(spatialReference);
+        for (TrackPoint tp : list) {
+            Point point;
+//            if (mapView.getSpatialReference() != null && mapView.getSpatialReference().getWkid() == 4326) {
+            if (spatialReference != null && spatialReference.getWkid() == 4326) {
+                point = (Point) GeometryEngine.project(new Point(Double.parseDouble(tp.getLon()),
+                                Double.parseDouble(tp.getLat()), SpatialUtil.Companion.getSpatialWgs4326()),
+                        spatialReference);
+            } else {
+                point = new Point(Double.parseDouble(tp.getLon()), Double.parseDouble(tp.getLat()));
+            }
+            if (!point.isEmpty()) {
+                points.add(point);
+            }
+        }
+        if (points.size() > 0) {
+            PolylineBuilder polyline = new PolylineBuilder(points);
+            if (polyline.isSketchValid()) {
+                Graphic graphic = new Graphic(polyline.toGeometry(), SymbolUtil.measureline);
+                mGraphicsOverlay.getGraphics().add(graphic);
+                mapView.setViewpointGeometryAsync(graphic.getGeometry());
+            }
+        } else {
+            ToastUtil.setToast(this, "未查询到轨迹点");
+        }
+    }
+
+    @Override
+    public void dismiss() {
+        mTrackManager.dismiss();
+    }
 
     @Override
     public void showTckz() {
@@ -350,9 +414,15 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         return null;
     }
 
+    @Override
+    public void setSpatial(@NotNull SpatialReference spatialReference) {
+        this.spatialReference = spatialReference;
+    }
+
     @NotNull
     @Override
     public ArrayList<MyLayer> getLayers() {
         return null;
     }
+
 }

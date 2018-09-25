@@ -9,6 +9,7 @@ import com.baidu.location.BDLocationListener
 import com.baidu.location.LocationClient
 import com.baidu.location.LocationClientOption
 import com.esri.arcgisruntime.geometry.Point
+import com.esri.arcgisruntime.geometry.SpatialReference
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.esri.arcgisruntime.layers.FeatureLayer
 import com.esri.arcgisruntime.layers.Layer
@@ -233,16 +234,9 @@ class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
         }
     }
 
-    /**
-     * 当前位置
-     */
-//    override fun myLocation() {
-//        currentPoint?.let {
-//            binding.mvMap.setViewpointCenterAsync(it, 10000.0)
-//            return
-//        }
-//    }
+    override fun setSpatial(spatialReference: SpatialReference) {
 
+    }
     override fun showTckz() {
         icTckz.visibility = View.VISIBLE
         layerManager.initView()

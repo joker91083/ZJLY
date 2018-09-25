@@ -6,6 +6,7 @@ import com.otitan.data.local.LocalDataSource
 import com.otitan.data.local.LocalDataSourceImpl
 import com.otitan.data.remote.RemoteDataSource
 import com.otitan.data.remote.RemoteDataSourceImpl
+import java.util.*
 
 /**
  * Created by hanyw on 2018/8/10
@@ -43,6 +44,10 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
 
     override fun addPointToServer(lon: String, lat: String, sbh: String,callback:ValueCallBack<Any>) {
         return mRemoteDataSource.addPointToServer(lon,lat,sbh,callback)
+    }
+
+    override fun queryTrackPoint(stratime: String, endtime: String, callback: LocalDataSource.Callback) {
+        localDataSource.queryTrackPoint(stratime, endtime, callback)
     }
 
 }

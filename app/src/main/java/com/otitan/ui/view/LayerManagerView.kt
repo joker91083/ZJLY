@@ -169,7 +169,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
 //                            activity.toast("加载数据与基础底图投影系不同,无法加载")
 //                            return@forEach
 //                        }
-                        activity.mv_map.map.basemap.baseLayers.add(layer)
+                        activity.mv_map.map.operationalLayers.add(layer)
                         val myLayer = MyLayer()
                         myLayer.pName = file.parent
                         myLayer.cName = file.name.split(".")[0]

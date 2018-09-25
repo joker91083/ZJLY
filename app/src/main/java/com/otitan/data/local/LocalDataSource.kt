@@ -16,11 +16,26 @@
 
 package com.otitan.data.local
 
+import java.util.*
+
 /**
  * Main entry point for accessing tasks data.
  */
 interface LocalDataSource{
+    interface Callback {
 
+        fun onFailure(info: String?)
+
+        fun onSuccess(result: Any?)
+    }
+    /**
+     * 保存轨迹点到本地
+     * [state] 是否上传服务器的状态值 1已上传 0未上传
+     */
     fun addLocalPoint(lon:String,lat:String,sbh:String,state:String)
 
+    /**
+     * 轨迹查询
+     */
+    fun queryTrackPoint(stratime: String, endtime: String, callback: Callback)
 }

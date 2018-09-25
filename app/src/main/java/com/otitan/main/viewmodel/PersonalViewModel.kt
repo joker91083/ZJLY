@@ -8,6 +8,8 @@ import com.otitan.base.ValueCallBack
 import com.otitan.main.fragment.ChangePWFragment
 import com.otitan.main.fragment.PersonalFragment
 import com.otitan.main.fragment.SettingFragment
+import com.otitan.main.fragment.ZyglFragment
+import com.otitan.main.view.MapCenterActivity
 import com.otitan.util.ToastUtil
 import com.otitan.zjly.R
 import com.titan.versionupdata.VersionUpdata
@@ -68,7 +70,9 @@ class PersonalViewModel() : BaseViewModel(), ValueCallBack<Any> {
 
     /*个人中心===轨迹查询*/
     fun searchGuiji() {
-
+        val bundle = Bundle()
+        bundle.putInt("guiji", 0)
+        startActivity(MapCenterActivity::class.java, bundle)
     }
 
 }

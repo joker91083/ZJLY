@@ -16,7 +16,7 @@ class SpatialUtil {
         var defaultSpatialReference: SpatialReference?
             get() = if (spatialReference != null) {
                 spatialReference
-            } else SpatialReference.create(4490)
+            } else SpatialReference.create(3857)
             set(s) {
                 if (s != null) {
                     spatialReference = s
