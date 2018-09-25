@@ -1,6 +1,6 @@
 package com.otitan.model
 
-import com.esri.arcgisruntime.data.GeodatabaseFeatureTable
+import com.esri.arcgisruntime.data.FeatureTable
 import com.esri.arcgisruntime.layers.FeatureLayer
 import java.io.Serializable
 
@@ -15,5 +15,5 @@ class MyLayer:Serializable{
     var lName:String=""
     //子图层
     var layer:FeatureLayer?=null
-    var table:GeodatabaseFeatureTable?=null
+    var table: FeatureTable?=null
 }

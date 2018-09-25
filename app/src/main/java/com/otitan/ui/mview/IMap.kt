@@ -1,6 +1,7 @@
 package com.otitan.ui.mview
 
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
+import com.esri.arcgisruntime.layers.OpenStreetMapLayer
 import com.otitan.model.MyLayer
 
 /**
@@ -15,6 +16,8 @@ interface IMap {
     fun showTckz()
 
     fun getTiledLayer(): ArcGISTiledLayer?
+
+    fun getOpenStreetLayer():OpenStreetMapLayer?
 
     fun getLayers(): ArrayList<MyLayer>
 }

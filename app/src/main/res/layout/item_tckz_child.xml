@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/background_view_rounded_image"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <CheckBox
             android:id="@+id/cb_child"

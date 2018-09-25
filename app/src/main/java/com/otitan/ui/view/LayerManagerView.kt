@@ -3,12 +3,15 @@ package com.otitan.ui.view
 import android.app.Activity
 import android.util.Log
 import android.view.View
+import com.esri.arcgisruntime.data.FeatureTable
 import com.esri.arcgisruntime.data.Geodatabase
+import com.esri.arcgisruntime.data.ShapefileFeatureTable
 import com.esri.arcgisruntime.geometry.Geometry
 import com.esri.arcgisruntime.geometry.GeometryEngine
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.esri.arcgisruntime.layers.FeatureLayer
 import com.esri.arcgisruntime.layers.Layer
+import com.esri.arcgisruntime.loadable.LoadStatus
 import com.otitan.main.view.MapCenterActivity
 import com.otitan.model.MyLayer
 import com.otitan.ui.activity.MapActivity
@@ -20,6 +23,7 @@ import com.otitan.ui.vm.LayerManagerViewModel
 import com.otitan.util.ResourcesManager
 import com.otitan.util.Utils
 import kotlinx.android.synthetic.main.activity_map.*
+import kotlinx.android.synthetic.main.activity_map_center.*
 import kotlinx.android.synthetic.main.share_tckz.*
 import org.jetbrains.anko.toast
 import java.io.File
@@ -72,20 +76,20 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
                 if (viewModel.img.get()) {
                     if (list.size == 1) {
                         imgLayer = ArcGISTiledLayer(list[0].absolutePath)
-                        activity.mv_map.map.basemap.baseLayers.add(imgLayer)
+                        activity.mapview.map.operationalLayers.add(imgLayer)
                     } else if (list.size > 1) {
-                        activity.icImg.visibility = View.VISIBLE
+                        activity.include_img.visibility = View.VISIBLE
                         activity.imgManager.setData(list)
                     }
                 } else {
-                    val layers = activity.mv_map.map.basemap.baseLayers
+                    val layers = activity.mapview.map.operationalLayers
                     if (list.size == 1) {
                         if (layers.contains(imgLayer)) {
                             layers.remove(imgLayer)
                         }
                     } else if (list.size > 1) {
                         imgLayer = null
-                        activity.icImg.visibility = View.GONE
+                        activity.include_img.visibility = View.GONE
                         val tempList = ArrayList<Layer>()
                         list.forEach { file ->
                             layers.forEach { layer ->
@@ -106,11 +110,11 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
     override fun setExtent(type: Int) {
         when (type) {
             1 -> {
-                activity.mv_map.setViewpointGeometryAsync(iMap.getTiledLayer()?.fullExtent)
+                activity.mapview.setViewpointGeometryAsync(iMap.getTiledLayer()?.fullExtent)
             }
             2 -> {
                 if (imgLayer != null) {
-                    activity.mv_map.setViewpointGeometryAsync(imgLayer?.fullExtent)
+                    activity.mapview.setViewpointGeometryAsync(imgLayer?.fullExtent)
                 }
             }
             3 -> {
@@ -127,7 +131,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
             val temp = ArrayList<MyLayer>()
             layers.forEach {
                 if (it.cName == file.name.split(".")[0] && file.parent == it.pName) {
-                    activity.mv_map.map.basemap.baseLayers.remove(it.layer)
+                    activity.mapview.map.operationalLayers.remove(it.layer)
                     temp.add(it)
                 }
             }
@@ -145,15 +149,25 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         }
         val totalExtent = GeometryEngine.combineExtents(geometrys)
         totalExtent.let {
-            activity.mv_map.setViewpointGeometryAsync(it)
+            activity.mapview.setViewpointGeometryAsync(it)
         }
     }
 
     override fun close() {
-        activity.icTckz.visibility = View.GONE
+        activity.include_icTckz.visibility = View.GONE
     }
 
     fun addLayers(file: File) {
+
+        if(file.exists() && file.name.endsWith("geodatabase")){
+            addGoedatabase(file)
+        }else if(file.exists() && file.name.endsWith("shp")){
+            addShp(file)
+        }
+    }
+
+    fun addGoedatabase(file: File){
+
         try {
             val gdb = Geodatabase(file.absolutePath) ?: return
             gdb.loadAsync()
@@ -162,14 +176,14 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
                 list.forEach {
                     val layer = FeatureLayer(it)
                     layer.isVisible = true
-                    if (iMap.getTiledLayer() != null) {
-//                        val sp1 = iMap.getTiledLayer()?.spatialReference
-//                        val sp2 = layer.spatialReference
+                    if (iMap.getOpenStreetLayer() != null) {
+//                        val sp1 = iMap.getOpenStreetLayer()?.spatialReference!!.wkid
+//                        val sp2 = layer.spatialReference?.wkid
 //                        if (sp1 != sp2) {
 //                            activity.toast("加载数据与基础底图投影系不同,无法加载")
 //                            return@forEach
 //                        }
-                        activity.mv_map.map.basemap.baseLayers.add(layer)
+                        activity.mapview.map.operationalLayers.add(layer)
                         val myLayer = MyLayer()
                         myLayer.pName = file.parent
                         myLayer.cName = file.name.split(".")[0]
@@ -188,6 +202,23 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
             e.printStackTrace()
             Log.e("tag", "数据库错误:$e")
             activity.toast("数据库错误")
+        }
+    }
+
+    fun addShp(file: File){
+        var path = file.path
+        var table = ShapefileFeatureTable(path)
+        table.loadAsync()
+        table.addDoneLoadingListener {
+            var statuts = table.loadStatus
+            if(statuts == LoadStatus.LOADING){
+                var featureLayer:FeatureLayer = FeatureLayer(table)
+                activity.mapview.map.operationalLayers.add(featureLayer)
+            }else{
+                val error = table.getLoadError().message
+                val tip = "Shapefile feature table failed to load: " + table.getLoadError().toString()
+                Log.e("加载shp数据", error)
+            }
         }
     }
 }

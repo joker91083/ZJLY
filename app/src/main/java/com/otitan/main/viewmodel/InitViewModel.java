@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.esri.arcgisruntime.geometry.Point;
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer;
+import com.esri.arcgisruntime.layers.OpenStreetMapLayer;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
 import com.esri.arcgisruntime.mapping.Basemap;
 import com.esri.arcgisruntime.mapping.view.LocationDisplay;
@@ -28,7 +29,7 @@ public class InitViewModel extends BaseViewModel{
     }
 
 
-    public void addTileLayer(MapView mapView){
+    public ArcGISTiledLayer addTileLayer(MapView mapView){
         String path = ResourcesManager.Companion.getInstances(mContext).getTitlePath();
         if(path.equals("") || path.equals(Constant.INSTANCE.getFilePath())){
             path = mContext.getResources().getString(R.string.World_Imagery);
@@ -38,6 +39,15 @@ public class InitViewModel extends BaseViewModel{
         Basemap basemap = new Basemap(tiledLayer);
         ArcGISMap gisMap = new ArcGISMap(basemap);
         mapView.setMap(gisMap);
+        return tiledLayer;
+    }
+
+    public OpenStreetMapLayer addOpenStreetMapLayer(MapView mapView){
+        OpenStreetMapLayer layer = new OpenStreetMapLayer();
+        ArcGISMap map = new ArcGISMap();
+        map.getOperationalLayers().add(layer);
+        mapView.setMap(map);
+        return layer;
     }
 
     public Location initGisLocation(final MapView mapView){

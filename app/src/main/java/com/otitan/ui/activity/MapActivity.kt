@@ -12,6 +12,7 @@ import com.esri.arcgisruntime.geometry.Point
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.esri.arcgisruntime.layers.FeatureLayer
 import com.esri.arcgisruntime.layers.Layer
+import com.esri.arcgisruntime.layers.OpenStreetMapLayer
 import com.esri.arcgisruntime.mapping.ArcGISMap
 import com.esri.arcgisruntime.mapping.Basemap
 import com.esri.arcgisruntime.mapping.view.LocationDisplay
@@ -42,6 +43,10 @@ import kotlin.properties.Delegates
  * 地图
  */
 class MapActivity : BaseActivity<ActivityMapBinding, MapViewModel>(), IMap {
+    override fun getOpenStreetLayer(): OpenStreetMapLayer? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     private var viewmodel: MapViewModel? = null
     private var layerManager: LayerManagerView by Delegates.notNull()
     var imgManager: ImgManagerView by Delegates.notNull()
