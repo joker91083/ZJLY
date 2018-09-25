@@ -3,8 +3,12 @@ package com.otitan.main.viewmodel;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TextView;
 
+import com.esri.arcgisruntime.data.Feature;
+import com.esri.arcgisruntime.geometry.Geometry;
 import com.esri.arcgisruntime.geometry.Point;
 import com.esri.arcgisruntime.mapping.view.Callout;
 import com.esri.arcgisruntime.mapping.view.Graphic;
@@ -14,6 +18,7 @@ import com.esri.arcgisruntime.symbology.TextSymbol;
 import com.otitan.base.BaseViewModel;
 import com.otitan.util.Constant;
 import com.otitan.util.ConverterUtils;
+import com.otitan.zjly.R;
 
 public class CalloutViewModel extends BaseViewModel{
 
@@ -40,6 +45,20 @@ public class CalloutViewModel extends BaseViewModel{
         Callout callout = mapView.getCallout();
         callout.setContent(calloutContent);
         callout.setLocation(point);
+        callout.show();
+
+    }
+
+    /*展示小班属性信息*/
+    public void showQueryInfo(MapView mapView, Feature feature){
+
+        View view = LayoutInflater.from(mapView.getContext()).inflate(R.layout.callout_geometry_info,null);
+
+
+
+        Callout callout = mapView.getCallout();
+        callout.setContent(view);
+        callout.setLocation(feature.getGeometry().getExtent().getCenter());
         callout.show();
 
     }

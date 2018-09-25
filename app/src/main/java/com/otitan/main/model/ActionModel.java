@@ -8,5 +8,9 @@ public enum ActionModel {
     AREA,
     /*小班信息*/
     IQUERY,
+    /*新增小班*/
+    ADDFEATURE,
+    /*修边*/
+    XIUBIAN,
 
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="viewmodel"
             type="com.otitan.main.viewmodel.BootViewModel" />
+
     </data>
 
     <FrameLayout
@@ -25,12 +26,11 @@
                 <!--图层控制-->
                 <TextView
                     android:id="@+id/tckz_imageview"
+                    style="@style/editTool_testView"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/background_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_layers"
-                    android:layout_marginLeft="30dp"
-                    android:text="@string/classEdit_layer"
-                    android:onClick="@{()-> viewmodel.layerManger()}"
-                    style="@style/editTool_testView"/>
+                    android:text="@string/classEdit_layer" />
 
                 <!--<TextView
                     android:id="@+id/share_gjcx"
@@ -42,29 +42,30 @@
                 <!--GPS设置-->
                 <TextView
                     android:id="@+id/share_xtsz"
+                    style="@style/editTool_testView"
                     android:background="@drawable/bg_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_setting"
-                    android:text="@string/classEdit_system"
-                    style="@style/editTool_testView"/>
+                    android:visibility="gone"
+                    android:text="@string/classEdit_system" />
 
                 <!--数据采集-->
                 <TextView
                     android:id="@+id/share_xcxxsb"
-                    android:src="@drawable/bg_view_rounded_image"
+                    style="@style/editTool_testView"
+                    android:background="@drawable/background_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_upload"
                     android:onClick="@{()->viewmodel.upInfo()}"
-                    android:text="@string/classEdit_sjsb"
-                    android:background="@drawable/background_view_rounded_image"
-                    style="@style/editTool_testView"/>
+                    android:src="@drawable/bg_view_rounded_image"
+                    android:text="@string/classEdit_sjsb" />
 
                 <!--小班编辑-->
                 <TextView
                     android:id="@+id/share_tcxr"
+                    style="@style/editTool_testView"
+                    android:layout_marginRight="30dp"
                     android:background="@drawable/bg_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_render"
-                    android:text="@string/classEdit_editor"
-                    android:layout_marginRight="30dp"
-                    style="@style/editTool_testView"/>
+                    android:text="@string/classEdit_editor" />
 
                 <!--<TextView
                     android:id="@+id/shuxing_lable"

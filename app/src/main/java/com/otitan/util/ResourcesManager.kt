@@ -1,14 +1,14 @@
 package com.otitan.util
 
 import android.content.Context
+import android.database.Observable
 import android.os.storage.StorageManager
-import com.otitan.zjly.R
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.Serializable
 import java.lang.reflect.InvocationTargetException
 import java.util.ArrayList
-import java.util.HashMap
+import kotlin.collections.HashMap
 import kotlin.properties.Delegates
 
 class ResourcesManager : Serializable {
@@ -102,6 +102,9 @@ class ResourcesManager : Serializable {
     fun getOtmsFolder(): List<File> {
         val path = otms
         val files = File(getFolderPath(path)).listFiles()
+        if(files == null){
+            return ArrayList<File>()
+        }
         val groups = ArrayList<File>()
         val filesLength = files.size
         for (i in 0 until filesLength) {
@@ -160,9 +163,9 @@ class ResourcesManager : Serializable {
 
 
     fun getDataBase(dbname:String):String{
-        var db: File? = null
-        if (dbname == null)
+        if (dbname.equals(""))
             return ""
+        var db: File? = null
         db = File(getFilePath(sqlite + "/" + dbname))
         if (db.exists()) {
             return db.toString()
@@ -170,13 +173,40 @@ class ResourcesManager : Serializable {
         throw FileNotFoundException(Constant.fileNotFound)
     }
 
-    fun getOtms(key:String){
-        getFolderPath(otms);
+    fun getOtms(key:String) :ArrayList<File>{
+        var arrays :ArrayList<File> = ArrayList<File>()
+        var folderpath = getFolderPath(otms)
+        var list: Array<out File>? = File(folderpath).listFiles()
+        for (i in list!!.indices){
+            var flie = list.get(i)
+            if(flie.name.contains(key)){
+                arrays.add(flie)
+            }
+        }
 
+        return arrays
     }
 
-    fun getOtmsChild(){
+    fun getOtmsChild(list:ArrayList<File>):ArrayList<HashMap<String,ArrayList<File>>>{
+        var arrayList:ArrayList<HashMap<String,ArrayList<File>>> = ArrayList<HashMap<String,ArrayList<File>>>()
+        for(i in list!!.indices){
+            var map:HashMap<String,ArrayList<File>> = HashMap<String,ArrayList<File>>()
+            var file:File = list.get(i)
 
+            var path = file.path
+            var array: Array<out File>?=File(path).listFiles()
+
+            var fileList :ArrayList<File> = ArrayList<File>()
+            for(j in array!!.indices){
+                var ff:File = array.get(j)
+                if(ff.name.endsWith(".getodabase") || ff.name.endsWith(".shp")){
+                    fileList.add(ff)
+                }
+            }
+            map.put(file.name,fileList)
+            arrayList.add(map)
+        }
+        return arrayList
     }
 
 

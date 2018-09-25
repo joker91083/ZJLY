@@ -7,6 +7,7 @@ import com.esri.arcgisruntime.geometry.Point;
 import com.esri.arcgisruntime.geometry.SpatialReference;
 import com.esri.arcgisruntime.geometry.SpatialReferences;
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer;
+import com.esri.arcgisruntime.layers.OpenStreetMapLayer;
 import com.esri.arcgisruntime.loadable.LoadStatusChangedEvent;
 import com.esri.arcgisruntime.loadable.LoadStatusChangedListener;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
@@ -22,23 +23,23 @@ import com.otitan.util.SpatialUtil;
 import com.otitan.util.ToastUtil;
 import com.otitan.zjly.R;
 
-public class InitViewModel extends BaseViewModel {
+public class InitViewModel extends BaseViewModel{
 
     private static Context mContext;
 
-    public static InitViewModel getInstance(Context context) {
+    public static InitViewModel getInstance(Context context){
         mContext = context;
         return Holder.instance;
     }
 
-    private static class Holder {
-        private static final InitViewModel instance = new InitViewModel();
+    private static class Holder{
+       private static final InitViewModel instance = new InitViewModel();
     }
 
 
-    public void addTileLayer(final MapView mapView, final IMap iMap) {
+    public ArcGISTiledLayer addTileLayer(MapView mapView, final IMap iMap){
         String path = ResourcesManager.Companion.getInstances(mContext).getTitlePath();
-        if (path.equals("") || path.equals(Constant.INSTANCE.getFilePath())) {
+        if(path.equals("") || path.equals(Constant.INSTANCE.getFilePath())){
             path = mContext.getResources().getString(R.string.World_Imagery);
         }
 
@@ -69,9 +70,18 @@ public class InitViewModel extends BaseViewModel {
             }
         });
         mapView.setMap(gisMap);
+        return tiledLayer;
     }
 
-    public Location initGisLocation(final MapView mapView) {
+    public OpenStreetMapLayer addOpenStreetMapLayer(MapView mapView){
+        OpenStreetMapLayer layer = new OpenStreetMapLayer();
+        ArcGISMap map = new ArcGISMap();
+        map.getOperationalLayers().add(layer);
+        mapView.setMap(map);
+        return layer;
+    }
+
+    public Location initGisLocation(final MapView mapView){
         final Location location = new Location();
 
         final LocationDisplay display = mapView.getLocationDisplay();
@@ -79,13 +89,13 @@ public class InitViewModel extends BaseViewModel {
             @Override
             public void onLocationChanged(LocationDisplay.LocationChangedEvent event) {
                 Point point = event.getLocation().getPosition();
-                if (point != null) {
+                if(point != null){
                     location.setGpspoint(point);
-                    mapView.setViewpointCenterAsync(point, Constant.INSTANCE.getDefalutScale());
+                    mapView.setViewpointCenterAsync(point,Constant.INSTANCE.getDefalutScale());
                 }
 
                 Point map = display.getMapLocation();
-                if (map != null) {
+                if(map != null){
                     location.setMappoint(map);
                 }
 

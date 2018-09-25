@@ -2,11 +2,9 @@ package com.otitan.main.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ExpandableListView;
@@ -14,21 +12,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
 import com.esri.arcgisruntime.geometry.Geometry;
 import com.esri.arcgisruntime.geometry.GeometryEngine;
 import com.esri.arcgisruntime.geometry.GeometryType;
 import com.esri.arcgisruntime.geometry.Point;
-import com.esri.arcgisruntime.geometry.PointCollection;
 import com.esri.arcgisruntime.geometry.Polygon;
 import com.esri.arcgisruntime.geometry.Polyline;
-import com.esri.arcgisruntime.geometry.PolylineBuilder;
-import com.esri.arcgisruntime.geometry.SpatialReference;
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer;
-import com.esri.arcgisruntime.mapping.view.Graphic;
+import com.esri.arcgisruntime.layers.OpenStreetMapLayer;
 import com.esri.arcgisruntime.mapping.view.GraphicsOverlay;
 import com.esri.arcgisruntime.mapping.view.LocationDisplay;
 import com.esri.arcgisruntime.mapping.view.MapView;
@@ -43,19 +34,16 @@ import com.otitan.data.DataRepository;
 import com.otitan.data.Injection;
 import com.otitan.data.local.LocalDataSource;
 import com.otitan.data.remote.RemoteDataSource;
-import com.otitan.main.fragment.TrackManagerFragment;
 import com.otitan.main.listener.ArcgisLocation;
 import com.otitan.main.listener.GeometryChangedListener;
 import com.otitan.main.model.ActionModel;
 import com.otitan.main.model.Location;
 import com.otitan.main.model.MainModel;
-import com.otitan.main.model.TrackPoint;
 import com.otitan.main.viewmodel.BootViewModel;
 import com.otitan.main.viewmodel.CalloutViewModel;
 import com.otitan.main.viewmodel.GeoViewModel;
 import com.otitan.main.viewmodel.InitViewModel;
 import com.otitan.main.viewmodel.ToolViewModel;
-import com.otitan.main.viewmodel.TrackManagerViewModel;
 import com.otitan.model.MyLayer;
 import com.otitan.ui.mview.IMap;
 import com.otitan.ui.view.ImgManagerView;
@@ -64,9 +52,6 @@ import com.otitan.ui.vm.MapToolViewModel;
 import com.otitan.ui.vm.MapViewModel;
 import com.otitan.util.Constant;
 import com.otitan.util.ConverterUtils;
-import com.otitan.util.SpatialUtil;
-import com.otitan.util.SymbolUtil;
-import com.otitan.util.ToastUtil;
 import com.otitan.zjly.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -74,7 +59,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -128,17 +112,25 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     AppCompatImageView imgClose;
     @BindView(R.id.rvImg)
     RecyclerView rvImg;
+    @BindView(R.id.share_tckz)
+    ImageButton shareTckz;
+
+    /*include*/
+    public View include_icTckz,include_img;
 
     private MainModel model;
     private SketchEditor sketchEditor;
     private ToolViewModel toolViewModel;
     private InitViewModel initViewModel;
     private CalloutViewModel calloutViewModel;
+    private SketchEditorViewModel sketchEditorViewModel;
     private GeoViewModel geoViewModel;
     private BootViewModel bootViewModel;
 
 
-    private ArcGISTiledLayer tiledLayer;
+    private OpenStreetMapLayer tiledLayer;
+    private ArcGISTiledLayer gisTiledLayer;
+    private ArrayList<MyLayer> layers = new ArrayList<>();
     private Location location;
     private ActionModel actionModel;
     private boolean isFirst = true;
@@ -160,7 +152,13 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         setContentView(R.layout.activity_map_center);
         ButterKnife.bind(this);
 
+        initView();
         initData();
+    }
+
+    void initView(){
+        include_icTckz = findViewById(R.id.icTckz);
+        include_img = findViewById(R.id.icImg);
     }
 
     void initData() {
@@ -180,7 +178,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         sketchEditor.setSketchStyle(sketchStyle);
 
 
-        sketchEditor.addGeometryChangedListener(new GeometryChangedListener(mapView, this));
+        sketchEditor.addGeometryChangedListener(new GeometryChangedListener(mapView,this));
         mapView.setSketchEditor(sketchEditor);
 
         initViewModel = InitViewModel.getInstance(this);
@@ -188,9 +186,10 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         calloutViewModel = CalloutViewModel.getInstance(this);
         geoViewModel = GeoViewModel.getInstance(this);
         bootViewModel = BootViewModel.getInstance(this, this);
+        sketchEditorViewModel = new SketchEditorViewModel();
 
-
-        initViewModel.addTileLayer(mapView, this);
+        //initViewModel.addTileLayer(mapView, this);
+        tiledLayer = initViewModel.addOpenStreetMapLayer(mapView);
         location = gisLocation(mapView);
         mGraphicsOverlay = new GraphicsOverlay();
         mapView.getGraphicsOverlays().add(mGraphicsOverlay);
@@ -215,7 +214,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
 
     @OnClick({R.id.share_isearch, R.id.ib_location, R.id.ib_clean, R.id.ib_distance,
-            R.id.ib_sketch, R.id.share_xcxxsb})
+            R.id.ib_sketch, R.id.share_xcxxsb, R.id.tckz_imageview,R.id.close_tuceng})
     public void showInfo(View view) {
         switch (view.getId()) {
             case R.id.share_isearch:
@@ -246,12 +245,14 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
             case R.id.share_xcxxsb:
                 startActivity(UpInfoActivity.class);
                 break;
-            case R.id.largeLabel:
-
+            case R.id.tckz_imageview:
+                bootViewModel.layerManger();
+                break;
+            case R.id.close_tuceng:
+                layerManagerView.close();
                 break;
         }
     }
-
 
     @Override
     public void onSuccess(Object o) {
@@ -278,7 +279,12 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
         if (actionModel == ActionModel.IQUERY) {
 
+            toolViewModel.iquery(mapView,geometry,calloutViewModel);
 
+        }
+
+        if(actionModel == ActionModel.ADDFEATURE){
+            sketchEditorViewModel.addFeature(layers.get(0),geometry);
         }
 
     }
@@ -300,7 +306,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        
     }
 
     @Override
@@ -405,13 +411,14 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
     @Override
     public void showTckz() {
-        tckzImageview.setVisibility(View.VISIBLE);
+        include_icTckz.setVisibility(View.VISIBLE);
+        layerManagerView.initView();
     }
 
     @Nullable
     @Override
-    public ArcGISTiledLayer getTiledLayer() {
-        return null;
+    public OpenStreetMapLayer getOpenStreetLayer() {
+        return tiledLayer;
     }
 
     @Override
@@ -422,7 +429,12 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     @NotNull
     @Override
     public ArrayList<MyLayer> getLayers() {
-        return null;
+        return layers;
     }
 
+    @Nullable
+    @Override
+    public ArcGISTiledLayer getTiledLayer() {
+        return gisTiledLayer;
+    }
 }
