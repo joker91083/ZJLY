@@ -5,63 +5,86 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.esri.arcgisruntime.data.Feature;
 import com.esri.arcgisruntime.geometry.Geometry;
 import com.esri.arcgisruntime.geometry.GeometryEngine;
 import com.esri.arcgisruntime.geometry.GeometryType;
 import com.esri.arcgisruntime.geometry.Point;
+import com.esri.arcgisruntime.geometry.PointCollection;
 import com.esri.arcgisruntime.geometry.Polygon;
 import com.esri.arcgisruntime.geometry.Polyline;
+import com.esri.arcgisruntime.geometry.PolylineBuilder;
+import com.esri.arcgisruntime.geometry.SpatialReference;
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer;
 import com.esri.arcgisruntime.layers.OpenStreetMapLayer;
+import com.esri.arcgisruntime.mapping.view.Graphic;
 import com.esri.arcgisruntime.mapping.view.GraphicsOverlay;
 import com.esri.arcgisruntime.mapping.view.LocationDisplay;
 import com.esri.arcgisruntime.mapping.view.MapView;
+import com.esri.arcgisruntime.mapping.view.SketchCreationMode;
 import com.esri.arcgisruntime.mapping.view.SketchEditor;
 import com.esri.arcgisruntime.mapping.view.SketchStyle;
+import com.esri.arcgisruntime.mapping.view.SpatialReferenceChangedEvent;
+import com.esri.arcgisruntime.mapping.view.SpatialReferenceChangedListener;
 import com.esri.arcgisruntime.symbology.SimpleFillSymbol;
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol;
 import com.otitan.TitanApplication;
+import com.otitan.base.ContainerActivity;
 import com.otitan.base.ValueCallBack;
 import com.otitan.data.DataRepository;
 import com.otitan.data.Injection;
-import com.otitan.data.local.LocalDataSource;
-import com.otitan.data.remote.RemoteDataSource;
+import com.otitan.main.fragment.AttributeEditFragment;
+import com.otitan.main.fragment.TrackManagerFragment;
 import com.otitan.main.listener.ArcgisLocation;
 import com.otitan.main.listener.GeometryChangedListener;
 import com.otitan.main.model.ActionModel;
 import com.otitan.main.model.Location;
 import com.otitan.main.model.MainModel;
+import com.otitan.main.model.MyFeature;
+import com.otitan.main.model.TrackPoint;
 import com.otitan.main.viewmodel.BootViewModel;
 import com.otitan.main.viewmodel.CalloutViewModel;
 import com.otitan.main.viewmodel.GeoViewModel;
 import com.otitan.main.viewmodel.InitViewModel;
+import com.otitan.main.viewmodel.SketchEditorViewModel;
 import com.otitan.main.viewmodel.ToolViewModel;
+import com.otitan.main.viewmodel.TrackManagerViewModel;
 import com.otitan.model.MyLayer;
 import com.otitan.ui.mview.IMap;
 import com.otitan.ui.view.ImgManagerView;
 import com.otitan.ui.view.LayerManagerView;
-import com.otitan.ui.vm.MapToolViewModel;
-import com.otitan.ui.vm.MapViewModel;
 import com.otitan.util.Constant;
 import com.otitan.util.ConverterUtils;
+import com.otitan.util.SpatialUtil;
+import com.otitan.util.SymbolUtil;
+import com.otitan.util.Utils;
 import com.otitan.zjly.R;
+import com.otitan.zjly.util.MaterialDialogUtil;
+import com.titan.baselibrary.util.ToastUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
 public class MapCenterActivity extends AppCompatActivity implements ValueCallBack<Object>,
@@ -114,9 +137,11 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     RecyclerView rvImg;
     @BindView(R.id.share_tckz)
     ImageButton shareTckz;
+    @BindView(R.id.addfeature)
+    RadioButton addFeature;
 
     /*include*/
-    public View include_icTckz,include_img;
+    public View include_icTckz, include_img, include_edit;
 
     private MainModel model;
     private SketchEditor sketchEditor;
@@ -127,10 +152,13 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     private GeoViewModel geoViewModel;
     private BootViewModel bootViewModel;
 
-
     private OpenStreetMapLayer tiledLayer;
     private ArcGISTiledLayer gisTiledLayer;
     private ArrayList<MyLayer> layers = new ArrayList<>();
+    //当前选择的矢量图层数据
+    private MyLayer myLayer;
+    //已选中的小班
+    public List<Feature> features = new ArrayList<>();
     private Location location;
     private ActionModel actionModel;
     private boolean isFirst = true;
@@ -156,15 +184,22 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         initData();
     }
 
-    void initView(){
+    void initView() {
         include_icTckz = findViewById(R.id.icTckz);
         include_img = findViewById(R.id.icImg);
+        include_edit = findViewById(R.id.ic_feature_edit);
     }
 
     void initData() {
 
         sbh = TitanApplication.Companion.getInstances().getSbh();
         mapView.setAttributionTextVisible(false);
+        mapView.addSpatialReferenceChangedListener(new SpatialReferenceChangedListener() {
+            @Override
+            public void spatialReferenceChanged(SpatialReferenceChangedEvent spatialReferenceChangedEvent) {
+                spatialReference = spatialReferenceChangedEvent.getSource().getSpatialReference();
+            }
+        });
 
         SimpleMarkerSymbol mPointSymbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.Style.SQUARE, 0xFFFF0000, 20);
         SimpleLineSymbol mLineSymbol = new SimpleLineSymbol(SimpleLineSymbol.Style.SOLID, 0xFFFF8800, 4);
@@ -178,15 +213,14 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         sketchEditor.setSketchStyle(sketchStyle);
 
 
-        sketchEditor.addGeometryChangedListener(new GeometryChangedListener(mapView,this));
+        sketchEditor.addGeometryChangedListener(new GeometryChangedListener(mapView, this));
         mapView.setSketchEditor(sketchEditor);
-
         initViewModel = InitViewModel.getInstance(this);
         toolViewModel = ToolViewModel.getInstance(this);
         calloutViewModel = CalloutViewModel.getInstance(this);
         geoViewModel = GeoViewModel.getInstance(this);
         bootViewModel = BootViewModel.getInstance(this, this);
-        sketchEditorViewModel = new SketchEditorViewModel();
+        sketchEditorViewModel = new SketchEditorViewModel(mapView);
 
         //initViewModel.addTileLayer(mapView, this);
         tiledLayer = initViewModel.addOpenStreetMapLayer(mapView);
@@ -210,11 +244,13 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 mTrackManager.show(getSupportFragmentManager(), "trackmanager");
             }
         }
+
     }
 
 
     @OnClick({R.id.share_isearch, R.id.ib_location, R.id.ib_clean, R.id.ib_distance,
-            R.id.ib_sketch, R.id.share_xcxxsb, R.id.tckz_imageview,R.id.close_tuceng})
+            R.id.ib_sketch, R.id.share_xcxxsb, R.id.tckz_imageview, R.id.close_tuceng,
+            R.id.addfeature, R.id.selectButton, R.id.xiubanButton, R.id.share_tcxr})
     public void showInfo(View view) {
         switch (view.getId()) {
             case R.id.share_isearch:
@@ -248,10 +284,82 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
             case R.id.tckz_imageview:
                 bootViewModel.layerManger();
                 break;
+            case R.id.share_tcxr:
+                bootViewModel.xbbj();
+                break;
             case R.id.close_tuceng:
                 layerManagerView.close();
                 break;
         }
+    }
+
+    @OnCheckedChanged({R.id.addfeature, R.id.addfeaturegb, R.id.copyButton, R.id.deleteButton,
+            R.id.repealButton, R.id.qiegeButton, R.id.xiubanButton, R.id.attributButton,
+            R.id.selectButton, R.id.removeButton})
+    public void chedked(CompoundButton view, boolean ischanged) {
+//        Log.e("tag",ischanged+"");
+        if (!ischanged) {
+            return;
+        }
+        clear();
+        switch (view.getId()) {
+            case R.id.addfeature:
+                /*新增小班*/
+                actionModel = ActionModel.ADDFEATURE;
+                sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_POLYGON);
+                getMyLayer();
+                break;
+            case R.id.addfeaturegb:
+                /*共边增班*/
+                actionModel = ActionModel.ADDFEATUREGB;
+                sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_LINE);
+            case R.id.copyButton:
+                /*小班复制*/
+            case R.id.deleteButton:
+                /*小班删除*/
+            case R.id.repealButton:
+                /*撤销*/
+            case R.id.qiegeButton:
+                /*分割*/
+                actionModel = ActionModel.QIEGE;
+                sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_LINE);
+            case R.id.xiubanButton:
+                /*修班*/
+                actionModel = ActionModel.XIUBIAN;
+                sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_LINE);
+                getMyLayer();
+            case R.id.attributButton:
+                /*属性编辑*/
+                if (!features.isEmpty()) {
+                    getMyLayer();
+                    Bundle bundle = new Bundle();
+                    Map<String, Object> att = features.get(0).getAttributes();
+                    HashMap<String, Object> map = new HashMap<>(att);
+                    MyFeature myFeature = new MyFeature();
+                    MyFeature.setFeature(features.get(0));
+                    bundle.putSerializable("feature", myFeature);
+                    bundle.putSerializable("myLayer",myLayer);
+                    Intent intent = new Intent(this, AttributeEditActivity.class);
+                    intent.putExtras(bundle);
+                    this.startActivity(intent);
+                } else {
+                    ToastUtil.setToast(this, "请选择小班");
+                }
+            case R.id.selectButton:
+                /*选择小班*/
+                actionModel = ActionModel.SELECT;
+                sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_POLYGON);
+                break;
+            case R.id.removeButton:
+                /*平移*/
+                break;
+        }
+    }
+
+    private void clear() {
+        toolViewModel.cleanAllGraphics(mapView);
+        toolViewModel.cleanSketch(mapView);
+        actionModel = ActionModel.NULL;
     }
 
     @Override
@@ -259,6 +367,9 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         toolViewModel.cleanAllGraphics(mapView);
 
         Geometry geometry = mapView.getSketchEditor().getGeometry();
+        if (!GeometryEngine.isSimple(geometry)) {
+            geometry = GeometryEngine.simplify(geometry);
+        }
         if (actionModel == ActionModel.DISTANCE) {
 
             if (GeometryType.POLYLINE == geometry.getGeometryType()) {
@@ -278,14 +389,29 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         }
 
         if (actionModel == ActionModel.IQUERY) {
-
-            toolViewModel.iquery(mapView,geometry,calloutViewModel);
-
+            toolViewModel.iquery(mapView, geometry, calloutViewModel);
+        } else if (actionModel == ActionModel.ADDFEATURE) {
+            if (sketchEditor.isSketchValid()) {
+                if (!geometry.isEmpty()) {
+                    sketchEditorViewModel.addFeature(myLayer, geometry);
+                }
+            }
+        } else if (actionModel == ActionModel.XIUBIAN) {
+            if (features.size() == 0) {
+                ToastUtil.setToast(this, "请选中一个小班面进行修班操作");
+            } else if (features.size() > 1) {
+                ToastUtil.setToast(this, "只能对一个小班面进行修班操作");
+            } else {
+                sketchEditorViewModel.editor(myLayer, geometry, features.get(0));
+            }
+        } else if (actionModel == ActionModel.SELECT) {
+            features.clear();
+            for (MyLayer myLayer : layers) {
+                sketchEditorViewModel.queryFeature(myLayer, geometry, features);
+            }
+            return;
         }
 
-        if(actionModel == ActionModel.ADDFEATURE){
-            sketchEditorViewModel.addFeature(layers.get(0),geometry);
-        }
 
     }
 
@@ -306,7 +432,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        
+
     }
 
     @Override
@@ -338,6 +464,39 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         display.startAsync();
         location.setMapView(mapView);
         return location;
+    }
+
+    /**
+     * 获取要编辑的矢量图数据
+     */
+    public void getMyLayer() {
+        if (layers.isEmpty()) {
+            sketchEditor.clearGeometry();
+            sketchEditor.stop();
+            ToastUtil.setToast(this, "请先加载矢量图层");
+        } else if (layers.size() == 1) {
+            myLayer = layers.get(0);
+        } else {
+            choseLayer();
+        }
+    }
+
+    /**
+     * 多图层选择
+     */
+    public void choseLayer() {
+        List<String> layerNames = new ArrayList<>();
+        for (MyLayer layer : layers) {
+            layerNames.add(layer.getPName() + "-" + layer.getCName());
+        }
+        MaterialDialog dialog = MaterialDialogUtil.showSingleSelectionDialog(this, "图层选择", layerNames,
+                new MaterialDialog.ListCallback() {
+                    @Override
+                    public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
+                        myLayer = layers.get(position);
+                    }
+                });
+        dialog.show();
     }
 
     @Override
@@ -413,6 +572,17 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     public void showTckz() {
         include_icTckz.setVisibility(View.VISIBLE);
         layerManagerView.initView();
+    }
+
+    @Override
+    public void showXbbj() {
+        if (include_edit != null) {
+            if (include_edit.getVisibility() == View.VISIBLE) {
+                include_edit.setVisibility(View.GONE);
+            } else {
+                include_edit.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     @Nullable

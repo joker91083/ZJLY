@@ -1,11 +1,14 @@
 package com.otitan.util
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.util.TypedValue
 import android.widget.BaseExpandableListAdapter
 import android.widget.ExpandableListView
 import android.widget.LinearLayout
 import com.otitan.TitanApplication
+import com.otitan.base.ContainerActivity
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -60,6 +63,20 @@ class Utils {
                 layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
             }
             listView.layoutParams = layoutParams
+        }
+
+        /**
+         * 跳转容器页面
+         *
+         * @param canonicalName 规范名 : Fragment.class.getCanonicalName()
+         * @param bundle        跳转所携带的信息
+         */
+        @JvmStatic
+        fun startContainerActivity(context: Context?,canonicalName: String, bundle: Bundle) {
+            val intent = Intent(context, ContainerActivity::class.java)
+            intent.putExtra(ContainerActivity.FRAGMENT, canonicalName)
+            intent.putExtra(ContainerActivity.BUNDLE, bundle)
+            context?.startActivity(intent)
         }
     }
 }

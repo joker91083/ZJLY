@@ -14,7 +14,6 @@ import com.esri.arcgisruntime.layers.Layer
 import com.esri.arcgisruntime.loadable.LoadStatus
 import com.otitan.main.view.MapCenterActivity
 import com.otitan.model.MyLayer
-import com.otitan.ui.activity.MapActivity
 import com.otitan.ui.adapter.LayerManagerAdapter
 import com.otitan.ui.mview.ILayerManager
 import com.otitan.ui.mview.ILayerManagerItem
@@ -69,7 +68,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
     override fun showLayer(type: Int) {
         when (type) {
             1 -> {
-                iMap.getTiledLayer()?.isVisible = viewModel.base.get()
+                iMap.getOpenStreetLayer()?.isVisible = viewModel.base.get()
             }
             2 -> {
                 val list = ResourcesManager.getInstances(activity).getImgTitlePath()
@@ -110,7 +109,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
     override fun setExtent(type: Int) {
         when (type) {
             1 -> {
-                activity.mapview.setViewpointGeometryAsync(iMap.getTiledLayer()?.fullExtent)
+                activity.mapview.setViewpointGeometryAsync(iMap.getOpenStreetLayer()?.fullExtent)
             }
             2 -> {
                 if (imgLayer != null) {
@@ -131,7 +130,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
             val temp = ArrayList<MyLayer>()
             layers.forEach {
                 if (it.cName == file.name.split(".")[0] && file.parent == it.pName) {
-                    activity.mapview.map.operationalLayers.remove(it.layer)
+                    activity.mapview.map.operationalLayers.remove(MyLayer.layer)
                     temp.add(it)
                 }
             }
@@ -144,7 +143,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         val layers = iMap.getLayers()
         layers.forEach {
             if (it.cName == file.name.split(".")[0] && file.parent == it.pName) {
-                geometrys.add(it.layer?.fullExtent)
+                geometrys.add(MyLayer.layer?.fullExtent)
             }
         }
         val totalExtent = GeometryEngine.combineExtents(geometrys)
@@ -188,9 +187,9 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
                         myLayer.pName = file.parent
                         myLayer.cName = file.name.split(".")[0]
                         myLayer.lName = layer.name
-                        myLayer.layer = layer
+                        MyLayer.layer = layer
                         myLayer.path = file.absolutePath
-                        myLayer.table = it
+                        MyLayer.table = it
                         iMap.getLayers().add(myLayer)
                     }
                 }

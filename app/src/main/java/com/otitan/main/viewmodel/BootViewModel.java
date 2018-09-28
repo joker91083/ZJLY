@@ -30,4 +30,9 @@ public class BootViewModel extends BaseViewModel{
         layerView.showTckz();
     }
 
+    public void xbbj(){
+        layerView.showXbbj();
+    }
+
+
 }

@@ -73,6 +73,18 @@
     <string name="overview">林情概览</string>
     <string name="zjjc">指尖决策</string>
     <string name="center">用户中心</string>
+    <!--小班编辑-->
+    <string name="xbbj_add">新增小班</string>
+    <string name="xbbj_addgb">共边小班</string>
+    <string name="xbbj_copy">小班复制</string>
+    <string name="xbbj_delete">小班删除</string>
+    <string name="xbbj_revert">撤销</string>
+    <string name="xbbj_clip">分割小班</string>
+    <string name="xbbj_merge">小班合并</string>
+    <string name="xbbj_edit">修班</string>
+    <string name="xbbj_attribute">属性编辑</string>
+    <string name="xbbj_select">小班选择</string>
+    <string name="xbbj_pan">平移</string>
 
     <string name="organizer">主办单位：浙江省林业厅\n技术支持：北京航天泰坦科技股份有限公司</string>
 

@@ -21,8 +21,8 @@ class MaterialDialogUtil {
                     .positiveText("确定")
                     .negativeText("取消")
                     .content(msg)
-                    .onNegative {
-                        dialog,_ -> dialog.dismiss()
+                    .onNegative { dialog, _ ->
+                        dialog.dismiss()
                     }
                     .onPositive(callback)
                     .build()
@@ -32,7 +32,7 @@ class MaterialDialogUtil {
          * 加载数据进度弹窗
          */
         @JvmStatic
-        fun showLoadProgress(context: Context, msg: String, iscancel:Boolean): Dialog {
+        fun showLoadProgress(context: Context, msg: String, iscancel: Boolean): Dialog {
             return MaterialDialog.Builder(context)
                     .content(msg)
                     .progress(true, 0)
@@ -55,13 +55,22 @@ class MaterialDialogUtil {
          * 提示信息dialog
          */
         @JvmStatic
-        fun showPromptDialog(context: Context, msg:String): MaterialDialog.Builder {
+        fun showPromptDialog(context: Context, msg: String): MaterialDialog.Builder {
             return MaterialDialog.Builder(context)
                     .positiveText("确定")
                     .content(msg)
-                    .onNegative {
-                        dialog, _ -> dialog.dismiss()
+                    .onNegative { dialog, _ ->
+                        dialog.dismiss()
                     }
+        }
+
+        @JvmStatic
+        fun showSingleSelectionDialog(context: Context, title: String, list: List<Any>, callback: MaterialDialog.ListCallback): MaterialDialog {
+            return MaterialDialog.Builder(context).title(title).negativeText("取消")
+                    .onNegative { dialog, which -> dialog.dismiss() }
+                    .items(list)
+                    .itemsCallback(callback)
+                    .build()
         }
     }
 }

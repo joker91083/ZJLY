@@ -1,6 +1,7 @@
 package com.otitan.main.viewmodel;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.esri.arcgisruntime.geometry.Point;
@@ -14,6 +15,8 @@ import com.esri.arcgisruntime.mapping.ArcGISMap;
 import com.esri.arcgisruntime.mapping.Basemap;
 import com.esri.arcgisruntime.mapping.view.LocationDisplay;
 import com.esri.arcgisruntime.mapping.view.MapView;
+import com.esri.arcgisruntime.mapping.view.SpatialReferenceChangedEvent;
+import com.esri.arcgisruntime.mapping.view.SpatialReferenceChangedListener;
 import com.otitan.base.BaseViewModel;
 import com.otitan.main.model.Location;
 import com.otitan.ui.mview.IMap;
@@ -37,7 +40,7 @@ public class InitViewModel extends BaseViewModel{
     }
 
 
-    public ArcGISTiledLayer addTileLayer(MapView mapView, final IMap iMap){
+    public ArcGISTiledLayer addTileLayer(final MapView mapView){
         String path = ResourcesManager.Companion.getInstances(mContext).getTitlePath();
         if(path.equals("") || path.equals(Constant.INSTANCE.getFilePath())){
             path = mContext.getResources().getString(R.string.World_Imagery);
@@ -64,7 +67,7 @@ public class InitViewModel extends BaseViewModel{
                     case "LOADED": {
                         Log.e("tag", "图层加载完成");
                         SpatialUtil.Companion.setDefaultSpatialReference(mapView.getSpatialReference());
-                        iMap.setSpatial(mapView.getSpatialReference());
+//                        iMap.setSpatial(mapView.getSpatialReference());
                     }
                 }
             }
@@ -76,7 +79,7 @@ public class InitViewModel extends BaseViewModel{
     public OpenStreetMapLayer addOpenStreetMapLayer(MapView mapView){
         OpenStreetMapLayer layer = new OpenStreetMapLayer();
         ArcGISMap map = new ArcGISMap();
-        map.getOperationalLayers().add(layer);
+        map.getBasemap().getBaseLayers().add(layer);
         mapView.setMap(map);
         return layer;
     }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="mapToolViewModel"
+            type="com.otitan.ui.vm.MapToolViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/share_tckz"
+            style="@style/mapTool_imageButton"
+            android:padding="8dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/map_tools_bg"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_tcqh" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/map_tools_bg2"
+            android:divider="@drawable/divider"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:dividerPadding="4dp">
+
+            <ImageButton
+                android:id="@+id/share_isearch"
+                style="@style/mapTool_imageButton"
+                android:background="@color/white"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_sxcx" />
+
+            <ImageButton
+                android:id="@+id/ib_distance"
+                style="@style/mapTool_imageButton"
+                android:contentDescription="@null"
+                android:src="@drawable/ico_distance" />
+
+            <ImageButton
+                android:id="@+id/ib_sketch"
+                style="@style/mapTool_imageButton"
+                android:layout_width="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_tj" />
+
+            <ImageButton
+                android:id="@+id/ib_clean"
+                style="@style/mapTool_imageButton"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_sc" />
+
+            <ImageButton
+                android:id="@+id/ib_location"
+                style="@style/mapTool_imageButton"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_dw" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

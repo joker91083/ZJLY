@@ -15,6 +15,8 @@ interface IMap {
      * 图层控制
      */
     fun showTckz()
+    //小班编辑
+    fun showXbbj()
 
     fun getTiledLayer(): ArcGISTiledLayer?
 

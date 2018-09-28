@@ -1,5 +1,6 @@
 package com.otitan.main.listener;
 
+import android.util.Log;
 import android.view.View;
 
 import com.esri.arcgisruntime.mapping.view.MapView;
@@ -16,12 +17,13 @@ public class GeometryChangedListener implements SketchGeometryChangedListener {
     public GeometryChangedListener(MapView mapView,ValueCallBack<Object> callBack){
         this.mapView = mapView;
         this.callBack = callBack;
+//        setListener();
     }
 
     @Override
     public void geometryChanged(SketchGeometryChangedEvent event) {
         boolean flag = event.getSource().isSketchValid();
-        if(!flag){
+        if(flag){
             setListener();
         }
 
@@ -29,8 +31,12 @@ public class GeometryChangedListener implements SketchGeometryChangedListener {
 
 
     private void setListener(){
-        View.OnTouchListener lo = mapView.getOnTouchListener();
-        SketchDrawTouchEvent sketchDrawTouchEvent = new SketchDrawTouchEvent(mapView.getContext(), mapView, lo,callBack);
+        Object lo = mapView.getOnTouchListener();
+        if (lo instanceof SketchDrawTouchEvent){
+            return;
+        }
+        SketchDrawTouchEvent sketchDrawTouchEvent = new SketchDrawTouchEvent(mapView.getContext(),
+                mapView, (View.OnTouchListener) lo,callBack);
         mapView.setOnTouchListener(sketchDrawTouchEvent);
     }
 }

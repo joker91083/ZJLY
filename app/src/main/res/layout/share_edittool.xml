@@ -10,24 +10,26 @@
     </data>
 
     <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_ellipse_layout">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <!--<HorizontalScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:background="@drawable/bg_ellipse_layout">
 
                 <!--图层控制-->
                 <TextView
                     android:id="@+id/tckz_imageview"
                     style="@style/editTool_testView"
-                    android:layout_marginLeft="30dp"
                     android:background="@drawable/background_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_layers"
                     android:text="@string/classEdit_layer" />
@@ -62,7 +64,6 @@
                 <TextView
                     android:id="@+id/share_tcxr"
                     style="@style/editTool_testView"
-                    android:layout_marginRight="30dp"
                     android:background="@drawable/bg_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_render"
                     android:text="@string/classEdit_editor" />
@@ -74,6 +75,6 @@
                     android:text="@string/mainmenu_callout"
                     style="@style/editTool_testView"/>-->
             </LinearLayout>
-        </HorizontalScrollView>
+        <!--</HorizontalScrollView>-->
     </FrameLayout>
 </layout>

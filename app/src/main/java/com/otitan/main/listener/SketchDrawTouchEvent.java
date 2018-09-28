@@ -32,7 +32,7 @@ public class SketchDrawTouchEvent extends DefaultMapViewOnTouchListener {
     }
 
 
-    @Override
+    //    @Override
     public boolean onTouch(View v, MotionEvent e) {
         //这里实现监听选择性调用
         if (e.getAction() == MotionEvent.ACTION_UP) {
@@ -51,7 +51,4 @@ public class SketchDrawTouchEvent extends DefaultMapViewOnTouchListener {
 
         return false;
     }
-
-
-
 }

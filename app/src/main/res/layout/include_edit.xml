@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+
+    <com.titan.baselibrary.customview.MyRadioGroup
+        android:id="@+id/edit_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/bg_edit_feature"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <RadioButton
+                android:id="@+id/addfeature"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_add"
+                android:text="@string/xbbj_add" />
+
+            <RadioButton
+                android:id="@+id/addfeaturegb"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_addgb"
+                android:text="@string/xbbj_addgb" />
+
+            <RadioButton
+                android:id="@+id/copyButton"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_copy"
+                android:text="@string/xbbj_copy" />
+
+            <RadioButton
+                android:id="@+id/deleteButton"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_delete"
+                android:text="@string/xbbj_delete" />
+
+            <RadioButton
+                android:id="@+id/repealButton"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_chexiao"
+                android:text="@string/xbbj_revert" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/qiegeButton"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_qiege"
+                android:text="@string/xbbj_clip" />
+
+            <RadioButton
+                android:id="@+id/xiubanButton"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_xiub"
+                android:text="@string/xbbj_edit" />
+
+            <RadioButton
+                android:id="@+id/attributButton"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_attribte"
+                android:text="@string/xbbj_attribute" />
+
+            <RadioButton
+                android:id="@+id/selectButton"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_select"
+                android:text="@string/xbbj_select" />
+
+            <RadioButton
+                android:id="@+id/removeButton"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:drawableTop="@drawable/xbbj_mapremove"
+                android:text="@string/xbbj_pan" />
+        </LinearLayout>
+    </com.titan.baselibrary.customview.MyRadioGroup>
+</LinearLayout>

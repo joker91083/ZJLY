@@ -132,9 +132,6 @@ public class ToolViewModel extends BaseViewModel {
                     }
                 }
             });
-
-
         }
-
     }
 }
