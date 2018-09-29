@@ -28,17 +28,18 @@ import org.jetbrains.anko.toast
  */
 class LqglFragment : BaseFragment<FmLqglBinding, LqglViewModel>() {
     private val imgs = arrayOf(
-            "http://img2.3lian.com/2014/f2/37/d/40.jpg",
-            "http://img2.3lian.com/2014/f2/37/d/35.jpg",
-            "http://img2.3lian.com/2014/f2/37/d/34.jpg",
-            "http://img2.3lian.com/2014/f2/37/d/36.jpg",
-            "http://img2.3lian.com/2014/f2/37/d/37.jpg")
+            "http://www.zjly.gov.cn/picture/-1/180927164748792150.png",
+            "http://www.zjly.gov.cn/picture/-1/180929105544631156.jpg",
+            "http://www.zjly.gov.cn/picture/-1/180926171837534393.png",
+            "http://www.zjly.gov.cn/picture/-1/180926171836175726.jpg",
+            "http://www.zjly.gov.cn/picture/-1/180921173026519382.png")
     private val mDrawables = arrayOf(
             R.drawable.icon_zllhcx, R.drawable.icon_zmsccx, R.drawable.icon_zyghqk, R.drawable.icon_zhfkqk,
             R.drawable.icon_lycf, R.drawable.icon_tghl,  R.drawable.icon_gyl,//R.drawable.icon_hmh,
             R.drawable.icon_sthly, R.drawable.icon_yzl, R.drawable.icon_slfh, R.drawable.icon_zmsc,
             R.drawable.icon_lyyhsw, R.drawable.icon_lycy, R.drawable.icon_lygg, R.drawable.icon_bhqgy)
-    private val titles = arrayOf("标题1", "标题2", "标题3", "标题4", "标题5")
+    private val titles = arrayOf("杭州八大赏桂地 等你去寻香", "桐庐举办森林疗养国际研讨会",
+            "全省林业新媒体应用培训班在杭州举办", "临安山核桃插上电商翅膀", "告别水泥森林 靠你喽森林城市群")
 
     var lqglViewModel: LqglViewModel? = null
 

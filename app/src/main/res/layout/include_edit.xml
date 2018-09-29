@@ -49,7 +49,8 @@
                 android:layout_weight="1"
                 android:checked="false"
                 android:drawableTop="@drawable/xbbj_copy"
-                android:text="@string/xbbj_copy" />
+                android:text="@string/xbbj_copy"
+                android:visibility="visible" />
 
             <RadioButton
                 android:id="@+id/deleteButton"
@@ -69,7 +70,20 @@
                 android:layout_weight="1"
                 android:checked="false"
                 android:drawableTop="@drawable/xbbj_chexiao"
-                android:text="@string/xbbj_revert" />
+                android:text="@string/xbbj_revert"
+                android:visibility="visible"/>
+
+            <RadioButton
+                android:id="@+id/hebingButton"
+                style="@style/rb_xbbj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:drawableTop="@drawable/xbbj_hebing"
+                android:text="@string/xbbj_merge"
+                android:visibility="visible" />
+
         </LinearLayout>
 
         <LinearLayout

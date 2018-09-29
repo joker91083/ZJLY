@@ -8,14 +8,18 @@ public class MyFeature implements Serializable {
 
     private static final long serialVersionUID = 6231100848741685554L;
 
-    public static Feature getFeature() {
+    public Feature getFeature() {
         return feature;
     }
 
-    public static void setFeature(Feature feature) {
-        MyFeature.feature = feature;
+    public void setFeature(Feature feature) {
+        this.feature = feature;
     }
 
-    private static Feature feature;
+    public MyFeature(Feature feature){
+        this.feature = feature;
+    }
+
+    private Feature feature;
 
 }

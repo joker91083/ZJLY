@@ -12,6 +12,7 @@ import com.otitan.ui.mview.ILayerManagerItem
 import com.otitan.ui.mview.IMap
 import com.otitan.util.TitanItemDecoration
 import kotlinx.android.synthetic.main.activity_map.*
+import kotlinx.android.synthetic.main.activity_map_center.*
 import kotlinx.android.synthetic.main.img_tuceng.*
 import java.io.File
 import kotlin.properties.Delegates
@@ -46,14 +47,17 @@ class ImgManagerView() : IImgManager, ILayerManagerItem {
     }
 
     override fun addLayer(file: File, checked: Boolean) {
-        val layer = ArcGISTiledLayer(file.absolutePath)
-        val layers = activity.mv_map.map.basemap.baseLayers
+        var layer = ArcGISTiledLayer(file.absolutePath)
+        val layers = activity.mapview.map.basemap.baseLayers
         var flag = false
         run breaking@{
             layers.forEach {
-                if ((it as ArcGISTiledLayer).uri == file.absolutePath) {
-                    flag = true
-                    return@breaking
+                if (it is ArcGISTiledLayer) {
+                    if (it.uri == file.absolutePath) {
+                        flag = true
+                        layer = it
+                        return@breaking
+                    }
                 }
             }
         }
@@ -65,14 +69,17 @@ class ImgManagerView() : IImgManager, ILayerManagerItem {
     }
 
     override fun setExtent(file: File) {
-        val layers = activity.mv_map.map.basemap.baseLayers
+        val layers = activity.mapview.map.basemap.baseLayers
         layers.forEach {
-            if ((it as ArcGISTiledLayer).uri == file.absolutePath) {
-                val fullExtent = it.fullExtent
-                fullExtent.let { extent ->
-                    activity.mv_map.setViewpointGeometryAsync(extent)
+            if (it is ArcGISTiledLayer) {
+                if (it.uri == file.absolutePath) {
+                    val fullExtent = it.fullExtent
+                    fullExtent.let { extent ->
+                        activity.mapview.setViewpointGeometryAsync(extent)
+                    }
                 }
             }
+
         }
     }
 

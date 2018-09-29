@@ -159,7 +159,7 @@ class ZyglFragment : BaseFragment<FmMapBinding, MapViewModel>(), TrackManagerFra
                 Log.e("================", point.x.toString())
                 Log.e("================", point.y.toString())
 
-                binding.mvMap.setViewpointCenterAsync(point, Constant.defalutScale)
+//                binding.mvMap.setViewpointCenterAsync(point, Constant.defalutScale)
             }
 
         })

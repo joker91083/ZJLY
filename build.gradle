@@ -2,7 +2,7 @@
 
 buildscript {
     ext.support_version = '26.1.0'
-    ext.kotlin_version = '1.2.61'
+    ext.kotlin_version = '1.2.71'
     ext.anko_version = '0.8.2'
     ext.gradl_version = '3.0.1'
     ext.butterknife_version = '8.6.0'
@@ -11,6 +11,7 @@ buildscript {
         google()
         jcenter()
         mavenCentral() // add repository greenDao
+        maven { url 'https://dl.bintray.com/drummer-aidan/maven/' }
     }
 
     dependencies {

@@ -7,7 +7,6 @@
         <item>灾害防控情况</item>
         <item>林业采伐</item>
         <item>退耕换林</item>
-        <item>石漠化</item>
         <item>公益林</item>
         <item>生态护林员</item>
         <item>营造林</item>
@@ -18,4 +17,5 @@
         <item>林业改革</item>
         <item>保护区公园</item>
     </string-array>
+    <!--<item>石漠化</item>-->
 </resources>

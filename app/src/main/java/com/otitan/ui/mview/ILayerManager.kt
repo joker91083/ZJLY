@@ -4,7 +4,7 @@ interface ILayerManager{
     /**
      * 显示图层 [type] 图层类型 1基础图 2影像图 3地形图
      */
-    fun showLayer(type: Int)
+    fun showLayer(type: Int,check:Boolean)
 
     fun setExtent(type: Int)
     /**

@@ -60,7 +60,6 @@
 
         <!--图层控制 影像图列表-->
         <include
-            android:id="@+id/icImg"
             layout="@layout/img_tuceng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

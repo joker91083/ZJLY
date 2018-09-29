@@ -13,7 +13,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_view_rounded_blue"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
         android:padding="1dp">
 
@@ -21,8 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="5dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/titleTextView"
@@ -47,79 +47,85 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/bg_linearlayout"-->
+        <!--android:padding="5dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<CheckBox-->
+        <!--android:id="@+id/cb_sl"-->
+        <!--style="@style/tckzCheckboxTheme"-->
+        <!--android:checked="@={viewmodel.base}"-->
+        <!--android:focusable="false"-->
+        <!--android:onClick="@{()->viewmodel.showLayer(1)}"-->
+        <!--android:text="@string/base_layer" />-->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/tile_extent"-->
+        <!--style="@style/tckz_loc_style"-->
+        <!--android:onClick="@{()->viewmodel.setExtent(1)}" />-->
+
+        <!--</LinearLayout>-->
+
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/blue" />-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/bg_linearlayout"-->
+        <!--android:padding="5dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<CheckBox-->
+        <!--android:id="@+id/cb_ys"-->
+        <!--style="@style/tckzCheckboxTheme"-->
+        <!--android:checked="@={viewmodel.img}"-->
+        <!--android:onClick="@{()->viewmodel.showLayer(2)}"-->
+        <!--android:text="@string/img_layer" />-->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/image_extent"-->
+        <!--style="@style/tckz_loc_style"-->
+        <!--android:onClick="@{()->viewmodel.setExtent(2)}" />-->
+        <!--</LinearLayout>-->
+
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/blue" />-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/bg_linearlayout"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:padding="5dp"-->
+        <!--android:visibility="gone">-->
+
+        <!--<CheckBox-->
+        <!--android:id="@+id/cb_dxt"-->
+        <!--style="@style/tckzCheckboxTheme"-->
+        <!--android:checked="@={viewmodel.relief}"-->
+        <!--android:onClick="@{()->viewmodel.showLayer(3)}"-->
+        <!--android:text="@string/relief_layer" />-->
+
+
+        <!--<ImageView-->
+        <!--android:id="@+id/dxt_extent"-->
+        <!--style="@style/tckz_loc_style"-->
+        <!--android:onClick="@{()->viewmodel.setExtent(3)}" />-->
+        <!--</LinearLayout>-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/tckzRv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_linearlayout"
-            android:padding="5dp"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/cb_sl"
-                style="@style/tckzCheckboxTheme"
-                android:checked="@={viewmodel.base}"
-                android:focusable="false"
-                android:onClick="@{()->viewmodel.showLayer(1)}"
-                android:text="@string/base_layer" />
-
-            <ImageView
-                android:id="@+id/tile_extent"
-                style="@style/tckz_loc_style"
-                android:onClick="@{()->viewmodel.setExtent(1)}" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/blue" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_linearlayout"
-            android:padding="5dp"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/cb_ys"
-                style="@style/tckzCheckboxTheme"
-                android:checked="@={viewmodel.img}"
-                android:onClick="@{()->viewmodel.showLayer(2)}"
-                android:text="@string/img_layer" />
-
-            <ImageView
-                android:id="@+id/image_extent"
-                style="@style/tckz_loc_style"
-                android:onClick="@{()->viewmodel.setExtent(2)}" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/blue" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_linearlayout"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:visibility="gone">
-
-            <CheckBox
-                android:id="@+id/cb_dxt"
-                style="@style/tckzCheckboxTheme"
-                android:checked="@={viewmodel.relief}"
-                android:onClick="@{()->viewmodel.showLayer(3)}"
-                android:text="@string/relief_layer" />
-
-
-            <ImageView
-                android:id="@+id/dxt_extent"
-                style="@style/tckz_loc_style"
-                android:onClick="@{()->viewmodel.setExtent(3)}" />
-        </LinearLayout>
+            android:background="@drawable/bg_linearlayout" />
 
         <ExpandableListView
             android:id="@+id/tckzExplv"

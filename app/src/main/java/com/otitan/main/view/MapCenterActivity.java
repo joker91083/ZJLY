@@ -1,11 +1,14 @@
 package com.otitan.main.view;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -15,8 +18,10 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.esri.arcgisruntime.data.Feature;
+import com.esri.arcgisruntime.data.FeatureTable;
 import com.esri.arcgisruntime.geometry.Geometry;
 import com.esri.arcgisruntime.geometry.GeometryEngine;
 import com.esri.arcgisruntime.geometry.GeometryType;
@@ -27,6 +32,7 @@ import com.esri.arcgisruntime.geometry.Polyline;
 import com.esri.arcgisruntime.geometry.PolylineBuilder;
 import com.esri.arcgisruntime.geometry.SpatialReference;
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer;
+import com.esri.arcgisruntime.layers.FeatureLayer;
 import com.esri.arcgisruntime.layers.OpenStreetMapLayer;
 import com.esri.arcgisruntime.mapping.view.Graphic;
 import com.esri.arcgisruntime.mapping.view.GraphicsOverlay;
@@ -41,11 +47,9 @@ import com.esri.arcgisruntime.symbology.SimpleFillSymbol;
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol;
 import com.otitan.TitanApplication;
-import com.otitan.base.ContainerActivity;
 import com.otitan.base.ValueCallBack;
 import com.otitan.data.DataRepository;
 import com.otitan.data.Injection;
-import com.otitan.main.fragment.AttributeEditFragment;
 import com.otitan.main.fragment.TrackManagerFragment;
 import com.otitan.main.listener.ArcgisLocation;
 import com.otitan.main.listener.GeometryChangedListener;
@@ -65,22 +69,22 @@ import com.otitan.model.MyLayer;
 import com.otitan.ui.mview.IMap;
 import com.otitan.ui.view.ImgManagerView;
 import com.otitan.ui.view.LayerManagerView;
+import com.otitan.ui.vm.LayerManagerViewModel;
 import com.otitan.util.Constant;
 import com.otitan.util.ConverterUtils;
 import com.otitan.util.SpatialUtil;
 import com.otitan.util.SymbolUtil;
-import com.otitan.util.Utils;
+import com.otitan.zjly.BR;
 import com.otitan.zjly.R;
 import com.otitan.zjly.util.MaterialDialogUtil;
 import com.titan.baselibrary.util.ToastUtil;
+import com.otitan.zjly.databinding.ShareTckzBinding;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -117,18 +121,18 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     TextView titleTextView;
     @BindView(R.id.close_tuceng)
     AppCompatImageView closeTuceng;
-    @BindView(R.id.cb_sl)
-    CheckBox cbSl;
-    @BindView(R.id.tile_extent)
-    ImageView tileExtent;
-    @BindView(R.id.cb_ys)
-    CheckBox cbYs;
-    @BindView(R.id.image_extent)
-    ImageView imageExtent;
-    @BindView(R.id.cb_dxt)
-    CheckBox cbDxt;
-    @BindView(R.id.dxt_extent)
-    ImageView dxtExtent;
+    //    @BindView(R.id.cb_sl)
+//    CheckBox cbSl;
+//    @BindView(R.id.tile_extent)
+//    ImageView tileExtent;
+//    @BindView(R.id.cb_ys)
+//    CheckBox cbYs;
+//    @BindView(R.id.image_extent)
+//    ImageView imageExtent;
+//    @BindView(R.id.cb_dxt)
+//    CheckBox cbDxt;
+//    @BindView(R.id.dxt_extent)
+//    ImageView dxtExtent;
     @BindView(R.id.tckzExplv)
     ExpandableListView tckzExplv;
     @BindView(R.id.imgClose)
@@ -156,7 +160,9 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     private ArcGISTiledLayer gisTiledLayer;
     private ArrayList<MyLayer> layers = new ArrayList<>();
     //当前选择的矢量图层数据
-    private MyLayer myLayer;
+    public static MyLayer myLayer;
+    //当前选择的小班
+    public static Feature feature;
     //已选中的小班
     public List<Feature> features = new ArrayList<>();
     private Location location;
@@ -165,6 +171,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     private DataRepository dataRepository;
     private String sbh;
     private LayerManagerView layerManagerView;
+    public ShareTckzBinding binding;
     public ImgManagerView imgManager;
     //轨迹查询对话框
     private TrackManagerFragment mTrackManager;
@@ -229,6 +236,12 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         mapView.getGraphicsOverlays().add(mGraphicsOverlay);
 
         layerManagerView = new LayerManagerView(this, this);
+        LayerManagerViewModel managerViewModel = new LayerManagerViewModel(this, layerManagerView);
+        layerManagerView.setViewModel(managerViewModel);
+        binding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.share_tckz, null, false);
+        binding.setViewmodel(managerViewModel);
+//        include_icTckz = binding.getRoot();
+
         imgManager = new ImgManagerView(this, this);
         dataRepository = Injection.INSTANCE.provideDataRepository();
 
@@ -250,7 +263,8 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
     @OnClick({R.id.share_isearch, R.id.ib_location, R.id.ib_clean, R.id.ib_distance,
             R.id.ib_sketch, R.id.share_xcxxsb, R.id.tckz_imageview, R.id.close_tuceng,
-            R.id.addfeature, R.id.selectButton, R.id.xiubanButton, R.id.share_tcxr})
+            R.id.addfeature, R.id.selectButton, R.id.xiubanButton, R.id.share_tcxr,
+            R.id.imgClose})
     public void showInfo(View view) {
         switch (view.getId()) {
             case R.id.share_isearch:
@@ -290,14 +304,16 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
             case R.id.close_tuceng:
                 layerManagerView.close();
                 break;
+            case R.id.imgClose:
+                imgManager.close();
+                break;
         }
     }
 
     @OnCheckedChanged({R.id.addfeature, R.id.addfeaturegb, R.id.copyButton, R.id.deleteButton,
-            R.id.repealButton, R.id.qiegeButton, R.id.xiubanButton, R.id.attributButton,
-            R.id.selectButton, R.id.removeButton})
+            R.id.repealButton, R.id.hebingButton, R.id.qiegeButton, R.id.xiubanButton,
+            R.id.attributButton, R.id.selectButton, R.id.removeButton})
     public void chedked(CompoundButton view, boolean ischanged) {
-//        Log.e("tag",ischanged+"");
         if (!ischanged) {
             return;
         }
@@ -311,40 +327,98 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 break;
             case R.id.addfeaturegb:
                 /*共边增班*/
-                actionModel = ActionModel.ADDFEATUREGB;
-                sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_LINE);
+                if (features.size() == 0) {
+                    ToastUtil.setToast(this, "请选中一个小班进行共边增班");
+                } else if (features.size() > 1) {
+                    ToastUtil.setToast(this, "只能对一个小班进行共边增班");
+                } else {
+                    boolean flag = setMyLayer(features.get(0));
+                    if (flag) {
+                        actionModel = ActionModel.ADDFEATUREGB;
+                        sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_POLYGON);
+                    }
+                }
+                break;
             case R.id.copyButton:
                 /*小班复制*/
+                if (features.isEmpty()) {
+                    ToastUtil.setToast(this, "请选择要复制的小班");
+                } else {
+                    if (layers.size() > 0) {
+                        actionModel = ActionModel.COPY;
+                        choseLayer();
+                    } else {
+                        ToastUtil.setToast(this, "请先加载矢量图层");
+                    }
+                }
+                break;
             case R.id.deleteButton:
                 /*小班删除*/
+                if (features.size() == 0) {
+                    ToastUtil.setToast(this, "请选择要删除的小班");
+                } else if (features.size() == 1) {
+//                    sketchEditorViewModel.delFeature(myLayer, features.get(0), features);
+                    delSureDialog(features.get(0));
+                } else {
+                    delFeatureDialog();
+                }
+                break;
             case R.id.repealButton:
                 /*撤销*/
+                sketchEditorViewModel.repealEdit();
+                break;
+            case R.id.hebingButton:
+                /*合并*/
+                if (features.size() < 2) {
+                    ToastUtil.setToast(this, "请选择两个或以上的小班进行合并");
+                } else {
+                    boolean flag = checkFeature(features);
+                    if (flag) {
+                        hebingFeature();
+                    } else {
+                        ToastUtil.setToast(this, "合并的小班必须处于同一图层");
+                    }
+                }
+                break;
             case R.id.qiegeButton:
                 /*分割*/
-                actionModel = ActionModel.QIEGE;
-                sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_LINE);
+                if (features.size() == 0) {
+                    ToastUtil.setToast(this, "请选择一个小班进行分割");
+                } else if (features.size() > 1) {
+                    ToastUtil.setToast(this, "只能对一个小班进行分割");
+                } else {
+                    boolean flag = setMyLayer(features.get(0));
+                    if (flag) {
+                        actionModel = ActionModel.QIEGE;
+                        sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_LINE);
+                    }
+                }
+                break;
             case R.id.xiubanButton:
                 /*修班*/
-                actionModel = ActionModel.XIUBIAN;
-                sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_LINE);
-                getMyLayer();
+                if (features.size() == 0) {
+                    ToastUtil.setToast(this, "请选中一个小班面进行修班操作");
+                } else if (features.size() > 1) {
+                    ToastUtil.setToast(this, "只能对一个小班面进行修班操作");
+                } else {
+                    boolean flag = setMyLayer(features.get(0));
+                    if (flag) {
+                        actionModel = ActionModel.XIUBIAN;
+                        sketchEditorViewModel.setSketch(SketchCreationMode.FREEHAND_LINE);
+                    }
+                }
+                break;
             case R.id.attributButton:
                 /*属性编辑*/
-                if (!features.isEmpty()) {
-                    getMyLayer();
-                    Bundle bundle = new Bundle();
-                    Map<String, Object> att = features.get(0).getAttributes();
-                    HashMap<String, Object> map = new HashMap<>(att);
-                    MyFeature myFeature = new MyFeature();
-                    MyFeature.setFeature(features.get(0));
-                    bundle.putSerializable("feature", myFeature);
-                    bundle.putSerializable("myLayer",myLayer);
-                    Intent intent = new Intent(this, AttributeEditActivity.class);
-                    intent.putExtras(bundle);
-                    this.startActivity(intent);
+                if (features.size() == 1) {
+                    feature = features.get(0);
+                    toAttEdit(features.get(0));
+                } else if (features.size() > 1) {
+                    editAttFeatureDialog();
                 } else {
                     ToastUtil.setToast(this, "请选择小班");
                 }
+                break;
             case R.id.selectButton:
                 /*选择小班*/
                 actionModel = ActionModel.SELECT;
@@ -354,6 +428,18 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 /*平移*/
                 break;
         }
+    }
+
+    /**
+     * 跳转属性编辑页面
+     */
+    private void toAttEdit(Feature feature) {
+        boolean flag = setMyLayer(feature);
+        if (!flag) {
+            return;
+        }
+        Intent intent = new Intent(this, AttributeEditActivity.class);
+        this.startActivity(intent);
     }
 
     private void clear() {
@@ -371,11 +457,9 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
             geometry = GeometryEngine.simplify(geometry);
         }
         if (actionModel == ActionModel.DISTANCE) {
-
             if (GeometryType.POLYLINE == geometry.getGeometryType()) {
                 Point point = geometry.getExtent().getCenter();
                 double length = Math.abs(GeometryEngine.length((Polyline) geometry));
-
                 calloutViewModel.showValueInmap(mapView, point, length, " 米");
             }
         }
@@ -389,22 +473,22 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         }
 
         if (actionModel == ActionModel.IQUERY) {
+            /*属性查询*/
             toolViewModel.iquery(mapView, geometry, calloutViewModel);
         } else if (actionModel == ActionModel.ADDFEATURE) {
-            if (sketchEditor.isSketchValid()) {
-                if (!geometry.isEmpty()) {
-                    sketchEditorViewModel.addFeature(myLayer, geometry);
-                }
-            }
+            /*新增小班*/
+            sketchEditorViewModel.addFeature(myLayer, geometry, null);
+        } else if (actionModel == ActionModel.ADDFEATUREGB) {
+            /*共边增班*/
+            sketchEditorViewModel.addFeatureGb(myLayer, geometry, features.get(0));
+        } else if (actionModel == ActionModel.QIEGE) {
+            /*切割*/
+            sketchEditorViewModel.qiege(myLayer, geometry, features.get(0));
         } else if (actionModel == ActionModel.XIUBIAN) {
-            if (features.size() == 0) {
-                ToastUtil.setToast(this, "请选中一个小班面进行修班操作");
-            } else if (features.size() > 1) {
-                ToastUtil.setToast(this, "只能对一个小班面进行修班操作");
-            } else {
-                sketchEditorViewModel.editor(myLayer, geometry, features.get(0));
-            }
+            /*修班*/
+            sketchEditorViewModel.editor(myLayer, geometry, features.get(0));
         } else if (actionModel == ActionModel.SELECT) {
+            /*小班选择*/
             features.clear();
             for (MyLayer myLayer : layers) {
                 sketchEditorViewModel.queryFeature(myLayer, geometry, features);
@@ -487,16 +571,164 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     public void choseLayer() {
         List<String> layerNames = new ArrayList<>();
         for (MyLayer layer : layers) {
-            layerNames.add(layer.getPName() + "-" + layer.getCName());
+            layerNames.add(layer.getpName() + "-" + layer.getlName());
         }
         MaterialDialog dialog = MaterialDialogUtil.showSingleSelectionDialog(this, "图层选择", layerNames,
                 new MaterialDialog.ListCallback() {
                     @Override
                     public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
                         myLayer = layers.get(position);
+                        if (actionModel == ActionModel.COPY) {
+                            for (Feature f : features) {
+                                if (myLayer.getTable().getGeometryType() == f.getGeometry().getGeometryType()) {
+                                    sketchEditorViewModel.addFeature(myLayer, f.getGeometry(), f.getAttributes());
+                                }
+                            }
+                        }
+                        dialog.dismiss();
                     }
                 });
         dialog.show();
+    }
+
+    /**
+     * 小班属性编辑
+     */
+    public void editAttFeatureDialog() {
+        List<String> featureName = new ArrayList<>();
+        for (Feature feature : features) {
+            String id = feature.getAttributes().get("objectid").toString();
+            String name = feature.getFeatureTable().getTableName();
+            featureName.add(name + " objectid:" + id);
+        }
+        MaterialDialog dialog = MaterialDialogUtil.showSingleSelectionDialog(this, "小班选择", featureName,
+                new MaterialDialog.ListCallback() {
+                    @Override
+                    public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
+                        Feature feature = features.get(position);
+                        MapCenterActivity.feature = feature;
+                        toAttEdit(feature);
+                        dialog.dismiss();
+                    }
+                });
+        dialog.show();
+    }
+
+    /**
+     * 删除小班
+     */
+    public void delFeatureDialog() {
+        List<String> ids = new ArrayList<>();
+        for (Feature feature : features) {
+            String id = feature.getAttributes().get("objectid").toString();
+            ids.add("object:" + id);
+        }
+        MaterialDialog dialog = MaterialDialogUtil.showSingleSelectionDialog(this, "小班删除", ids,
+                new MaterialDialog.ListCallback() {
+                    @Override
+                    public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
+                        Feature feature = features.get(position);
+                        delSureDialog(feature);
+                    }
+                });
+        dialog.show();
+    }
+
+    /**
+     * 删除小班确认提示弹窗
+     *
+     * @param feature 要删除的小班
+     */
+    public void delSureDialog(final Feature feature) {
+        MaterialDialogUtil.showSureDialog(this, "是否确定删除小班", new MaterialDialog.SingleButtonCallback() {
+            @Override
+            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                boolean flag = setMyLayer(feature);
+                if (flag) {
+                    sketchEditorViewModel.delFeature(myLayer, feature, features);
+                }
+                dialog.dismiss();
+            }
+        }).show();
+    }
+
+    /**
+     * 小班合并
+     */
+    public void hebingFeature() {
+        List<String> ids = new ArrayList<>();
+        for (Feature feature : features) {
+            String id = feature.getAttributes().get("objectid").toString();
+            ids.add("object:" + id);
+        }
+        feature = null;
+        MaterialDialog dialog = new MaterialDialog.Builder(this).title("小班合并")
+                .content("请选择合并之后要保留的小班属性").items(ids).itemsCallback(new MaterialDialog.ListCallback() {
+                    @Override
+                    public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
+                        feature = features.get(position);
+                        mGraphicsOverlay.getGraphics().clear();
+                        Geometry geometry = feature.getGeometry();
+                        Graphic graphic = new Graphic(geometry, SymbolUtil.risk5_Symbol);
+                        mGraphicsOverlay.getGraphics().add(graphic);
+                        mapView.setViewpointGeometryAsync(features.get(position).getGeometry());
+                    }
+                }).positiveText("确定").onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        if (feature == null) {
+                            ToastUtil.setToast(dialog.getContext(), "请选择要保留的小班");
+                            return;
+                        }
+                        boolean flag = setMyLayer(feature);
+                        if (flag) {
+                            sketchEditorViewModel.hebing(myLayer, features, feature);
+                            mGraphicsOverlay.getGraphics().clear();
+                        }
+                    }
+                }).negativeText("取消").onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        mGraphicsOverlay.getGraphics().clear();
+                        dialog.dismiss();
+                    }
+                }).autoDismiss(false).build();
+        dialog.show();
+    }
+
+    /**
+     * 检查小班是否都处于同一个表
+     *
+     * @param features
+     * @return
+     */
+    public boolean checkFeature(List<Feature> features) {
+        boolean flag = true;
+        FeatureTable table = features.get(0).getFeatureTable();
+        for (Feature f : features) {
+            if (f.getFeatureTable() != table) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    private boolean setMyLayer(Feature feature) {
+        String tableName = feature.getFeatureTable().getTableName();
+        myLayer = null;
+        boolean flag = false;
+        for (MyLayer layer : layers) {
+            if (layer.getlName().equals(tableName)) {
+                flag = true;
+                myLayer = layer;
+                break;
+            }
+        }
+        if (!flag) {
+            ToastUtil.setToast(MapCenterActivity.this, "没有获取到图层数据");
+        }
+        return flag;
     }
 
     @Override

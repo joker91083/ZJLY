@@ -126,7 +126,7 @@ public class AttributeEditFragment extends BaseFragment<FmAttributeBinding, Attr
     }
 
     public void attEdit(Feature feature, MyLayer myLayer) {
-        final ListenableFuture<Void> future = Objects.requireNonNull(MyLayer.getTable()).updateFeatureAsync(feature);
+        final ListenableFuture<Void> future = Objects.requireNonNull(myLayer.getTable()).updateFeatureAsync(feature);
         future.addDoneListener(new Runnable() {
             @Override
             public void run() {

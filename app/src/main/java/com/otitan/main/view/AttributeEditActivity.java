@@ -16,7 +16,6 @@ import com.esri.arcgisruntime.data.Feature;
 import com.otitan.base.BaseActivity;
 import com.otitan.main.adapter.AttributeAdapter;
 import com.otitan.main.model.Attribute;
-import com.otitan.main.model.MyFeature;
 import com.otitan.main.viewmodel.AttributeEditViewModel;
 import com.otitan.model.MyLayer;
 import com.otitan.ui.mview.IEditFeature;
@@ -37,7 +36,7 @@ public class AttributeEditActivity extends BaseActivity<FmAttributeBinding, Attr
         implements IEditFeature {
     private AttributeEditViewModel viewmodel;
     private List<Attribute> items = new ArrayList<>();
-    private MyFeature myFeature;
+    private Feature feature;
     private MyLayer myLayer;
     private AttributeAdapter adapter;
 
@@ -63,12 +62,14 @@ public class AttributeEditActivity extends BaseActivity<FmAttributeBinding, Attr
     @Override
     public void initParam() {
         super.initParam();
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            myLayer = (MyLayer) bundle.get("myLayer");
-            myFeature = (MyFeature) bundle.get("feature");
-            conversion(myFeature.getFeature().getAttributes());
-        }
+//        Bundle bundle = getIntent().getExtras();
+//        if (bundle != null) {
+//            myLayer = (MyLayer) bundle.get("myLayer");
+//            feature = (MyFeature) bundle.get("feature");
+        myLayer = MapCenterActivity.myLayer;
+        feature = MapCenterActivity.feature;
+        conversion(feature.getAttributes());
+//        }
     }
 
     @Override
@@ -99,7 +100,7 @@ public class AttributeEditActivity extends BaseActivity<FmAttributeBinding, Attr
                 .input("请输入属性值", att.getValue(), new MaterialDialog.InputCallback() {
                     @Override
                     public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
-                        Feature feature = myFeature.getFeature();
+                        Feature feature = AttributeEditActivity.this.feature;
                         Map<String, Object> map = feature.getAttributes();
                         String name = att.getName();
                         String value = input.toString();
