@@ -84,7 +84,7 @@ class ResourceManageViewModel() : BaseViewModel() {
             (data?.data as List<LinkedTreeMap<String, Any>>).forEach {
                 if (it["Name"] == dqName) {
                     var i = 0f
-                    it.forEach { k, v ->
+                    it.forEach { (k, v) ->
                         if (k != "Name" && k != "Code") {
                             val v1 = v.toString().replace(",", "")
                             barChartDataList.add(BarEntry(i, v1.toFloat()))

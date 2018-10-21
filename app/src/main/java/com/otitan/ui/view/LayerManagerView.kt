@@ -1,12 +1,10 @@
 package com.otitan.ui.view
 
-import android.app.Activity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
-import com.esri.arcgisruntime.data.FeatureTable
 import com.esri.arcgisruntime.data.Geodatabase
 import com.esri.arcgisruntime.data.ShapefileFeatureTable
 import com.esri.arcgisruntime.geometry.Geometry
@@ -15,7 +13,6 @@ import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.esri.arcgisruntime.layers.FeatureLayer
 import com.esri.arcgisruntime.layers.Layer
 import com.esri.arcgisruntime.loadable.LoadStatus
-import com.otitan.base.BaseAdapter
 import com.otitan.main.view.MapCenterActivity
 import com.otitan.model.BaseLayer
 import com.otitan.model.MyLayer
@@ -27,8 +24,6 @@ import com.otitan.ui.mview.IMap
 import com.otitan.ui.vm.LayerManagerViewModel
 import com.otitan.util.ResourcesManager
 import com.otitan.util.TitanItemDecoration
-import com.otitan.util.Utils
-import kotlinx.android.synthetic.main.activity_map.*
 import kotlinx.android.synthetic.main.activity_map_center.*
 import kotlinx.android.synthetic.main.share_tckz.*
 import org.jetbrains.anko.toast
@@ -192,13 +187,13 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
     fun addLayers(file: File) {
 
         if (file.exists() && file.name.endsWith("geodatabase")) {
-            addGoedatabase(file)
+            addGeodatabase(file)
         } else if (file.exists() && file.name.endsWith("shp")) {
             addShp(file)
         }
     }
 
-    fun addGoedatabase(file: File) {
+    fun addGeodatabase(file: File) {
 
         try {
             val gdb = Geodatabase(file.absolutePath) ?: return

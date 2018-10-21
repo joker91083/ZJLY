@@ -1,5 +1,6 @@
 package com.otitan.main.viewmodel
 
+import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import com.otitan.base.BaseViewModel
 
@@ -22,4 +23,10 @@ class LykjItemViewModel : BaseViewModel() {
     val czbz = ObservableField<String>()
     //备注
     val remark = ObservableField<String>()
+    //是否是科技标准 true是 false否
+    val isKjbz = ObservableBoolean(false)
+
+    fun itemOnClick(){
+
+    }
 }

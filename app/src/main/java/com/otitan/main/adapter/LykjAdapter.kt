@@ -11,14 +11,16 @@ import kotlin.properties.Delegates
 class LykjAdapter() : BaseAdapter() {
     private var context: Context? = null
     private var items: List<Any>? = null
+    private var isKjbz:Boolean = false
 
     constructor(context: Context?, items: List<Any>?) : this() {
         this.context = context
         this.items = items
     }
 
-    fun setData(items: List<Any>?) {
+    fun setData(items: List<Any>?, isKjbz: Boolean) {
         this.items = items
+        this.isKjbz = isKjbz
         notifyDataSetChanged()
     }
 
@@ -32,6 +34,7 @@ class LykjAdapter() : BaseAdapter() {
         viewmodel.xmbh.set((items!![position] as LinkedTreeMap<String, Any>)["No"].toString())
         viewmodel.zcr.set((items!![position] as LinkedTreeMap<String, Any>)["HostUser"].toString())
         viewmodel.cddw.set((items!![position] as LinkedTreeMap<String, Any>)["Unit"].toString())
+        viewmodel.isKjbz.set(isKjbz)
         return viewmodel
     }
 
