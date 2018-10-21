@@ -30,7 +30,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="20dp" />
 
-            <!--小班编辑工具-->
+            <!--底部菜单-->
             <include
                 android:id="@+id/ic_editTool"
                 layout="@layout/share_edittool"
@@ -39,7 +39,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="20dp" />
-
+            <!--小班编辑工具栏-->
             <include
                 android:id="@+id/ic_feature_edit"
                 layout="@layout/include_edit"

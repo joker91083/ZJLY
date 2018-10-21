@@ -2,6 +2,7 @@ package com.otitan.login
 
 import android.databinding.ObservableField
 import android.util.Log
+import com.esri.arcgisruntime.geometry.Geometry
 import com.google.gson.Gson
 import com.otitan.TitanApplication
 
@@ -16,11 +17,11 @@ import com.otitan.model.ResultModel
 import com.otitan.util.ToastUtil
 import okhttp3.MediaType
 import okhttp3.RequestBody
-import org.jetbrains.anko.toast
-import kotlin.math.log
 
 
 class LoginModel() : BaseViewModel(), ILoginView {
+    override fun onGeometry(geometry: Geometry) {
+    }
 
     private var dataRepository: DataRepository = Injection.provideDataRepository()
 
@@ -64,7 +65,7 @@ class LoginModel() : BaseViewModel(), ILoginView {
                 Gson().toJson(loginInfo))
 
         showDialog("登陆中...")
-        dataRepository.login(name!!.get(),password!!.get(),"password",object :RemoteDataSource.mCallback{
+        dataRepository.login(name!!.get()!!, password!!.get()!!,"password",object :RemoteDataSource.mCallback{
             override fun onFailure(info: String) {
                 dismissDialog()
                 onFail("登录失败:$info")
@@ -73,7 +74,7 @@ class LoginModel() : BaseViewModel(), ILoginView {
             override fun onSuccess(result: Any) {
                 dismissDialog()
                 TitanApplication.loginResult = (result as ResultModel<LoginResult>).data
-                if (checked!!.get()) {
+                if (checked!!.get()!!) {
                     TitanApplication.sharedPreferences.edit().putBoolean("remember ", true).apply()
                     TitanApplication.sharedPreferences.edit().putString("name", name!!.get()).apply()
                     TitanApplication.sharedPreferences.edit().putString("password", password!!.get()).apply()

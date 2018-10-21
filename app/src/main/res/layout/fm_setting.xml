@@ -22,10 +22,10 @@
             app:titleTextColor="@color/white" />
 
         <Switch
+            style="@style/mysetting"
             android:checked="@={viewmodel.guiji}"
             android:onClick="@{()->viewmodel.saveGuiji()}"
-            android:text="记录轨迹"
-            style="@style/mysetting" />
+            android:text="记录轨迹" />
 
         <Switch
             style="@style/mysetting"
@@ -35,9 +35,9 @@
 
         <TextView
             style="@style/mysetting"
+            android:gravity="center_vertical"
             android:onClick="@{()->viewmodel.setGps()}"
             android:text="GPS设置"
-            android:textColor="@color/black"
-            android:gravity="center_vertical"/>
+            android:textColor="@color/black" />
     </LinearLayout>
 </layout>

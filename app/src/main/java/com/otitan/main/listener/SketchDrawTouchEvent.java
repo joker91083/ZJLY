@@ -12,6 +12,7 @@ import com.esri.arcgisruntime.mapping.view.DefaultMapViewOnTouchListener;
 import com.esri.arcgisruntime.mapping.view.MapView;
 import com.esri.arcgisruntime.mapping.view.SketchEditor;
 import com.otitan.base.ValueCallBack;
+import com.otitan.main.model.ActionModel;
 import com.otitan.util.Constant;
 
 
@@ -23,23 +24,22 @@ public class SketchDrawTouchEvent extends DefaultMapViewOnTouchListener {
     private ValueCallBack<Object> callBack;
 
 
-    public SketchDrawTouchEvent(Context context, MapView mapView, View.OnTouchListener listener,ValueCallBack<Object> callBack) {
-        super(context, mapView);
+    public SketchDrawTouchEvent(MapView mapView, View.OnTouchListener listener, ValueCallBack<Object> callBack) {
+        super(mapView.getContext(), mapView);
         this.callBack = callBack;
         _listener = listener;
         _maplistener = (DefaultMapViewOnTouchListener) listener;
         this.sketchEditor = mapView.getSketchEditor();
     }
 
-
-    //    @Override
+    @Override
     public boolean onTouch(View v, MotionEvent e) {
         //这里实现监听选择性调用
         if (e.getAction() == MotionEvent.ACTION_UP) {
             boolean flag = mMapView.getSketchEditor().isSketchValid();
             if(flag){
                 Geometry geometry = mMapView.getSketchEditor().getGeometry();
-                callBack.onSuccess(geometry);
+                callBack.onGeometry(geometry);
             }
         }
 

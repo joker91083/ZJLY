@@ -1,10 +1,12 @@
 package com.otitan.ui.view
 
+import android.app.Activity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
+import com.esri.arcgisruntime.data.FeatureTable
 import com.esri.arcgisruntime.data.Geodatabase
 import com.esri.arcgisruntime.data.ShapefileFeatureTable
 import com.esri.arcgisruntime.geometry.Geometry
@@ -13,6 +15,7 @@ import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.esri.arcgisruntime.layers.FeatureLayer
 import com.esri.arcgisruntime.layers.Layer
 import com.esri.arcgisruntime.loadable.LoadStatus
+import com.otitan.base.BaseAdapter
 import com.otitan.main.view.MapCenterActivity
 import com.otitan.model.BaseLayer
 import com.otitan.model.MyLayer
@@ -24,6 +27,8 @@ import com.otitan.ui.mview.IMap
 import com.otitan.ui.vm.LayerManagerViewModel
 import com.otitan.util.ResourcesManager
 import com.otitan.util.TitanItemDecoration
+import com.otitan.util.Utils
+import kotlinx.android.synthetic.main.activity_map.*
 import kotlinx.android.synthetic.main.activity_map_center.*
 import kotlinx.android.synthetic.main.share_tckz.*
 import org.jetbrains.anko.toast
@@ -49,6 +54,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         this.iMap = iMap
     }
 
+    @TargetApi(Build.VERSION_CODES.N)
     fun initView() {
         if (baseAdapter == null) {
             val list = ArrayList<BaseLayer>()
@@ -73,9 +79,17 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         }
         val childs = ResourcesManager.getInstances(activity).getChildData(groups)
         if (adapter == null) {
-            childs.forEach { map ->
-                map.forEach { k, list ->
-                    list.forEach { file ->
+//            childs.forEach { map ->
+//                map.forEach { k, list ->
+//                    list.forEach { file ->
+//                        checked[file.absolutePath] = false
+//                    }
+//                }
+//            }
+
+            for(item in childs){
+                for(map in item){
+                    for(file in map.value){
                         checked[file.absolutePath] = false
                     }
                 }

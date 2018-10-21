@@ -2,6 +2,7 @@ package com.otitan.main.viewmodel
 
 import android.content.Context
 import android.os.Bundle
+import com.esri.arcgisruntime.geometry.Geometry
 import com.otitan.TitanApplication
 import com.otitan.base.BaseViewModel
 import com.otitan.base.ValueCallBack
@@ -15,6 +16,8 @@ import com.otitan.zjly.R
 import com.titan.versionupdata.VersionUpdata
 
 class PersonalViewModel() : BaseViewModel(), ValueCallBack<Any> {
+    override fun onGeometry(geometry: Geometry) {
+    }
 
     var versioncode: String? = ""
 

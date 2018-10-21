@@ -2,7 +2,6 @@ package com.otitan.main.view;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +9,9 @@ import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -32,7 +29,6 @@ import com.esri.arcgisruntime.geometry.Polyline;
 import com.esri.arcgisruntime.geometry.PolylineBuilder;
 import com.esri.arcgisruntime.geometry.SpatialReference;
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer;
-import com.esri.arcgisruntime.layers.FeatureLayer;
 import com.esri.arcgisruntime.layers.OpenStreetMapLayer;
 import com.esri.arcgisruntime.mapping.view.Graphic;
 import com.esri.arcgisruntime.mapping.view.GraphicsOverlay;
@@ -56,7 +52,6 @@ import com.otitan.main.listener.GeometryChangedListener;
 import com.otitan.main.model.ActionModel;
 import com.otitan.main.model.Location;
 import com.otitan.main.model.MainModel;
-import com.otitan.main.model.MyFeature;
 import com.otitan.main.model.TrackPoint;
 import com.otitan.main.viewmodel.BootViewModel;
 import com.otitan.main.viewmodel.CalloutViewModel;
@@ -74,11 +69,11 @@ import com.otitan.util.Constant;
 import com.otitan.util.ConverterUtils;
 import com.otitan.util.SpatialUtil;
 import com.otitan.util.SymbolUtil;
-import com.otitan.zjly.BR;
 import com.otitan.zjly.R;
 import com.otitan.zjly.util.MaterialDialogUtil;
 import com.titan.baselibrary.util.ToastUtil;
 import com.otitan.zjly.databinding.ShareTckzBinding;
+import com.titan.eventlibrary.EventActivity;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -132,7 +127,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 //    @BindView(R.id.cb_dxt)
 //    CheckBox cbDxt;
 //    @BindView(R.id.dxt_extent)
-//    ImageView dxtExtent;
+//    ImageView dxtExtent;add
     @BindView(R.id.tckzExplv)
     ExpandableListView tckzExplv;
     @BindView(R.id.imgClose)
@@ -147,7 +142,6 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     /*include*/
     public View include_icTckz, include_img, include_edit;
 
-    private MainModel model;
     private SketchEditor sketchEditor;
     private ToolViewModel toolViewModel;
     private InitViewModel initViewModel;
@@ -219,7 +213,6 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         sketchStyle.setFillSymbol(mFillSymbol);
         sketchEditor.setSketchStyle(sketchStyle);
 
-
         sketchEditor.addGeometryChangedListener(new GeometryChangedListener(mapView, this));
         mapView.setSketchEditor(sketchEditor);
         initViewModel = InitViewModel.getInstance(this);
@@ -272,6 +265,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 toolViewModel.cleanSketch(mapView);
                 actionModel = ActionModel.IQUERY;
                 toolViewModel.showInfo(mapView);
+
                 break;
             case R.id.ib_location:
                 toolViewModel.myLocation(location);
@@ -293,7 +287,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 toolViewModel.area(mapView);
                 break;
             case R.id.share_xcxxsb:
-                startActivity(UpInfoActivity.class);
+                startActivity(EventActivity.class);
                 break;
             case R.id.tckz_imageview:
                 bootViewModel.layerManger();
@@ -430,6 +424,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         }
     }
 
+
     /**
      * 跳转属性编辑页面
      */
@@ -450,52 +445,6 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
     @Override
     public void onSuccess(Object o) {
-        toolViewModel.cleanAllGraphics(mapView);
-
-        Geometry geometry = mapView.getSketchEditor().getGeometry();
-        if (!GeometryEngine.isSimple(geometry)) {
-            geometry = GeometryEngine.simplify(geometry);
-        }
-        if (actionModel == ActionModel.DISTANCE) {
-            if (GeometryType.POLYLINE == geometry.getGeometryType()) {
-                Point point = geometry.getExtent().getCenter();
-                double length = Math.abs(GeometryEngine.length((Polyline) geometry));
-                calloutViewModel.showValueInmap(mapView, point, length, " 米");
-            }
-        }
-
-        if (actionModel == ActionModel.AREA) {
-            Point point = geometry.getExtent().getCenter();
-            if (GeometryType.POLYGON == geometry.getGeometryType()) {
-                double area = Math.abs(GeometryEngine.area((Polygon) geometry));
-                calloutViewModel.showValueInmap(mapView, point, area, " 平方米");
-            }
-        }
-
-        if (actionModel == ActionModel.IQUERY) {
-            /*属性查询*/
-            toolViewModel.iquery(mapView, geometry, calloutViewModel);
-        } else if (actionModel == ActionModel.ADDFEATURE) {
-            /*新增小班*/
-            sketchEditorViewModel.addFeature(myLayer, geometry, null);
-        } else if (actionModel == ActionModel.ADDFEATUREGB) {
-            /*共边增班*/
-            sketchEditorViewModel.addFeatureGb(myLayer, geometry, features.get(0));
-        } else if (actionModel == ActionModel.QIEGE) {
-            /*切割*/
-            sketchEditorViewModel.qiege(myLayer, geometry, features.get(0));
-        } else if (actionModel == ActionModel.XIUBIAN) {
-            /*修班*/
-            sketchEditorViewModel.editor(myLayer, geometry, features.get(0));
-        } else if (actionModel == ActionModel.SELECT) {
-            /*小班选择*/
-            features.clear();
-            for (MyLayer myLayer : layers) {
-                sketchEditorViewModel.queryFeature(myLayer, geometry, features);
-            }
-            return;
-        }
-
 
     }
 
@@ -762,6 +711,11 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
             public void onFail(@NotNull String code) {
                 dataRepository.addLocalPoint(lon, lat, sbh, "0");
             }
+
+            @Override
+            public void onGeometry(@NotNull Geometry geometry) {
+
+            }
         });
 
     }
@@ -838,5 +792,50 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     @Override
     public ArcGISTiledLayer getTiledLayer() {
         return gisTiledLayer;
+    }
+
+    @Override
+    public void onGeometry(@NotNull Geometry geometry) {
+
+        toolViewModel.cleanAllGraphics(mapView);
+        if (!GeometryEngine.isSimple(geometry)) {
+            geometry = GeometryEngine.simplify(geometry);
+        }
+
+        if(actionModel == ActionModel.IQUERY){
+            /*属性查询*/
+            toolViewModel.iquery(mapView, geometry, calloutViewModel);
+        }else if (actionModel == ActionModel.DISTANCE) {
+            if (GeometryType.POLYLINE == geometry.getGeometryType()) {
+                Point point = geometry.getExtent().getCenter();
+                double length = Math.abs(GeometryEngine.length((Polyline) geometry));
+                calloutViewModel.showValueInmap(mapView, point, length, " 米");
+            }
+        }else if (actionModel == ActionModel.AREA) {
+            Point point = geometry.getExtent().getCenter();
+            if (GeometryType.POLYGON == geometry.getGeometryType()) {
+                double area = Math.abs(GeometryEngine.area((Polygon) geometry));
+                calloutViewModel.showValueInmap(mapView, point, area, " 平方米");
+            }
+        }else if (actionModel == ActionModel.ADDFEATURE) {
+            /*新增小班*/
+            sketchEditorViewModel.addFeature(myLayer, geometry, null);
+        } else if (actionModel == ActionModel.ADDFEATUREGB) {
+            /*共边增班*/
+            sketchEditorViewModel.addFeatureGb(myLayer, geometry, features.get(0));
+        } else if (actionModel == ActionModel.QIEGE) {
+            /*切割*/
+            sketchEditorViewModel.qiege(myLayer, geometry, features.get(0));
+        } else if (actionModel == ActionModel.XIUBIAN) {
+            /*修班*/
+            sketchEditorViewModel.editor(myLayer, geometry, features.get(0));
+        } else if (actionModel == ActionModel.SELECT) {
+            /*小班选择*/
+            features.clear();
+            for (MyLayer myLayer : layers) {
+                sketchEditorViewModel.queryFeature(myLayer, geometry, features);
+            }
+        }
+
     }
 }
