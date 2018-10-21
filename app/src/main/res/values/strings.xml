@@ -30,8 +30,8 @@
     <string name="World_Street_Map">http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer</string>
     <string name="updata_url">http://101.201.54.143:8031/apk/zjly/zjly_version.xml</string>
     <!--后台接口地址-->
-    <string name="SERVER_HOST">http://sys.gyforest.com:8020/EcolMonitorManage/EcolWebService.asmx/</string>
-
+    <!--<string name="SERVER_HOST">http://sys.gyforest.com:8020/EcolMonitorManage/EcolWebService.asmx/</string>-->
+    <string name="SERVER_HOST">http://118.178.118.213:8081/</string>
 
     <!--数据中心-->
     <array name="data_center">
@@ -86,6 +86,20 @@
     <string name="xbbj_select">小班选择</string>
     <string name="xbbj_pan">平移</string>
 
+    <!--林情概览-->
+    <string name="jiansuo">条件检索</string>
+    <string name="years">年份</string>
+    <string name="type">类型</string>
+    <string name="index">指标</string>
+    <string name="dq">地区</string>
     <string name="organizer">主办单位：浙江省林业厅\n技术支持：北京航天泰坦科技股份有限公司</string>
+    <string name="xmbh">项目编号：</string>
+    <string name="xmmc">项目名称</string>
+    <string name="cddw">承担单位：</string>
+    <string name="zcr">主持人：</string>
+    <string name="jszcdw">技术支撑单位</string>
+    <string name="zjf">总经费</string>
+    <string name="czbz">财政补助</string>
+    <string name="remark">备注</string>
 
 </resources>

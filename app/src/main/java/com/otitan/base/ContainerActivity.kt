@@ -58,7 +58,7 @@ class ContainerActivity : AppCompatActivity() {
             }
             val fragmentClass = Class.forName(fragmentName)
             val baseFragment = fragmentClass.newInstance() as BaseFragment<*, *>
-            val args = intent.extras
+            val args = intent.getBundleExtra(BUNDLE)
             if (args != null) {
                 baseFragment.arguments = args
             }

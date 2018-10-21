@@ -34,9 +34,9 @@ class LqglFragment : BaseFragment<FmLqglBinding, LqglViewModel>() {
             "http://www.zjly.gov.cn/picture/-1/180926171836175726.jpg",
             "http://www.zjly.gov.cn/picture/-1/180921173026519382.png")
     private val mDrawables = arrayOf(
-            R.drawable.icon_zllhcx, R.drawable.icon_zmsccx, R.drawable.icon_zyghqk, R.drawable.icon_zhfkqk,
-            R.drawable.icon_lycf, R.drawable.icon_tghl,  R.drawable.icon_gyl,//R.drawable.icon_hmh,
-            R.drawable.icon_sthly, R.drawable.icon_yzl, R.drawable.icon_slfh, R.drawable.icon_zmsc,
+             R.drawable.icon_zmsccx, R.drawable.icon_zyghqk,
+            R.drawable.icon_lycf,   R.drawable.icon_gyl,//R.drawable.icon_hmh,
+            R.drawable.icon_sthly, R.drawable.icon_yzl, R.drawable.icon_slfh,
             R.drawable.icon_lyyhsw, R.drawable.icon_lycy, R.drawable.icon_lygg, R.drawable.icon_bhqgy)
     private val titles = arrayOf("杭州八大赏桂地 等你去寻香", "桐庐举办森林疗养国际研讨会",
             "全省林业新媒体应用培训班在杭州举办", "临安山核桃插上电商翅膀", "告别水泥森林 靠你喽森林城市群")

@@ -2,33 +2,46 @@ package com.otitan.login
 
 import android.databinding.ObservableField
 import android.util.Log
+import com.google.gson.Gson
 import com.otitan.TitanApplication
 
 import com.otitan.base.BaseViewModel
+import com.otitan.data.DataRepository
+import com.otitan.data.Injection
+import com.otitan.data.remote.RemoteDataSource
 import com.otitan.main.view.MainActivity
+import com.otitan.model.LoginInfo
+import com.otitan.model.LoginResult
+import com.otitan.model.ResultModel
 import com.otitan.util.ToastUtil
+import okhttp3.MediaType
+import okhttp3.RequestBody
+import org.jetbrains.anko.toast
+import kotlin.math.log
 
 
-class LoginModel() : BaseViewModel(),ILoginView{
+class LoginModel() : BaseViewModel(), ILoginView {
+
+    private var dataRepository: DataRepository = Injection.provideDataRepository()
 
     constructor(activity: LoginActivity) : this() {
         this.mContext = activity
     }
 
-    constructor(fragment: LoginFragment) :this(){
+    constructor(fragment: LoginFragment) : this() {
         this.fragment = fragment
     }
 
-    val TAG="========="
+    val TAG = "========="
 
     override fun onSuccess(t: Any?) {
-        Log.e(TAG,t.toString())
-        ToastUtil.setToast(mContext,t.toString())
+        Log.e(TAG, t.toString())
+        ToastUtil.setToast(mContext, t.toString())
     }
 
     override fun onFail(code: String) {
-        Log.e(TAG,code)
-        ToastUtil.setToast(mContext,code)
+        Log.e(TAG, code)
+        ToastUtil.setToast(mContext, code)
     }
 
     var name: ObservableField<String>? = ObservableField<String>("")
@@ -44,23 +57,47 @@ class LoginModel() : BaseViewModel(),ILoginView{
         loginUser.password = password!!.get()
         loginUser.checked = checked!!.get()
 
+        val loginInfo = LoginInfo()
+        loginInfo.password = password!!.get()
+        loginInfo.username = name!!.get()
+        val body = RequestBody.create(MediaType.parse("application/x-www-form-urlencoded;charset=UTF-8"),
+                Gson().toJson(loginInfo))
 
-        if (loginUser.name == "admin" && loginUser.password == "admin") {
-            onSuccess("用户名和密码正确")
-            if(loginUser.checked){
-                TitanApplication.sharedPreferences.edit().putBoolean("remember ",true).apply()
-                TitanApplication.sharedPreferences.edit().putString("name",loginUser.name).apply()
-                TitanApplication.sharedPreferences.edit().putString("password",loginUser.password).apply()
+        showDialog("登陆中...")
+        dataRepository.login(name!!.get(),password!!.get(),"password",object :RemoteDataSource.mCallback{
+            override fun onFailure(info: String) {
+                dismissDialog()
+                onFail("登录失败:$info")
             }
 
-            startActivity(MainActivity::class.java)
-        } else if (loginUser.name != "admin" && loginUser.password == "admin") {
-            onFail("登录失败,用户名错误")
-        } else if (loginUser.name == "admin" && loginUser.password != "admin") {
-            onFail("登录失败,密码错误")
-        } else {
-            onFail("登录失败,用户名和密码错误")
-        }
+            override fun onSuccess(result: Any) {
+                dismissDialog()
+                TitanApplication.loginResult = (result as ResultModel<LoginResult>).data
+                if (checked!!.get()) {
+                    TitanApplication.sharedPreferences.edit().putBoolean("remember ", true).apply()
+                    TitanApplication.sharedPreferences.edit().putString("name", name!!.get()).apply()
+                    TitanApplication.sharedPreferences.edit().putString("password", password!!.get()).apply()
+                }
+                startActivity(MainActivity::class.java)
+            }
+        })
+
+//        if (loginUser.name == "admin" && loginUser.password == "admin") {
+//            onSuccess("用户名和密码正确")
+//            if (loginUser.checked) {
+//                TitanApplication.sharedPreferences.edit().putBoolean("remember ", true).apply()
+//                TitanApplication.sharedPreferences.edit().putString("name", loginUser.name).apply()
+//                TitanApplication.sharedPreferences.edit().putString("password", loginUser.password).apply()
+//            }
+//
+//            startActivity(MainActivity::class.java)
+//        } else if (loginUser.name != "admin" && loginUser.password == "admin") {
+//            onFail("登录失败,用户名错误")
+//        } else if (loginUser.name == "admin" && loginUser.password != "admin") {
+//            onFail("登录失败,密码错误")
+//        } else {
+//            onFail("登录失败,用户名和密码错误")
+//        }
 
 
     }

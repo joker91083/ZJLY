@@ -1,21 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="home_main">
-        <item>造林绿化成效</item>
-        <item>种苗生产成效</item>
+        <!--<item>造林绿化成效</item>-->
+        <item>林业科技</item>
         <item>资源管护情况</item>
-        <item>灾害防控情况</item>
-        <item>林业采伐</item>
-        <item>退耕换林</item>
-        <item>公益林</item>
-        <item>生态护林员</item>
+        <!--<item>灾害防控情况</item>-->
+        <item>林地征占</item>
+        <!--<item>退耕换林</item>-->
+        <item>湿地保护</item>
+        <item>行政执法</item>
         <item>营造林</item>
         <item>森林防火</item>
-        <item>种苗生产</item>
+        <!--<item>种苗生产</item>-->
         <item>林业有害生物</item>
         <item>林业产业</item>
-        <item>林业改革</item>
+        <item>国有林场</item>
         <item>保护区公园</item>
     </string-array>
     <!--<item>石漠化</item>-->
+
+
+    <string-array name="dq">
+        <item>浙江省</item>
+        <item>杭州市</item>
+        <item>宁波市</item>
+        <item>温州市</item>
+        <item>嘉兴市</item>
+        <item>湖州市</item>
+        <item>绍兴市</item>
+        <item>金华市</item>
+        <item>衢州市</item>
+        <item>舟山市</item>
+        <item>台州市</item>
+        <item>丽水市</item>
+    </string-array>
+    <!--年份 资源管理-->
+    <string-array name="nianfen_resource">
+        <item>2009</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+    </string-array>
+    <!--年份 森林防火-->
+    <string-array name="nianfen_slfh">
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+    </string-array>
+    <!--年份 营造林-->
+    <string-array name="nianfen_yzl">
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+    </string-array>
+    <!--年份 有害生物-->
+    <string-array name="nianfen_yhsw">
+        <item>2003</item>
+        <item>2004</item>
+        <item>2005</item>
+        <item>2006</item>
+        <item>2007</item>
+        <item>2008</item>
+        <item>2009</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+    </string-array>
+    <!--年份 林业产业-->
+    <string-array name="nianfen_lycy">
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+    </string-array>
+    <!--年份 林地征占-->
+    <string-array name="nianfen_ldzz">
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+    </string-array>
+    <!--资源管理 指标-->
+    <string-array name="zhibiao_resource">
+        <item>林地面积</item>
+        <item>森林面积</item>
+        <item>公益林面积</item>
+        <item>森林覆盖率</item>
+        <item>活立木蓄积</item>
+    </string-array>
+    <!--森林防火 指标-->
+    <string-array name="zhibiao_slfh">
+        <item>火灾次数</item>
+        <item>火场面积</item>
+        <item>损失面积</item>
+        <item>扑火经费</item>
+        <item>人员伤亡</item>
+        <item>损失林木</item>
+    </string-array>
+    <!--营造林 指标-->
+    <string-array name="zhibiao_yzl_wcqk">
+        <item>造林面积</item>
+        <item>人工造林面积</item>
+        <item>迹地更新面积</item>
+        <item>森林抚育</item>
+        <item>年末实有封山(沙)育林面积</item>
+        <item>四旁(零星)植树</item>
+        <item>当年苗木产量</item>
+        <item>育苗面积</item>
+    </string-array>
+    <string-array name="zhibiao_yzl_xdjh">
+        <item>造林面积</item>
+        <item>人工造林面积</item>
+        <item>封山育林</item>
+        <item>森林抚育</item>
+        <item>低效林改造</item>
+        <item>当年新育苗面积</item>
+        <item>四旁树</item>
+    </string-array>
+    <!--指标 林地征占-->
+    <string-array name="zhibiao_ldzz">
+        <item>项目个数</item>
+        <item>征占用林地面积</item>
+        <item>林地定额</item>
+    </string-array>
+    <!--指标 有害生物-->
+    <string-array name="zhibiao_yhsw">
+        <item>病害总计</item>
+        <item>虫害总计</item>
+    </string-array>
+    <!--指标 林业科技-->
+    <string-array name="zhibiao_lykj">
+        <item>省院合作项目</item>
+        <item>示范资金项目</item>
+        <item>科技标准</item>
+    </string-array>
+
+    <!--营造林 类型-->
+    <string-array name="type_yzl">
+        <item>完成情况</item>
+        <item>下达计划</item>
+    </string-array>
+    <!--林业产业 类型-->
+    <string-array name="type_lycy">
+        <item>总产值</item>
+        <item>第一产业</item>
+        <item>第二产业</item>
+        <item>第三产业</item>
+    </string-array>
+    <!--林业科技 类型-->
+    <string-array name="type_lykj">
+        <item>国家标准</item>
+        <item>行业标准</item>
+        <item>省级地方标准</item>
+        <item>浙江制造标准</item>
+    </string-array>
+    <!--资源管理-->
+    <string-array name="zyghqk1">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>Area,林地总面积</item>
+        <item>QMLD,乔木林地</item>
+        <item>ZLD,竹林地</item>
+        <item>SLD,疏林地</item>
+        <item>TSGMLD,特殊灌木林地</item>
+        <item>YBGMLD,一般灌木林地</item>
+        <item>WCLZLD,未成林造林地</item>
+        <item>YLD,宜林地</item>
+        <item>Other,其它</item>
+    </string-array>
+    <string-array name="zyghqk2">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>Area,林地总面积</item>
+    </string-array>
+    <string-array name="zyghqk3">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>CountryArea,国家级公益林</item>
+        <item>LocalArea,地方公益林</item>
+        <item>CountryArea,国家级公益林</item>
+        <item>Area,合计</item>
+    </string-array>
+    <string-array name="zyghqk4">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>Area,森林覆盖率</item>
+    </string-array>
+    <string-array name="zyghqk5">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>Area,活立木蓄积</item>
+    </string-array>
+
+    <!--森林防火-->
+    <string-array name="slfh1">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>TotalFireCount,火灾合计</item>
+        <item>NormalFire,一般火灾</item>
+        <item>LargeFire,较大火灾总面积</item>
+        <item>MajorFire,重大火灾林地</item>
+        <item>OversizeFire,特大火灾</item>
+    </string-array>
+    <string-array name="slfh2">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>TotalFireCount,火场面积</item>
+    </string-array>
+    <string-array name="slfh3">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>TotalFireCount,损失面积</item>
+    </string-array>
+    <string-array name="slfh4">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>TotalFireCount,扑火经费</item>
+    </string-array>
+    <string-array name="slfh5">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>TotalCount,合计</item>
+        <item>Minor,轻伤</item>
+        <item>Serious,重伤</item>
+        <item>Death,死亡</item>
+    </string-array>
+    <string-array name="slfh6">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>Accumulation,成林蓄积(m³)</item>
+        <item>Seedling,幼苗株数(万株)</item>
+    </string-array>
+    <!-- 营造林-->
+    <string-array name="yzl">
+        <item>name,地区名称</item>
+        <item>value,造林面积</item>
+        <item>code,地区编码</item>
+    </string-array>
+    <!--有害生物-->
+    <string-array name="yhsw">
+        <item>name,地区名称</item>
+        <item>value,造林面积</item>
+        <item>code,地区编码</item>
+    </string-array>
+    <!--林业产业-->
+    <string-array name="lycy1">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>First,第一产业产值</item>
+        <item>Second,第二产业产值</item>
+        <item>Third,第三产业产值</item>
+    </string-array>
+    <string-array name="lycy2">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>lmyzym,林木育种和育苗</item>
+        <item>yzl,营造林</item>
+        <item>mczccy,木材和竹材采运</item>
+        <item>jjlcpzzcj,经济林产品的种植与采集</item>
+        <item>hhjqtgszwzz,花卉及其他观赏植物种植</item>
+        <item>lsysdwfyly,陆生野生动物繁育与利用</item>
+        <item>qt,其他</item>
+    </string-array>
+    <string-array name="lycy3">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>mztzwzpzz,木质工艺品和木质文教体育用品制造</item>
+        <item>mztjjzz,木竹藤家具制造</item>
+        <item>mzwjzzzp,木竹苇浆造纸和纸制品</item>
+        <item>lchxcpzz,林产化学产品制造</item>
+        <item>mzgypmzwjtyypzz,木材加工和木竹藤棕苇制品制造</item>
+        <item>fmzlcpjgzzy,非木质林产品加工制造业</item>
+        <item>qt,其他</item>
+    </string-array>
+    <string-array name="lycy4">
+        <item>Code,地区编码</item>
+        <item>Name,地区名称</item>
+        <item>lyscfw,林业生产服务</item>
+        <item>lylyyxxfw,林业旅游与休闲服务</item>
+        <item>lystfw,林业生态服务</item>
+        <item>lyzyjsfw,林业专业技术服务</item>
+        <item>lygggljqtzzfw,林业公共管理及其他组织服务</item>
+        <item>qt,其他</item>
+    </string-array>
 </resources>

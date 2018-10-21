@@ -45,18 +45,17 @@
                     android:id="@+id/login_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icon_username"
+                    android:drawableStart="@drawable/icon_username"
                     android:drawablePadding="10dp"
                     android:ems="10"
                     android:hint="@string/loginname"
-                    android:inputType="textPassword"
                     android:text="@={loginModel.name}" />
 
                 <EditText
                     android:id="@+id/login_psw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icon_password"
+                    android:drawableStart="@drawable/icon_password"
                     android:drawablePadding="10dp"
                     android:ems="10"
                     android:hint="@string/loginpsw"

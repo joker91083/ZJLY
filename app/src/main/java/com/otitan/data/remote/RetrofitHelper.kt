@@ -46,7 +46,7 @@ class RetrofitHelper() {
                 //设置OKHttpClient
                 .client(okHttpClientBuilder.build())
                 //Xml转换器
-                .addConverterFactory(SimpleXmlConverterFactory.create())
+//                .addConverterFactory(SimpleXmlConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 //Rx
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

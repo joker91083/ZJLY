@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import com.otitan.main.model.RepealInfo
+import com.otitan.model.LoginResult
 import com.tencent.bugly.Bugly
 import com.titan.baselibrary.util.MemoryUtil
 import com.titan.baselibrary.util.MobileInfoUtil
@@ -16,12 +17,13 @@ import kotlin.properties.Delegates
 class TitanApplication : Application() {
 
     var screen: ScreenTool.Screen? = null
-    var sbh:String ? = null
+    var sbh: String? = null
 
     companion object {
         var instances: TitanApplication by Delegates.notNull()
-        var handler:Handler? = null
+        var handler: Handler? = null
         val repealInfoList = ArrayList<RepealInfo>()
+        var loginResult: LoginResult? = null
 
         private val activityList = ArrayList<AppCompatActivity>()
 
@@ -52,7 +54,6 @@ class TitanApplication : Application() {
 
         sbh = MobileInfoUtil.getMAC(this)
     }
-
 
 
 }

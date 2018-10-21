@@ -9,6 +9,8 @@ import android.widget.ExpandableListView
 import android.widget.LinearLayout
 import com.otitan.TitanApplication
 import com.otitan.base.ContainerActivity
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -77,6 +79,28 @@ class Utils {
             intent.putExtra(ContainerActivity.FRAGMENT, canonicalName)
             intent.putExtra(ContainerActivity.BUNDLE, bundle)
             context?.startActivity(intent)
+        }
+
+        /**
+         *
+         */
+        @JvmStatic
+        fun getProperties(context: Context, proName: String): String {
+            var pro_value: String?
+            val props = Properties()
+            try {
+                val inputStream = context.assets.open("config")
+                val bufferedReader = BufferedReader(InputStreamReader(inputStream))
+                props.load(bufferedReader)
+            } catch (e1: Exception) {
+                e1.printStackTrace()
+            }
+
+            pro_value = props.getProperty(proName)
+            if (pro_value == null) {
+                pro_value = ""
+            }
+            return pro_value
         }
     }
 }
