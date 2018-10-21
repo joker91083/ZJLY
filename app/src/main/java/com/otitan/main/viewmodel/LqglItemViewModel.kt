@@ -29,7 +29,7 @@ class LqglItemViewModel() : BaseViewModel() {
     }
 
     fun onClick() {
-        when (lable.get().name) {
+        when (lable.get()!!.name) {
             "资源管护情况" -> startContainerActivity(ResourceManageFragment::class.java.canonicalName)
             "森林防火" -> startContainerActivity(SlfhFragment::class.java.canonicalName)
             "营造林" -> startContainerActivity(YzlFragment::class.java.canonicalName)

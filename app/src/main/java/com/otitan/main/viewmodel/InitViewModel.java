@@ -76,11 +76,37 @@ public class InitViewModel extends BaseViewModel{
         return tiledLayer;
     }
 
-    public OpenStreetMapLayer addOpenStreetMapLayer(MapView mapView){
+    public OpenStreetMapLayer addOpenStreetMapLayer(final MapView mapView){
         OpenStreetMapLayer layer = new OpenStreetMapLayer();
         ArcGISMap map = new ArcGISMap();
         map.getBasemap().getBaseLayers().add(layer);
         mapView.setMap(map);
+
+        map.addLoadStatusChangedListener(new LoadStatusChangedListener() {
+            @Override
+            public void loadStatusChanged(LoadStatusChangedEvent loadStatusChangedEvent) {
+                String status = loadStatusChangedEvent.getNewLoadStatus().name();
+                switch (status){
+                    case "LOADING":
+                        Log.e("tag", "LOADING");
+                        break;
+                    case "FAILED_TO_LOAD":
+                        ToastUtil.setToast(mContext, "图层加载异常");
+                        Log.e("tag", "图层加载异常");
+                        break;
+                    case "NOT_LOADED":
+                        Log.e("tag", "NOT_LOADED");
+                        break;
+                    case "LOADED": {
+                        Log.e("tag", "图层加载完成");
+                        SpatialUtil.Companion.setDefaultSpatialReference(mapView.getSpatialReference());
+//                        iMap.setSpatial(mapView.getSpatialReference());
+                    }
+
+                }
+            }
+        });
+
         return layer;
     }
 

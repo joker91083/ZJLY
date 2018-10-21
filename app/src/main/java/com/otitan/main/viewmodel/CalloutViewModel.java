@@ -13,13 +13,9 @@ import com.esri.arcgisruntime.data.Feature;
 import com.esri.arcgisruntime.geometry.Geometry;
 import com.esri.arcgisruntime.geometry.Point;
 import com.esri.arcgisruntime.mapping.view.Callout;
-import com.esri.arcgisruntime.mapping.view.Graphic;
-import com.esri.arcgisruntime.mapping.view.GraphicsOverlay;
 import com.esri.arcgisruntime.mapping.view.MapView;
-import com.esri.arcgisruntime.symbology.TextSymbol;
 import com.otitan.base.BaseViewModel;
 import com.otitan.util.Constant;
-import com.otitan.util.ConverterUtils;
 import com.otitan.zjly.R;
 
 import java.util.ArrayList;
@@ -56,7 +52,7 @@ public class CalloutViewModel extends BaseViewModel{
     }
 
     /*展示小班属性信息*/
-    public void showQueryInfo(MapView mapView, Feature feature){
+    public void showQueryInfo(MapView mapView, Feature feature,Geometry point){
 
         View view = LayoutInflater.from(mapView.getContext()).inflate(R.layout.callout_geometry_info,null);
         ListView listView = view.findViewById(R.id.callout);
@@ -70,20 +66,21 @@ public class CalloutViewModel extends BaseViewModel{
         //设置Callout样式
         Callout.Style style = new Callout.Style(mContext);
         style.setMaxWidth(250); //设置最大宽度
-        style.setMaxHeight(200);  //设置最大高度
+        style.setMaxHeight(400);  //设置最大高度
         style.setMinWidth(200);  //设置最小宽度
         style.setMinHeight(100);  //设置最小高度
-        style.setBorderWidth(2); //设置边框宽度
-        style.setBorderColor(Color.GREEN); //设置边框颜色
+        style.setBorderWidth(1); //设置边框宽度
+        style.setBorderColor(Color.BLUE); //设置边框颜色
         style.setBackgroundColor(Color.WHITE); //设置背景颜色
         style.setCornerRadius(8); //设置圆角半径
 
         Callout callout = mapView.getCallout();
         callout.setStyle(style);
         callout.setContent(view);
-        callout.setLocation(feature.getGeometry().getExtent().getCenter());
+        callout.setLocation(point.getExtent().getCenter());
         callout.show();
 
+        mapView.invalidate();
     }
 
 

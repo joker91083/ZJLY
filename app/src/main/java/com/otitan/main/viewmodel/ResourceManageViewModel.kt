@@ -1,7 +1,6 @@
 package com.otitan.main.viewmodel
 
 import android.content.Context
-import android.os.Bundle
 import com.github.mikephil.charting.data.BarEntry
 import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
@@ -10,12 +9,10 @@ import com.otitan.TitanApplication
 import com.otitan.base.BaseViewModel
 import com.otitan.data.Injection
 import com.otitan.data.remote.RemoteDataSource
-import com.otitan.main.fragment.ResourceManageFragment
 import com.otitan.model.ResourceModel
 import com.otitan.model.ResultModel
 import com.otitan.ui.mview.IResourceManage
 import com.otitan.util.ToastUtil
-import com.otitan.util.Utils
 import com.otitan.zjly.R
 import org.jetbrains.anko.toast
 
@@ -84,7 +81,7 @@ class ResourceManageViewModel() : BaseViewModel() {
             (data?.data as List<LinkedTreeMap<String, Any>>).forEach {
                 if (it["Name"] == dqName) {
                     var i = 0f
-                    it.forEach { k, v ->
+                    it.forEach { (k, v) ->
                         if (k != "Name" && k != "Code") {
                             val v1 = v.toString().replace(",", "")
                             barChartDataList.add(BarEntry(i, v1.toFloat()))

@@ -3,7 +3,6 @@ package com.otitan.main.viewmodel;
 import android.content.Context;
 
 import com.otitan.base.BaseViewModel;
-import com.otitan.main.view.ILayerView;
 import com.otitan.main.view.UpInfoActivity;
 import com.otitan.ui.mview.IMap;
 

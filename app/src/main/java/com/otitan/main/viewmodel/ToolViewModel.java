@@ -42,7 +42,6 @@ public class ToolViewModel extends BaseViewModel {
     }
 
     public void showInfo(MapView mapView){
-        ToastUtil.setToast(mContext,"地图信息");
         SketchEditor sketchEditor = mapView.getSketchEditor();
 
         if(sketchEditor == null){
@@ -109,7 +108,7 @@ public class ToolViewModel extends BaseViewModel {
 
         LayerList list = mapView.getMap().getOperationalLayers();
 
-        for(Layer layer : list){
+        for(final Layer layer : list){
             final FeatureTable table = ((FeatureLayer)layer).getFeatureTable();
             final ListenableFuture<FeatureQueryResult> featureQueryResult = table.queryFeaturesAsync(parameters);
             featureQueryResult.addDoneListener(new Runnable() {
@@ -121,13 +120,11 @@ public class ToolViewModel extends BaseViewModel {
                         Feature queryFeature;
                         while (it.hasNext()){
                             queryFeature = it.next();
-                            calloutViewModel.showQueryInfo(mapView,queryFeature);
 
+                            calloutViewModel.showQueryInfo(mapView,queryFeature,geometry);
                         }
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
+                    } catch (InterruptedException | ExecutionException e) {
                         e.printStackTrace();
                     }
                 }

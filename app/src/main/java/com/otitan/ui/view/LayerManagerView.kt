@@ -1,6 +1,9 @@
 package com.otitan.ui.view
 
+import android.annotation.TargetApi
 import android.app.Activity
+import android.os.Build
+import android.support.annotation.RequiresApi
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
 import android.util.Log
@@ -54,6 +57,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         this.iMap = iMap
     }
 
+    @TargetApi(Build.VERSION_CODES.N)
     fun initView() {
         if (baseAdapter == null) {
             val list = ArrayList<BaseLayer>()
@@ -78,13 +82,22 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         }
         val childs = ResourcesManager.getInstances(activity).getChildData(groups)
         if (adapter == null) {
-            childs.forEach { map ->
-                map.forEach { k, list ->
-                    list.forEach { file ->
+//            childs.forEach { map ->
+//                map.forEach { k, list ->
+//                    list.forEach { file ->
+//                        checked[file.absolutePath] = false
+//                    }
+//                }
+//            }
+
+            for(item in childs){
+                for(map in item){
+                    for(file in map.value){
                         checked[file.absolutePath] = false
                     }
                 }
             }
+
             adapter = LayerManagerAdapter(activity, groups, childs, this, checked)
         }
         activity.tckzExplv.setAdapter(adapter)

@@ -4,3 +4,4 @@ project(':LibraryManager').projectDir = new File('../LibraryManager/')
 include ':LibraryManager:baselibrary'
 include ':LibraryManager:versionupdata'
 include ':LibraryManager:photopicker'
+include ':LibraryManager:eventlibrary'

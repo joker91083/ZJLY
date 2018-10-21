@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.otitan.TitanApplication
 import com.otitan.base.BaseFragment
 import com.otitan.main.adapter.LqglAdapter
 import com.otitan.main.viewmodel.LqglViewModel

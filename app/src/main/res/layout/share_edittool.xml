@@ -32,6 +32,7 @@
                     style="@style/editTool_testView"
                     android:background="@drawable/background_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_layers"
+                    android:layout_marginLeft="30dp"
                     android:text="@string/classEdit_layer" />
 
                 <!--<TextView
@@ -66,6 +67,7 @@
                     style="@style/editTool_testView"
                     android:background="@drawable/bg_view_rounded_image"
                     android:drawableTop="@drawable/ic_mainmenu_render"
+                    android:layout_marginRight="30dp"
                     android:text="@string/classEdit_editor" />
 
                 <!--<TextView
