@@ -80,7 +80,7 @@ class SdbhViewModel() : BaseViewModel() {
             val temp = data?.data as List<LinkedTreeMap<String, Any>>
             var i = 0f
             temp.forEach {
-                it.forEach { k, v ->
+                it.forEach { (k, v) ->
                     if (k == "Name") {
                         dqList.add(v.toString())
                     } else if (k == "AllArea") {
@@ -94,11 +94,11 @@ class SdbhViewModel() : BaseViewModel() {
     }
 
     fun conversionTableData(data: ResultModel<Any>?): List<Any> {
-        val list = ArrayList<SdbhModel>()
+        val list = ArrayList<SdbhModel<Any>>()
         if (data != null) {
             val gson = Gson()
             val json = gson.toJson(data.data)
-            val type = object : TypeToken<List<SdbhModel>>() {}.type
+            val type = object : TypeToken<List<SdbhModel<Any>>>() {}.type
             list.addAll(gson.fromJson(json, type))
         }
         return list

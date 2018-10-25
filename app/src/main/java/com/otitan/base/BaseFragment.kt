@@ -1,5 +1,6 @@
 package com.otitan.base
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
@@ -78,6 +79,18 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel> : Fragment(
         return false
     }
 
+    /**
+     * 跳转容器页面
+     *
+     * @param canonicalName 规范名 : Fragment.class.getCanonicalName()
+     */
+    fun startContainerActivity(canonicalName: String) {
+        context?.let {
+            val intent = Intent(it, ContainerActivity::class.java)
+            intent.putExtra(ContainerActivity.FRAGMENT, canonicalName)
+            it.startActivity(intent)
+        }
+    }
 
 
 }

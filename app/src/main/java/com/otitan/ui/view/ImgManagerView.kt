@@ -50,17 +50,26 @@ class ImgManagerView() : IImgManager, ILayerManagerItem {
         var layer = ArcGISTiledLayer(file.absolutePath)
         val layers = activity.mapview.map.basemap.baseLayers
         var flag = false
-        run breaking@{
-            layers.forEach {
-                if (it is ArcGISTiledLayer) {
-                    if (it.uri == file.absolutePath) {
-                        flag = true
-                        layer = it
-                        return@breaking
-                    }
+        for (l in layers){
+            if (l is ArcGISTiledLayer) {
+                if (l.uri == file.absolutePath) {
+                    flag = true
+                    layer = l
+                    break
                 }
             }
         }
+//        run breaking@{
+//            layers.forEach {
+//                if (it is ArcGISTiledLayer) {
+//                    if (it.uri == file.absolutePath) {
+//                        flag = true
+//                        layer = it
+//                        return@breaking
+//                    }
+//                }
+//            }
+//        }
         if (flag && !checked) {
             layers.remove(layer)
         } else {
@@ -70,16 +79,15 @@ class ImgManagerView() : IImgManager, ILayerManagerItem {
 
     override fun setExtent(file: File) {
         val layers = activity.mapview.map.basemap.baseLayers
-        layers.forEach {
-            if (it is ArcGISTiledLayer) {
-                if (it.uri == file.absolutePath) {
-                    val fullExtent = it.fullExtent
+        for (layer in layers){
+            if (layer is ArcGISTiledLayer) {
+                if (layer.uri == file.absolutePath) {
+                    val fullExtent = layer.fullExtent
                     fullExtent.let { extent ->
                         activity.mapview.setViewpointGeometryAsync(extent)
                     }
                 }
             }
-
         }
     }
 

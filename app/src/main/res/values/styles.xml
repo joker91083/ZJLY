@@ -172,4 +172,31 @@
         <item name="android:padding">5dp</item>
         <item name="android:singleLine">true</item>
     </style>
+
+    <style name="data_manage_title">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="custom_spinner_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:contextClickable">true</item>
+        <item name="android:overlapAnchor">false</item>
+    </style>
+
+    <style name="cardv_data_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">3dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
 </resources>

@@ -30,17 +30,17 @@ class LqglItemViewModel() : BaseViewModel() {
 
     fun onClick() {
         when (lable.get()!!.name) {
-            "资源管护情况" -> startContainerActivity(ResourceManageFragment::class.java.canonicalName)
+            "资源管理" -> startContainerActivity(ResourceManageFragment::class.java.canonicalName)
             "森林防火" -> startContainerActivity(SlfhFragment::class.java.canonicalName)
-            "营造林" -> startContainerActivity(YzlFragment::class.java.canonicalName)
-            "林业有害生物" -> startContainerActivity(YhswFragment::class.java.canonicalName)
-            "保护区公园" -> startContainerActivity(SlgyFragment::class.java.canonicalName)
-            "林业产业" -> startContainerActivity(LycyFragment::class.java.canonicalName)
             "行政执法" -> startContainerActivity(XzzfFragment::class.java.canonicalName)
             "林地征占" -> startContainerActivity(LdzzFragment::class.java.canonicalName)
+            "营造林" -> startContainerActivity(YzlFragment::class.java.canonicalName)
+            "有害生物" -> startContainerActivity(YhswFragment::class.java.canonicalName)
             "国有林场" -> startContainerActivity(GylcFragment::class.java.canonicalName)
+            "森林公园" -> startContainerActivity(SlgyFragment::class.java.canonicalName)
             "湿地保护" -> startContainerActivity(SdbhFragment::class.java.canonicalName)
             "林业科技" -> startContainerActivity(LykjFragment::class.java.canonicalName)
+            "林业产业" -> startContainerActivity(LycyFragment::class.java.canonicalName)
         }
     }
 

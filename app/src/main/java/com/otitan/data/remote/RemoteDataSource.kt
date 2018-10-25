@@ -39,9 +39,20 @@ interface RemoteDataSource {
     fun resourceManage(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
 
     /**
+     * 资源管护-数据管理
+     */
+    fun resourceManageData(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
+
+    /**
      * 森林防火
      */
     fun slfh(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 森林防火
+     */
+    fun slfhData(auth: String, type: Int, dqcode: String, year: Int,
+                 page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback)
 
     /**
      * 行政执法
@@ -49,14 +60,10 @@ interface RemoteDataSource {
     fun xzzf(auth: String, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
 
     /**
-     * 营造林
+     * 行政执法 数据管理
      */
-    fun yzl(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
-
-    /**
-     * 林业产业
-     */
-    fun lycy(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
+    fun xzzfData(auth: String, dqcode: String, year: Int, page: Int, size: Int,
+                 keyword: String, callback: RemoteDataSource.mCallback)
 
     /**
      * 林地征占
@@ -64,9 +71,30 @@ interface RemoteDataSource {
     fun ldzz(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
 
     /**
+     * 林地征占 数据管理
+     */
+    fun ldzzData(auth: String, dqcode: String, year: Int, page: Int, size: Int,
+                 keyword: String, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 营造林
+     */
+    fun yzl(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 营造林 数据管理
+     */
+    fun yzlData(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
+
+    /**
      * 有害生物
      */
     fun yhsw(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 有害生物 数据管理
+     */
+    fun yhswData(auth: String, dqcode: String, year: Int, page: Int, size: Int, callback: RemoteDataSource.mCallback)
 
     /**
      * 国有林场
@@ -74,9 +102,9 @@ interface RemoteDataSource {
     fun gylc(auth: String, dqcode: String, callback: RemoteDataSource.mCallback)
 
     /**
-     * 湿地保护
+     * 国有林场 数据管理
      */
-    fun sdbh(auth: String, dqcode: String, callback: RemoteDataSource.mCallback)
+    fun gylcData(auth: String, dqcode: String, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback)
 
     /**
      * 森林公园
@@ -84,7 +112,27 @@ interface RemoteDataSource {
     fun slgy(auth: String, dqcode: String, callback: RemoteDataSource.mCallback)
 
     /**
+     * 森林公园 数据管理
+     */
+    fun slgyData(auth: String, dqcode: String, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 湿地保护
+     */
+    fun sdbh(auth: String, dqcode: String, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 湿地保护 数据管理
+     */
+    fun sdbhData(auth: String, dqcode: String, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback)
+
+    /**
      * 林业科技
      */
     fun lykj(auth: String, type: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 林业产业
+     */
+    fun lycy(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
 }

@@ -64,7 +64,7 @@
                     android:gravity="center"
                     android:text="@string/index"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <Spinner
                     android:id="@+id/spinner_index"
@@ -73,7 +73,8 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:contextClickable="true"
-                    android:entries="@array/zhibiao_lykj" />
+                    android:entries="@array/zhibiao_lykj"
+                    android:overlapAnchor="false" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -81,8 +82,8 @@
                     android:gravity="center"
                     android:text="@string/type"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:visibility="@{viewmodel.isKjbz?View.VISIBLE:View.GONE}" />
+                    android:textSize="16sp"
+                    android:visibility="@{viewmodel.type==1||viewmodel.type==2?View.GONE:View.VISIBLE}" />
 
                 <Spinner
                     android:id="@+id/spinner_type"
@@ -92,7 +93,8 @@
                     android:layout_weight="1"
                     android:contextClickable="true"
                     android:entries="@array/type_lykj"
-                    android:visibility="@{viewmodel.isKjbz?View.VISIBLE:View.GONE}" />
+                    android:overlapAnchor="false"
+                    android:visibility="@{viewmodel.type==1||viewmodel.type==2?View.GONE:View.VISIBLE}" />
 
             </LinearLayout>
 
@@ -102,7 +104,9 @@
             android:id="@+id/refreshLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tr_head_height="40dp"
+            app:onLoadMore="@{viewmodel.onLoadMore}"
+            app:onRefresh="@{viewmodel.onRefresh}"
+            app:tr_head_height="30dp"
             app:tr_max_head_height="80dp">
 
             <android.support.v7.widget.RecyclerView

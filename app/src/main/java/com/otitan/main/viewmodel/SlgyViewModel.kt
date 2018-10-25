@@ -48,7 +48,7 @@ class SlgyViewModel() : BaseViewModel() {
         }
         auth = "Bearer $auth"
         showDialog("加载中...")
-        dataRepository.slgy(auth,  "330000",
+        dataRepository.slgy(auth, "330000",
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         dismissDialog()
@@ -83,8 +83,7 @@ class SlgyViewModel() : BaseViewModel() {
             val temp = data?.data as List<LinkedTreeMap<String, Any>>
             var i = 0f
             temp.forEach {
-//                                if (it["name"] == dqName) {
-                it.forEach { k, v ->
+                it.forEach { (k, v) ->
                     if (k == "Name") {
                         dqList.add(v.toString())
                     } else if (k == "Area") {
@@ -93,7 +92,6 @@ class SlgyViewModel() : BaseViewModel() {
                     }
                 }
                 i++
-//                }
             }
         }
     }
@@ -103,7 +101,7 @@ class SlgyViewModel() : BaseViewModel() {
         if (data != null) {
             val gson = Gson()
             val json = gson.toJson(data.data)
-            val type = object : TypeToken<List<SlgyModel>>() {}.type
+            val type = object : TypeToken<List<SlgyModel<Any>>>() {}.type
             list.addAll(gson.fromJson(json, type))
         }
         return list

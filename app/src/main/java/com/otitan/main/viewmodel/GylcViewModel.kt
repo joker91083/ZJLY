@@ -67,25 +67,22 @@ class GylcViewModel() : BaseViewModel() {
     }
 
     fun conversion(dqName: String) {
-        keyList.clear()
         valueList.clear()
         barChartDataList.clear()
         if (data != null && data?.data != null) {
-            val array = mContext?.resources?.getStringArray(R.array.yzl)
-            val map = HashMap<String, String>()
-            array?.forEach {
-                val values = it.split(",")
-                map[values[0]] = values[1]
-            }
+//            array?.forEach {
+//                val values = it.split(",")
+//                map[values[0]] = values[1]
+//            }
             val temp = data?.data as List<LinkedTreeMap<String, Any>>
             var i = 0f
             temp.forEach {
-                it.forEach { k, v ->
+                it.forEach { (k, v) ->
                     if (k == "Name") {
                         dqList.add(v.toString())
                     } else if (k == "Area") {
                         barChartDataList.add(BarEntry(i, v?.toString()?.toFloat() ?: 0.0f))
-                        keyList.add(map[k] ?: k)
+//                        keyList.add(map[k] ?: k)
                     }
                 }
                 i++
@@ -94,11 +91,11 @@ class GylcViewModel() : BaseViewModel() {
     }
 
     fun conversionTableData(data: ResultModel<Any>?): List<Any> {
-        val list = ArrayList<GylcModel>()
+        val list = ArrayList<GylcModel<Any>>()
         if (data != null) {
             val gson = Gson()
             val json = gson.toJson(data.data)
-            val type = object : TypeToken<List<GylcModel>>() {}.type
+            val type = object : TypeToken<List<GylcModel<Any>>>() {}.type
             list.addAll(gson.fromJson(json, type))
         }
         return list

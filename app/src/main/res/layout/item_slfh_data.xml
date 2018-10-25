@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.main.viewmodel.SlfhDataItemViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        style="@style/cardv_data_style"
+        android:onClick="@{()->viewmodel.itemOnClick()}"
+        app:cardCornerRadius="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:padding="5dp"
+                android:text="@{viewmodel.sjgl.Remark}"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/sqx+viewmodel.sjgl.CityName+` -- `+viewmodel.sjgl.DistrictName}"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/hcmj+String.valueOf(viewmodel.sjgl.FireArea)}"
+                android:textSize="14sp"
+                android:visibility="@{viewmodel.type==1?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/ssmj+String.valueOf(viewmodel.sjgl.LossArea)}"
+                android:textSize="14sp"
+                android:visibility="@{viewmodel.type==2?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/phjf+String.valueOf(viewmodel.sjgl.Money)}"
+                android:textSize="14sp"
+                android:visibility="@{viewmodel.type==3?View.VISIBLE:View.GONE}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="@{viewmodel.type==4?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="@{@string/qs+String.valueOf(viewmodel.sjgl.MinorCount)}"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="@{@string/zs+String.valueOf(viewmodel.sjgl.SeriousCount)}"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="@{@string/sw+String.valueOf(viewmodel.sjgl.DeathCount)}"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="@{viewmodel.type==5?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="@{@string/ymzs+String.valueOf(viewmodel.sjgl.Seedling)}"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="@{@string/clxj+String.valueOf(viewmodel.sjgl.ForestAccumulation)}"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>

@@ -60,43 +60,80 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
         mRemoteDataSource.resourceManage(auth, type, dqcode, year, callback)
     }
 
+    override fun resourceManageData(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.resourceManageData(auth, type, dqcode, year, callback)
+    }
+
     override fun slfh(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.slfh(auth, type, dqcode, year, callback)
     }
 
-    override fun yzl(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
-        mRemoteDataSource.yzl(auth, type, dqcode, year, callback)
+    override fun slfhData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.slfhData(auth, type, dqcode, year, page, size, keyword, callback)
     }
 
     override fun xzzf(auth: String, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.xzzf(auth, dqcode, year, callback)
     }
 
-    override fun yhsw(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
-        mRemoteDataSource.yhsw(auth, type, dqcode, year, callback)
+    override fun xzzfData(auth: String, dqcode: String, year: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.xzzfData(auth, dqcode, year, page, size, keyword, callback)
     }
 
     override fun ldzz(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.ldzz(auth, type, dqcode, year, callback)
     }
 
-    override fun lycy(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
-        mRemoteDataSource.lycy(auth, type, dqcode, year, callback)
+    override fun ldzzData(auth: String, dqcode: String, year: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.ldzzData(auth, dqcode, year, page, size, keyword, callback)
+    }
+
+    override fun yzl(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.yzl(auth, type, dqcode, year, callback)
+    }
+
+    override fun yzlData(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.yzlData(auth, type, dqcode, year, callback)
+    }
+
+    override fun yhsw(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.yhsw(auth, type, dqcode, year, callback)
+    }
+
+    override fun yhswData(auth: String, dqcode: String, year: Int, page: Int, size: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.yhswData(auth, dqcode, year, page, size, callback)
     }
 
     override fun gylc(auth: String, dqcode: String, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.gylc(auth, dqcode, callback)
     }
 
-    override fun sdbh(auth: String, dqcode: String, callback: RemoteDataSource.mCallback) {
-        mRemoteDataSource.sdbh(auth, dqcode, callback)
+    override fun gylcData(auth: String, dqcode: String, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.gylcData(auth, dqcode, page, size, keyword, callback)
     }
 
     override fun slgy(auth: String, dqcode: String, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.slgy(auth, dqcode, callback)
     }
 
+    override fun slgyData(auth: String, dqcode: String, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.slgyData(auth, dqcode, page, size, keyword, callback)
+    }
+
+    override fun sdbh(auth: String, dqcode: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.sdbh(auth, dqcode, callback)
+    }
+
+    override fun sdbhData(auth: String, dqcode: String, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.sdbhData(auth, dqcode, page, size, keyword, callback)
+    }
+
     override fun lykj(auth: String, type: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.lykj(auth, type, page, size, keyword, callback)
     }
+
+    override fun lycy(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.lycy(auth, type, dqcode, year, callback)
+    }
+
 }

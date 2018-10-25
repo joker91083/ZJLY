@@ -85,7 +85,7 @@ class LdzzViewModel() : BaseViewModel() {
             val temp = data?.data as List<LinkedTreeMap<String, Any>>
             var i = 0f
             temp.forEach {
-                it.forEach { k, v ->
+                it.forEach { (k, v) ->
                     if (k == "Name") {
                         dqList.add(v.toString())
                     } else if (k == "Count"||k == "Total") {

@@ -87,7 +87,7 @@ class YzlViewModel() : BaseViewModel() {
             var i = 0f
             temp.forEach {
                 //                if (it["name"] == dqName) {
-                it.forEach { k, v ->
+                it.forEach { (k, v) ->
                     if (k == "name") {
                         dqList.add(v.toString())
                     } else if (k != "code") {

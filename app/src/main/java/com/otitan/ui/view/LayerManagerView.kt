@@ -1,6 +1,8 @@
 package com.otitan.ui.view
 
+import android.annotation.TargetApi
 import android.app.Activity
+import android.os.Build
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
 import android.util.Log
@@ -54,23 +56,23 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         this.iMap = iMap
     }
 
-    @TargetApi(Build.VERSION_CODES.N)
+//    @TargetApi(Build.VERSION_CODES.N)
     fun initView() {
         if (baseAdapter == null) {
             val list = ArrayList<BaseLayer>()
             val array = arrayOf("基础图", "影像图", "地形图")
             for (i in 1..2) {
                 val baseLayer = BaseLayer()
-                baseLayer.name = array[i-1]
+                baseLayer.name = array[i - 1]
                 baseLayer.type = i
                 list.add(baseLayer)
                 baseCheck[i] = i == 1
             }
             baseAdapter = BaseLayerAdapter(activity, list, this, baseCheck)
         }
-        val linearLayoutManager = LinearLayoutManager(activity,OrientationHelper.VERTICAL,false)
+        val linearLayoutManager = LinearLayoutManager(activity, OrientationHelper.VERTICAL, false)
         activity.tckzRv.layoutManager = linearLayoutManager
-        activity.tckzRv.addItemDecoration(TitanItemDecoration(activity,LinearLayout.VISIBLE,0))
+        activity.tckzRv.addItemDecoration(TitanItemDecoration(activity, LinearLayout.VISIBLE, 0))
         activity.tckzRv.adapter = baseAdapter
 
         val groups = ResourcesManager.getInstances(activity).getOtmsFolder()
@@ -79,28 +81,28 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         }
         val childs = ResourcesManager.getInstances(activity).getChildData(groups)
         if (adapter == null) {
-//            childs.forEach { map ->
-//                map.forEach { k, list ->
-//                    list.forEach { file ->
-//                        checked[file.absolutePath] = false
-//                    }
-//                }
-//            }
-
-            for(item in childs){
-                for(map in item){
-                    for(file in map.value){
+            childs.forEach { map ->
+                map.forEach { (k, list) ->
+                    list.forEach { file ->
                         checked[file.absolutePath] = false
                     }
                 }
             }
+
+//            for (item in childs) {
+//                for (map in item) {
+//                    for (file in map.value) {
+//                        checked[file.absolutePath] = false
+//                    }
+//                }
+//            }
             adapter = LayerManagerAdapter(activity, groups, childs, this, checked)
         }
         activity.tckzExplv.setAdapter(adapter)
 //        Utils.setExpendHeight(adapter!!, activity.tckzExplv)
     }
 
-    override fun showLayer(type: Int,check:Boolean) {
+    override fun showLayer(type: Int, check: Boolean) {
         when (type) {
             1 -> {
                 iMap.getOpenStreetLayer()?.isVisible = check
@@ -125,8 +127,15 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
                         imgLayer = null
                         activity.include_img.visibility = View.GONE
                         val tempList = ArrayList<Layer>()
-                        list.forEach { file ->
-                            layers.forEach { layer ->
+//                        list.forEach { file ->
+//                            layers.forEach { layer ->
+//                                if (layer.name == file.name.split(".")[0]) {
+//                                    tempList.add(layer)
+//                                }
+//                            }
+//                        }
+                        for (file: File in list) {
+                            for (layer in layers) {
                                 if (layer.name == file.name.split(".")[0]) {
                                     tempList.add(layer)
                                 }
@@ -163,11 +172,18 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
 //            val layers = activity.mv_map.map.basemap.baseLayers
             val layers = iMap.getLayers()
             val temp = ArrayList<MyLayer>()
-            layers.forEach {
+//            layers.forEach {
+//                val pPath = file.parent.split("/")
+//                if (it.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == it.getpName()) {
+//                    activity.mapview.map.operationalLayers.remove(it.layer)
+//                    temp.add(it)
+//                }
+//            }
+            for (myLayer in layers){
                 val pPath = file.parent.split("/")
-                if (it.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == it.getpName()) {
-                    activity.mapview.map.operationalLayers.remove(it.layer)
-                    temp.add(it)
+                if (myLayer.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == myLayer.getpName()) {
+                    activity.mapview.map.operationalLayers.remove(myLayer.layer)
+                    temp.add(myLayer)
                 }
             }
             layers.removeAll(temp)
@@ -177,10 +193,19 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
     override fun setExtent(file: File) {
         val geometrys = ArrayList<Geometry>()
         val layers = iMap.getLayers()
-        layers.forEach { it ->
+//        layers.forEach { it ->
+//            val pPath = file.parent.split("/")
+//            if (it.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == it.getpName()) {
+//                val g = it.layer?.fullExtent
+//                g?.let {
+//                    geometrys.add(g)
+//                }
+//            }
+//        }
+        for (myLayer in layers){
             val pPath = file.parent.split("/")
-            if (it.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == it.getpName()) {
-                val g = it.layer?.fullExtent
+            if (myLayer.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == myLayer.getpName()) {
+                val g = myLayer.layer?.fullExtent
                 g?.let {
                     geometrys.add(g)
                 }
@@ -214,15 +239,14 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
             gdb.loadAsync()
             gdb.addDoneLoadingListener {
                 val list = gdb.geodatabaseFeatureTables
-                list.forEach {
-                    val layer = FeatureLayer(it)
+                for (table in list){
+                    val layer = FeatureLayer(table)
                     layer.isVisible = true
                     if (iMap.getOpenStreetLayer() != null) {
 //                        val sp1 = iMap.getOpenStreetLayer()?.spatialReference!!.wkid
 //                        val sp2 = layer.spatialReference?.wkid
 //                        if (sp1 != sp2) {
 //                            activity.toast("加载数据与基础底图投影系不同,无法加载")
-//                            return@forEach
 //                        }
                         activity.mapview.map.operationalLayers.add(layer)
                         val myLayer = MyLayer()
@@ -232,7 +256,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
                         myLayer.setlName(layer.name)
                         myLayer.layer = layer
                         myLayer.path = file.absolutePath
-                        myLayer.table = it
+                        myLayer.table = table
                         iMap.getLayers().add(myLayer)
                     }
                 }

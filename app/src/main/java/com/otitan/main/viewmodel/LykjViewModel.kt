@@ -2,9 +2,12 @@ package com.otitan.main.viewmodel
 
 import android.content.Context
 import android.databinding.ObservableBoolean
+import android.databinding.ObservableInt
 import com.github.mikephil.charting.data.BarEntry
 import com.otitan.TitanApplication
 import com.otitan.base.BaseViewModel
+import com.otitan.base.BindingAction
+import com.otitan.base.BindingCommand
 import com.otitan.data.Injection
 import com.otitan.data.remote.RemoteDataSource
 import com.otitan.model.LykjModel
@@ -18,19 +21,13 @@ class LykjViewModel() : BaseViewModel() {
     var data: ResultModel<LykjModel<Any>>? = null
     //item的数据集合
     var items = ArrayList<Any>()
-    val keyList = ArrayList<String>()
-    val valueList = ArrayList<String>()
-    var dqName = "浙江省"
     val dataRepository = Injection.provideDataRepository()
     var mView: ILykj? = null
-    val barChartDataList = ArrayList<BarEntry>()
-    val isKjbz = ObservableBoolean(false)
     val isFinishRefreshing = ObservableBoolean(false)
     val isFinishLoading = ObservableBoolean(false)
     val hasMore = ObservableBoolean(true)
-    var type = 1
+    var type = ObservableInt(1)
     var page = 1
-    var requestCode = 1
 
     constructor(context: Context?, mView: ILykj) : this() {
         this.mContext = context
@@ -39,9 +36,22 @@ class LykjViewModel() : BaseViewModel() {
 
     override fun onCreate() {
         super.onCreate()
-        getData(type, page, requestCode)
+        getData(type.get(), page, 1)
     }
 
+    val onRefresh = BindingCommand(object : BindingAction {
+        override fun call() {
+            hasMore.set(true)
+            page = 1
+            getData(type.get(), page, 1)
+        }
+    })
+
+    val onLoadMore = BindingCommand(object : BindingAction {
+        override fun call() {
+            getData(type.get(), page, 2)
+        }
+    })
 
     fun getData(type: Int, page: Int, requestCode: Int) {
         var auth = TitanApplication.loginResult?.access_token

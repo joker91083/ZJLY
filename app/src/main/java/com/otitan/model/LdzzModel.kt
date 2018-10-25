@@ -5,7 +5,12 @@ import java.io.Serializable
 /**
  * 林地征占
  */
-class LdzzModel : Serializable {
+class LdzzModel<T> : Serializable {
+    //总记录数
+    var total: Int = 0
+    //请求返回的数据列表
+    var rows = ArrayList<T>()
+
     //项目个数
     class Xmgs : Serializable {
         //地区编码
@@ -54,5 +59,27 @@ class LdzzModel : Serializable {
         var Name: String = ""
         //林地定额
         var Count: Int = 0
+    }
+
+    /**
+     * 数据管理
+     */
+    class Sjgl {
+        //年份
+        var Year: String = ""
+        //编号
+        var ApplicationId: String = ""
+        //类型
+        var AreaType: String = ""
+        //项目批准机关
+        var ApprovalAuthority: String = ""
+        //项目名称
+        var ProjectName: String = ""
+        //审批权限
+        var Approve: String = ""
+        //批准文号
+        var ApprovalNumber: String = ""
+        //森林植被恢复费
+        var ShouldForestVegetationRestorationCosts: Int = 0
     }
 }

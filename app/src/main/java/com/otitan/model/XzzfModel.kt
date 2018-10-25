@@ -5,7 +5,11 @@ import java.io.Serializable
 /**
  * 行政执法
  */
-class XzzfModel : Serializable {
+class XzzfModel<T> : Serializable {
+    //总记录数
+    var total: Int = 0
+    //请求返回的数据列表
+    var rows = ArrayList<T>()
     //地区编码
     var Code: String = ""
     //地区名称
@@ -36,4 +40,30 @@ class XzzfModel : Serializable {
     var FFJY: Int = 0
     //其他
     var Other: Int = 0
+
+    /**
+     * 数据管理
+     */
+    class Sjgl {
+        //案件编号
+        var No: String = ""
+        //案件文号
+        var CaseNo: String = ""
+        //案件归口
+        var PutUnder: String = ""
+        //案件类别
+        var CaseType: String = ""
+        //报案时间
+        var CaseTime: String = ""
+        //主办人
+        var Sponsor: String = ""
+        //案件状态
+        var Status: String = ""
+        //报案内容
+        var Remark: String = ""
+        //报案方式
+        var CallType: String = ""
+        //详细地址
+        var DetailRemark: String = ""
+    }
 }

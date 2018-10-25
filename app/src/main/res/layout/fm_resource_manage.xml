@@ -60,15 +60,12 @@
                     android:gravity="center"
                     android:text="@string/years"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <Spinner
                     android:id="@+id/spinner_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:contextClickable="true"
-                    android:entries="@array/nianfen_resource"/>
+                    style="@style/custom_spinner_style"
+                    android:entries="@array/nianfen_resource" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,15 +73,12 @@
                     android:gravity="center"
                     android:text="@string/index"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <Spinner
                     android:id="@+id/spinner_index"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:contextClickable="true"
-                    android:entries="@array/zhibiao_resource"/>
+                    android:entries="@array/zhibiao_resource"
+                    style="@style/custom_spinner_style" />
 
             </LinearLayout>
 
@@ -102,15 +96,12 @@
                     android:gravity="center"
                     android:text="@string/dq"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <Spinner
                     android:id="@+id/spinner_dq"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:contextClickable="true"
-                    android:entries="@array/dq"/>
+                    android:entries="@array/dq"
+                    style="@style/custom_spinner_style"/>
             </LinearLayout>
         </LinearLayout>
 

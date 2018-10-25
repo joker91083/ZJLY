@@ -118,6 +118,7 @@ dependencies {
 
     /*rx*/
     implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.12'
     implementation project(':tabpagerindictor')
     implementation project(':pullrefresh_library')
 
@@ -141,6 +142,9 @@ dependencies {
 
     /*日期选择*/
     implementation 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
+
+    /*多级联动选择器*/
+    implementation 'com.contrarywind:Android-PickerView:4.1.6'
 
     /*图表*/
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'

@@ -54,13 +54,13 @@ class SlfhViewModel() : BaseViewModel() {
                     override fun onFailure(info: String) {
                         dismissDialog()
                         ToastUtil.setToast(mContext, info)
-                        Log.e("tag","数据异常：$info")
+                        Log.e("tag", "数据异常：$info")
                     }
 
                     override fun onSuccess(result: Any) {
                         dismissDialog()
                         data = result as ResultModel<Any>
-                        if (data?.data == null||(data?.data!! as List<Any>).size==0) {
+                        if (data?.data == null || (data?.data!! as List<Any>).size == 0) {
                             mContext?.toast("没有数据")
                         }
                         conversion(dqName)
@@ -84,7 +84,7 @@ class SlfhViewModel() : BaseViewModel() {
             (data?.data as List<LinkedTreeMap<String, Any>>).forEach {
                 if (it["Name"] == dqName) {
                     var i = 0f
-                    it.forEach { k, v ->
+                    it.forEach { (k, v) ->
                         if (k != "Name" && k != "Code") {
                             val v1 = v.toString().replace(",", "")
                             barChartDataList.add(BarEntry(i, v1.toFloat()))

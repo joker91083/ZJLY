@@ -12,13 +12,9 @@
     </data>
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="10dp"
-        android:onClick="@{()->viewmodel.itemOnClick()}">
+        style="@style/cardv_data_style"
+        android:onClick="@{()->viewmodel.itemOnClick()}"
+        app:cardCornerRadius="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +49,7 @@
                     android:padding="5dp"
                     android:text="@{@string/zcr+viewmodel.zcr}"
                     android:textSize="12sp"
-                    android:visibility="@{viewmodel.isKjbz?View.GONE:View.VISIBLE}" />
+                    android:visibility="@{viewmodel.type==1||viewmodel.type==2?View.VISIBLE:View.GONE}" />
             </LinearLayout>
 
             <TextView
@@ -62,7 +58,7 @@
                 android:padding="5dp"
                 android:text="@{@string/cddw+viewmodel.cddw}"
                 android:textSize="12sp"
-                android:visibility="@{viewmodel.isKjbz?View.GONE:View.VISIBLE}" />
+                android:visibility="@{viewmodel.type==1||viewmodel.type==2?View.VISIBLE:View.GONE}" />
 
         </LinearLayout>
 

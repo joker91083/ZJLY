@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.main.viewmodel.ResourceManageDataViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_resource"
+            style="@style/toolbar_style"
+            app:navigationIcon="@drawable/ic_back"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/index"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_index"
+                    android:entries="@array/zhibiao_resource"
+                    style="@style/custom_spinner_style" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/years"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_year"
+                    android:entries="@array/nianfen_resource"
+                    style="@style/custom_spinner_style" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal"
+                android:paddingBottom="6dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingEnd="13dp"
+                    android:text="@string/dq"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:gravity="center_vertical"
+                    android:hint="请选择查询地区"
+                    android:text="浙江省"
+                    android:textSize="16sp"
+                    android:onClick="@{()->viewmodel.showPicker()}"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/data_manage_title"
+                android:text="@string/dq" />
+
+            <TextView
+                style="@style/data_manage_title"
+                android:text="@string/ldmj"
+                android:visibility="@{viewmodel.type==1?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                style="@style/data_manage_title"
+                android:text="@string/slmj"
+                android:visibility="@{viewmodel.type==2?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                style="@style/data_manage_title"
+                android:text="@string/gjgyl"
+                android:visibility="@{viewmodel.type==3?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                style="@style/data_manage_title"
+                android:text="@string/dfgyl"
+                android:visibility="@{viewmodel.type==3?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                style="@style/data_manage_title"
+                android:text="@string/gylzmj"
+                android:visibility="@{viewmodel.type==3?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                style="@style/data_manage_title"
+                android:text="@string/slfgl"
+                android:visibility="@{viewmodel.type==4?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                style="@style/data_manage_title"
+                android:text="@string/hlmxj"
+                android:visibility="@{viewmodel.type==5?View.VISIBLE:View.GONE}" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/gray" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_data_manage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never" />
+    </LinearLayout>
+</layout>

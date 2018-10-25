@@ -3,16 +3,19 @@ package com.otitan.util
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.widget.BaseExpandableListAdapter
 import android.widget.ExpandableListView
 import android.widget.LinearLayout
+import com.google.gson.*
 import com.otitan.TitanApplication
 import com.otitan.base.ContainerActivity
-import java.io.BufferedReader
-import java.io.InputStreamReader
+import java.io.*
+import java.lang.reflect.Type
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
+import kotlin.math.roundToLong
 
 class Utils {
     companion object {
@@ -74,7 +77,7 @@ class Utils {
          * @param bundle        跳转所携带的信息
          */
         @JvmStatic
-        fun startContainerActivity(context: Context?,canonicalName: String, bundle: Bundle) {
+        fun startContainerActivity(context: Context?, canonicalName: String, bundle: Bundle) {
             val intent = Intent(context, ContainerActivity::class.java)
             intent.putExtra(ContainerActivity.FRAGMENT, canonicalName)
             intent.putExtra(ContainerActivity.BUNDLE, bundle)
@@ -101,6 +104,37 @@ class Utils {
                 pro_value = ""
             }
             return pro_value
+        }
+
+        //获取浙江行政区划json字符串
+        @JvmStatic
+        fun getXZQHJson(fileName: String, context: Context): String {
+            var inputStream: InputStream? = null
+            var bos: ByteArrayOutputStream? = null
+            try {
+                inputStream = context.assets.open(fileName)//"zhejiang.json"
+                bos = ByteArrayOutputStream()
+                val bytes = ByteArray(4 * 1024)
+                var len: Int
+                do {
+                    len = inputStream.read(bytes)
+                    if (len == -1) {
+                        break
+                    }
+                    bos.write(bytes, 0, len)
+                } while (true)
+                return String(bos.toByteArray())
+            } catch (e: Exception) {
+                Log.e("tag", "read zhejiang error:$e")
+            } finally {
+                try {
+                    inputStream?.close()
+                    bos?.close()
+                } catch (e: IOException) {
+                    Log.e("tag", "closeErr:$e")
+                }
+            }
+            return ""
         }
     }
 }

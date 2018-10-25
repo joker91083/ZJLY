@@ -48,20 +48,12 @@ interface RetrofitService {
                        @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
 
     /**
-     * 林地征占
-     * [type] 1：项目个数，2：征占用林地面积，3：林地定额
+     * 资源管护-数据管理
+     * [type]1：林地面积，2：森林面积，3：公益林面积，4：森林覆盖率，5：活立木蓄积
      */
-    @GET("/api/occupy/overview")
-    fun ldzz(@Header("Authorization") auth: String, @Query("type") type: Int,
-             @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
-
-    /**
-     * 有害生物
-     * [type] 1：病害总计，2：虫害总计
-     */
-    @GET("/api/pest/overview")
-    fun yhsw(@Header("Authorization") auth: String, @Query("type") type: Int,
-             @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
+    @GET("/api/resource/datamanage")
+    fun resourceManageData(@Header("Authorization") auth: String, @Query("type") type: Int,
+                           @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
 
     /**
      * 森林防火
@@ -72,12 +64,45 @@ interface RetrofitService {
              @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
 
     /**
-     * 林业产业
-     * [type] 1：总产值，2：第一产业，3：第二产业，4：第三产业
+     * 森林防火-数据管理
+     * [type] 1：火灾次数，2：火场面积，3：损失面积，4：扑火经费，5：人员伤亡
      */
-    @GET("/api/industry/overview")
-    fun lycy(@Header("Authorization") auth: String, @Query("type") type: Int,
+    @GET("/api/fire/datamanage")
+    fun slfhData(@Header("Authorization") auth: String, @Query("type") type: Int,
+                 @Query("dqcode") dqcode: String, @Query("year") year: Int,
+                 @Query("page") page: Int, @Query("size") size: Int,
+                 @Query("keyword") keyword: String): Observable<ResultModel<SlfhModel<SlfhModel.Sjgl>>>
+
+    /**
+     * 行政执法
+     */
+    @GET("/api/law/overview")
+    fun xzzf(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String,
+             @Query("year") year: Int): Observable<ResultModel<Any>>
+
+    /**
+     * 行政执法 数据管理
+     */
+    @GET("/api/law/datamanage")
+    fun xzzfData(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String,
+                 @Query("year") year: Int, @Query("page") page: Int,
+                 @Query("size") size: Int, @Query("keyword") keyword: String): Observable<ResultModel<XzzfModel<XzzfModel.Sjgl>>>
+
+    /**
+     * 林地征占
+     * [type] 1：项目个数，2：征占用林地面积，3：林地定额
+     */
+    @GET("/api/occupy/overview")
+    fun ldzz(@Header("Authorization") auth: String, @Query("type") type: Int,
              @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
+
+    /**
+     * 林地征占 数据管理
+     */
+    @GET("/api/occupy/datamanage")
+    fun ldzzData(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String,
+                 @Query("year") year: Int, @Query("page") page: Int,
+                 @Query("size") size: Int, @Query("keyword") keyword: String): Observable<ResultModel<LdzzModel<LdzzModel.Sjgl>>>
 
     /**
      * 营造林
@@ -91,11 +116,28 @@ interface RetrofitService {
             @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
 
     /**
-     * 行政执法
+     * 营造林 数据管理
+     * [type] 1：完成情况，2：计划下达
      */
-    @GET("/api/law/overview")
-    fun xzzf(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String,
-             @Query("year") year: Int): Observable<ResultModel<Any>>
+    @GET("/api/afforestation/datamanage")
+    fun yzlData(@Header("Authorization") auth: String, @Query("type") type: Int,
+                @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<List<Any>>>
+
+    /**
+     * 有害生物
+     * [type] 1：病害总计，2：虫害总计
+     */
+    @GET("/api/pest/overview")
+    fun yhsw(@Header("Authorization") auth: String, @Query("type") type: Int,
+             @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
+
+    /**
+     * 有害生物 数据管理
+     */
+    @GET("/api/pest/datamanage")
+    fun yhswData(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String,
+                 @Query("year") year: Int, @Query("page") page: Int,
+                 @Query("size") size: Int): Observable<ResultModel<YhswModel<Any>>>
 
     /**
      * 国有林场
@@ -104,16 +146,40 @@ interface RetrofitService {
     fun gylc(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String): Observable<ResultModel<Any>>
 
     /**
-     * 湿地保护
+     * 国有林场 数据管理
      */
-    @GET("/api/wetland/overview")
-    fun sdbh(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String): Observable<ResultModel<Any>>
+    @GET("/api/farm/datamanage")
+    fun gylcData(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String,
+                 @Query("page") page: Int, @Query("size") size: Int,
+                 @Query("keyword") keyword: String): Observable<ResultModel<GylcModel<Any>>>
 
     /**
      * 森林公园
      */
     @GET("/api/park/overview")
     fun slgy(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String): Observable<ResultModel<Any>>
+
+    /**
+     * 森林公园 数据管理
+     */
+    @GET("/api/park/datamanage")
+    fun slgyData(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String,
+                 @Query("page") page: Int, @Query("size") size: Int,
+                 @Query("keyword") keyword: String): Observable<ResultModel<SlgyModel<Any>>>
+
+    /**
+     * 湿地保护
+     */
+    @GET("/api/wetland/overview")
+    fun sdbh(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String): Observable<ResultModel<Any>>
+
+    /**
+     * 湿地保护 数据管理
+     */
+    @GET("/api/wetland/datamanage")
+    fun sdbhData(@Header("Authorization") auth: String, @Query("dqcode") dqcode: String,
+                 @Query("page") page: Int, @Query("size") size: Int,
+                 @Query("keyword") keyword: String): Observable<ResultModel<SdbhModel<Any>>>
 
     /**
      * 林业科技
@@ -124,4 +190,13 @@ interface RetrofitService {
     fun lykj(@Header("Authorization") auth: String, @Query("type") type: Int,
              @Query("page") page: Int, @Query("size") size: Int,
              @Query("keyword") keyword: String): Observable<ResultModel<LykjModel<Any>>>
+
+    /**
+     * 林业产业
+     * [type] 1：总产值，2：第一产业，3：第二产业，4：第三产业
+     */
+    @GET("/api/industry/overview")
+    fun lycy(@Header("Authorization") auth: String, @Query("type") type: Int,
+             @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
+
 }

@@ -1,0 +1,8682 @@
+﻿{
+	"Code": "330000000000",
+	"Name": "浙江省",
+	"Level": 1,
+	"ChildAdministrativeDivisions": [{
+			"Code": "330200000000",
+			"Name": "宁波市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "330206000000",
+					"Name": "北仑区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330206000000",
+							"Name": "白峰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "霞浦街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "春晓镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "梅山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "戚家山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "柴桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "大碶街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "小港街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "大榭街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "保税区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330206000000",
+							"Name": "新碶街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330225000000",
+					"Name": "象山县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330225000000",
+							"Name": "黄避岙乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "泗洲头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "石浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "鹤浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "丹东街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "定塘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "丹西街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "墙头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "爵溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "涂茨镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "高塘岛乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "东陈乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "茅洋乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "晓塘乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "大徐镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "贤庠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "新桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330225000000",
+							"Name": "西周镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330211000000",
+					"Name": "镇海区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330211000000",
+							"Name": "九龙湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330211000000",
+							"Name": "招宝山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330211000000",
+							"Name": "庄市街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330211000000",
+							"Name": "澥浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330211000000",
+							"Name": "蛟川街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330211000000",
+							"Name": "骆驼街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330205000000",
+					"Name": "江北区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330205000000",
+							"Name": "白沙街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330205000000",
+							"Name": "孔浦街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330205000000",
+							"Name": "慈城镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330205000000",
+							"Name": "洪塘街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330205000000",
+							"Name": "庄桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330205000000",
+							"Name": "甬江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330205000000",
+							"Name": "中马街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330205000000",
+							"Name": "文教街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330213000000",
+					"Name": "奉化区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330213000000",
+							"Name": "锦屏街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "西坞街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "松岙镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "溪口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "裘村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "莼湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "岳林街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "江口街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "尚田镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "大堰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330213000000",
+							"Name": "萧王庙街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330226000000",
+					"Name": "宁海县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330226000000",
+							"Name": "茶院乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "黄坛镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "越溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "长街镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "一市镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "前童镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "力洋镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "深甽镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "桑洲镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "胡陈乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "岔路镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "梅林街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "大佳何镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "跃龙街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "桥头胡街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "强蛟镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "桃源街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330226000000",
+							"Name": "西店镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330281000000",
+					"Name": "余姚市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330281000000",
+							"Name": "三七市镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "鹿亭乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "黄家埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "牟山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "低塘街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "丈亭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "梁弄镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "朗霞街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "四明山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "临山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "泗门镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "梨洲街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "大岚镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "凤山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "河姆渡镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "大隐镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "马渚镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "兰江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "小曹娥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "陆埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330281000000",
+							"Name": "阳明街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330212000000",
+					"Name": "鄞州区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330212000000",
+							"Name": "明楼街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "中河街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "首南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "姜山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "咸祥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "钟公庙街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "塘溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "东钱湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "百丈街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "邱隘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "东郊街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "瞻岐镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "梅墟街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "下应街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "潘火街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "白鹤街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "东柳街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "东胜街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "横溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "东吴镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "五乡镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "新明街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "福明街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330212000000",
+							"Name": "云龙镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330203000000",
+					"Name": "海曙区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330203000000",
+							"Name": "古林镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "鼓楼街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "章水镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "龙观乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "集士港镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "洞桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "高桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "石碶街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "白云街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "南门街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "望春街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "月湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "鄞江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "西门街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "段塘街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "横街镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330203000000",
+							"Name": "江厦街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330282000000",
+					"Name": "慈溪市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330282000000",
+							"Name": "附海镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "慈溪市农垦场",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "慈东工业区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "新浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "胜山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "逍林镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "古塘街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "观海卫镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "桥头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "匡堰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "横河镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "掌起镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "崇寿镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "浒山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "宗汉街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "庵东镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "慈溪市林场",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "龙山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "周巷镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "长河镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "坎墩街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330282000000",
+							"Name": "白沙路街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "331000000000",
+			"Name": "台州市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "331004000000",
+					"Name": "路桥区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331004000000",
+							"Name": "路桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "滨海工业区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "横街镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "蓬街镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "桐屿街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "滨海工业城",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "路南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "螺洋街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "金清镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "新桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "路北街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331004000000",
+							"Name": "峰江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331082000000",
+					"Name": "临海市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331082000000",
+							"Name": "大田街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "江南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "涌泉镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "东塍镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "汇溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "小芝镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "白水洋镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "永丰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "括苍镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "杜桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "汛桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "大洋街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "上盘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "尤溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "古城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "河头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "沿江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "邵家渡街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331082000000",
+							"Name": "桃渚镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331002000000",
+					"Name": "椒江区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331002000000",
+							"Name": "三甲街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "白云街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "海门街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "椒江农场",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "滨海工业区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "章安街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "下陈街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "葭沚街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "前所街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "洪家街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331002000000",
+							"Name": "大陈镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331022000000",
+					"Name": "三门县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331022000000",
+							"Name": "健跳镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331022000000",
+							"Name": "海游镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331022000000",
+							"Name": "沙柳街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331022000000",
+							"Name": "蛇蟠乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331022000000",
+							"Name": "花桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331022000000",
+							"Name": "横渡镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331022000000",
+							"Name": "浦坝港镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331022000000",
+							"Name": "亭旁镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331022000000",
+							"Name": "珠岙镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331023000000",
+					"Name": "天台县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331023000000",
+							"Name": "赤城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "泳溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "始丰街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "坦头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "白鹤镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "石梁镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "平桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "洪畴镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "三州乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "街头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "雷峰乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "福溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "三合镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "南屏乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331023000000",
+							"Name": "龙溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331081000000",
+					"Name": "温岭市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331081000000",
+							"Name": "城北街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "箬横镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "泽国镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "城西街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "城南镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "坞根镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "温峤镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "石桥头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "城东街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "新河镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "东部新区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "松门镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "石塘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "滨海镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "横峰街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "太平街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331081000000",
+							"Name": "大溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331083000000",
+					"Name": "玉环市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331083000000",
+							"Name": "清港镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "玉城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "干江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "龙溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "大麦屿街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "沙门镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "芦浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "坎门街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "海山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "鸡山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331083000000",
+							"Name": "楚门镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331003000000",
+					"Name": "黄岩区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331003000000",
+							"Name": "上郑乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "澄江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "新前街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "茅畲乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "屿头乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "江口街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "宁溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "头陀镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "上垟乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "北城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "东城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "富山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "南城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "沙埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "高桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "西城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "北洋镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "院桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331003000000",
+							"Name": "平田乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331024000000",
+					"Name": "仙居县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331024000000",
+							"Name": "白塔镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "淡竹乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "上张乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "广度乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "下各镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "横溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "田市镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "安洲街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "埠头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "安岭乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "朱溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "步路乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "皤滩乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "福应街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "大战乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "南峰街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "溪港乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "官路镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "双庙乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331024000000",
+							"Name": "湫山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "330400000000",
+			"Name": "嘉兴市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "330482000000",
+					"Name": "平湖市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330482000000",
+							"Name": "新仓镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330482000000",
+							"Name": "曹桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330482000000",
+							"Name": "乍浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330482000000",
+							"Name": "钟埭街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330482000000",
+							"Name": "当湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330482000000",
+							"Name": "林埭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330482000000",
+							"Name": "广陈镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330482000000",
+							"Name": "独山港镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330482000000",
+							"Name": "新埭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330483000000",
+					"Name": "桐乡市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330483000000",
+							"Name": "洲泉镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "屠甸镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "石门镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "乌镇镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "大麻镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "崇福镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "河山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "龙翔街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "凤鸣街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "高桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "濮院镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330483000000",
+							"Name": "梧桐街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330481000000",
+					"Name": "海宁市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330481000000",
+							"Name": "硖石街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "袁花镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "海洲街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "长安镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "海昌街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "周王庙镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "许村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "斜桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "丁桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "盐官镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "黄湾镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330481000000",
+							"Name": "马桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330411000000",
+					"Name": "秀洲区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330411000000",
+							"Name": "王江泾镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330411000000",
+							"Name": "洪合镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330411000000",
+							"Name": "新塍镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330411000000",
+							"Name": "新城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330411000000",
+							"Name": "油车港镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330411000000",
+							"Name": "嘉北街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330411000000",
+							"Name": "塘汇街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330411000000",
+							"Name": "王店镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330411000000",
+							"Name": "高照街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330402000000",
+					"Name": "南湖区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330402000000",
+							"Name": "建设街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "大桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "新丰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "东栅街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "七星街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "长水街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "南湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "新嘉街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "新兴街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "城南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "余新镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "解放街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330402000000",
+							"Name": "凤桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330421000000",
+					"Name": "嘉善县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330421000000",
+							"Name": "惠民街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330421000000",
+							"Name": "天凝镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330421000000",
+							"Name": "魏塘街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330421000000",
+							"Name": "陶庄镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330421000000",
+							"Name": "大云镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330421000000",
+							"Name": "罗星街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330421000000",
+							"Name": "西塘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330421000000",
+							"Name": "干窑镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330421000000",
+							"Name": "姚庄镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330424000000",
+					"Name": "海盐县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330424000000",
+							"Name": "于城镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330424000000",
+							"Name": "澉浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330424000000",
+							"Name": "秦山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330424000000",
+							"Name": "元通街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330424000000",
+							"Name": "西塘桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330424000000",
+							"Name": "沈荡镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330424000000",
+							"Name": "百步镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330424000000",
+							"Name": "通元镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330424000000",
+							"Name": "武原街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "330900000000",
+			"Name": "舟山市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "330902000000",
+					"Name": "定海区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330902000000",
+							"Name": "临城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "昌国街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "金塘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "小沙街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "盐仓街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "干览镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "环南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "城东街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "马岙街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "岑港街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "双桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330902000000",
+							"Name": "白泉镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330903000000",
+					"Name": "普陀区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330903000000",
+							"Name": "沈家门街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330903000000",
+							"Name": "虾峙镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330903000000",
+							"Name": "东极镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330903000000",
+							"Name": "六横镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330903000000",
+							"Name": "普陀山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330903000000",
+							"Name": "展茅街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330903000000",
+							"Name": "朱家尖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330903000000",
+							"Name": "东港街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330903000000",
+							"Name": "桃花镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330921000000",
+					"Name": "岱山县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330921000000",
+							"Name": "衢山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330921000000",
+							"Name": "高亭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330921000000",
+							"Name": "长涂镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330921000000",
+							"Name": "秀山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330921000000",
+							"Name": "东沙镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330921000000",
+							"Name": "岱西镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330921000000",
+							"Name": "岱东镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330922000000",
+					"Name": "嵊泗县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330922000000",
+							"Name": "五龙乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330922000000",
+							"Name": "洋山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330922000000",
+							"Name": "花鸟乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330922000000",
+							"Name": "菜园镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330922000000",
+							"Name": "嵊山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330922000000",
+							"Name": "枸杞乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330922000000",
+							"Name": "黄龙乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "330300000000",
+			"Name": "温州市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "330326000000",
+					"Name": "平阳县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330326000000",
+							"Name": "南麂镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "鳌江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "昆阳镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "顺溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "青街畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "腾蛟镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "南雁镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "万全镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "凤卧镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "怀溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "萧江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "麻步镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "山门镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "水头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "闹村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330326000000",
+							"Name": "海西镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330305000000",
+					"Name": "洞头区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330305000000",
+							"Name": "东屏街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330305000000",
+							"Name": "鹿西乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330305000000",
+							"Name": "元觉街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330305000000",
+							"Name": "大门镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330305000000",
+							"Name": "霓屿街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330305000000",
+							"Name": "北岙街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330305000000",
+							"Name": "灵昆街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330381000000",
+					"Name": "瑞安市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330381000000",
+							"Name": "莘塍街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "锦湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "南滨街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "湖岭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "高楼镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "马屿镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "陶山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "上望街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "仙降街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "汀田街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "塘下镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "东山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "飞云街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "安阳街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "玉海街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330381000000",
+							"Name": "云周街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330327000000",
+					"Name": "苍南县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330327000000",
+							"Name": "钱库镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "桥墩镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "龙港镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "岱岭畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "金乡镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "马站镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "藻溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "赤溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "凤阳畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "宜山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "矾山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "灵溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330327000000",
+							"Name": "望里镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330302000000",
+					"Name": "鹿城区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330302000000",
+							"Name": "松台街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330302000000",
+							"Name": "藤桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330302000000",
+							"Name": "仰义街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330302000000",
+							"Name": "七都街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330302000000",
+							"Name": "双屿街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330302000000",
+							"Name": "五马街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330302000000",
+							"Name": "南汇街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330302000000",
+							"Name": "滨江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330324000000",
+					"Name": "永嘉县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330324000000",
+							"Name": "沙头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "三江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "鹤盛镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "县特产场场区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "乌牛街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "桥头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "南城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "桥下镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "巽宅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "北城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "枫林镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "黄田街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "大若岩镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "东城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "碧莲镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "岩头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "正江山林场",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "四海山林场",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "岩坦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330324000000",
+							"Name": "瓯北街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330329000000",
+					"Name": "泰顺县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330329000000",
+							"Name": "彭溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "罗阳镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "三魁镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "百丈镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "筱村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "乌岩岭自然保护区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "雅阳镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "泗溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "司前畲族镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "竹里畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330329000000",
+							"Name": "仕阳镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330328000000",
+					"Name": "文成县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330328000000",
+							"Name": "玉壶镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "珊溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "黄坦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "巨屿镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "百丈漈镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "大峃镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "西坑畲族镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "南田镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "周山畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "峃口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330328000000",
+							"Name": "铜铃山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330382000000",
+					"Name": "乐清市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330382000000",
+							"Name": "天成街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "白石街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "乐成街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "石帆街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "淡溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "盐盆街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "芙蓉镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "雁荡镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "虹桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "北白象镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "柳市镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "大荆镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "翁垟街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "仙溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "城东街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "城南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "清江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "湖雾镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330382000000",
+							"Name": "智仁乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330303000000",
+					"Name": "龙湾区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330303000000",
+							"Name": "海城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330303000000",
+							"Name": "星海街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330303000000",
+							"Name": "瑶溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330303000000",
+							"Name": "永中街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330303000000",
+							"Name": "沙城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330303000000",
+							"Name": "蒲州街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330303000000",
+							"Name": "状元街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330303000000",
+							"Name": "永兴街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330303000000",
+							"Name": "海滨街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330303000000",
+							"Name": "天河街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330304000000",
+					"Name": "瓯海区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330304000000",
+							"Name": "丽岙街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "仙岩街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "泽雅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "三垟街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "潘桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "娄桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "景山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "梧田街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "瞿溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "郭溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "新桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "茶山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330304000000",
+							"Name": "南白象街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "330800000000",
+			"Name": "衢州市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "330803000000",
+					"Name": "衢江区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330803000000",
+							"Name": "周家乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "后溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "峡川镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "双桥乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "杜泽镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "樟潭街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "莲花镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "廿里镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "岭洋乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "举村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "湖南镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "黄坛口乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "灰坪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "上方镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "太真乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "全旺镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "浮石街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "高家镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "云溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330803000000",
+							"Name": "大洲镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330802000000",
+					"Name": "柯城区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330802000000",
+							"Name": "沟溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "石室乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "姜家山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "新新街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "白云街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "七里乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "黄家乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "九华乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "石梁镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "航埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "信安街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "华墅乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "双港街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "府山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "万田乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "花园街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330802000000",
+							"Name": "荷花街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330822000000",
+					"Name": "常山县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330822000000",
+							"Name": "同弓乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "东案乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "新昌乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "金川街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "招贤镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "天马街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "芳村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "辉埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "何家乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "青石镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "大桥头乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "紫港街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "白石镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330822000000",
+							"Name": "球川镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330824000000",
+					"Name": "开化县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330824000000",
+							"Name": "华埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "中村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "马金镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "林山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "齐溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "大溪边乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "苏庄镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "张湾乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "池淮镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "村头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "音坑乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "城关镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "何田乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "长虹乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "金村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "塘坞乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "桐村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330824000000",
+							"Name": "杨林镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330825000000",
+					"Name": "龙游县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330825000000",
+							"Name": "大街乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "庙下乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "湖镇镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "小南海镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "龙洲街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "沐尘畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "石佛乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "塔石镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "溪口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "罗家乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "社阳乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "模环乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "詹家镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "东华街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330825000000",
+							"Name": "横山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330881000000",
+					"Name": "江山市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330881000000",
+							"Name": "保安乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "长台镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "坛石镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "大桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "塘源口乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "虎山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "大陈乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "双溪口乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "碗窑乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "峡口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "石门镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "双塔街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "上余镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "廿八都镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "清湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "四都镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "张村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "新塘边镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "贺村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330881000000",
+							"Name": "凤林镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "330700000000",
+			"Name": "金华市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "330726000000",
+					"Name": "浦江县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330726000000",
+							"Name": "大畈乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "檀溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "郑家坞镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "中余乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "岩头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "郑宅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "仙华街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "白马镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "杭坪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "虞宅乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "浦南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "浦阳街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "前吴乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "花桥乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330726000000",
+							"Name": "黄宅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330784000000",
+					"Name": "永康市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330784000000",
+							"Name": "舟山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "前仓镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "象珠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "龙山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "石柱镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "古山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "唐先镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "西城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "花街镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "江南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "方岩镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "芝英镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "东城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330784000000",
+							"Name": "西溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330723000000",
+					"Name": "武义县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330723000000",
+							"Name": "桃溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "新宅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "白姆乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "大田乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "西联乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "白洋街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "熟溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "履坦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "三港乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "茭道镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "柳城畲族镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "王宅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "坦洪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "泉溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "俞源乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "大溪口乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "壶山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330723000000",
+							"Name": "桐琴镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330781000000",
+					"Name": "兰溪市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330781000000",
+							"Name": "马涧镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "黄店镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "香溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "游埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "兰江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "上华街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "梅江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "柏社乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "灵洞乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "女埠街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "诸葛镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "赤溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "横溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "永昌街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "云山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330781000000",
+							"Name": "水亭畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330783000000",
+					"Name": "东阳市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330783000000",
+							"Name": "佐村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "六石街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "三单乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "巍山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "虎鹿镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "白云街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "歌山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "城东街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "南市街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "横店镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "画水镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "千祥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "江北街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "东阳江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "吴宁街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "湖溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "南马镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330783000000",
+							"Name": "马宅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330702000000",
+					"Name": "婺城区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330702000000",
+							"Name": "莘畈乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "城东街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "罗店镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "江南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "城中街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "城北街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "岭上乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "长山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "西关街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "乾西乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "安地镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "城西街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "秋滨街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "塔石乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "琅琊镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "沙畈乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "竹马乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "三江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "苏孟乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "蒋堂镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "洋埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "新狮街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "箬阳乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "罗埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "雅畈镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "白龙桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330702000000",
+							"Name": "汤溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330727000000",
+					"Name": "磐安县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330727000000",
+							"Name": "安文镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "大盘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "方前镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "双溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "仁川镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "玉山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "九和乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "双峰乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "深泽乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "冷水镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "新渥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "窈川乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "尚湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "尖山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330727000000",
+							"Name": "盘峰乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330703000000",
+					"Name": "金东区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330703000000",
+							"Name": "澧浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "傅村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "岭下镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "孝顺镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "江东镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "赤松镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "塘雅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "源东乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "曹宅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "东孝街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330703000000",
+							"Name": "多湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330782000000",
+					"Name": "义乌市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330782000000",
+							"Name": "大陈镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "义亭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "赤岸镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "城西街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "苏溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "稠城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "江东街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "上溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "廿三里街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "后宅街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "佛堂镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "稠江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330782000000",
+							"Name": "北苑街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "331100000000",
+			"Name": "丽水市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "331102000000",
+					"Name": "莲都区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331102000000",
+							"Name": "富岭街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "万象街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "水阁街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "岩泉街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "雅溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "黄村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "紫金街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "老竹畲族镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "碧湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "太平乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "大港头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "仙渡乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "峰源乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "联城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "丽新畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331102000000",
+							"Name": "白云街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331124000000",
+					"Name": "松阳县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331124000000",
+							"Name": "斋坛乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "古市镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "水南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "竹源乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "新兴镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "叶村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "赤寿乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "象溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "樟溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "安民乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "大东坝镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "裕溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "西屏街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "玉岩镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "枫坪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "望松街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "四都乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "三都乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331124000000",
+							"Name": "板桥畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331181000000",
+					"Name": "龙泉市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331181000000",
+							"Name": "龙南乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "道太乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "宝溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "龙渊街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "锦溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "剑池街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "住龙镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "城北乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "石达石街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "岩樟乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "查田镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "兰巨乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "八都镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "安仁镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "西街街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "上垟镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "小梅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "屏南镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331181000000",
+							"Name": "竹垟畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331123000000",
+					"Name": "遂昌县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331123000000",
+							"Name": "柘岱口乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "黄沙腰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "金竹镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "新路湾镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "西畈乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "大柘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "垵口乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "濂竹乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "焦滩乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "王村口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "龙洋乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "妙高街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "蔡源乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "高坪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "石练镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "云峰街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "湖山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "三仁畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "北界镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331123000000",
+							"Name": "应村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331125000000",
+					"Name": "云和县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331125000000",
+							"Name": "白龙山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331125000000",
+							"Name": "凤凰山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331125000000",
+							"Name": "赤石乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331125000000",
+							"Name": "崇头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331125000000",
+							"Name": "石塘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331125000000",
+							"Name": "安溪畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331125000000",
+							"Name": "紧水滩镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331125000000",
+							"Name": "雾溪畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331125000000",
+							"Name": "元和街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331125000000",
+							"Name": "浮云街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331122000000",
+					"Name": "缙云县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331122000000",
+							"Name": "舒洪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "前路乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "七里乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "壶镇镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "大源镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "大洋镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "仙都街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "胡源乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "新建镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "新碧街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "五云街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "方溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "石笕乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "三溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "双溪口乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "东方镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "东渡镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331122000000",
+							"Name": "溶江乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331127000000",
+					"Name": "景宁畲族自治县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331127000000",
+							"Name": "大均乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "英川镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "秋炉乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "大漈乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "标溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "澄照乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "鸬鹚乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "鹤溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "大地乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "九龙乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "红星街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "景南乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "郑坑乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "家地乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "雁溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "沙湾镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "毛垟乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "渤海镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "东坑镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "梅岐乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331127000000",
+							"Name": "梧桐乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331121000000",
+					"Name": "青田县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331121000000",
+							"Name": "高市乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "吴坑乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "仁宫乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "小舟山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "温溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "石溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "季宅乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "舒桥乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "祯埠乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "瓯南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "阜山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "章旦乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "贵岙乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "方山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "海溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "船寮镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "东源镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "万阜乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "油竹街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "北山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "万山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "腊口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "巨浦乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "仁庄镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "祯旺乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "黄垟乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "高湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "山口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "海口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "汤垟乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "章村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331121000000",
+							"Name": "鹤城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "331126000000",
+					"Name": "庆元县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "331126000000",
+							"Name": "荷地镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "竹口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "左溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "屏都街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "安南乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "贤良镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "濛洲街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "张村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "岭头乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "五大堡乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "龙溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "淤上乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "百山祖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "隆宫乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "官塘乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "举水乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "黄田镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "松源街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "331126000000",
+							"Name": "江根乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "330100000000",
+			"Name": "杭州市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "330111000000",
+					"Name": "富阳区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330111000000",
+							"Name": "常安镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "春建乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "洞桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "湖源乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "新登镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "上官乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "银湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "万市镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "永昌镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "场口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "胥口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "鹿山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "渔山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "灵桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "新桐乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "春江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "常绿镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "环山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "渌渚镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "龙门镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "东洲街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "里山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "大源镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330111000000",
+							"Name": "富春街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330122000000",
+					"Name": "桐庐县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330122000000",
+							"Name": "分水镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "百江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "莪山畲族乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "新合乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "瑶琳镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "桐君街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "富春江镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "横村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "城南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "合村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "江南镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "旧县街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "凤川街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330122000000",
+							"Name": "钟山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330106000000",
+					"Name": "西湖区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330106000000",
+							"Name": "灵隐街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "文新街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "三墩镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "北山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "翠苑街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "西湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "蒋村街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "留下街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "转塘街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "西溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "双浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330106000000",
+							"Name": "古荡街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330102000000",
+					"Name": "上城区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330102000000",
+							"Name": "紫阳街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330102000000",
+							"Name": "望江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330102000000",
+							"Name": "清波街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330102000000",
+							"Name": "湖滨街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330102000000",
+							"Name": "小营街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330102000000",
+							"Name": "南星街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330182000000",
+					"Name": "建德市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330182000000",
+							"Name": "钦堂乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "乾潭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "杨村桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "下涯镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "洋溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "莲花镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "大慈岩镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "大洋镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "大同镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "航头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "新安江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "梅城镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "李家镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "三都镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "更楼街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330182000000",
+							"Name": "寿昌镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330127000000",
+					"Name": "淳安县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330127000000",
+							"Name": "瑶山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "左口乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "富文乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "临岐镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "威坪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "文昌镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "屏门乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "金峰乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "枫树岭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "千岛湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "鸠坑乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "姜家镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "大墅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "石林镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "里商乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "汾口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "安阳乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "界首乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "梓桐镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "宋村乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "浪川乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "王阜乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330127000000",
+							"Name": "中洲镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330110000000",
+					"Name": "余杭区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330110000000",
+							"Name": "径山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "崇贤街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "鸬鸟镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "黄湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "中泰街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "南苑街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "运河街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "仓前街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "临平街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "塘栖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "瓶窑镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "百丈镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "余杭街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "东湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "星桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "闲林街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "良渚街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "乔司街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "仁和街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330110000000",
+							"Name": "五常街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330109000000",
+					"Name": "萧山区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330109000000",
+							"Name": "义蓬街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "新塘街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "新湾街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "党湾镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "萧山经济技术开发区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "河庄街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "新街镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "萧山空港经济区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "宁围镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "进化镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "戴村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "闻堰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "南阳街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "衙前镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "所前镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "北干街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "蜀山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "楼塔镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "围垦区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "河上镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "浦阳镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "红山农场",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "临江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "义桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "靖江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "益农镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "萧山商业城",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "瓜沥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "前进街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "临浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330109000000",
+							"Name": "城厢街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330108000000",
+					"Name": "滨江区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330108000000",
+							"Name": "西兴街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330108000000",
+							"Name": "长河街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330108000000",
+							"Name": "浦沿街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330104000000",
+					"Name": "江干区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330104000000",
+							"Name": "闸弄口街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330104000000",
+							"Name": "彭埠街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330104000000",
+							"Name": "采荷街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330104000000",
+							"Name": "四季青街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330104000000",
+							"Name": "凯旋街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330104000000",
+							"Name": "丁兰街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330104000000",
+							"Name": "下沙街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330104000000",
+							"Name": "白杨街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330104000000",
+							"Name": "九堡街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330104000000",
+							"Name": "笕桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330103000000",
+					"Name": "下城区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330103000000",
+							"Name": "石桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330103000000",
+							"Name": "潮鸣街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330103000000",
+							"Name": "文晖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330103000000",
+							"Name": "长庆街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330103000000",
+							"Name": "东新街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330103000000",
+							"Name": "天水街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330103000000",
+							"Name": "朝晖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330103000000",
+							"Name": "武林街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330112000000",
+					"Name": "临安区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330112000000",
+							"Name": "玲珑街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "清凉峰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "龙岗镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "岛石镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "天目山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "锦城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "青山湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "於潜镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "太湖源镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "太阳镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "板桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "河桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "潜川镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "高虹镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "锦南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "昌化镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "湍口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330112000000",
+							"Name": "锦北街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330105000000",
+					"Name": "拱墅区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330105000000",
+							"Name": "祥符街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330105000000",
+							"Name": "康桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330105000000",
+							"Name": "拱宸桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330105000000",
+							"Name": "和睦街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330105000000",
+							"Name": "半山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330105000000",
+							"Name": "湖墅街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330105000000",
+							"Name": "上塘街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330105000000",
+							"Name": "小河街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330105000000",
+							"Name": "大关街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330105000000",
+							"Name": "米市巷街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "330600000000",
+			"Name": "绍兴市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "330604000000",
+					"Name": "上虞区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330604000000",
+							"Name": "百官街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "下管镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "小越街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "梁湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "沥海镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "长塘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "岭南乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "汤浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "上浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "驿亭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "道墟街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "东关街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "谢塘镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "丰惠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "章镇镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "崧厦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "盖北镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "曹娥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "永和镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "陈溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330604000000",
+							"Name": "丁宅乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330683000000",
+					"Name": "嵊州市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330683000000",
+							"Name": "竹溪乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "崇仁镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "鹿山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "王院乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "里南乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "长乐镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "金庭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "嵊州经济开发区",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "石璜镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "下王镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "仙岩镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "谷来镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "剡湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "通源乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "贵门乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "雅璜乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "三界镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "浦口街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "北漳镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "甘霖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "三江街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330683000000",
+							"Name": "黄泽镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330624000000",
+					"Name": "新昌县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330624000000",
+							"Name": "儒岙镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "七星街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "大市聚镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "双彩乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "新林乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "澄潭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "羽林街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "镜岭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "东茗乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "城南乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "沙溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "巧英乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "小将镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "梅渚镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "南明街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330624000000",
+							"Name": "回山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330602000000",
+					"Name": "越城区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330602000000",
+							"Name": "皋埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "斗门街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "稽山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "东浦街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "塔山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "孙端镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "城南街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "鉴湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "陶堰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "富盛镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "马山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "灵芝街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "蕺山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "东湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "府山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "北海街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330602000000",
+							"Name": "迪荡街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330603000000",
+					"Name": "柯桥区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330603000000",
+							"Name": "夏履镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "杨汛桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "兰亭街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "华舍街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "王坛镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "马鞍镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "安昌街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "钱清镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "湖塘街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "平水镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "漓渚镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "柯岩街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "柯桥街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "齐贤街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "福全街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330603000000",
+							"Name": "稽东镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330681000000",
+					"Name": "诸暨市",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330681000000",
+							"Name": "陈宅镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "浣东街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "安华镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "应店街镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "东白湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "马剑镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "大唐镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "岭北镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "璜山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "江藻镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "暨阳街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "阮市镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "山下湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "浬浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "五泄镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "草塔镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "牌头镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "枫桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "直埠镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "陶朱街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "东和乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "店口镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "赵家镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "街亭镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "次坞镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "同山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330681000000",
+							"Name": "王家井镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"Code": "330500000000",
+			"Name": "湖州市",
+			"Level": 2,
+			"ChildAdministrativeDivisions": [{
+					"Code": "330521000000",
+					"Name": "德清县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330521000000",
+							"Name": "禹越镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330521000000",
+							"Name": "雷甸镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330521000000",
+							"Name": "武康镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330521000000",
+							"Name": "洛舍镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330521000000",
+							"Name": "三合乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330521000000",
+							"Name": "新市镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330521000000",
+							"Name": "钟管镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330521000000",
+							"Name": "乾元镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330521000000",
+							"Name": "新安镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330521000000",
+							"Name": "莫干山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330522000000",
+					"Name": "长兴县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330522000000",
+							"Name": "和平镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "画溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "水口乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "太湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "夹浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "吕山乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "洪桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "李家巷镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "虹星桥镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "雉城街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "林城镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "小浦镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "泗安镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330522000000",
+							"Name": "煤山镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330502000000",
+					"Name": "吴兴区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330502000000",
+							"Name": "龙溪街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "朝阳街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "妙西镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "月河街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "埭溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "飞英街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "滨湖街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "环渚街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "八里店镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "织里镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "东林镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "康山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "道场乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "爱山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "仁皇山街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "杨家埠街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "凤凰街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330502000000",
+							"Name": "龙泉街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330523000000",
+					"Name": "安吉县",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330523000000",
+							"Name": "鄣吴镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "溪龙乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "杭垓镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "山川乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "报福镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "上墅乡",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "天荒坪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "梅溪镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "天子湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "孝丰镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "章村镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "昌硕街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "灵峰街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "孝源街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330523000000",
+							"Name": "递铺街道",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				},
+				{
+					"Code": "330503000000",
+					"Name": "南浔区",
+					"Level": 3,
+					"ChildAdministrativeDivisions": [{
+							"Code": "330503000000",
+							"Name": "练市镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330503000000",
+							"Name": "双林镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330503000000",
+							"Name": "菱湖镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330503000000",
+							"Name": "善琏镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330503000000",
+							"Name": "千金镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330503000000",
+							"Name": "和孚镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330503000000",
+							"Name": "石淙镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330503000000",
+							"Name": "旧馆镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						},
+						{
+							"Code": "330503000000",
+							"Name": "南浔镇",
+							"Level": 4,
+							"ChildAdministrativeDivisions": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -84,8 +84,8 @@ class YhswViewModel() : BaseViewModel() {
             val temp = data?.data as List<LinkedTreeMap<String, Any>>
             var i = 0f
             temp.forEach {
-//                                if (it["name"] == dqName) {
-                it.forEach { k, v ->
+                //                                if (it["name"] == dqName) {
+                it.forEach { (k, v) ->
                     if (k == "AdminstrativeName") {
                         dqList.add(v.toString())
                     } else if (k == "HappenArea") {
@@ -100,11 +100,11 @@ class YhswViewModel() : BaseViewModel() {
     }
 
     fun conversionTableData(data: ResultModel<Any>?): List<Any> {
-        val list = ArrayList<YhswModel>()
+        val list = ArrayList<YhswModel<Any>>()
         if (data != null) {
             val gson = Gson()
             val json = gson.toJson(data.data)
-            val type = object : TypeToken<List<YhswModel>>() {}.type
+            val type = object : TypeToken<List<YhswModel<Any>>>() {}.type
             list.addAll(gson.fromJson(json, type))
         }
         return list

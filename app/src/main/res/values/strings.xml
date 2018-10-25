@@ -92,14 +92,89 @@
     <string name="type">类型</string>
     <string name="index">指标</string>
     <string name="dq">地区</string>
+    <string name="sheng">省</string>
+    <string name="shi">市(州)</string>
+    <string name="qx">区县</string>
     <string name="organizer">主办单位：浙江省林业厅\n技术支持：北京航天泰坦科技股份有限公司</string>
     <string name="xmbh">项目编号：</string>
     <string name="xmmc">项目名称</string>
     <string name="cddw">承担单位：</string>
     <string name="zcr">主持人：</string>
+
+    <string name="sqx">市、区县：</string>
+    <string name="hcmj">火场面积：</string>
+    <string name="ssmj">损失面积：</string>
+    <string name="phjf">扑火经费：</string>
+    <string name="qs">轻伤：</string>
+    <string name="zs">重伤：</string>
+    <string name="sw">死亡：</string>
+    <string name="ymzs">幼苗株数：</string>
+    <string name="clxj">成林蓄积：</string>
+
+    <string name="xxdz">详细地址：</string>
+    <string name="ajbh">案件编号：</string>
+    <string name="ajwh">案件文号：</string>
+    <string name="ajgk">案件归口：</string>
+    <string name="ajzt">案件状态：</string>
+    <string name="zbr">主办人：</string>
+    <string name="banr">报案内容：</string>
+
+    <string name="lx">类型：</string>
+    <string name="bh">编号：</string>
+    <string name="xs">县市：</string>
+    <string name="spqx">审批权限：</string>
+    <string name="xmmc2">项目名称：</string>
+    <string name="xmpzjg">项目批准机关：</string>
+    <string name="pzwh">批准文号：</string>
+    <string name="slzbhff">森林植被恢复费：</string>
+    <string name="nf">年份：</string>
+
+    <string name="dq2">地区：</string>
+    <string name="zlmj">造林面积：</string>
+    <string name="rgzlmj">人工造林面积：</string>
+    <string name="jdgxmj">迹地更新面积：</string>
+    <string name="slfy">森林抚育：</string>
+    <string name="fsylmj">年末实有封山(沙)育林面积：</string>
+    <string name="spzs">四旁(零星)植树：</string>
+    <string name="dnmmcl">当年苗木产量：</string>
+    <string name="ymmj">育苗面积：</string>
+    <string name="fsyl">封山育林：</string>
+    <string name="dxlgz">低效林改造：</string>
+    <string name="xymmj">当年新育苗面积：</string>
+    <string name="sps">四旁树：</string>
+
+    <string name="bchmc">病虫害名称：</string>
+    <string name="fsmj">发生面积：</string>
+    <string name="fzmj">防治面积：</string>
+    <string name="fzzymj">防治作业面积：</string>
+    <string name="czmj">成灾面积：</string>
+    <string name="fzfy">防治费用：</string>
+    <string name="jzszmj">寄主树种面积：</string>
+
+    <string name="dw">单位：</string>
+    <string name="jymj">经营面积：</string>
+
+    <string name="shi2">市：</string>
+    <string name="xian">县：</string>
+    <string name="slgymc">森林公园名称：</string>
+    <string name="jysj">建园时间：</string>
+    <string name="pfwh">批复文号：</string>
+
+    <string name="sdmc">湿地名称：</string>
+    <string name="bhxs">保护形式：</string>
+    <string name="bhqlx">保护区类型：</string>
+    <string name="sdmj">湿地面积：</string>
+
     <string name="jszcdw">技术支撑单位</string>
     <string name="zjf">总经费</string>
     <string name="czbz">财政补助</string>
     <string name="remark">备注</string>
+    <string name="ldmj">林地面积</string>
+    <string name="slmj">森林面积</string>
+    <string name="gjgyl">国家级公益林</string>
+    <string name="dfgyl">地方公益林</string>
+    <string name="gylzmj">公益林总面积</string>
+    <string name="slfgl">森林覆盖率</string>
+    <string name="hlmxj">活立木蓄积</string>
 
 </resources>

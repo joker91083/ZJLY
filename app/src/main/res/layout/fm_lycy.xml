@@ -64,11 +64,8 @@
 
                 <Spinner
                     android:id="@+id/spinner_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:contextClickable="true"
-                    android:entries="@array/nianfen_lycy"/>
+                    android:entries="@array/nianfen_lycy"
+                    style="@style/custom_spinner_style"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,11 +77,8 @@
 
                 <Spinner
                     android:id="@+id/spinner_type"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:contextClickable="true"
-                    android:entries="@array/type_lycy"/>
+                    android:entries="@array/type_lycy"
+                    style="@style/custom_spinner_style"/>
 
             </LinearLayout>
 
@@ -106,11 +100,8 @@
 
                 <Spinner
                     android:id="@+id/spinner_dq"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:contextClickable="true"
-                    android:entries="@array/dq"/>
+                    android:entries="@array/dq"
+                    style="@style/custom_spinner_style"/>
             </LinearLayout>
         </LinearLayout>
 

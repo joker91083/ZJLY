@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.AdapterView
 import android.widget.Spinner
 import com.bin.david.form.data.column.Column
@@ -19,9 +17,12 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.LdzzViewModel
+import com.otitan.main.widgets.BarChartInit
+import com.otitan.main.widgets.SmartTableStyle
 import com.otitan.model.*
 import com.otitan.ui.mview.ILdzz
 import com.otitan.ui.mview.IYhsw
+import com.otitan.util.ScreenTool
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmLdzzBinding
@@ -32,15 +33,6 @@ import com.otitan.zjly.databinding.FmLdzzBinding
 class LdzzFragment : BaseFragment<FmLdzzBinding, LdzzViewModel>(), ILdzz {
 
     var viewmodel: LdzzViewModel? = null
-    var data: ResultModel<Any>? = null
-    var barDataset: BarDataSet? = null
-    private var xAxis: XAxis? = null                //X轴
-    private var leftYAxis: YAxis? = null            //左侧Y轴
-    private var rightYaxis: YAxis? = null           //右侧Y轴
-    private var legend: Legend? = null              //图例
-    private val colorArray = arrayOf(R.color.colorPrimaryDark, R.color.ccc_red, R.color.ccc_blue, R.color.ccc_beige,
-            R.color.problem, R.color.motorway, R.color.trunk, R.color.primary,
-            R.color.secondary, R.color.orange, R.color.tertiary, R.color.colorPrimary)
 
     override fun initContentView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): Int {
         return R.layout.fm_ldzz
@@ -87,113 +79,39 @@ class LdzzFragment : BaseFragment<FmLdzzBinding, LdzzViewModel>(), ILdzz {
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 viewmodel?.let {
-                    //val type = (p0 as Spinner).getItemAtPosition(p2).toString()
                     it.getData(p2 + 1, it.year)
                     it.type = p2 + 1
                 }
             }
         }
 
-        initBarChart()
-        //表格设置 隐藏左边数字、顶上字母
-        binding.dataTableLdzz.config.isShowXSequence = false
-        binding.dataTableLdzz.config.isShowYSequence = false
+        viewmodel?.let {
+            BarChartInit.init(binding.chartLdzz, it.dqList)
+        }
+        SmartTableStyle.setTableStyle(binding.dataTableLdzz, context)
     }
 
-    private fun initBarChart() {
-        val chartBar = binding.chartLdzz
-        // 没有数据的时候显示
-        chartBar.setNoDataText("暂无数据")
-        //是否显示边界
-        chartBar.setDrawBorders(false)
-        //是否显示网格线
-        chartBar.setDrawGridBackground(false)
-        //是否可以拖动
-        chartBar.isDragEnabled = true
-        //是否有触摸事件
-        chartBar.setTouchEnabled(true)
-        //xy轴动画事件
-        chartBar.animateXY(1500, 1500)
-        //右下角说明设置
-        val desc = Description()
-        desc.text = ""
-        chartBar.description = desc
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_data_manage, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
-        /***XY轴的设置***/
-        xAxis = chartBar.xAxis
-        val xAxisFormat = IAxisValueFormatter { value, axis ->
-            when {
-                viewmodel?.dqList?.isEmpty()!! -> value.toString()
-                value == -1f || value > viewmodel?.dqList?.size!! - 1 -> ""
-                else -> viewmodel?.dqList?.get(value.toInt())
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.data_manage -> {
+                startContainerActivity(LdzzDataFragment::class.java.canonicalName)
             }
         }
-        val yAxisFormat = IAxisValueFormatter { value, axis ->
-            value.toString()
-        }
-        leftYAxis = chartBar.axisLeft
-        //        rightYaxis = chartBar.axisRight
-        chartBar.axisRight.isEnabled = false
-        xAxis?.valueFormatter = xAxisFormat
-        chartBar.axisLeft.valueFormatter = yAxisFormat
-        chartBar.axisRight.valueFormatter = yAxisFormat
-        xAxis?.labelRotationAngle = -60f
-//        chartBar.extraBottomOffset = -35f
-        //        chartBar.extraLeftOffset = 10f
-        //        chartBar.offsetLeftAndRight(10)
-        //X轴设置显示位置在底部
-        xAxis?.position = XAxis.XAxisPosition.BOTTOM
-        //        xAxis?.axisMinimum = 0f
-        xAxis?.granularity = 1f
-        //保证Y轴从0开始，不然会上移一点
-        leftYAxis?.axisMinimum = 0f
-        rightYaxis?.axisMinimum = 0f
-
-
-        /***图例 标签 设置***/
-        legend = binding.chartLdzz.legend
-        //设置显示类型，LINE CIRCLE SQUARE EMPTY 等等 多种方式，查看LegendForm 即可
-        legend?.form = Legend.LegendForm.SQUARE
-        legend?.textSize = 12f
-        legend?.formToTextSpace = 4f
-        //是否绘制在图表里面
-        legend?.setDrawInside(false)
-        //显示位置 左下方
-        legend?.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM
-        legend?.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
-        legend?.orientation = Legend.LegendOrientation.HORIZONTAL
-        //调整图例到x/y轴的距离
-        //        legend?.yEntrySpace = 8f
-        legend?.xEntrySpace = 5f
+        return true
     }
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {
-        try {
-            if (binding.chartLdzz.data != null) {
-                val count = binding.chartLdzz.data.dataSetCount
-                binding.chartLdzz.data.removeDataSet(count - 1)
-            }
-            if (list.isNotEmpty() && activity != null) {
-
-                barDataset = BarDataSet(list, "单位:亩")
-                val colors = ArrayList<Int>()
-                for (i in 0 until colorArray.size) {
-                    colors.add(ContextCompat.getColor(activity!!, colorArray[i]))
-                }
-                barDataset?.colors = colors
-                val dataSets = ArrayList<IBarDataSet>()
-                dataSets.add(barDataset!!)
-                val barData = BarData(dataSets)
-                barData.barWidth = 0.9f
-                barData.setValueTextSize(10f)
-                binding.chartLdzz.data = barData
-                binding.chartLdzz.setFitBars(true)
-            }
-            binding.chartLdzz.notifyDataSetChanged()
-            binding.chartLdzz.invalidate()
-        } catch (e: Exception) {
-            Log.e("tag", "表格数据设置异常：$e")
-        }
+        BarChartInit.setBarChartData(binding.chartLdzz, list, activity,
+                when (viewmodel?.type) {
+                    1 -> BarDataSet(list, "单位:个")
+                    2 -> BarDataSet(list, "单位:公顷")
+                    else -> BarDataSet(list, "单位:公顷")
+                })
     }
 
     override fun setTableData(tableData: List<Any>) {

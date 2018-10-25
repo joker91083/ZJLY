@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.main.viewmodel.ResourceManageDataItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{viewmodel.dq}"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{viewmodel.ldmj.Area}"
+            android:textColor="@color/black"
+            android:visibility="@{viewmodel.type==1?View.VISIBLE:View.GONE}" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{viewmodel.slmj.TotalArea}"
+            android:textColor="@color/black"
+            android:visibility="@{viewmodel.type==2?View.VISIBLE:View.GONE}" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{viewmodel.gylmj.CountryArea}"
+            android:textColor="@color/black"
+            android:visibility="@{viewmodel.type==3?View.VISIBLE:View.GONE}" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{viewmodel.gylmj.LocalArea}"
+            android:textColor="@color/black"
+            android:visibility="@{viewmodel.type==3?View.VISIBLE:View.GONE}" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{viewmodel.gylmj.TotalArea}"
+            android:textColor="@color/black"
+            android:visibility="@{viewmodel.type==3?View.VISIBLE:View.GONE}" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{viewmodel.slfgl.Per}"
+            android:textColor="@color/black"
+            android:visibility="@{viewmodel.type==4?View.VISIBLE:View.GONE}" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{String.valueOf(viewmodel.hlmxj.Standing)}"
+            android:textColor="@color/black"
+            android:visibility="@{viewmodel.type==5?View.VISIBLE:View.GONE}" />
+    </LinearLayout>
+</layout>

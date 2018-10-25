@@ -6,6 +6,10 @@ import android.net.Uri
 import android.widget.ImageView
 import android.widget.Spinner
 import com.bumptech.glide.Glide
+import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
+import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+import com.otitan.base.BindingAction
+import com.otitan.base.BindingCommand
 
 /**
  * Created by hanyw on 2018/3/27.
@@ -25,7 +29,7 @@ class MyDataBindingUtil() {
     @BindingAdapter("app:imageUrl")
     fun loadImage(imageView: ImageView, url: String) {
         var path = url
-        if (url.contains("/storage/")){
+        if (url.contains("/storage/")) {
             path = "file://$url"
         }
 //        val uri= Uri.parse(path)
@@ -46,7 +50,7 @@ class MyDataBindingUtil() {
     }
 
     @BindingAdapter("app:resource")
-    fun loadImage(imageView: ImageView,source:Int){
+    fun loadImage(imageView: ImageView, source: Int) {
         Glide.with(imageView.context).load(source).into(imageView)
     }
 
@@ -54,4 +58,23 @@ class MyDataBindingUtil() {
     fun setSelection(spinner: Spinner, position: Int) {
         spinner.setSelection(position)
     }
+
+    companion object {
+        @BindingAdapter("app:onRefresh", "app:onLoadMore", requireAll = false)
+        @JvmStatic
+        fun onRefreshAndLoadMore(layout: TwinklingRefreshLayout, refreshCall: BindingCommand, loadMoreCall: BindingCommand) {
+            layout.setOnRefreshListener(object : RefreshListenerAdapter() {
+                override fun onRefresh(refreshLayout: TwinklingRefreshLayout?) {
+                    super.onRefresh(refreshLayout)
+                    refreshCall.execute()
+                }
+
+                override fun onLoadMore(refreshLayout: TwinklingRefreshLayout?) {
+                    super.onLoadMore(refreshLayout)
+                    loadMoreCall.execute()
+                }
+            })
+        }
+    }
+
 }

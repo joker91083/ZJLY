@@ -84,7 +84,7 @@ class XzzfViewModel() : BaseViewModel() {
             val temp = data?.data as List<LinkedTreeMap<String, Any>>
             var i = 0f
             temp.forEach {
-                it.forEach { k, v ->
+                it.forEach { (k, v) ->
                     if (k == "Name") {
                         dqList.add(v.toString())
                     } else if (k == "Count") {
@@ -98,11 +98,11 @@ class XzzfViewModel() : BaseViewModel() {
     }
 
     fun conversionTableData(data: ResultModel<Any>?): List<Any> {
-        val list = ArrayList<XzzfModel>()
+        val list = ArrayList<XzzfModel<Any>>()
         if (data != null) {
             val gson = Gson()
             val json = gson.toJson(data.data)
-            val type = object : TypeToken<List<XzzfModel>>() {}.type
+            val type = object : TypeToken<List<XzzfModel<Any>>>() {}.type
             list.addAll(gson.fromJson(json, type))
         }
         return list
