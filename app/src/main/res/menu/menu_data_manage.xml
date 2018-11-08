@@ -3,6 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/data_manage"
-        android:title="数据管理"
+        android:title="数据查询"
         app:showAsAction="always"/>
 </menu>

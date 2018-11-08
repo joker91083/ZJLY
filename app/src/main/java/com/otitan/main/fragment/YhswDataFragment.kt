@@ -70,7 +70,7 @@ class YhswDataFragment : BaseFragment<FmYhswDataBinding, YhswDataViewModel>(), I
     override fun initData() {
         super.initData()
         setHasOptionsMenu(true)
-        binding.toolbarYhswData.title = "数据管理"
+        binding.toolbarYhswData.title = "数据查询"
         (activity!! as AppCompatActivity).setSupportActionBar(binding.toolbarYhswData)
         binding.toolbarYhswData.setNavigationOnClickListener { activity?.finish() }
 
@@ -94,7 +94,8 @@ class YhswDataFragment : BaseFragment<FmYhswDataBinding, YhswDataViewModel>(), I
                         } else {
                             code1!!
                         }
-                        it.onRefresh.execute()
+//                        it.onRefresh.execute()
+                        startRefresh()
                     }
                 }
             })
@@ -110,7 +111,8 @@ class YhswDataFragment : BaseFragment<FmYhswDataBinding, YhswDataViewModel>(), I
                 viewmodel?.let {
                     val year = (p0 as Spinner).getItemAtPosition(p2).toString().toInt()
                     it.year = year
-                    it.onRefresh.execute()
+//                    it.onRefresh.execute()
+                    startRefresh()
                 }
             }
         }
@@ -120,6 +122,10 @@ class YhswDataFragment : BaseFragment<FmYhswDataBinding, YhswDataViewModel>(), I
             val adapter = DataManageAdapter(context, it.items, "有害生物")
             binding.rvDataManage.adapter = adapter
         }
+    }
+
+    override fun startRefresh() {
+        binding.refreshLayout.startRefresh()
     }
 
     override fun refresh() {

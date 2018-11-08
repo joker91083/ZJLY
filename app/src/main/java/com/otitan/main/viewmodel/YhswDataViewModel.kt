@@ -38,7 +38,8 @@ class YhswDataViewModel() : BaseViewModel() {
 
     override fun onCreate() {
         super.onCreate()
-        onRefresh.execute()
+//        onRefresh.execute()
+        mView?.startRefresh()
     }
 
     val onRefresh = BindingCommand(object : BindingAction {

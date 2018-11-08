@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.otitan.TitanApplication
 import com.otitan.main.model.TrackPoint
+import com.otitan.model.EventModel
 import com.otitan.util.Format
 import com.otitan.util.ResourcesManager
 import jsqlite.Callback
@@ -11,7 +12,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class LocalDataSourceImpl():LocalDataSource{
+class LocalDataSourceImpl() : LocalDataSource {
+
 
     private object Holder {
         val single = LocalDataSourceImpl()
@@ -19,13 +21,14 @@ class LocalDataSourceImpl():LocalDataSource{
 
     companion object {
         val instances: LocalDataSourceImpl by lazy { Holder.single }
+        val eventBox = TitanApplication.boxStore?.boxFor(EventModel::class.java)
     }
 
 
-    override fun addLocalPoint(lon:String,lat:String,sbh:String,state:String) {
+    override fun addLocalPoint(lon: String, lat: String, sbh: String, state: String) {
 
         try {
-            var context:Context = TitanApplication.instances
+            var context: Context = TitanApplication.instances
             val databaseName = ResourcesManager.getInstances(context).getDataBase("guiji.sqlite")
             Class.forName("jsqlite.JDBCDriver").newInstance()
             val db = jsqlite.Database()
@@ -46,7 +49,7 @@ class LocalDataSourceImpl():LocalDataSource{
     override fun queryTrackPoint(stratime: String, endtime: String, callback: LocalDataSource.Callback) {
         val list = ArrayList<TrackPoint>()
         try {
-            val context:Context = TitanApplication.instances
+            val context: Context = TitanApplication.instances
             val sbh = TitanApplication.instances.sbh
             val databaseName = ResourcesManager.getInstances(context).getDataBase("guiji.sqlite")
             Class.forName("jsqlite.JDBCDriver").newInstance()
@@ -79,9 +82,35 @@ class LocalDataSourceImpl():LocalDataSource{
             callback.onSuccess(list)
         } catch (e: Exception) {
             e.printStackTrace()
-            Log.e("tag","查询轨迹异常:$e")
+            Log.e("tag", "查询轨迹异常:$e")
             callback.onFailure("查询轨迹异常:$e")
         }
     }
 
+    override fun saveEvent(eventModel: EventModel, callback: LocalDataSource.Callback) {
+        val id = eventBox?.put(eventModel)
+        if (id != null && id != 0L) {
+            callback.onSuccess(id)
+        } else {
+            callback.onFailure("事件保存失败")
+        }
+    }
+
+    override fun queryEvent(callback: LocalDataSource.Callback) {
+        try {
+            val list = eventBox?.all
+            callback.onSuccess(list)
+        } catch (e: Exception) {
+            callback.onFailure("查询事件异常$e")
+        }
+    }
+
+    override fun delEvent(id: Long, callback: LocalDataSource.Callback) {
+        try {
+            eventBox?.remove(id)
+            callback.onSuccess("删除成功")
+        } catch (e: Exception) {
+            callback.onFailure("删除事件异常$e")
+        }
+    }
 }

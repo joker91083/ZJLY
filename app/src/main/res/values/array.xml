@@ -11,14 +11,16 @@
         <item>森林公园</item>
         <item>湿地保护</item>
         <item>林业科技</item>
+        <item>林权</item>
+        <item>植物检疫</item>
+        <item>采伐运输</item>
         <item>林业产业</item>
         <!--<item>造林绿化成效</item>-->
         <!--<item>灾害防控情况</item>-->
         <!--<item>退耕换林</item>-->
         <!--<item>种苗生产</item>-->
+        <!--<item>石漠化</item>-->
     </string-array>
-    <!--<item>石漠化</item>-->
-
 
     <string-array name="dq">
         <item>浙江省</item>
@@ -109,6 +111,66 @@
         <item>2017</item>
         <item>2018</item>
     </string-array>
+    <!--年份 林权 林权证-->
+    <string-array name="nianfen_lquan1">
+        <item>2002</item>
+        <item>2003</item>
+        <item>2004</item>
+        <item>2005</item>
+        <item>2006</item>
+        <item>2007</item>
+        <item>2008</item>
+        <item>2009</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+    </string-array>
+    <!--年份 林权 登记表-->
+    <string-array name="nianfen_lquan2">
+        <item>1997</item>
+        <item>2000</item>
+        <item>2002</item>
+        <item>2003</item>
+        <item>2004</item>
+        <item>2005</item>
+        <item>2006</item>
+        <item>2007</item>
+        <item>2008</item>
+        <item>2009</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+    </string-array>
+    <!--年份 植物检疫-->
+    <string-array name="nianfen_zwjy1">
+        <item>2017</item>
+        <item>2016</item>
+    </string-array>
+    <!--年份 植物检疫-->
+    <string-array name="nianfen_zwjy2">
+        <item>2017</item>
+    </string-array>
+    <!--年份 采伐运输-->
+    <string-array name="nianfen_cfys1">
+        <item>2017</item>
+    </string-array>
+    <!--年份 采伐运输-->
+    <string-array name="nianfen_cfys2">
+        <item>2015</item>
+        <item>2013</item>
+    </string-array>
     <!--资源管理 指标-->
     <string-array name="zhibiao_resource">
         <item>林地面积</item>
@@ -171,6 +233,25 @@
         <item>示范资金项目</item>
         <item>科技标准</item>
     </string-array>
+    <!--指标 林权-->
+    <string-array name="zhibiao_lquan">
+        <item>林权证本表</item>
+        <item>森林、林木、林地状况登记表</item>
+    </string-array>
+    <!--指标 植物检疫-->
+    <string-array name="zhibiao_zwjy">
+        <item>国内调运检疫报检单</item>
+        <item>植物检疫证书信息</item>
+        <item>产地检疫报检</item>
+        <item>产地检疫合格证</item>
+    </string-array>
+    <!--指标 采伐运输-->
+    <string-array name="zhibiao_cfys">
+        <item>项目个数</item>
+        <item>采伐面积</item>
+        <item>采伐蓄积</item>
+        <item>采伐株数</item>
+    </string-array>
 
     <!--营造林 类型-->
     <string-array name="type_yzl">
@@ -190,6 +271,11 @@
         <item>行业标准</item>
         <item>省级地方标准</item>
         <item>浙江制造标准</item>
+    </string-array>
+    <!--采伐运输 类型-->
+    <string-array name="type_cfys">
+        <item>林木采伐证信息</item>
+        <item>木材运输证信息</item>
     </string-array>
     <!--资源管理-->
     <string-array name="zyghqk1">
@@ -319,5 +405,14 @@
         <item>lyzyjsfw,林业专业技术服务</item>
         <item>lygggljqtzzfw,林业公共管理及其他组织服务</item>
         <item>qt,其他</item>
+    </string-array>
+    <!--事件上报 事件类型-->
+    <string-array name="up_event_type">
+    <item>森林火灾</item>
+    <item>森林病虫害</item>
+    <item>偷拉盗运</item>
+    <item>乱砍滥伐</item>
+    <item>征占用林地</item>
+    <item>捕杀野生动物</item>
     </string-array>
 </resources>

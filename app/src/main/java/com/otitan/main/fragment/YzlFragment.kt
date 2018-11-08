@@ -19,6 +19,7 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import com.google.gson.internal.LinkedTreeMap
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.YzlViewModel
 import com.otitan.main.widgets.BarChartInit
@@ -27,6 +28,7 @@ import com.otitan.model.ResultModel
 import com.otitan.model.YzlModel
 import com.otitan.ui.mview.IYzl
 import com.otitan.util.ScreenTool
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmYzlBinding
@@ -37,6 +39,7 @@ import com.otitan.zjly.databinding.FmYzlBinding
 class YzlFragment : BaseFragment<FmYzlBinding, YzlViewModel>(), IYzl {
 
     var viewmodel: YzlViewModel? = null
+    var typeName = "造林面积"
 
     override fun initContentView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): Int {
         return R.layout.fm_yzl
@@ -70,12 +73,12 @@ class YzlFragment : BaseFragment<FmYzlBinding, YzlViewModel>(), IYzl {
                 when (p2) {
                     0 -> {
                         val adapter = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, resources.getStringArray(R.array.zhibiao_yzl_wcqk))
-                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1)
                         binding.spinnerIndex.adapter = adapter
                     }
                     1 -> {
                         val adapter = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, resources.getStringArray(R.array.zhibiao_yzl_xdjh))
-                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1)
                         binding.spinnerIndex.adapter = adapter
                     }
                 }
@@ -104,6 +107,7 @@ class YzlFragment : BaseFragment<FmYzlBinding, YzlViewModel>(), IYzl {
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 viewmodel?.let {
+                    typeName = (p0 as Spinner).getItemAtPosition(p2).toString()
                     if (binding.spinnerType.selectedItem.toString() == "完成情况") {
                         it.getData(p2 + 1, it.year)
                         it.type = p2 + 1
@@ -111,7 +115,6 @@ class YzlFragment : BaseFragment<FmYzlBinding, YzlViewModel>(), IYzl {
                         it.getData(p2 + 9, it.year)
                         it.type = p2 + 9
                     }
-
                 }
             }
         }
@@ -120,6 +123,38 @@ class YzlFragment : BaseFragment<FmYzlBinding, YzlViewModel>(), IYzl {
             BarChartInit.init(binding.chartYzl, it.dqList)
         }
         SmartTableStyle.setTableStyle(binding.dataTableYzl, context)
+    }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        val first = "${viewmodel?.year}年浙江省$typeName${obj.value}"
+        val s = when (viewmodel?.type) {
+            1, 2, 3, 4, 5, 6, 8 -> "${first}公顷"
+            9, 10, 11, 12, 13, 14 -> "${first}亩"
+            7, 15 -> "${first}万株"
+            else -> ""
+        }
+        binding.pestTvDes.text = Utils.getSpanned(s)
+    }
+
+    fun getValue(type: Int?, obj: LinkedTreeMap<String, Any>): String {
+        return when (type) {
+            1, 9 -> obj["Area"].toString()
+            2, 10 -> obj["ReforestationArea"].toString()
+            3 -> obj["SlashArea"].toString()
+            4 -> obj["TendingArea"].toString()
+            5, 11 -> obj["SealingArea"].toString()
+            6, 15 -> obj["ThourTree"].toString()
+            7 -> obj["NurseryStock"].toString()
+            8 -> obj["GrowArea"].toString()
+            12 -> obj["ForestTendingArea"].toString()
+            13 -> obj["LowForestArea"].toString()
+            14 -> obj["NewBreedingArea"].toString()
+            else -> "0"
+        }
     }
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {

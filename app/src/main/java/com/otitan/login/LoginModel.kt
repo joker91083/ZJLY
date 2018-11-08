@@ -61,11 +61,9 @@ class LoginModel() : BaseViewModel(), ILoginView {
         val loginInfo = LoginInfo()
         loginInfo.password = password!!.get()
         loginInfo.username = name!!.get()
-        val body = RequestBody.create(MediaType.parse("application/x-www-form-urlencoded;charset=UTF-8"),
-                Gson().toJson(loginInfo))
 
         showDialog("登陆中...")
-        dataRepository.login(name!!.get()!!, password!!.get()!!,"password",object :RemoteDataSource.mCallback{
+        dataRepository.login(name!!.get()!!, password!!.get()!!, "password", object : RemoteDataSource.mCallback {
             override fun onFailure(info: String) {
                 dismissDialog()
                 onFail("登录失败:$info")
@@ -74,10 +72,13 @@ class LoginModel() : BaseViewModel(), ILoginView {
             override fun onSuccess(result: Any) {
                 dismissDialog()
                 TitanApplication.loginResult = (result as ResultModel<LoginResult>).data
+                TitanApplication.instances.registerMobile()
                 if (checked!!.get()!!) {
-                    TitanApplication.sharedPreferences.edit().putBoolean("remember ", true).apply()
-                    TitanApplication.sharedPreferences.edit().putString("name", name!!.get()).apply()
-                    TitanApplication.sharedPreferences.edit().putString("password", password!!.get()).apply()
+                    val edit = TitanApplication.sharedPreferences.edit()
+                    edit.putBoolean("remember ", true).apply()
+                    edit.putString("name", name!!.get()).apply()
+                    edit.putString("password", password!!.get()).apply()
+                    edit.putString("auth", result.data.access_token).apply()
                 }
                 startActivity(MainActivity::class.java)
             }

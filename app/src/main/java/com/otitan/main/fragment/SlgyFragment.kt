@@ -13,6 +13,7 @@ import com.otitan.main.widgets.BarChartInit
 import com.otitan.main.widgets.SmartTableStyle
 import com.otitan.model.SlgyModel
 import com.otitan.ui.mview.ISlgy
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmSlgyBinding
@@ -64,6 +65,15 @@ class SlgyFragment : BaseFragment<FmSlgyBinding, SlgyViewModel>(), ISlgy {
             }
         }
         return true
+    }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        val s = "浙江省森林公园共:${obj["Count"]}个,面积${obj["Area"]}公顷"
+        binding.pestTvDes.text = Utils.getSpanned(s)
     }
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {

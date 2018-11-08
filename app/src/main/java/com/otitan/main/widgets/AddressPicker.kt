@@ -42,7 +42,6 @@ class AddressPicker<T>() {
                 .setSubmitColor(Color.WHITE)//确定按钮文字颜色
                 .setCancelColor(Color.WHITE)//取消按钮文字颜色
                 .setTitleBgColor(0xFF4CAF50.toInt())//标题背景颜色 Night mode
-//                .setBackgroundId(R.drawable.background_view_rounded_image)
                 .setContentTextSize(18)
                 .build<T>()
     }

@@ -39,8 +39,8 @@ class TrackManagerViewModel() : BaseViewModel() {
             val startime = startValue.get()!!
             val endtime = endValue.get()!!
             mDataRepository.queryTrackPoint(startime, endtime, object : LocalDataSource.Callback {
-                override fun onFailure(info: String?) {
-                    mContext?.toast(info.toString())
+                override fun onFailure(info: String) {
+                    mContext?.toast(info)
                 }
 
                 override fun onSuccess(result: Any?) {

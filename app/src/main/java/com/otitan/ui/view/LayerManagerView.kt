@@ -17,6 +17,8 @@ import com.esri.arcgisruntime.layers.ArcGISTiledLayer
 import com.esri.arcgisruntime.layers.FeatureLayer
 import com.esri.arcgisruntime.layers.Layer
 import com.esri.arcgisruntime.loadable.LoadStatus
+import com.esri.arcgisruntime.mapping.ArcGISMap
+import com.esri.arcgisruntime.mapping.Basemap
 import com.otitan.base.BaseAdapter
 import com.otitan.main.view.MapCenterActivity
 import com.otitan.model.BaseLayer
@@ -30,6 +32,7 @@ import com.otitan.ui.vm.LayerManagerViewModel
 import com.otitan.util.ResourcesManager
 import com.otitan.util.TitanItemDecoration
 import com.otitan.util.Utils
+import com.otitan.zjly.R
 import kotlinx.android.synthetic.main.activity_map.*
 import kotlinx.android.synthetic.main.activity_map_center.*
 import kotlinx.android.synthetic.main.share_tckz.*
@@ -46,6 +49,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
     private var iMap: IMap by Delegates.notNull()
     var viewModel: LayerManagerViewModel by Delegates.notNull()
     var imgLayer: ArcGISTiledLayer? = null
+    var imgService: ArcGISTiledLayer? = null
     var adapter: LayerManagerAdapter? = null
     var baseAdapter: BaseLayerAdapter? = null
     val checked = HashMap<String, Boolean>()
@@ -56,7 +60,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         this.iMap = iMap
     }
 
-//    @TargetApi(Build.VERSION_CODES.N)
+    //    @TargetApi(Build.VERSION_CODES.N)
     fun initView() {
         if (baseAdapter == null) {
             val list = ArrayList<BaseLayer>()
@@ -110,7 +114,14 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
             2 -> {
                 val list = ResourcesManager.getInstances(activity).getImgTitlePath()
                 if (check) {
-                    if (list.size == 1) {
+                    if (list.isEmpty()) {
+                        if (imgService != null) {
+                            imgService?.isVisible = true
+                        } else {
+                            imgService = ArcGISTiledLayer(activity.resources.getString(R.string.World_Imagery))
+                            activity.mapview.map.basemap.baseLayers.add(imgService)
+                        }
+                    } else if (list.size == 1) {
                         imgLayer = ArcGISTiledLayer(list[0].absolutePath)
                         activity.mapview.map.operationalLayers.add(imgLayer)
                     } else if (list.size > 1) {
@@ -118,6 +129,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
                         activity.imgManager.setData(list)
                     }
                 } else {
+                    imgService?.isVisible = false
                     val layers = activity.mapview.map.operationalLayers
                     if (list.size == 1) {
                         if (layers.contains(imgLayer)) {
@@ -179,7 +191,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
 //                    temp.add(it)
 //                }
 //            }
-            for (myLayer in layers){
+            for (myLayer in layers) {
                 val pPath = file.parent.split("/")
                 if (myLayer.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == myLayer.getpName()) {
                     activity.mapview.map.operationalLayers.remove(myLayer.layer)
@@ -202,7 +214,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
 //                }
 //            }
 //        }
-        for (myLayer in layers){
+        for (myLayer in layers) {
             val pPath = file.parent.split("/")
             if (myLayer.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == myLayer.getpName()) {
                 val g = myLayer.layer?.fullExtent
@@ -239,7 +251,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
             gdb.loadAsync()
             gdb.addDoneLoadingListener {
                 val list = gdb.geodatabaseFeatureTables
-                for (table in list){
+                for (table in list) {
                     val layer = FeatureLayer(table)
                     layer.isVisible = true
                     if (iMap.getOpenStreetLayer() != null) {

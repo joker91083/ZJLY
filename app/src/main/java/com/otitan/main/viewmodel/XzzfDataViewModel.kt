@@ -29,6 +29,7 @@ class XzzfDataViewModel() : BaseViewModel() {
     var year = 2009
     var page = 1
     var dqcode = "330000"
+    var keyWord = ""
 
     constructor(context: Context?, mView: IDataBase) : this() {
         this.mContext = context
@@ -37,7 +38,8 @@ class XzzfDataViewModel() : BaseViewModel() {
 
     override fun onCreate() {
         super.onCreate()
-        getData(year, dqcode, 1)
+//        onRefresh.execute()
+        mView?.startRefresh()
     }
 
     val onRefresh = BindingCommand(object : BindingAction {
@@ -62,7 +64,7 @@ class XzzfDataViewModel() : BaseViewModel() {
         }
         auth = "Bearer $auth"
 //        showDialog("加载中...")
-        dataRepository.xzzfData(auth, dqcode, year, page, 10, "",
+        dataRepository.xzzfData(auth, dqcode, year, page, 10, keyWord,
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
 //                        dismissDialog()

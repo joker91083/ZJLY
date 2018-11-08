@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken
 import com.otitan.base.BaseAdapter
 import com.otitan.main.viewmodel.*
 import com.otitan.model.*
+import com.otitan.ui.mview.IEventList
 import com.otitan.util.GsonUtil
 import com.otitan.zjly.R
 
@@ -18,6 +19,7 @@ class DataManageAdapter() : BaseAdapter() {
     private var items: List<Any>? = null
     private var type: Int? = 1
     private var title = ""
+    private var mView: IEventList? = null
 
     constructor(context: Context?, items: List<Any>?, title: String) : this() {
         this.context = context
@@ -31,6 +33,10 @@ class DataManageAdapter() : BaseAdapter() {
         notifyDataSetChanged()
     }
 
+    fun setEventLisstener(mView: IEventList) {
+        this.mView = mView
+    }
+
     override fun getLayoutIdForPosition(position: Int): Int {
         when (title) {
             "森林防火" -> return R.layout.item_slfh_data
@@ -41,6 +47,11 @@ class DataManageAdapter() : BaseAdapter() {
             "国有林场" -> return R.layout.item_gylc_data
             "森林公园" -> return R.layout.item_slgy_data
             "湿地保护" -> return R.layout.item_sdbh_data
+            "林业产业" -> return R.layout.item_lycy_data
+            "林权" -> return R.layout.item_lquan_data
+            "植物检疫" -> return R.layout.item_zwjy_data
+            "采伐运输" -> return R.layout.item_cfys_data
+            "事件列表" -> return R.layout.item_event_list
         }
         return R.layout.item_lykj
     }
@@ -101,6 +112,52 @@ class DataManageAdapter() : BaseAdapter() {
                 viewmodel.sjgl.set(sjgl as SdbhModel.Sjgl?)
                 return viewmodel
             }
+            "林权" -> {
+                val viewmodel = LQuanDataItemViewModel()
+                val sjgl = getObj(items!![position])
+                viewmodel.type.set(type ?: 0)
+                viewmodel.sjgl.set(sjgl as LQuanModel.Sjgl?)
+                return viewmodel
+            }
+            "植物检疫" -> {
+                val viewmodel = ZwjyDataItemViewModel()
+                val sjgl = getObj(items!![position])
+                viewmodel.type.set(type ?: 0)
+                viewmodel.sjgl.set(sjgl as ZwjyModel.Sjgl?)
+                return viewmodel
+            }
+            "采伐运输" -> {
+                val viewmodel = CfysDataItemViewModel()
+                val sjgl = getObj(items!![position])
+                viewmodel.type.set(type ?: 0)
+                viewmodel.sjgl.set(sjgl as CfysModel.Sjgl?)
+                return viewmodel
+            }
+            "林业产业" -> {
+                val viewmodel = LycyDataItemViewModel()
+                val sjgl = getObj(items!![position])
+                viewmodel.sjgl.set(sjgl as LycyModel.Sjgl?)
+                return viewmodel
+            }
+            "事件列表" -> {
+                val viewmodel = EventListItemViewModel(context, mView)
+                val event = getObj(items!![position])
+                event as EventModel.EventResult
+                when (event.SJLX) {
+                    "0" -> event.SJLX = "森林火灾"
+                    "1" -> event.SJLX = "森林病虫害"
+                    "2" -> event.SJLX = "偷拉盗运"
+                    "3" -> event.SJLX = "乱砍滥伐"
+                    "4" -> event.SJLX = "征占用林地"
+                    "5" -> event.SJLX = "捕杀野生动物"
+                }
+                if (!event.CJTIME.isNullOrBlank()) {
+                    event.CJTIME = event.CJTIME!!.replace("T", " ")
+                }
+                viewmodel.event.set(event)
+                viewmodel.type.set(type ?: 0)
+                return viewmodel
+            }
             else -> {
                 val viewmodel = LykjItemViewModel()
                 viewmodel.xmmc.set((items!![position] as LinkedTreeMap<String, Any>)["Name"].toString())
@@ -135,7 +192,12 @@ class DataManageAdapter() : BaseAdapter() {
             "国有林场" -> object : TypeToken<GylcModel.Sjgl>() {}.type
             "森林公园" -> object : TypeToken<SlgyModel.Sjgl>() {}.type
             "湿地保护" -> object : TypeToken<SdbhModel.Sjgl>() {}.type
-            else -> object : TypeToken<SlfhModel.Sjgl>() {}.type
+            "林业产业" -> object : TypeToken<LycyModel.Sjgl>() {}.type
+            "林权" -> object : TypeToken<LQuanModel.Sjgl>() {}.type
+            "植物检疫" -> object : TypeToken<ZwjyModel.Sjgl>() {}.type
+            "采伐运输" -> object : TypeToken<CfysModel.Sjgl>() {}.type
+            "事件列表" -> object : TypeToken<EventModel.EventResult>() {}.type
+            else -> object : TypeToken<Any>() {}.type
         }
         val json = gson.toJson(any)
         return gson.fromJson(json, typeToken)

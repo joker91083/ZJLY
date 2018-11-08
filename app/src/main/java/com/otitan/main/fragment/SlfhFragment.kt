@@ -15,6 +15,8 @@ import com.otitan.main.widgets.BarChartInit
 import com.otitan.main.widgets.SmartTableStyle
 import com.otitan.model.SlfhModel
 import com.otitan.ui.mview.ISlfh
+import com.otitan.util.GsonUtil
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmSlfhBinding
@@ -26,6 +28,7 @@ import org.jetbrains.anko.collections.forEachWithIndex
 class SlfhFragment : BaseFragment<FmSlfhBinding, SlfhViewModel>(), ISlfh {
 
     var viewmodel: SlfhViewModel? = null
+    var typeName = "火灾次数"
 
     override fun initContentView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): Int {
         return R.layout.fm_slfh
@@ -78,6 +81,7 @@ class SlfhFragment : BaseFragment<FmSlfhBinding, SlfhViewModel>(), ISlfh {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 viewmodel?.let {
                     //val type = (p0 as Spinner).getItemAtPosition(p2).toString()
+                    typeName = (p0 as Spinner).getItemAtPosition(p2).toString()
                     it.getData(p2 + 1, it.year)
                     it.type = p2 + 1
                 }
@@ -85,7 +89,7 @@ class SlfhFragment : BaseFragment<FmSlfhBinding, SlfhViewModel>(), ISlfh {
         }
 
         viewmodel?.let {
-            BarChartInit.init(binding.chartSlfh, it.keyList)
+            BarChartInit.init(binding.chartSlfh, it.dqList)
         }
         SmartTableStyle.setTableStyle(binding.dataTableSlfh, context)
     }
@@ -102,6 +106,46 @@ class SlfhFragment : BaseFragment<FmSlfhBinding, SlfhViewModel>(), ISlfh {
             }
         }
         return true
+    }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        var hzcs: SlfhModel.Hzcs? = null
+        var rysw: SlfhModel.Rysw? = null
+        var sslm: SlfhModel.Sslm? = null
+        val gson = GsonUtil.getIntGson()
+        when (viewmodel?.type) {
+            1 -> {
+                val json = gson.toJson(obj)
+                hzcs = gson.fromJson(json, SlfhModel.Hzcs::class.java)
+            }
+            5 -> {
+                val json = gson.toJson(obj)
+                rysw = gson.fromJson(json, SlfhModel.Rysw::class.java)
+            }
+            6 -> {
+                val json = gson.toJson(obj)
+                sslm = gson.fromJson(json, SlfhModel.Sslm::class.java)
+            }
+        }
+        var value = ""
+        when (viewmodel?.type) {
+            2, 3, 4 -> value = obj["TotalFireCount"].toString()
+        }
+        val s = when (viewmodel?.type) {
+            1 -> "${viewmodel?.year}年浙江省$typeName${hzcs?.TotalFireCount}次，其中：一般火灾次数：${hzcs?.NormalFire}次，" +
+                    "较大火灾次数：${hzcs?.LargeFire}次，重大火灾次数：${hzcs?.MajorFire}次，特大火灾次数：${hzcs?.OversizeFire}次"
+            2 -> "${viewmodel?.year}年浙江省$typeName${value}亩"
+            3 -> "${viewmodel?.year}年浙江省$typeName${value}亩"
+            4 -> "${viewmodel?.year}年浙江省$typeName${value}万元"
+            5 -> "${viewmodel?.year}年浙江省火灾${typeName}情况${rysw?.TotalCount}次，" +
+                    "其中：轻伤：${rysw?.Minor}人，重伤：${rysw?.Serious}人，死亡：${rysw?.Death}人"
+            else -> "${viewmodel?.year}年浙江省${typeName}情况为，成林蓄积损失：${sslm?.Accumulation}立方米，幼苗损失：${sslm?.Seedling}万株"
+        }
+        binding.pestTvDes.text = Utils.getSpanned(s)
     }
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {

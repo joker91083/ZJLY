@@ -9,4 +9,6 @@ interface IInfoBase{
     fun setBarChartData(list: ArrayList<BarEntry>)
 
     fun setTableData(tableData: List<Any>)
+
+    fun setDescription()
 }

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.main.viewmodel.LQuanViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar_style"
+            app:navigationIcon="@drawable/ic_back"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/white" />
+
+        <LinearLayout
+            style="@style/linear_info_desc"
+            android:visibility="@{viewmodel.hasData?View.VISIBLE:View.GONE}">
+
+            <TextView
+                android:id="@+id/pest_tv_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/jiansuo"
+                    android:textColor="@color/orange"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/index"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_index"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:entries="@array/zhibiao_lquan"
+                    style="@style/custom_spinner_style"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/years"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_year"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:entries="@array/nianfen_lquan1"
+                    style="@style/custom_spinner_style"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal"
+                android:paddingBottom="6dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/dq"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_dq"
+                    android:entries="@array/dq"
+                    style="@style/custom_spinner_style"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/chart_lycy"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:background="@color/white" />
+
+                <com.bin.david.form.core.SmartTable
+                    android:id="@+id/dataTable_lycy"
+                    android:layout_width="match_parent"
+                    android:layout_height="289dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

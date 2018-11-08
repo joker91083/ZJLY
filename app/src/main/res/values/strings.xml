@@ -95,7 +95,7 @@
     <string name="sheng">省</string>
     <string name="shi">市(州)</string>
     <string name="qx">区县</string>
-    <string name="organizer">主办单位：浙江省林业厅\n技术支持：北京航天泰坦科技股份有限公司</string>
+    <string name="organizer">主办单位：浙江省林业局\n技术支持：北京航天泰坦科技股份有限公司</string>
     <string name="xmbh">项目编号：</string>
     <string name="xmmc">项目名称</string>
     <string name="cddw">承担单位：</string>
@@ -165,6 +165,69 @@
     <string name="bhqlx">保护区类型：</string>
     <string name="sdmj">湿地面积：</string>
 
+    <string name="ssdq">所属地区：</string>
+    <string name="zj">总计：</string>
+    <string name="dycy">第一产业：</string>
+    <string name="decy">第二产业：</string>
+    <string name="dscy">第三产业：</string>
+
+    <string name="lqzbh">林权证编号：</string>
+    <string name="lzzn">林证字_年：</string>
+    <string name="zhlx">证号类型：</string>
+    <string name="lzz">林证字：</string>
+    <string name="zt">状态：</string>
+    <string name="fzsj">发证时间：</string>
+    <string name="xdm">小地名：</string>
+    <string name="ldsyqqlr">林地所有权权利人：</string>
+    <string name="zl">座落：</string>
+    <string name="xz">性质：</string>
+    <string name="xzmc">行政名称：</string>
+    <string name="cm">村名：</string>
+    <string name="djlx">登记类型：</string>
+
+    <string name="spdq">审批地区：</string>
+    <string name="bjdbh">报检单编号：</string>
+    <string name="dydw">调运单位：</string>
+    <string name="cyrxm">承运人姓名：</string>
+    <string name="ysgj">运输工具：</string>
+    <string name="bjr">报检人：</string>
+    <string name="zsbh">证书编号：</string>
+    <string name="qymc">企业名称：</string>
+    <string name="jbrxm">经办人姓名：</string>
+    <string name="shrmc">收货人名称：</string>
+    <string name="zwhcply">植物或植物产品来源：</string>
+    <string name="qyd">起运地：</string>
+    <string name="qfjg">签发机关：</string>
+    <string name="jyy">检疫员：</string>
+    <string name="bz">备注：</string>
+    <string name="qybh">企业编号：</string>
+    <string name="sqdw">申请单位/个人：</string>
+    <string name="sqsj">申请时间：</string>
+    <string name="lxrxm">联系人：</string>
+    <string name="zzmj">种植面积：</string>
+    <string name="cdjydd">产地检疫地点：</string>
+    <string name="ydywdd">预定运往地点：</string>
+    <string name="nd">年度：</string>
+    <string name="hgzxh">合格证序号：</string>
+    <string name="txdz">通讯地址：</string>
+    <string name="zwjcpmc">植物及产品名称：</string>
+
+    <string name="cfzh">采伐证号：</string>
+    <string name="sqr">申请人：</string>
+    <string name="bxdwmc">编限单位名称：</string>
+    <string name="gkdwmc">归口单位名称：</string>
+    <string name="zyh">作业号：</string>
+    <string name="lqzh">林权证号：</string>
+    <string name="lc">林场：</string>
+    <string name="gzq">工作区：</string>
+    <string name="lb">林班：</string>
+    <string name="yszbh">运输证编号：</string>
+    <string name="hzmc">货主名称：</string>
+    <string name="cyr">承运人：</string>
+    <string name="ysfs">运输方式：</string>
+    <string name="ysqtfs">运输其他方式：</string>
+    <string name="lzr">领证人：</string>
+
     <string name="jszcdw">技术支撑单位</string>
     <string name="zjf">总经费</string>
     <string name="czbz">财政补助</string>
@@ -176,5 +239,20 @@
     <string name="gylzmj">公益林总面积</string>
     <string name="slfgl">森林覆盖率</string>
     <string name="hlmxj">活立木蓄积</string>
+
+    <string name="lon">经度</string>
+    <string name="lat">纬度</string>
+    <string name="lonlat">经、纬度</string>
+    <string name="sjms">事件描述</string>
+    <string name="sjlx">事件类型</string>
+    <string name="fsdd">发生地点</string>
+    <string name="lxfs">联系方式</string>
+    <string name="sj">时间</string>
+    <string name="pic">图片</string>
+    <string name="audio">音频</string>
+    <string name="video">视频</string>
+    <string name="loc_save">本地保存</string>
+    <string name="up_event">在线上报</string>
+    <string name="search">搜索</string>
 
 </resources>

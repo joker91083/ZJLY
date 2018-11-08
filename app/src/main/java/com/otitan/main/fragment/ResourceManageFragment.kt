@@ -1,7 +1,10 @@
 package com.otitan.main.fragment
 
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.text.Html
+import android.text.Spanned
 import android.view.*
 import android.widget.AdapterView
 import android.widget.Spinner
@@ -9,15 +12,18 @@ import com.bin.david.form.data.column.Column
 import com.bin.david.form.data.table.TableData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.google.gson.internal.LinkedTreeMap
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.ResourceManageViewModel
 import com.otitan.main.widgets.BarChartInit
 import com.otitan.main.widgets.SmartTableStyle
 import com.otitan.model.ResourceModel
 import com.otitan.ui.mview.IResourceManage
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmResourceManageBinding
+import java.util.regex.Pattern
 
 /**
  * 资源管护
@@ -25,6 +31,7 @@ import com.otitan.zjly.databinding.FmResourceManageBinding
 class ResourceManageFragment : BaseFragment<FmResourceManageBinding, ResourceManageViewModel>(), IResourceManage {
 
     var viewmodel: ResourceManageViewModel? = null
+    var typeName = "林地面积"
 
     override fun initContentView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): Int {
         return R.layout.fm_resource_manage
@@ -44,7 +51,7 @@ class ResourceManageFragment : BaseFragment<FmResourceManageBinding, ResourceMan
     override fun initData() {
         super.initData()
         setHasOptionsMenu(true)
-        binding.toolbarResource.title = "资源管护情况"
+        binding.toolbarResource.title = "资源管理"
         (activity!! as AppCompatActivity).setSupportActionBar(binding.toolbarResource)
         binding.toolbarResource.setNavigationOnClickListener { activity?.finish() }
 
@@ -72,6 +79,7 @@ class ResourceManageFragment : BaseFragment<FmResourceManageBinding, ResourceMan
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 viewmodel?.let {
                     //val type = (p0 as Spinner).getItemAtPosition(p2).toString()
+                    typeName = (p0 as Spinner).getItemAtPosition(p2).toString()
                     it.getData(p2 + 1, it.year)
                     it.type = p2 + 1
                 }
@@ -79,7 +87,7 @@ class ResourceManageFragment : BaseFragment<FmResourceManageBinding, ResourceMan
         }
 
         viewmodel?.let {
-            BarChartInit.init(binding.chartResource, it.keyList)
+            BarChartInit.init(binding.chartResource, it.dqList)
         }
         SmartTableStyle.setTableStyle(binding.dataTableResource, context)
     }
@@ -97,6 +105,34 @@ class ResourceManageFragment : BaseFragment<FmResourceManageBinding, ResourceMan
         }
         return true
     }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        val value = when (viewmodel?.type) {
+            1 -> obj["Area"].toString()
+            2 -> obj["Area"].toString()
+            3 -> obj["Area"].toString()
+            4 -> obj["Area"].toString()
+            else -> obj["Area"].toString()
+        }
+        var gjgyl = ""
+        var dfgyl = ""
+        if (viewmodel?.type == 3) {
+            gjgyl = obj["CountryArea"].toString()
+            dfgyl = obj["LocalArea"].toString()
+        }
+        val s = when (viewmodel?.type) {
+            1, 2 -> "${viewmodel?.year}年浙江省$typeName${value}万亩"
+            3 -> "${viewmodel?.year}年浙江省$typeName${value}万亩，其中：国家公益林：${gjgyl}万亩，地方公益林：${dfgyl}万亩"
+            4 -> "${viewmodel?.year}年浙江省$typeName$value%"
+            else -> "${viewmodel?.year}年浙江省$typeName${value}万m³"
+        }
+        binding.pestTvDes.text = Utils.getSpanned(s)
+    }
+
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {
         BarChartInit.setBarChartData(binding.chartResource, list, activity,

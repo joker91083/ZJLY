@@ -6,6 +6,7 @@ import com.otitan.data.local.LocalDataSource
 import com.otitan.data.local.LocalDataSourceImpl
 import com.otitan.data.remote.RemoteDataSource
 import com.otitan.data.remote.RemoteDataSourceImpl
+import com.otitan.model.EventModel
 import com.otitan.model.LoginInfo
 import okhttp3.RequestBody
 import java.util.*
@@ -43,17 +44,44 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
         localDataSource.addLocalPoint(lon, lat, sbh, state)
     }
 
+    override fun saveEvent(eventModel: EventModel, callback: LocalDataSource.Callback) {
+        localDataSource.saveEvent(eventModel, callback)
+    }
 
-    override fun addPointToServer(lon: String, lat: String, sbh: String, callback: ValueCallBack<Any>) {
-        return mRemoteDataSource.addPointToServer(lon, lat, sbh, callback)
+    override fun delEvent(id: Long, callback: LocalDataSource.Callback) {
+        localDataSource.delEvent(id, callback)
+    }
+
+    override fun addPointToServer(auth: String, lon: String, lat: String, sbh: String, callback: ValueCallBack<Any>) {
+        return mRemoteDataSource.addPointToServer(auth, lon, lat, sbh, callback)
     }
 
     override fun queryTrackPoint(stratime: String, endtime: String, callback: LocalDataSource.Callback) {
         localDataSource.queryTrackPoint(stratime, endtime, callback)
     }
 
+    override fun queryEvent(callback: LocalDataSource.Callback) {
+        localDataSource.queryEvent(callback)
+    }
+
     override fun login(username: String, password: String, type: String, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.login(username, password, type, callback)
+    }
+
+    override fun registerMobile(auth: String, sbh: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.registerMobile(auth, sbh, callback)
+    }
+
+    override fun upEvent(auth: String, body: RequestBody, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.upEvent(auth, body, callback)
+    }
+
+    override fun upTrack(auth: String, body: RequestBody, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.upTrack(auth, body, callback)
+    }
+
+    override fun eventList(auth: String, fromTime: String, toTime: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.eventList(auth, fromTime, toTime, callback)
     }
 
     override fun resourceManage(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
@@ -136,4 +164,31 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
         mRemoteDataSource.lycy(auth, type, dqcode, year, callback)
     }
 
+    override fun lycyData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.lycyData(auth, type, dqcode, year, page, size, callback)
+    }
+
+    override fun lq(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.lq(auth, type, dqcode, year, callback)
+    }
+
+    override fun lqData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.lqData(auth, type, dqcode, year, page, size, keyword, callback)
+    }
+
+    override fun zwjy(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.zwjy(auth, type, dqcode, year, callback)
+    }
+
+    override fun zwjyData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.zwjyData(auth, type, dqcode, year, page, size, keyword, callback)
+    }
+
+    override fun cfys(auth: String, type: Int, dqcode: String, year: Int, searchtype: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.cfys(auth, type, dqcode, year, searchtype, callback)
+    }
+
+    override fun cfysData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.cfysData(auth, type, dqcode, year, page, size, keyword, callback)
+    }
 }

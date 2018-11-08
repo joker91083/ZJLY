@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewmodel"
             type="com.otitan.main.viewmodel.SlfhViewModel" />
@@ -19,7 +21,19 @@
             style="@style/toolbar_style"
             app:navigationIcon="@drawable/ic_back"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:titleTextColor="@color/white"/>
+            app:titleTextColor="@color/white" />
+
+        <LinearLayout
+            style="@style/linear_info_desc"
+            android:visibility="@{viewmodel.hasData?View.VISIBLE:View.GONE}">
+
+            <TextView
+                android:id="@+id/pest_tv_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/black" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,8 +78,8 @@
 
                 <Spinner
                     android:id="@+id/spinner_year"
-                    android:entries="@array/nianfen_slfh"
-                    style="@style/custom_spinner_style"/>
+                    style="@style/custom_spinner_style"
+                    android:entries="@array/nianfen_slfh" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -77,8 +91,8 @@
 
                 <Spinner
                     android:id="@+id/spinner_index"
-                    android:entries="@array/zhibiao_slfh"
-                    style="@style/custom_spinner_style"/>
+                    style="@style/custom_spinner_style"
+                    android:entries="@array/zhibiao_slfh" />
 
             </LinearLayout>
 
@@ -100,8 +114,8 @@
 
                 <Spinner
                     android:id="@+id/spinner_dq"
-                    android:entries="@array/dq"
-                    style="@style/custom_spinner_style"/>
+                    style="@style/custom_spinner_style"
+                    android:entries="@array/dq" />
             </LinearLayout>
         </LinearLayout>
 
@@ -121,13 +135,13 @@
                 <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/chart_slfh"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
+                    android:layout_height="350dp"
                     android:background="@color/white" />
 
                 <com.bin.david.form.core.SmartTable
                     android:id="@+id/dataTable_slfh"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="289dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp" />
             </LinearLayout>

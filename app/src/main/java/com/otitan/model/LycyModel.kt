@@ -5,7 +5,12 @@ import java.io.Serializable
 /**
  * 林业产业
  */
-class LycyModel : Serializable {
+class LycyModel<T> : Serializable {
+    //总记录数
+    var total: Int = 0
+    //请求返回的数据列表
+    var rows = ArrayList<T>()
+
     //总产业
     class Zcy : Serializable {
         //地区编码
@@ -82,5 +87,25 @@ class LycyModel : Serializable {
         var lygggljqtzzfw: Double = 0.0
         //其他
         var qt: Double = 0.0
+    }
+
+    /**
+     * 数据管理
+     */
+    class Sjgl {
+        //年份
+        var YEAR: String = ""
+        //地区名称
+        var DQMC: String = ""
+        //地区编码
+        var DQCODE: String = ""
+        //总产值
+        var ZJ_ZCZ: String = ""
+        //第一产业产值
+        var DYCY_ZJ_ZCZ: String = ""
+        //第二产业产值
+        var DECY_ZJ_ZCZ: String = ""
+        //第三产业产值
+        var DSCY_ZJ_ZCZ: String = ""
     }
 }

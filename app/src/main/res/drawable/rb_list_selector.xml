@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false" >
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:top="-6dp" android:left="-6dp" android:right="-6dp">
+                <shape xmlns:android="http://schemas.android.com/apk/res/android">
+                    <!--  这里改填充颜色 -->
+                    <solid android:color="@color/white"/>
+                    <!--  这里改底部线条颜色 -->
+                    <stroke android:color="@color/white" android:width="6dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_checked="true">
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:top="-6dp" android:left="-6dp" android:right="-6dp">
+                <shape xmlns:android="http://schemas.android.com/apk/res/android">
+                    <!--  这里改填充颜色 -->
+                    <solid android:color="@color/white"/>
+                    <!--  这里改底部线条颜色 -->
+                    <stroke android:color="@color/colorPrimary" android:width="6dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

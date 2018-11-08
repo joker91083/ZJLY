@@ -71,9 +71,9 @@ class ImgManagerView() : IImgManager, ILayerManagerItem {
 //            }
 //        }
         if (flag && !checked) {
-            layers.remove(layer)
+            activity.mapview.map.basemap.baseLayers.remove(layer)
         } else {
-            layers.add(layer)
+            activity.mapview.map.basemap.baseLayers.add(layer)
         }
     }
 

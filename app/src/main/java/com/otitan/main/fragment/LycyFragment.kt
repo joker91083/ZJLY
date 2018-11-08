@@ -1,35 +1,25 @@
 package com.otitan.main.fragment
 
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.AdapterView
 import android.widget.Spinner
 import com.bin.david.form.data.column.Column
 import com.bin.david.form.data.table.TableData
-import com.github.mikephil.charting.components.*
-import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import com.google.gson.Gson
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.LycyViewModel
 import com.otitan.main.widgets.BarChartInit
 import com.otitan.main.widgets.SmartTableStyle
 import com.otitan.model.LycyModel
-import com.otitan.model.ResourceModel
-import com.otitan.model.ResultModel
 import com.otitan.ui.mview.ILycy
-import com.otitan.util.ScreenTool
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmLycyBinding
-import java.lang.Exception
 
 /**
  * 林业产业
@@ -90,10 +80,65 @@ class LycyFragment : BaseFragment<FmLycyBinding, LycyViewModel>(), ILycy {
         }
 
         viewmodel?.let {
-            BarChartInit.init(binding.chartLycy, it.keyList)
+            BarChartInit.init(binding.chartLycy, it.dqList)
         }
         SmartTableStyle.setTableStyle(binding.dataTableLycy, context)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_data_manage, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.data_manage -> {
+                startContainerActivity(LycyDataFragment::class.java.canonicalName)
+            }
+        }
+        return true
+    }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        val gson = Gson()
+        val json = gson.toJson(obj)
+        var zcy: LycyModel.Zcy? = null
+        var dycy: LycyModel.Dycy? = null
+        var decy: LycyModel.Decy? = null
+        var dscy: LycyModel.Dscy? = null
+        when (viewmodel?.type) {
+            1 -> zcy = gson.fromJson(json, LycyModel.Zcy::class.java)
+            2 -> dycy = gson.fromJson(json, LycyModel.Dycy::class.java)
+            3 -> decy = gson.fromJson(json, LycyModel.Decy::class.java)
+            4 -> dscy = gson.fromJson(json, LycyModel.Dscy::class.java)
+        }
+        val s = when (viewmodel?.type) {
+            1 -> "${viewmodel?.year}年浙江省总产值${viewmodel?.getTotal(viewmodel?.type, zcy)}亿元;" +
+                    "其中:第一产业总产值:${zcy?.First}亿元，第二产业总产值:${zcy?.Second}亿元，" +
+                    "第三产业总产值:${zcy?.Third}亿元"
+            2 -> "${viewmodel?.year}年浙江省第一产业总产值${viewmodel?.getTotal(viewmodel?.type, dycy)}亿元;" +
+                    "其中:林木育种和育苗:${dycy?.lmyzym}亿元，营造林:${dycy?.yzl}亿元，" +
+                    "木材和竹材采运:${dycy?.mczccy}亿元，经济林产品的种植与采集:${dycy?.jjlcpzzcj}亿元，" +
+                    "花卉及其他观赏植物种植:${dycy?.hhjqtgszwzz}亿元，" +
+                    "陆生野生动物繁育与利用:${dycy?.lsysdwfyly}亿元，其他:${dycy?.qt}亿元"
+            3 -> "${viewmodel?.year}年浙江省第二产业总产值${viewmodel?.getTotal(viewmodel?.type, decy)}亿元;" +
+                    "其中:木材加工和木竹藤棕苇制品制造:${decy?.mzgypmzwjtyypzz}亿元，木竹藤家具制造:${decy?.mztjjzz}亿元，" +
+                    "木竹苇浆造纸和纸制品:${decy?.mzwjzzzp}亿元，林产化学产品制造:${decy?.lchxcpzz}亿元，" +
+                    "木质工艺品和木质文教体育用品制造:${decy?.mzgypmzwjtyypzz}亿元，" +
+                    "非木质林产品加工制造业:${decy?.fmzlcpjgzzy}亿元，其他:${decy?.qt}亿元"
+            4 -> "${viewmodel?.year}年浙江省第三产业总产值${viewmodel?.getTotal(viewmodel?.type, dscy)}亿元;" +
+                    "其中:林业生产服务:${dscy?.lyscfw}亿元，林业旅游与休闲服务:${dscy?.lylyyxxfw}亿元，" +
+                    "林业生态服务:${dscy?.lystfw}亿元，林业专业技术服务:${dscy?.lyzyjsfw}亿元，" +
+                    "林业公共管理及其他组织服务:${dscy?.lygggljqtzzfw}亿元，其他:${dscy?.qt}亿元"
+            else -> ""
+        }
+        binding.pestTvDes.text = Utils.getSpanned(s)
+    }
+
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {
         BarChartInit.setBarChartData(binding.chartLycy, list, activity,

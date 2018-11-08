@@ -4,6 +4,7 @@ import com.otitan.model.*
 import okhttp3.RequestBody
 import retrofit2.http.*
 import rx.Observable
+import java.util.*
 
 
 /**
@@ -13,8 +14,13 @@ import rx.Observable
 
 interface RetrofitService {
 
-    @GET("addPoint")
-    fun addPointToServer(@Query("lon") lon: String, @Query("lat") lat: String, @Query("sbh") sbh: String): Observable<String>
+    /**
+     * 轨迹上传 没用这个
+     */
+//    @Headers("Content-Type: application/json")
+    @FormUrlEncoded
+    @POST("/api/track")
+    fun addPointToServer(@Header("Authorization") auth: String, @Field("SBH") sbh: String, @Field("LON") lon: String, @Field("LAT") lat: String): Observable<ResultModel<Any>>
 
     /**
      * 登录
@@ -28,16 +34,32 @@ interface RetrofitService {
     /**
      * 设备信息注册
      */
-    @FormUrlEncoded
+    @Headers("Content-Type: application/json")
+//    @FormUrlEncoded
     @POST("/api/mobile")
-    fun registerMoblie(@Header("Authorization") auth: String, @Field("sbh") sbh: String): Observable<ResultModel<Any>>
+    fun registerMobile(@Header("Authorization") auth: String, @Body body: RequestBody): Observable<ResultModel<Any>>
+//    fun registerMobile(@Header("Content-Type") type: String, @Header("Authorization") auth: String, @Field("sbh") sbh: String): Observable<ResultModel<Any>>
 
     /**
      * 事件上传
      */
-    @FormUrlEncoded
+    @Headers("Content-Type: application/json")
+//    @FormUrlEncoded
     @POST("/api/event")
-    fun upEvent(): Observable<ResultModel<Any>>
+    fun upEvent(@Header("Authorization") auth: String, @Body body: RequestBody): Observable<ResultModel<Any>>
+
+    /**
+     * 轨迹上传 用的这个
+     */
+    @Headers("Content-Type: application/json")
+    @POST("/api/track")
+    fun upTrack(@Header("Authorization") auth: String, @Body body: RequestBody): Observable<ResultModel<Any>>
+
+    /**
+     * 事件
+     */
+    @GET("/api/event")
+    fun eventList(@Header("Authorization") auth: String, @Query("fromTime") fromTime: String, @Query("toTime") toTime: String): Observable<ResultModel<Any>>
 
     /**
      * 资源管护
@@ -113,7 +135,7 @@ interface RetrofitService {
      */
     @GET("/api/afforestation/overview")
     fun yzl(@Header("Authorization") auth: String, @Query("type") type: Int,
-            @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
+            @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<List<YzlModel>>>
 
     /**
      * 营造林 数据管理
@@ -198,5 +220,68 @@ interface RetrofitService {
     @GET("/api/industry/overview")
     fun lycy(@Header("Authorization") auth: String, @Query("type") type: Int,
              @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
+
+    /**
+     * 林业产业 数据管理
+     * [type] 1：总产值，2：第一产业，3：第二产业，4：第三产业
+     */
+    @GET("/api/industry/datamanage")
+    fun lycyData(@Header("Authorization") auth: String, @Query("type") type: Int,
+                 @Query("dqcode") dqcode: String, @Query("year") year: Int,
+                 @Query("page") page: Int, @Query("size") size: Int): Observable<ResultModel<LycyModel<Any>>>
+
+    /**
+     * 林权
+     * [type] 1:林权证本表，2:森林、林木、林地状况登记表
+     */
+    @GET("/api/warrant/overview")
+    fun lq(@Header("Authorization") auth: String, @Query("type") type: Int,
+           @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
+
+    /**
+     * 林权 数据管理
+     */
+    @GET("/api/warrant/datamanage")
+    fun lqData(@Header("Authorization") auth: String, @Query("type") type: Int,
+               @Query("dqcode") dqcode: String, @Query("year") year: Int,
+               @Query("page") page: Int, @Query("size") size: Int,
+               @Query("keyword") keyword: String): Observable<ResultModel<LQuanModel<Any>>>
+
+    /**
+     * 植物检疫
+     * [type] 1:国内调运检疫报检单，2:植物检疫证书信息，3:产地检疫报检,4:产地检疫合格证
+     */
+    @GET("/api/anti/overview")
+    fun zwjy(@Header("Authorization") auth: String, @Query("type") type: Int,
+           @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
+
+    /**
+     * 植物检疫 数据管理
+     */
+    @GET("/api/anti/datamanage")
+    fun zwjyData(@Header("Authorization") auth: String, @Query("type") type: Int,
+               @Query("dqcode") dqcode: String, @Query("year") year: Int,
+               @Query("page") page: Int, @Query("size") size: Int,
+               @Query("keyword") keyword: String): Observable<ResultModel<ZwjyModel<Any>>>
+
+    /**
+     * 采伐运输
+     * [type] 1:林木采伐证信息，2:木材运输证信息
+     * [searchtype] 仅当type==1时 1:项目个数，2:采伐面积，3:采伐蓄积,4:采伐株数
+     */
+    @GET("/api/transport/overview")
+    fun cfys(@Header("Authorization") auth: String, @Query("type") type: Int,
+             @Query("dqcode") dqcode: String, @Query("year") year: Int,
+             @Query("searchtype") searchtype: Int): Observable<ResultModel<Any>>
+
+    /**
+     * 采伐运输 数据管理
+     */
+    @GET("/api/transport/datamanage")
+    fun cfysData(@Header("Authorization") auth: String, @Query("type") type: Int,
+                 @Query("dqcode") dqcode: String, @Query("year") year: Int,
+                 @Query("page") page: Int, @Query("size") size: Int,
+                 @Query("keyword") keyword: String): Observable<ResultModel<CfysModel<Any>>>
+
 
 }

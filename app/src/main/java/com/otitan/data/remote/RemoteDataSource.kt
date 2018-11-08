@@ -3,6 +3,7 @@ package com.otitan.data.remote
 import com.otitan.base.ValueCallBack
 import com.otitan.model.LoginInfo
 import okhttp3.RequestBody
+import java.util.*
 
 
 /**
@@ -26,12 +27,32 @@ interface RemoteDataSource {
     /**
      * 上传轨迹数据
      */
-    fun addPointToServer(lon: String, lat: String, sbh: String, callback: ValueCallBack<Any>)
+    fun addPointToServer(auth: String, lon: String, lat: String, sbh: String, callback: ValueCallBack<Any>)
 
     /**
      * 登录
      */
     fun login(username: String, password: String, type: String, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 设备信息注册
+     */
+    fun registerMobile(auth: String, sbh: String, callback: mCallback)
+
+    /**
+     * 事件上传
+     */
+    fun upEvent(auth: String, body: RequestBody, callback: mCallback)
+
+    /**
+     * 轨迹上传
+     */
+    fun upTrack(auth: String, body: RequestBody, callback: mCallback)
+
+    /**
+     * 事件列表
+     */
+    fun eventList(auth: String, fromTime: String, toTime: String, callback: mCallback)
 
     /**
      * 资源管护
@@ -135,4 +156,43 @@ interface RemoteDataSource {
      * 林业产业
      */
     fun lycy(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 林业产业 数据管理
+     */
+    fun lycyData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 林权
+     */
+    fun lq(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 林权 数据管理
+     */
+    fun lqData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int,
+               keyword: String, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 植物检疫
+     */
+    fun zwjy(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 植物检疫 数据管理
+     */
+    fun zwjyData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int,
+                 keyword: String, callback: RemoteDataSource.mCallback)
+
+    /**
+     * 采伐运输
+     */
+    fun cfys(auth: String, type: Int, dqcode: String, year: Int, searchtype: Int,
+             callback: RemoteDataSource.mCallback)
+
+    /**
+     * 采伐运输 数据管理
+     */
+    fun cfysData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int,
+                 keyword: String, callback: RemoteDataSource.mCallback)
 }

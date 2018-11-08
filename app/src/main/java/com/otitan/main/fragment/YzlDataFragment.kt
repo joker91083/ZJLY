@@ -50,7 +50,7 @@ class YzlDataFragment : BaseFragment<FmYzlDataBinding, YzlDataViewModel>(), IDat
     override fun initData() {
         super.initData()
         setHasOptionsMenu(true)
-        binding.toolbarYzlData.title = "数据管理"
+        binding.toolbarYzlData.title = "数据查询"
         (activity!! as AppCompatActivity).setSupportActionBar(binding.toolbarYzlData)
         binding.toolbarYzlData.setNavigationOnClickListener { activity?.finish() }
 
@@ -116,6 +116,10 @@ class YzlDataFragment : BaseFragment<FmYzlDataBinding, YzlDataViewModel>(), IDat
             val adapter = DataManageAdapter(activity, it.items, "营造林")
             binding.rvDataManage.adapter = adapter
         }
+    }
+
+    override fun startRefresh() {
+
     }
 
     override fun refresh() {

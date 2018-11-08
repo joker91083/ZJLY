@@ -1,6 +1,7 @@
 package com.otitan.main.viewmodel
 
 import android.content.Context
+import android.databinding.ObservableBoolean
 import android.util.Log
 import com.github.mikephil.charting.data.BarEntry
 import com.google.gson.Gson
@@ -21,13 +22,14 @@ import org.jetbrains.anko.toast
 
 class SlgyViewModel() : BaseViewModel() {
 
-    var data: ResultModel<Any>? = null
+    var data: ResultModel<List<LinkedTreeMap<String, Any>>>? = null
     val keyList = ArrayList<String>()
     val dqList = ArrayList<String>()
     val valueList = ArrayList<String>()
     var dqName = "浙江省"
     val dataRepository = Injection.provideDataRepository()
     var mView: ISlgy? = null
+    val hasData = ObservableBoolean(false)
     val barChartDataList = ArrayList<BarEntry>()
 
     constructor(context: Context?, mView: ISlgy) : this() {
@@ -58,10 +60,13 @@ class SlgyViewModel() : BaseViewModel() {
 
                     override fun onSuccess(result: Any) {
                         dismissDialog()
-                        data = result as ResultModel<Any>
-                        if (data?.data == null || (data?.data!! as List<Any>).size == 0) {
+                        data = result as ResultModel<List<LinkedTreeMap<String, Any>>>
+                        hasData.set(true)
+                        if (data?.data == null || data?.data?.size == 0) {
                             mContext?.toast("没有数据")
+                            hasData.set(false)
                         }
+                        mView?.setDescription()
                         conversion(dqName)
                         mView?.setBarChartData(barChartDataList)
                         mView?.setTableData(conversionTableData(result))
@@ -82,7 +87,10 @@ class SlgyViewModel() : BaseViewModel() {
             }
             val temp = data?.data as List<LinkedTreeMap<String, Any>>
             var i = 0f
-            temp.forEach {
+            temp.forEach continuing@{
+                if (it["Name"] == "浙江省") {
+                    return@continuing
+                }
                 it.forEach { (k, v) ->
                     if (k == "Name") {
                         dqList.add(v.toString())
@@ -96,7 +104,7 @@ class SlgyViewModel() : BaseViewModel() {
         }
     }
 
-    fun conversionTableData(data: ResultModel<Any>?): List<Any> {
+    fun conversionTableData(data: ResultModel<List<LinkedTreeMap<String, Any>>>?): List<Any> {
         val list = ArrayList<Any>()
         if (data != null) {
             val gson = Gson()

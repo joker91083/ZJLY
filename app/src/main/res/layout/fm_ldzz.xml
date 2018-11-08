@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewmodel"
             type="com.otitan.main.viewmodel.LdzzViewModel" />
@@ -20,6 +22,18 @@
             app:navigationIcon="@drawable/ic_back"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:titleTextColor="@color/white" />
+
+        <LinearLayout
+            style="@style/linear_info_desc"
+            android:visibility="@{viewmodel.hasData?View.VISIBLE:View.GONE}">
+
+            <TextView
+                android:id="@+id/pest_tv_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/black" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -120,13 +134,13 @@
                 <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/chart_ldzz"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
+                    android:layout_height="350dp"
                     android:background="@color/white" />
 
                 <com.bin.david.form.core.SmartTable
                     android:id="@+id/dataTable_ldzz"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="289dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp" />
             </LinearLayout>

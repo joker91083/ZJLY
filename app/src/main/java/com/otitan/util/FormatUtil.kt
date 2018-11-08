@@ -15,6 +15,8 @@ class FormatUtil {
         private val df_loc=DecimalFormat("#.######")
         //日期格式化
         private var simpleDateFormat=SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        //年月日
+        private var nyrFormat=SimpleDateFormat("yyyy-MM-dd")
 
         @JvmStatic fun areaFormat(area: Double):String {
             return df2.format(area)
@@ -42,6 +44,13 @@ class FormatUtil {
             return simpleDateFormat.format(millseconds)
         }
 
+        /**
+         * 时间格式化
+         */
+        @JvmStatic
+        fun dateFormat(date: Date):String{
+            return nyrFormat.format(date)
+        }
 
         /**
          * 经纬度格式化

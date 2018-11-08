@@ -44,4 +44,17 @@ public class ResultModel<T> implements Serializable {
     public void setData(T data) {
         Data = data;
     }
+
+
+    public class Err{
+        private String message;
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
 }

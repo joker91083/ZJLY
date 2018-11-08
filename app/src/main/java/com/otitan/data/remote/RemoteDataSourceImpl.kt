@@ -6,10 +6,13 @@ import com.otitan.base.ValueCallBack
 import com.otitan.model.*
 import okhttp3.MediaType
 import okhttp3.RequestBody
-import rx.Observable
+import retrofit2.HttpException
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import java.io.IOException
+import java.util.*
+
 
 /**
  * Created by hanyw on 2018/8/18
@@ -40,26 +43,29 @@ class RemoteDataSourceImpl() : RemoteDataSource {
 
     }
 
-    override fun addPointToServer(lon: String, lat: String, sbh: String, callback: ValueCallBack<Any>) {
-        var observable = RetrofitHelper.instance.server.addPointToServer(lon, lat, sbh)
+    override fun addPointToServer(auth: String, lon: String, lat: String, sbh: String, callback: ValueCallBack<Any>) {
+        val observable = RetrofitHelper.instance.server.addPointToServer(auth, lon, lat, sbh)
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : Observer<String> {
+                .subscribe(object : Observer<ResultModel<Any>> {
                     override fun onCompleted() {
 
                     }
 
                     override fun onError(e: Throwable) {
-
+                        Log.e("tag", "轨迹上传失败：" + getErrBody(e))
                     }
 
-                    override fun onNext(s: String) {
+                    override fun onNext(s: ResultModel<Any>) {
                         callback.onSuccess(s)
                     }
                 })
 
     }
 
+    /**
+     * 登录
+     */
     override fun login(username: String, password: String, type: String, callback: RemoteDataSource.mCallback) {
         val loginInfo = LoginInfo()
         loginInfo.password = password
@@ -92,6 +98,101 @@ class RemoteDataSourceImpl() : RemoteDataSource {
     }
 
     /**
+     * 设备信息注册
+     */
+    override fun registerMobile(auth: String, sbh: String, callback: RemoteDataSource.mCallback) {
+        val json = sbh
+        val type = "application/json"
+        val observable = RetrofitHelper.instance.server.registerMobile(auth, requestBody(json))
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<Any>> {
+                    override fun onError(e: Throwable?) {
+                        errInfo(e, callback)
+                    }
+
+                    override fun onNext(t: ResultModel<Any>?) {
+                        t?.let {
+                            callback.onSuccess(it.responseMsg == "success")
+                        }
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    override fun upEvent(auth: String, body: RequestBody, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server.upEvent(auth, body)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<Any>> {
+                    override fun onError(e: Throwable?) {
+                        errInfo(e, callback)
+                    }
+
+                    override fun onNext(t: ResultModel<Any>?) {
+                        Log.e("tag", t?.responseMsg)
+                        t?.let {
+                            if (it.responseMsg == "success") {
+                                callback.onSuccess("上传成功")
+                            } else {
+                                callback.onFailure("上传失败")
+                            }
+                        }
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 轨迹上传
+     */
+    override fun upTrack(auth: String, body: RequestBody, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server.upTrack(auth, body)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<Any>> {
+                    override fun onError(e: Throwable?) {
+                        errInfo(e, callback)
+                    }
+
+                    override fun onNext(t: ResultModel<Any>?) {
+                        Log.e("tag", t?.responseMsg)
+                        t?.let {
+                            if (it.responseMsg == "success") {
+                                callback.onSuccess("true")
+                            } else {
+                                callback.onFailure("false")
+                            }
+                        }
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 事件列表
+     */
+    override fun eventList(auth: String, fromTime: String, toTime: String, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server.eventList(auth, fromTime, toTime)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<Any>> {
+                    override fun onError(e: Throwable?) {
+                        errInfo(e, callback)
+                    }
+
+                    override fun onNext(t: ResultModel<Any>?) {
+                        callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
      * 资源管护
      */
     override fun resourceManage(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
@@ -99,11 +200,7 @@ class RemoteDataSourceImpl() : RemoteDataSource {
         observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<ResultModel<Any>> {
                     override fun onError(e: Throwable?) {
-                        if (e?.message == null) {
-                            callback.onFailure(e.toString())
-                        } else {
-                            callback.onFailure(e.message!!)
-                        }
+                        errInfo(e, callback)
                     }
 
                     override fun onNext(t: ResultModel<Any>?) {
@@ -290,7 +387,7 @@ class RemoteDataSourceImpl() : RemoteDataSource {
     override fun yzl(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
         val observable = RetrofitHelper.instance.server.yzl(auth, type, dqcode, year)
         observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : Observer<ResultModel<Any>> {
+                .subscribe(object : Observer<ResultModel<List<YzlModel>>> {
                     override fun onError(e: Throwable?) {
                         if (e?.message == null) {
                             callback.onFailure(e.toString())
@@ -299,7 +396,7 @@ class RemoteDataSourceImpl() : RemoteDataSource {
                         }
                     }
 
-                    override fun onNext(t: ResultModel<Any>?) {
+                    override fun onNext(t: ResultModel<List<YzlModel>>?) {
                         callback.onSuccess(t!!)
                     }
 
@@ -570,5 +667,225 @@ class RemoteDataSourceImpl() : RemoteDataSource {
                     override fun onCompleted() {
                     }
                 })
+    }
+
+
+    /**
+     * 林业产业 数据管理
+     */
+    override fun lycyData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server.lycyData(auth, type, dqcode, year, page, size)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<LycyModel<Any>>> {
+                    override fun onError(e: Throwable?) {
+                        if (e?.message == null) {
+                            callback.onFailure(e.toString())
+                        } else {
+                            callback.onFailure(e.message!!)
+                        }
+                    }
+
+                    override fun onNext(t: ResultModel<LycyModel<Any>>?) {
+                        callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 林权
+     */
+    override fun lq(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server.lq(auth, type, dqcode, year)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<Any>> {
+                    override fun onError(e: Throwable?) {
+                        if (e?.message == null) {
+                            callback.onFailure(e.toString())
+                        } else {
+                            callback.onFailure(e.message!!)
+                        }
+                    }
+
+                    override fun onNext(t: ResultModel<Any>?) {
+                        callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 林权 数据管理
+     */
+    override fun lqData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server
+                .lqData(auth, type, dqcode, year, page, size, keyword)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<LQuanModel<Any>>> {
+                    override fun onError(e: Throwable?) {
+                        if (e?.message == null) {
+                            callback.onFailure(e.toString())
+                        } else {
+                            callback.onFailure(e.message!!)
+                        }
+                    }
+
+                    override fun onNext(t: ResultModel<LQuanModel<Any>>?) {
+                        callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 植物检疫
+     */
+    override fun zwjy(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server.zwjy(auth, type, dqcode, year)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<Any>> {
+                    override fun onError(e: Throwable?) {
+                        if (e?.message == null) {
+                            callback.onFailure(e.toString())
+                        } else {
+                            callback.onFailure(e.message!!)
+                        }
+                    }
+
+                    override fun onNext(t: ResultModel<Any>?) {
+                        callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 植物检疫 数据管理
+     */
+    override fun zwjyData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server
+                .zwjyData(auth, type, dqcode, year, page, size, keyword)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<ZwjyModel<Any>>> {
+                    override fun onError(e: Throwable?) {
+                        if (e?.message == null) {
+                            callback.onFailure(e.toString())
+                        } else {
+                            callback.onFailure(e.message!!)
+                        }
+                    }
+
+                    override fun onNext(t: ResultModel<ZwjyModel<Any>>?) {
+                        callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 植物检疫
+     */
+    override fun cfys(auth: String, type: Int, dqcode: String, year: Int, searchtype: Int,
+                      callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server.cfys(auth, type, dqcode, year, searchtype)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<Any>> {
+                    override fun onError(e: Throwable?) {
+                        if (e?.message == null) {
+                            callback.onFailure(e.toString())
+                        } else {
+                            callback.onFailure(e.message!!)
+                        }
+                    }
+
+                    override fun onNext(t: ResultModel<Any>?) {
+                        callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 植物检疫 数据管理
+     */
+    override fun cfysData(auth: String, type: Int, dqcode: String, year: Int, page: Int, size: Int, keyword: String, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server
+                .cfysData(auth, type, dqcode, year, page, size, keyword)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<CfysModel<Any>>> {
+                    override fun onError(e: Throwable?) {
+                        if (e?.message == null) {
+                            callback.onFailure(e.toString())
+                        } else {
+                            callback.onFailure(e.message!!)
+                        }
+                    }
+
+                    override fun onNext(t: ResultModel<CfysModel<Any>>?) {
+                        callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 网络错误处理
+     */
+    private fun errInfo(e: Throwable?, callback: RemoteDataSource.mCallback) {
+        val err = getErrBody(e)
+        when {
+            !err.isNullOrEmpty() -> callback.onFailure(err.toString())
+            e?.message == null -> callback.onFailure(e.toString())
+            else -> callback.onFailure(e.message!!)
+        }
+    }
+
+    /**
+     * 获取网络错误中的异常信息
+     */
+    fun getErrBody(e: Throwable?): String? {
+        var err: String? = ""
+        if (e is HttpException) {
+            val body = e.response().errorBody()
+            try {
+//                Log.e("tag", body!!.string())
+                val result = body?.string() ?: "{}"
+                when (e.code()) {
+                    401 -> {
+                        val obj = Gson().fromJson(result, ResultModel.Err::class.java)
+                        err = obj.message
+                    }
+
+                    400 -> {
+                        val obj = Gson().fromJson(result, ErrResultModel::class.java)
+                        err = obj.responseMsg
+                    }
+                }
+            } catch (IOe: IOException) {
+                IOe.printStackTrace()
+            }
+        }
+        return err
+    }
+
+    private fun requestBody(json: String): RequestBody {
+        var json1 = json
+        val gson = Gson()
+        json1 = gson.toJson(json1)
+        return RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json1)
     }
 }

@@ -47,7 +47,7 @@ class ResourceManageDataFragment : BaseFragment<FmResourceManageDataBinding, Res
     override fun initData() {
         super.initData()
         setHasOptionsMenu(true)
-        binding.toolbarResource.title = "数据管理"
+        binding.toolbarResource.title = "数据查询"
         (activity!! as AppCompatActivity).setSupportActionBar(binding.toolbarResource)
         binding.toolbarResource.setNavigationOnClickListener { activity?.finish() }
 
@@ -110,6 +110,9 @@ class ResourceManageDataFragment : BaseFragment<FmResourceManageDataBinding, Res
             val adapter = ResourceManageDataAdapter(it.items, it.type.get())
             binding.rvDataManage.adapter = adapter
         }
+    }
+
+    override fun startRefresh() {
     }
 
     override fun refresh() {

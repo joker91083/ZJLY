@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.main.viewmodel.UpEventViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar_style"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:navigationIcon="@drawable/ic_back"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/white" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_linearlayout"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/infolist_text"
+                        android:text="@string/lon" />
+
+                    <EditText
+                        style="@style/infolist_edittext"
+                        android:inputType="numberDecimal"
+                        android:text="@={viewmodel.event.LON}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/infolist_text"
+                        android:text="@string/lat" />
+
+                    <EditText
+                        style="@style/infolist_edittext"
+                        android:inputType="numberDecimal"
+                        android:text="@={viewmodel.event.LAT}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/infolist_text"
+                        android:text="@string/sjms" />
+
+                    <EditText
+                        style="@style/infolist_edittext"
+                        android:text="@={viewmodel.event.SJMS}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/infolist_text"
+                        android:text="@string/sjlx" />
+
+                    <EditText
+                        android:id="@+id/ed_sjlx"
+                        style="@style/infolist_edittext"
+                        android:focusable="false"
+                        android:onClick="@{()->viewmodel.selectType()}"
+                        android:drawableEnd="@drawable/ic_arrow_right" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/infolist_text"
+                        android:text="@string/fsdd" />
+
+                    <EditText
+                        style="@style/infolist_edittext"
+                        android:text="@={viewmodel.event.FSD}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/infolist_text"
+                        android:drawableStart="@null"
+                        android:text="@string/lxfs" />
+
+                    <EditText
+                        style="@style/infolist_edittext"
+                        android:inputType="numberDecimal"
+                        android:text="@={viewmodel.event.LXFS}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/infolist_text"
+                        android:drawableStart="@null"
+                        android:text="@string/remark" />
+
+                    <EditText
+                        style="@style/infolist_edittext"
+                        android:text="@={viewmodel.event.BZ}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/jjxxsb_zp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:id="@+id/xczp_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:gravity="center_vertical"
+                        android:minWidth="@dimen/width_90"
+                        android:onClick="@{()->viewmodel.selectPic()}"
+                        android:padding="@dimen/padding_7"
+                        android:text="@string/pic"
+                        android:textColor="@color/color_black" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/txt_xczp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:id="@+id/xcyp_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_linearlayout"
+                        android:gravity="center_vertical"
+                        android:minWidth="@dimen/width_90"
+                        android:onClick="@{()->viewmodel.selectAudio()}"
+                        android:padding="@dimen/padding_7"
+                        android:text="@string/audio"
+                        android:textColor="@color/color_black" />
+
+                    <TextView
+                        android:id="@+id/txt_xcyp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="2dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/xcsp_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_linearlayout"
+                        android:gravity="center_vertical"
+                        android:minWidth="@dimen/width_90"
+                        android:onClick="@{()->viewmodel.selectVideo()}"
+                        android:padding="@dimen/padding_7"
+                        android:text="@string/video"
+                        android:textColor="@color/color_black" />
+
+                    <VideoView
+                        android:id="@+id/txt_xcsp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/width_100"
+                        android:background="@color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/local_sure"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_view_rounded_green"
+                        android:gravity="center"
+                        android:onClick="@{()->viewmodel.locSave()}"
+                        android:padding="10dp"
+                        android:text="@string/loc_save"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/online_sure"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_view_rounded_green"
+                        android:gravity="center"
+                        android:onClick="@{()->viewmodel.upEvent()}"
+                        android:padding="10dp"
+                        android:text="@string/up_event"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

@@ -46,8 +46,8 @@
             <shape>
                 <gradient
                     android:angle="270.0"
-                    android:endColor="#02ad4d"
-                    android:startColor="#02ad4d" />
+                    android:endColor="#4CAF50                                "
+                    android:startColor="#4CAF50                                " />
 
                 <corners
                     android:bottomLeftRadius="0.0dip"
@@ -58,7 +58,7 @@
 
                 <stroke
                     android:width="0dp"
-                    android:color="#02ad4d" />
+                    android:color="#4CAF50                                " />
             </shape>
         </item>
     </selector>

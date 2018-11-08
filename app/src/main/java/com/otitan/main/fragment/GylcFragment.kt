@@ -19,6 +19,7 @@ import com.otitan.main.widgets.SmartTableStyle
 import com.otitan.model.GylcModel
 import com.otitan.ui.mview.IGylc
 import com.otitan.util.ScreenTool
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmGylcBinding
@@ -71,6 +72,15 @@ class GylcFragment : BaseFragment<FmGylcBinding, GylcViewModel>(), IGylc {
             }
         }
         return true
+    }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        val s = "浙江省国有林场共:${obj["Count"]}个,经营面积${obj["Area"]}亩"
+        binding.pestTvDes.text = Utils.getSpanned(s)
     }
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {

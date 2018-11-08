@@ -16,7 +16,8 @@ object Constant{
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.CAMERA)
+            Manifest.permission.CAMERA,
+            Manifest.permission.RECORD_AUDIO)
     /*存储*/
     val STORAGE = arrayOf(
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -28,6 +29,9 @@ object Constant{
 
     val CAMERA = arrayOf(
             Manifest.permission.CAMERA)
+    //麦克风
+    val AUDIO = arrayOf(
+            Manifest.permission.RECORD_AUDIO)
 
     val PERMISSIONS_REQUEST_CODE = 0 // 请求码
 

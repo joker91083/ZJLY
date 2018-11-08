@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.support.v7.widget.SearchView
+import android.view.*
 import android.widget.AdapterView
 import android.widget.Spinner
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener
@@ -70,7 +69,7 @@ class GylcDataFragment : BaseFragment<FmGylcDataBinding, GylcDataViewModel>(), I
     override fun initData() {
         super.initData()
         setHasOptionsMenu(true)
-        binding.toolbarGylcData.title = "数据管理"
+        binding.toolbarGylcData.title = "数据查询"
         (activity!! as AppCompatActivity).setSupportActionBar(binding.toolbarGylcData)
         binding.toolbarGylcData.setNavigationOnClickListener { activity?.finish() }
 
@@ -94,7 +93,8 @@ class GylcDataFragment : BaseFragment<FmGylcDataBinding, GylcDataViewModel>(), I
                         } else {
                             code1!!
                         }
-                        it.onRefresh.execute()
+//                        it.onRefresh.execute()
+                        startRefresh()
                     }
                 }
             })
@@ -105,6 +105,33 @@ class GylcDataFragment : BaseFragment<FmGylcDataBinding, GylcDataViewModel>(), I
             val adapter = DataManageAdapter(context, it.items, "国有林场")
             binding.rvDataManage.adapter = adapter
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.menu_search, menu)
+        val item = menu?.findItem(R.id.data_search)
+        val searchView = item?.actionView as SearchView?
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    viewmodel?.keyWord = query
+//                    viewmodel?.onRefresh?.execute()
+                    startRefresh()
+                    return true
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewmodel?.keyWord = newText ?: ""
+                return false
+            }
+        })
+    }
+
+    override fun startRefresh() {
+        binding.refreshLayout.startRefresh()
     }
 
     override fun refresh() {

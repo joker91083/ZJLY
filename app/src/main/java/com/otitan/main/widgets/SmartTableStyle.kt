@@ -18,7 +18,7 @@ class SmartTableStyle{
             table.config.minTableWidth = ScreenTool.getScreenWidth(context, 26)
             val titleStyle = FontStyle()
             titleStyle.textColor = Color.BLACK
-            titleStyle.setTextSpSize(context, 17)
+            titleStyle.setTextSpSize(context, 14)
             table.config.tableTitleStyle = titleStyle
             val columnTitleStyle = FontStyle()
             columnTitleStyle.textColor = Color.BLACK

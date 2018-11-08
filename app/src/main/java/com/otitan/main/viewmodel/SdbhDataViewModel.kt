@@ -26,6 +26,7 @@ class SdbhDataViewModel() : BaseViewModel() {
     var mView: IDataBase? = null
     var page = 1
     var dqcode = "330000"
+    var keyWord = ""
 
     constructor(context: Context?, mView: IDataBase) : this() {
         this.mContext = context
@@ -34,7 +35,8 @@ class SdbhDataViewModel() : BaseViewModel() {
 
     override fun onCreate() {
         super.onCreate()
-        onRefresh.execute()
+//        onRefresh.execute()
+        mView?.startRefresh()
     }
 
     val onRefresh = BindingCommand(object : BindingAction {
@@ -58,7 +60,7 @@ class SdbhDataViewModel() : BaseViewModel() {
             return
         }
         auth = "Bearer $auth"
-        dataRepository.sdbhData(auth, dqcode, page, 10, "",
+        dataRepository.sdbhData(auth, dqcode, page, 10, keyWord,
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         when (requestCode) {

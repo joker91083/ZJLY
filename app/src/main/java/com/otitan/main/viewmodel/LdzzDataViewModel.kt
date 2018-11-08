@@ -29,6 +29,7 @@ class LdzzDataViewModel() : BaseViewModel() {
     var year = 2010
     var page = 1
     var dqcode = "330000"
+    var keyWord = ""
 
     constructor(context: Context?, mView: IDataBase) : this() {
         this.mContext = context
@@ -37,7 +38,8 @@ class LdzzDataViewModel() : BaseViewModel() {
 
     override fun onCreate() {
         super.onCreate()
-        getData(year, dqcode, 1)
+//        onRefresh.execute()
+        mView?.startRefresh()
     }
 
     val onRefresh = BindingCommand(object : BindingAction {
@@ -62,7 +64,7 @@ class LdzzDataViewModel() : BaseViewModel() {
         }
         auth = "Bearer $auth"
 //        showDialog("加载中...")
-        dataRepository.ldzzData(auth, dqcode, year, page, 10, "",
+        dataRepository.ldzzData(auth, dqcode, year, page, 10, keyWord,
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
 //                        dismissDialog()

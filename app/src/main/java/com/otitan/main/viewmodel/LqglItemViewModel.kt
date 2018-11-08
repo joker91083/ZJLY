@@ -40,6 +40,9 @@ class LqglItemViewModel() : BaseViewModel() {
             "森林公园" -> startContainerActivity(SlgyFragment::class.java.canonicalName)
             "湿地保护" -> startContainerActivity(SdbhFragment::class.java.canonicalName)
             "林业科技" -> startContainerActivity(LykjFragment::class.java.canonicalName)
+            "林权" -> startContainerActivity(LquanFragment::class.java.canonicalName)
+            "植物检疫" -> startContainerActivity(ZwjyFragment::class.java.canonicalName)
+            "采伐运输" -> startContainerActivity(CfysFragment::class.java.canonicalName)
             "林业产业" -> startContainerActivity(LycyFragment::class.java.canonicalName)
         }
     }

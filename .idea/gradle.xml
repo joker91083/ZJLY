@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$/../LibraryManager" />
             <option value="$PROJECT_DIR$/../LibraryManager/baselibrary" />
             <option value="$PROJECT_DIR$/../LibraryManager/eventlibrary" />
+            <option value="$PROJECT_DIR$/../LibraryManager/medialibrary" />
             <option value="$PROJECT_DIR$/../LibraryManager/photopicker" />
             <option value="$PROJECT_DIR$/../LibraryManager/versionupdata" />
             <option value="$PROJECT_DIR$" />

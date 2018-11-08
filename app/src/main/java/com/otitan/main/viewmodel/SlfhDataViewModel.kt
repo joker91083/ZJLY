@@ -29,6 +29,7 @@ class SlfhDataViewModel() : BaseViewModel() {
     var year = 2013
     var page = 1
     var dqcode = "330000"
+    var keyWord = ""
 
     constructor(context: Context?, mView: IDataBase) : this() {
         this.mContext = context
@@ -37,7 +38,8 @@ class SlfhDataViewModel() : BaseViewModel() {
 
     override fun onCreate() {
         super.onCreate()
-        getData(type.get(), year, dqcode, 1)
+//        onRefresh.execute()
+        mView?.startRefresh()
     }
 
     val onRefresh = BindingCommand(object : BindingAction {
@@ -61,7 +63,7 @@ class SlfhDataViewModel() : BaseViewModel() {
             return
         }
         auth = "Bearer $auth"
-        dataRepository.slfhData(auth, type, dqcode, year, page, 10, "",
+        dataRepository.slfhData(auth, type, dqcode, year, page, 10, keyWord,
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         when (requestCode) {

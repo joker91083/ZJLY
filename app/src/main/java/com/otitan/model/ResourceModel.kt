@@ -86,7 +86,7 @@ class ResourceModel : Serializable {
         //地区名称
         var Name: String? = null
         //森林覆盖率
-        var Area: Double = 0.toDouble()
+        var Area: Double = 0.0
         //年份(数据管理)
         var Year: String? = null
         //森林覆盖率(数据管理)

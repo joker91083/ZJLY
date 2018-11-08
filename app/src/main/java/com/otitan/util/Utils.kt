@@ -2,20 +2,20 @@ package com.otitan.util
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
+import android.text.Spanned
 import android.util.Log
 import android.util.TypedValue
 import android.widget.BaseExpandableListAdapter
 import android.widget.ExpandableListView
 import android.widget.LinearLayout
-import com.google.gson.*
 import com.otitan.TitanApplication
 import com.otitan.base.ContainerActivity
 import java.io.*
-import java.lang.reflect.Type
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
-import kotlin.math.roundToLong
 
 class Utils {
     companion object {
@@ -135,6 +135,20 @@ class Utils {
                 }
             }
             return ""
+        }
+
+        /**
+         * 文字样式添加
+         */
+        fun getSpanned(s: String): Spanned? {
+            var s1 = s
+            s1 = s1.replace(Regex("\\d+(\\.\\d+)?")) { "<font color=#FF4081><b>${it.value}</b></font>" }
+            return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                Html.fromHtml(s1, Html.FROM_HTML_MODE_LEGACY)
+            } else {
+                @Suppress("DEPRECATION")
+                Html.fromHtml(s1)
+            }
         }
     }
 }

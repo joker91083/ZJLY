@@ -30,6 +30,7 @@ import com.esri.arcgisruntime.geometry.PolylineBuilder;
 import com.esri.arcgisruntime.geometry.SpatialReference;
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer;
 import com.esri.arcgisruntime.layers.OpenStreetMapLayer;
+import com.esri.arcgisruntime.mapping.ArcGISMap;
 import com.esri.arcgisruntime.mapping.view.Graphic;
 import com.esri.arcgisruntime.mapping.view.GraphicsOverlay;
 import com.esri.arcgisruntime.mapping.view.LocationDisplay;
@@ -42,11 +43,15 @@ import com.esri.arcgisruntime.mapping.view.SpatialReferenceChangedListener;
 import com.esri.arcgisruntime.symbology.SimpleFillSymbol;
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol;
+import com.google.gson.Gson;
 import com.otitan.TitanApplication;
+import com.otitan.base.ContainerActivity;
 import com.otitan.base.ValueCallBack;
 import com.otitan.data.DataRepository;
 import com.otitan.data.Injection;
+import com.otitan.data.remote.RemoteDataSource;
 import com.otitan.main.fragment.TrackManagerFragment;
+import com.otitan.main.fragment.UpEventFragment;
 import com.otitan.main.listener.ArcgisLocation;
 import com.otitan.main.listener.GeometryChangedListener;
 import com.otitan.main.model.ActionModel;
@@ -85,6 +90,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 public class MapCenterActivity extends AppCompatActivity implements ValueCallBack<Object>,
         ArcgisLocation, IMap, TrackManagerFragment.TrackManagerDialogListener {
@@ -287,7 +294,14 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 toolViewModel.area(mapView);
                 break;
             case R.id.share_xcxxsb:
-                startActivity(EventActivity.class);
+//                startActivity(EventActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("lon", ConverterUtils.toString(location.getGpspoint().getX()));
+                bundle.putString("lat", ConverterUtils.toString(location.getGpspoint().getY()));
+                Intent intent = new Intent(this, ContainerActivity.class);
+                intent.putExtra(ContainerActivity.BUNDLE, bundle);
+                intent.putExtra(ContainerActivity.FRAGMENT, UpEventFragment.class.getCanonicalName());
+                startActivity(intent);
                 break;
             case R.id.tckz_imageview:
                 bootViewModel.layerManger();
@@ -698,25 +712,55 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         isFirst = true;
     }
 
+    /**
+     * 上传轨迹点
+     *
+     * @param location
+     */
     void addPoint(Location location) {
         final String lon = ConverterUtils.toString(location.getGpspoint().getX());
         final String lat = ConverterUtils.toString(location.getGpspoint().getY());
-        dataRepository.addPointToServer(lon, lat, sbh, new ValueCallBack<Object>() {
+        String auth = TitanApplication.Companion.getSharedPreferences().getString("auth", null);
+        if (auth == null) {
+            ToastUtil.setToast(this, "登录信息验证失败");
+            return;
+        }
+        auth = "Bearer " + auth;
+        Gson gson = new Gson();
+        TrackPoint trackPoint = new TrackPoint();
+        trackPoint.setLat(lat);
+        trackPoint.setLon(lon);
+        trackPoint.setSbh(sbh);
+        String json = gson.toJson(trackPoint);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json);
+        dataRepository.upTrack(auth, body, new RemoteDataSource.mCallback() {
             @Override
-            public void onSuccess(Object o) {
-                dataRepository.addLocalPoint(lon, lat, sbh, "1");
-            }
-
-            @Override
-            public void onFail(@NotNull String code) {
+            public void onFailure(@NotNull String info) {
                 dataRepository.addLocalPoint(lon, lat, sbh, "0");
             }
 
             @Override
-            public void onGeometry(@NotNull Geometry geometry) {
-
+            public void onSuccess(@NotNull Object result) {
+                dataRepository.addLocalPoint(lon, lat, sbh, "1");
+                mapView.getMap().getBasemap().getBaseLayers().remove(new ArcGISMap());
             }
         });
+//        dataRepository.addPointToServer(auth, lon, lat, sbh, new ValueCallBack<Object>() {
+//            @Override
+//            public void onSuccess(Object o) {
+//                dataRepository.addLocalPoint(lon, lat, sbh, "1");
+//            }
+//
+//            @Override
+//            public void onFail(@NotNull String code) {
+//                dataRepository.addLocalPoint(lon, lat, sbh, "0");
+//            }
+//
+//            @Override
+//            public void onGeometry(@NotNull Geometry geometry) {
+//
+//            }
+//        });
 
     }
 
@@ -802,22 +846,22 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
             geometry = GeometryEngine.simplify(geometry);
         }
 
-        if(actionModel == ActionModel.IQUERY){
+        if (actionModel == ActionModel.IQUERY) {
             /*属性查询*/
             toolViewModel.iquery(mapView, geometry, calloutViewModel);
-        }else if (actionModel == ActionModel.DISTANCE) {
+        } else if (actionModel == ActionModel.DISTANCE) {
             if (GeometryType.POLYLINE == geometry.getGeometryType()) {
                 Point point = geometry.getExtent().getCenter();
                 double length = Math.abs(GeometryEngine.length((Polyline) geometry));
                 calloutViewModel.showValueInmap(mapView, point, length, " 米");
             }
-        }else if (actionModel == ActionModel.AREA) {
+        } else if (actionModel == ActionModel.AREA) {
             Point point = geometry.getExtent().getCenter();
             if (GeometryType.POLYGON == geometry.getGeometryType()) {
                 double area = Math.abs(GeometryEngine.area((Polygon) geometry));
                 calloutViewModel.showValueInmap(mapView, point, area, " 平方米");
             }
-        }else if (actionModel == ActionModel.ADDFEATURE) {
+        } else if (actionModel == ActionModel.ADDFEATURE) {
             /*新增小班*/
             sketchEditorViewModel.addFeature(myLayer, geometry, null);
         } else if (actionModel == ActionModel.ADDFEATUREGB) {

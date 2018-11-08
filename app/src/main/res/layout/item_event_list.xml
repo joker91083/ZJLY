@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.main.viewmodel.EventListItemViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        style="@style/cardv_data_style"
+        android:onClick="@{()->viewmodel.itemOnClick()}"
+        app:cardCornerRadius="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:padding="5dp"
+                    android:text="@{viewmodel.event.SJLX}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:onClick="@{()->viewmodel.upEvent()}"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:visibility="@{viewmodel.type==1?View.VISIBLE:View.GONE}"
+                    app:srcCompat="@drawable/ic_upload" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/fsdd+`  `+viewmodel.event.FSD}"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/lonlat+`  `+viewmodel.event.LON+`，`+viewmodel.event.LAT}"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/sjms+`  `+viewmodel.event.SJMS}"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/lxfs+`  `+viewmodel.event.LXFS}"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/sj+`  `+viewmodel.event.CJTIME}"
+                android:textSize="14sp"
+                android:visibility="@{viewmodel.type==1?View.GONE:View.VISIBLE}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@{@string/remark+`  `+viewmodel.event.BZ}"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>

@@ -28,6 +28,7 @@ class LykjViewModel() : BaseViewModel() {
     val hasMore = ObservableBoolean(true)
     var type = ObservableInt(1)
     var page = 1
+    var keyWord = ""
 
     constructor(context: Context?, mView: ILykj) : this() {
         this.mContext = context
@@ -36,7 +37,8 @@ class LykjViewModel() : BaseViewModel() {
 
     override fun onCreate() {
         super.onCreate()
-        getData(type.get(), page, 1)
+//        getData(type.get(), page, 1)
+        mView?.startRefresh()
     }
 
     val onRefresh = BindingCommand(object : BindingAction {
@@ -61,7 +63,7 @@ class LykjViewModel() : BaseViewModel() {
         }
         auth = "Bearer $auth"
 //        showDialog("加载中...")
-        dataRepository.lykj(auth, type, page, 10, "",
+        dataRepository.lykj(auth, type, page, 10, keyWord,
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
 //                        dismissDialog()

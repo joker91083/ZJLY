@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
+import android.support.v7.widget.SearchView
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.AdapterView
 import android.widget.Spinner
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
@@ -79,8 +78,9 @@ class LykjFragment : BaseFragment<FmLykjBinding, LykjViewModel>(), ILykj {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 viewmodel?.let {
                     it.hasMore.set(true)
-                    it.getData(p2 + 3, 1, 1)
                     it.type.set(p2 + 3)
+                    startRefresh()
+//                    it.getData(p2 + 3, 1, 1)
                 }
             }
         }
@@ -96,11 +96,13 @@ class LykjFragment : BaseFragment<FmLykjBinding, LykjViewModel>(), ILykj {
                     it.hasMore.set(true)
                     val index = (p0 as Spinner).getItemAtPosition(p2).toString()
                     if (index == "科技标准") {
-                        it.getData(binding.spinnerType.selectedItemPosition + 3, 1, 1)
                         it.type.set(binding.spinnerType.selectedItemPosition + 3)
+//                        it.getData(binding.spinnerType.selectedItemPosition + 3, 1, 1)
+                        startRefresh()
                     } else if (index != "") {
-                        it.getData(p2 + 1, 1, 1)
                         it.type.set(p2 + 1)
+//                        it.getData(p2 + 1, 1, 1)
+                        startRefresh()
                     }
                 }
             }
@@ -110,6 +112,33 @@ class LykjFragment : BaseFragment<FmLykjBinding, LykjViewModel>(), ILykj {
         val l = LinearLayoutManager(activity, OrientationHelper.VERTICAL, false)
         binding.rvLykj.layoutManager = l
         binding.rvLykj.adapter = adapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.menu_search, menu)
+        val item = menu?.findItem(R.id.data_search)
+        val searchView = item?.actionView as SearchView?
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    viewmodel?.keyWord = query
+//                    viewmodel?.onRefresh?.execute()
+                    startRefresh()
+                    return true
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewmodel?.keyWord = newText ?: ""
+                return false
+            }
+        })
+    }
+
+    override fun startRefresh() {
+        binding.refreshLayout.startRefresh()
     }
 
     override fun refresh(items: List<Any>?) {

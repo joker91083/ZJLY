@@ -13,6 +13,7 @@ import com.otitan.main.widgets.BarChartInit
 import com.otitan.main.widgets.SmartTableStyle
 import com.otitan.model.SdbhModel
 import com.otitan.ui.mview.IGylc
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmSdbhBinding
@@ -64,6 +65,16 @@ class SdbhFragment : BaseFragment<FmSdbhBinding, SdbhViewModel>(), IGylc {
             }
         }
         return true
+    }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        val s = "浙江省湿地总面积共:${obj["AllArea"]}公顷,湿地面积${obj["WetArea"]}公顷," +
+                "自然湿地面积${obj["NaturalWetArea"]}公顷"
+        binding.pestTvDes.text = Utils.getSpanned(s)
     }
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {

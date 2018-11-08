@@ -23,6 +23,7 @@ import com.otitan.model.*
 import com.otitan.ui.mview.ILdzz
 import com.otitan.ui.mview.IYhsw
 import com.otitan.util.ScreenTool
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmLdzzBinding
@@ -103,6 +104,19 @@ class LdzzFragment : BaseFragment<FmLdzzBinding, LdzzViewModel>(), ILdzz {
             }
         }
         return true
+    }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        val s = when (viewmodel?.type) {
+            1 -> "${viewmodel?.year}年浙江省项目个数为：${obj["Count"]}个"
+            2 -> "${viewmodel?.year}年浙江省征占用地总面积${obj["Total"]}公顷"
+            else -> "${viewmodel?.year}年浙江省林地定额为：${obj["Count"]}公顷"
+        }
+        binding.pestTvDes.text = Utils.getSpanned(s)
     }
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {

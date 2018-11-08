@@ -25,7 +25,9 @@ import com.otitan.model.*
 import com.otitan.ui.mview.ISlfh
 import com.otitan.ui.mview.IXzzf
 import com.otitan.ui.mview.IYhsw
+import com.otitan.util.GsonUtil
 import com.otitan.util.ScreenTool
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmSlfhBinding
@@ -100,6 +102,23 @@ class XzzfFragment : BaseFragment<FmXzzfBinding, XzzfViewModel>(), IXzzf {
             }
         }
         return true
+    }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        val gson = GsonUtil.getIntGson()
+        val json = gson.toJson(obj)
+        val xzzf = gson.fromJson(json,XzzfModel::class.java)
+        val s = "${viewmodel?.year}年浙江省行政处罚案件共${xzzf.Count}宗," +
+                "其中森林火灾案${xzzf.SLHZA}宗,毁坏林木、苗木${xzzf.HHLM}宗," +
+                "滥伐林木${xzzf.LFLM}宗,滥伐森林或者其他林木${xzzf.LFLMQT}宗,盗伐林木${xzzf.DFLM}宗," +
+                "违反森林植物检疫规定${xzzf.WFSL}宗,违法征、占用林地${xzzf.WFZ}宗," +
+                "违法收购、运输木材${xzzf.WFSG}宗,非法收购、出售、运输野生动物及其产品${xzzf.FFSG}宗," +
+                "非法经营、加工木材${xzzf.FFJY}宗,其他${xzzf.Other}宗"
+        binding.pestTvDes.text = Utils.getSpanned(s)
     }
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {

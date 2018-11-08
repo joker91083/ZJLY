@@ -27,6 +27,7 @@ import com.otitan.model.YhswModel
 import com.otitan.ui.mview.ISlfh
 import com.otitan.ui.mview.IYhsw
 import com.otitan.util.ScreenTool
+import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmSlfhBinding
@@ -39,6 +40,7 @@ import org.jetbrains.anko.collections.forEachWithIndex
 class YhswFragment : BaseFragment<FmYhswBinding, YhswViewModel>(), IYhsw {
 
     var viewmodel: YhswViewModel? = null
+    var typeName = "病害总计"
 
     override fun initContentView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): Int {
         return R.layout.fm_yhsw
@@ -58,7 +60,7 @@ class YhswFragment : BaseFragment<FmYhswBinding, YhswViewModel>(), IYhsw {
     override fun initData() {
         super.initData()
         setHasOptionsMenu(true)
-        binding.toolbarYhsw.title = "林业有害生物"
+        binding.toolbarYhsw.title = "有害生物"
         (activity!! as AppCompatActivity).setSupportActionBar(binding.toolbarYhsw)
         binding.toolbarYhsw.setNavigationOnClickListener { activity?.finish() }
 
@@ -85,6 +87,7 @@ class YhswFragment : BaseFragment<FmYhswBinding, YhswViewModel>(), IYhsw {
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 viewmodel?.let {
+                    typeName = (p0 as Spinner).getItemAtPosition(p2).toString()
                     it.getData(p2 + 1, it.year)
                     it.type = p2 + 1
                 }
@@ -109,6 +112,17 @@ class YhswFragment : BaseFragment<FmYhswBinding, YhswViewModel>(), IYhsw {
             }
         }
         return true
+    }
+
+    override fun setDescription() {
+        if (viewmodel?.hasData?.get() != true) {
+            return
+        }
+        val obj = viewmodel?.data?.data?.get(0) ?: return
+        val s = "${viewmodel?.year}年浙江省${typeName}其中:发生面积:${obj["HappenArea"]}亩," +
+                "防治面积:${obj["PreventionArea"]}亩,防治作业面积:${obj["PreventionControlArea"]}亩," +
+                "成灾面积:${obj["DisasterArea"]}亩,防治费用:${obj["Money"]}元"
+        binding.pestTvDes.text = Utils.getSpanned(s)
     }
 
     override fun setBarChartData(list: ArrayList<BarEntry>) {

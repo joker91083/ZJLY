@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.objectbox'
 //apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'org.greenrobot.greendao' // apply plugin
 
@@ -133,6 +134,8 @@ dependencies {
     implementation project(':LibraryManager:versionupdata')
     implementation project(':LibraryManager:baselibrary')
     implementation project(':LibraryManager:photopicker')
+    implementation project(':LibraryManager:medialibrary')
+    implementation project(':LibraryManager:eventlibrary')
 
     /*图片轮播*/
     implementation 'com.youth.banner:banner:1.4.10'
@@ -156,5 +159,12 @@ dependencies {
     implementation('com.lcodecorex:tkrefreshlayout:1.0.7') {
         exclude group: 'com.android.support'
     }
-    implementation project(':LibraryManager:eventlibrary')
+    /*Objectbox*/
+    // all below should be added automatically by the plugin
+    implementation "io.objectbox:objectbox-android:$objectboxVersion"
+    // some useful Kotlin extension functions
+    implementation "io.objectbox:objectbox-kotlin:$objectboxVersion"
+    //annotationProcessor "io.objectbox:objectbox-processor:$objectboxVersion"
+    //When using Kotlin use kapt instead:
+    kapt "io.objectbox:objectbox-processor:$objectboxVersion"
 }

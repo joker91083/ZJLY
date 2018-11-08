@@ -28,6 +28,7 @@ class GylcDataViewModel() : BaseViewModel() {
     var mView: IDataBase? = null
     var page = 1
     var dqcode = "330000"
+    var keyWord = ""
 
     constructor(context: Context?, mView: IDataBase) : this() {
         this.mContext = context
@@ -36,7 +37,8 @@ class GylcDataViewModel() : BaseViewModel() {
 
     override fun onCreate() {
         super.onCreate()
-        onRefresh.execute()
+//        onRefresh.execute()
+        mView?.startRefresh()
     }
 
     val onRefresh = BindingCommand(object : BindingAction {
@@ -54,13 +56,14 @@ class GylcDataViewModel() : BaseViewModel() {
     })
 
     fun getData(requestCode: Int) {
-        var auth = TitanApplication.loginResult?.access_token
+//        var auth = TitanApplication.loginResult?.access_token
+        var auth = TitanApplication.sharedPreferences.getString("auth", null)
         if (auth == null) {
             mContext?.toast("登录信息验证失败")
             return
         }
         auth = "Bearer $auth"
-        dataRepository.gylcData(auth, dqcode, page, 10, "",
+        dataRepository.gylcData(auth, dqcode, page, 10, keyWord,
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         when (requestCode) {
