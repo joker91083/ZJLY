@@ -48,8 +48,8 @@ class FormatUtil {
          * 时间格式化
          */
         @JvmStatic
-        fun dateFormat(date: Date):String{
-            return nyrFormat.format(date)
+        fun dateFormatNYR(millSeconds: Long):String{
+            return nyrFormat.format(millSeconds)
         }
 
         /**

@@ -1,5 +1,6 @@
 package com.otitan.ui.mview
 
-interface ILQGL{
+interface ILQGL {
 
+    fun refresh()
 }

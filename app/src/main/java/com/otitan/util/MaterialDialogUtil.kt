@@ -1,8 +1,10 @@
-package com.otitan.zjly.util
+package com.otitan.util
 
 import android.app.Dialog
 import android.content.Context
+import android.support.v7.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
+import com.otitan.base.BaseAdapter
 
 /**
  * Created by sp on 2018/6/7.
@@ -70,6 +72,15 @@ class MaterialDialogUtil {
                     .onNegative { dialog, which -> dialog.dismiss() }
                     .items(list)
                     .itemsCallback(callback)
+                    .build()
+        }
+
+        @JvmStatic
+        fun showItemDetailsDialog(context: Context, title: String, adapter: BaseAdapter, layoutManager: LinearLayoutManager): MaterialDialog {
+            return MaterialDialog.Builder(context)
+                    .adapter(adapter, layoutManager)
+                    .title(title)
+                    .positiveText("确定")
                     .build()
         }
     }

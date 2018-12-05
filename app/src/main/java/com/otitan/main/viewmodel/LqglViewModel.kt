@@ -1,29 +1,42 @@
 package com.otitan.main.viewmodel
 
 import android.content.Context
-import com.esri.arcgisruntime.geometry.Geometry
 import com.otitan.base.BaseViewModel
-import com.otitan.base.ValueCallBack
-import com.otitan.main.fragment.LqglFragment
+import com.otitan.data.Injection
+import com.otitan.data.remote.RemoteDataSource
+import com.otitan.model.LydtModel
+import com.otitan.ui.mview.ILQGL
+import com.otitan.util.ToastUtil
 
-class LqglViewModel() : BaseViewModel(),ValueCallBack<Any>{
-    override fun onGeometry(geometry: Geometry) {
-    }
+class LqglViewModel() : BaseViewModel() {
+    val dataRepository = Injection.provideDataRepository()
 
-    override fun onSuccess(t: Any) {
-    }
+    var mView: ILQGL? = null
+    var imgs = ArrayList<String>()
+    var titles = ArrayList<String>()
+    var data: List<LydtModel>? = null
 
-    override fun onFail(code: String) {
-    }
-
-    constructor(mContext: Context) : this(){
+    constructor(mContext: Context?, mView: ILQGL) : this() {
         this.mContext = mContext
+        this.mView = mView
+        initData()
     }
 
-    constructor(fragment: LqglFragment) : this(){
-        this.fragment = fragment
+    fun initData() {
+        dataRepository.forestydynamic(object : RemoteDataSource.mCallback {
+            override fun onFailure(info: String) {
+                ToastUtil.setToast(mContext, info)
+            }
+
+            override fun onSuccess(result: Any) {
+                data = result as List<LydtModel>?
+                data?.forEach {
+                    imgs.add(it.imgurl)
+                    titles.add(it.title)
+                }
+                mView?.refresh()
+            }
+        })
     }
-
-
 
 }

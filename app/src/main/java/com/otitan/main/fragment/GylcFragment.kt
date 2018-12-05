@@ -1,24 +1,19 @@
 package com.otitan.main.fragment
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.*
-import com.bin.david.form.core.SmartTable
 import com.bin.david.form.data.column.Column
-import com.bin.david.form.data.format.bg.BaseBackgroundFormat
-import com.bin.david.form.data.style.FontStyle
-import com.bin.david.form.data.style.LineStyle
 import com.bin.david.form.data.table.TableData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.otitan.TitanApplication
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.GylcViewModel
 import com.otitan.main.widgets.BarChartInit
 import com.otitan.main.widgets.SmartTableStyle
 import com.otitan.model.GylcModel
 import com.otitan.ui.mview.IGylc
-import com.otitan.util.ScreenTool
 import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
@@ -68,7 +63,10 @@ class GylcFragment : BaseFragment<FmGylcBinding, GylcViewModel>(), IGylc {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.data_manage -> {
-                startContainerActivity(GylcDataFragment::class.java.canonicalName)
+                val menu = TitanApplication.loginResult?.menu
+                if (Utils.checkPermission(activity, menu?.APP_LQGL_GYLC_SJCX)) {
+                    startContainerActivity(GylcDataFragment::class.java.canonicalName)
+                }
             }
         }
         return true
@@ -78,8 +76,7 @@ class GylcFragment : BaseFragment<FmGylcBinding, GylcViewModel>(), IGylc {
         if (viewmodel?.hasData?.get() != true) {
             return
         }
-        val obj = viewmodel?.data?.data?.get(0) ?: return
-        val s = "浙江省国有林场共:${obj["Count"]}个,经营面积${obj["Area"]}亩"
+        val s = "浙江省国有林场共:${viewmodel?.gylc?.Count}个,经营面积${String.format("%.2f", viewmodel?.gylc?.Area)}亩"
         binding.pestTvDes.text = Utils.getSpanned(s)
     }
 

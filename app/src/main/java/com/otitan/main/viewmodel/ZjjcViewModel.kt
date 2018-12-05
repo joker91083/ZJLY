@@ -1,29 +1,15 @@
 package com.otitan.main.viewmodel
 
 import android.content.Context
-import com.esri.arcgisruntime.geometry.Geometry
 import com.otitan.base.BaseViewModel
-import com.otitan.base.ValueCallBack
-import com.otitan.main.fragment.ZjjcFragment
+import com.otitan.ui.mview.IZjjc
 
-class ZjjcViewModel() : BaseViewModel(), ValueCallBack<Any> {
-    override fun onGeometry(geometry: Geometry) {
-    }
+class ZjjcViewModel() : BaseViewModel() {
 
+    var mView: IZjjc? = null
 
-    override fun onSuccess(o: Any) {
-
-    }
-
-    override fun onFail(code: String) {
-
-    }
-
-    constructor(context: Context) : this(){
+    constructor(context: Context?, mView: IZjjc) : this() {
         this.mContext = context
-    }
-
-    constructor(fragment: ZjjcFragment) :this(){
-        this.fragment = fragment
+        this.mView = mView
     }
 }

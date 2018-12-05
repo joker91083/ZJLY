@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="16dp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="30dp" />
 
             <!--底部菜单-->
             <include
@@ -48,6 +48,25 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="80dp"
                 android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_search"
+                android:hint="请输入搜索名称"
+                android:paddingBottom="10dp"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:textSize="18sp" />
+            <!--poi搜索-->
+            <include
+                android:id="@+id/ic_poi_search"
+                layout="@layout/include_poi_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
         </RelativeLayout>
     </FrameLayout>
 
@@ -70,8 +89,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:visibility="gone"
-        app:layout_marginTopPercent="52%"
         app:layout_marginBottomPercent="15%"
+        app:layout_marginTopPercent="52%"
         app:layout_widthPercent="40%" />
 
 

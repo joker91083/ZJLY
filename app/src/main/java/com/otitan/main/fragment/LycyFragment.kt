@@ -10,6 +10,7 @@ import com.bin.david.form.data.table.TableData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.google.gson.Gson
+import com.otitan.TitanApplication
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.LycyViewModel
 import com.otitan.main.widgets.BarChartInit
@@ -93,7 +94,10 @@ class LycyFragment : BaseFragment<FmLycyBinding, LycyViewModel>(), ILycy {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.data_manage -> {
-                startContainerActivity(LycyDataFragment::class.java.canonicalName)
+                val menu = TitanApplication.loginResult?.menu
+                if (Utils.checkPermission(activity, menu?.APP_LQGL_LYCY_SJCX)) {
+                    startContainerActivity(LycyDataFragment::class.java.canonicalName)
+                }
             }
         }
         return true

@@ -11,10 +11,10 @@ import com.otitan.TitanApplication
 import com.otitan.base.BaseViewModel
 import com.otitan.data.Injection
 import com.otitan.data.remote.RemoteDataSource
-import com.otitan.model.*
-import com.otitan.ui.mview.*
+import com.otitan.model.GylcModel
+import com.otitan.model.ResultModel
+import com.otitan.ui.mview.IGylc
 import com.otitan.util.ToastUtil
-import com.otitan.zjly.R
 import org.jetbrains.anko.toast
 
 class GylcViewModel() : BaseViewModel() {
@@ -28,6 +28,7 @@ class GylcViewModel() : BaseViewModel() {
     var mView: IGylc? = null
     val hasData = ObservableBoolean(false)
     val barChartDataList = ArrayList<BarEntry>()
+    var gylc = GylcModel<Any>()
 
     constructor(context: Context?, mView: IGylc) : this() {
         this.mContext = context
@@ -40,14 +41,14 @@ class GylcViewModel() : BaseViewModel() {
     }
 
     fun getData() {
-        var auth = TitanApplication.loginResult?.access_token
-        if (auth == null) {
+        val info = TitanApplication.loginResult
+        if (info?.access_token == null) {
             mContext?.toast("登录信息验证失败")
             return
         }
-        auth = "Bearer $auth"
+        val auth = "Bearer ${info.access_token}"
         showDialog("加载中...")
-        dataRepository.gylc(auth, "330000",
+        dataRepository.gylc(auth, info.code ?: "",
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         dismissDialog()
@@ -63,10 +64,10 @@ class GylcViewModel() : BaseViewModel() {
                             mContext?.toast("没有数据")
                             hasData.set(false)
                         }
-                        mView?.setDescription()
                         conversion(dqName)
                         mView?.setBarChartData(barChartDataList)
                         mView?.setTableData(conversionTableData(result))
+                        mView?.setDescription()
                     }
                 })
     }
@@ -86,11 +87,13 @@ class GylcViewModel() : BaseViewModel() {
                     return@continuing
                 }
                 it.forEach { (k, v) ->
-                    if (k == "Name") {
-                        dqList.add(v.toString())
-                    } else if (k == "Area") {
-                        barChartDataList.add(BarEntry(i, v?.toString()?.toFloat() ?: 0.0f))
-//                        keyList.add(map[k] ?: k)
+                    when (k) {
+                        "Count" -> gylc.Count += (v?.toString()?.split(".")?.get(0)?.toInt() ?: 0)
+                        "Name" -> dqList.add(v.toString())
+                        "Area" -> {
+                            gylc.Area += (v?.toString()?.toDouble() ?: 0.0)
+                            barChartDataList.add(BarEntry(i, v?.toString()?.toFloat() ?: 0.0f))
+                        }
                     }
                 }
                 i++

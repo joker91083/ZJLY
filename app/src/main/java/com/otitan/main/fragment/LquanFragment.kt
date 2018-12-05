@@ -10,6 +10,7 @@ import com.bin.david.form.data.column.Column
 import com.bin.david.form.data.table.TableData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.otitan.TitanApplication
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.LQuanViewModel
 import com.otitan.main.widgets.BarChartInit
@@ -104,7 +105,10 @@ class LquanFragment : BaseFragment<FmLquanBinding, LQuanViewModel>(), ILQuan {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.data_manage -> {
-                startContainerActivity(LQuanDataFragment::class.java.canonicalName)
+                val menu = TitanApplication.loginResult?.menu
+                if (Utils.checkPermission(activity, menu?.APP_LQGL_LQ_SJCX)) {
+                    startContainerActivity(LQuanDataFragment::class.java.canonicalName)
+                }
             }
         }
         return true

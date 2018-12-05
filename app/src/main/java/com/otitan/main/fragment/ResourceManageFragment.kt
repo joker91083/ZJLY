@@ -1,10 +1,7 @@
 package com.otitan.main.fragment
 
-import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.text.Html
-import android.text.Spanned
 import android.view.*
 import android.widget.AdapterView
 import android.widget.Spinner
@@ -12,7 +9,7 @@ import com.bin.david.form.data.column.Column
 import com.bin.david.form.data.table.TableData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
-import com.google.gson.internal.LinkedTreeMap
+import com.otitan.TitanApplication
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.ResourceManageViewModel
 import com.otitan.main.widgets.BarChartInit
@@ -23,7 +20,6 @@ import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmResourceManageBinding
-import java.util.regex.Pattern
 
 /**
  * 资源管护
@@ -100,7 +96,10 @@ class ResourceManageFragment : BaseFragment<FmResourceManageBinding, ResourceMan
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.data_manage -> {
-                startContainerActivity(ResourceManageDataFragment::class.java.canonicalName)
+                val menu = TitanApplication.loginResult?.menu
+                if (Utils.checkPermission(activity, menu?.APP_LQGL_ZYGL_SJCX)) {
+                    startContainerActivity(ResourceManageDataFragment::class.java.canonicalName)
+                }
             }
         }
         return true

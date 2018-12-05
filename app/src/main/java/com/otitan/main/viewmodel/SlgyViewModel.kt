@@ -31,6 +31,7 @@ class SlgyViewModel() : BaseViewModel() {
     var mView: ISlgy? = null
     val hasData = ObservableBoolean(false)
     val barChartDataList = ArrayList<BarEntry>()
+    var slgy = SlgyModel<Any>()
 
     constructor(context: Context?, mView: ISlgy) : this() {
         this.mContext = context
@@ -43,14 +44,13 @@ class SlgyViewModel() : BaseViewModel() {
     }
 
     fun getData() {
-        var auth = TitanApplication.loginResult?.access_token
-        if (auth == null) {
+        val info = TitanApplication.loginResult
+        if (info?.access_token == null) {
             mContext?.toast("登录信息验证失败")
             return
         }
-        auth = "Bearer $auth"
-        showDialog("加载中...")
-        dataRepository.slgy(auth, "330000",
+        val auth = "Bearer ${info.access_token}"
+        dataRepository.slgy(auth, info.code ?: "",
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         dismissDialog()
@@ -66,16 +66,15 @@ class SlgyViewModel() : BaseViewModel() {
                             mContext?.toast("没有数据")
                             hasData.set(false)
                         }
-                        mView?.setDescription()
                         conversion(dqName)
                         mView?.setBarChartData(barChartDataList)
                         mView?.setTableData(conversionTableData(result))
+                        mView?.setDescription()
                     }
                 })
     }
 
     fun conversion(dqName: String) {
-        keyList.clear()
         valueList.clear()
         barChartDataList.clear()
         if (data != null && data?.data != null) {
@@ -92,11 +91,13 @@ class SlgyViewModel() : BaseViewModel() {
                     return@continuing
                 }
                 it.forEach { (k, v) ->
-                    if (k == "Name") {
-                        dqList.add(v.toString())
-                    } else if (k == "Area") {
-                        barChartDataList.add(BarEntry(i, v?.toString()?.toFloat() ?: 0.0f))
-                        keyList.add(map[k] ?: k)
+                    when (k) {
+                        "Count" -> slgy.Count += (v?.toString()?.split(".")?.get(0)?.toInt() ?: 0)
+                        "Name" -> dqList.add(v.toString())
+                        "Area" -> {
+                            slgy.Area += (v?.toString()?.toDouble() ?: 0.0)
+                            barChartDataList.add(BarEntry(i, v?.toString()?.toFloat() ?: 0.0f))
+                        }
                     }
                 }
                 i++

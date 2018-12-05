@@ -60,6 +60,10 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
         localDataSource.queryTrackPoint(stratime, endtime, callback)
     }
 
+    override fun queryPOI(name: String, callback: LocalDataSource.Callback) {
+        localDataSource.queryPOI(name, callback)
+    }
+
     override fun queryEvent(callback: LocalDataSource.Callback) {
         localDataSource.queryEvent(callback)
     }
@@ -82,6 +86,14 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
 
     override fun eventList(auth: String, fromTime: String, toTime: String, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.eventList(auth, fromTime, toTime, callback)
+    }
+
+    override fun forestydynamic(callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.forestydynamic(callback)
+    }
+
+    override fun subscription(type: Int, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.subscription(type, callback)
     }
 
     override fun resourceManage(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback) {

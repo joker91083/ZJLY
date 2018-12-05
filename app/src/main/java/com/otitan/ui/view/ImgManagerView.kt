@@ -48,7 +48,8 @@ class ImgManagerView() : IImgManager, ILayerManagerItem {
 
     override fun addLayer(file: File, checked: Boolean) {
         var layer = ArcGISTiledLayer(file.absolutePath)
-        val layers = activity.mapview.map.basemap.baseLayers
+//        val layers = activity.mapview.map.basemap.baseLayers
+        val layers = activity.mapview.map.operationalLayers
         var flag = false
         for (l in layers){
             if (l is ArcGISTiledLayer) {
@@ -71,14 +72,15 @@ class ImgManagerView() : IImgManager, ILayerManagerItem {
 //            }
 //        }
         if (flag && !checked) {
-            activity.mapview.map.basemap.baseLayers.remove(layer)
+            activity.mapview.map.operationalLayers.remove(layer)
         } else {
-            activity.mapview.map.basemap.baseLayers.add(layer)
+            activity.mapview.map.operationalLayers.add(layer)
         }
     }
 
     override fun setExtent(file: File) {
-        val layers = activity.mapview.map.basemap.baseLayers
+//        val layers = activity.mapview.map.basemap.baseLayers
+        val layers = activity.mapview.map.operationalLayers
         for (layer in layers){
             if (layer is ArcGISTiledLayer) {
                 if (layer.uri == file.absolutePath) {

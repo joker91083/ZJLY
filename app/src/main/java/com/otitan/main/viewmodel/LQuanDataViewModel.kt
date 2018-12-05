@@ -16,7 +16,7 @@ import org.jetbrains.anko.toast
 
 class LQuanDataViewModel() : BaseViewModel() {
 
-    var data: ResultModel<LQuanModel<LQuanModel.Sjgl>>? = null
+    var data: ResultModel<LQuanModel<Any>>? = null
     //请求返回列表数据集合
     val items = ArrayList<Any>()
     val dataRepository = Injection.provideDataRepository()
@@ -76,7 +76,7 @@ class LQuanDataViewModel() : BaseViewModel() {
 
                     override fun onSuccess(result: Any) {
 //                        dismissDialog()
-                        data = result as ResultModel<LQuanModel<LQuanModel.Sjgl>>
+                        data = result as ResultModel<LQuanModel<Any>>
                         when (requestCode) {
                             1 -> {
                                 items.clear()

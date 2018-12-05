@@ -48,7 +48,7 @@ open class BaseViewModel() : BaseObservable(), IBaseViewModel {
      * @param clz 所跳转的目的mContext类
      */
     fun startActivity(clz: Class<*>) {
-        var intent = Intent(mContext,clz)
+        var intent = Intent(mContext, clz)
         mContext?.startActivity(intent)
     }
 
@@ -73,10 +73,12 @@ open class BaseViewModel() : BaseObservable(), IBaseViewModel {
      * @param bundle        跳转所携带的信息
      */
     fun startContainerActivity(canonicalName: String, bundle: Bundle) {
-        val intent = Intent(mContext, ContainerActivity::class.java)
-        intent.putExtra(ContainerActivity.FRAGMENT, canonicalName)
-        intent.putExtra(ContainerActivity.BUNDLE, bundle)
-        mContext?.startActivity(intent)
+        mContext?.let {
+            val intent = Intent(it, ContainerActivity::class.java)
+            intent.putExtra(ContainerActivity.FRAGMENT, canonicalName)
+            intent.putExtra(ContainerActivity.BUNDLE, bundle)
+            it.startActivity(intent)
+        }
     }
 
     /**
@@ -93,6 +95,14 @@ open class BaseViewModel() : BaseObservable(), IBaseViewModel {
     }
 
     override fun onCreate() {
+
+    }
+
+    override fun onResume() {
+
+    }
+
+    override fun onPause() {
 
     }
 

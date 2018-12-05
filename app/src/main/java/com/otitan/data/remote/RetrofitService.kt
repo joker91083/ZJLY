@@ -28,7 +28,7 @@ interface RetrofitService {
 //    @Headers("Content-Type: application/json")
 //    @FormUrlEncoded
     @GET("api/account/login")
-    fun login(@Query("username") username: String, @Query("password") password: String): Observable<ResultModel<LoginResult>>
+    fun login(@Query("username") username: String, @Query("password") password: String, @Query("applicationName") applicationName: String): Observable<ResultModel<LoginResult>>
 //    fun login(@Body body: RequestBody): Observable<LoginResult>
 
     /**
@@ -60,6 +60,21 @@ interface RetrofitService {
      */
     @GET("/api/event")
     fun eventList(@Header("Authorization") auth: String, @Query("fromTime") fromTime: String, @Query("toTime") toTime: String): Observable<ResultModel<Any>>
+
+    /**------------- 指尖决策 -----------------*/
+
+    /**
+     * 决策信息订阅 type  1：新闻动态 2：绿化建设 3：有害生物防治 4：森林公安  5：林权制度改革
+     */
+    @GET("/api/mobileinfo/subscription")
+    fun subscription(@Query("type") type: Int): Observable<ResultModel<List<LydtModel>>>
+
+    /**------------- 林情概览 -----------------*/
+    /**
+     * 林业动态
+     */
+    @GET("/api/mobileinfo/forestydynamic")
+    fun forestydynamic(): Observable<ResultModel<List<LydtModel>>>
 
     /**
      * 资源管护
@@ -253,16 +268,16 @@ interface RetrofitService {
      */
     @GET("/api/anti/overview")
     fun zwjy(@Header("Authorization") auth: String, @Query("type") type: Int,
-           @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
+             @Query("dqcode") dqcode: String, @Query("year") year: Int): Observable<ResultModel<Any>>
 
     /**
      * 植物检疫 数据管理
      */
     @GET("/api/anti/datamanage")
     fun zwjyData(@Header("Authorization") auth: String, @Query("type") type: Int,
-               @Query("dqcode") dqcode: String, @Query("year") year: Int,
-               @Query("page") page: Int, @Query("size") size: Int,
-               @Query("keyword") keyword: String): Observable<ResultModel<ZwjyModel<Any>>>
+                 @Query("dqcode") dqcode: String, @Query("year") year: Int,
+                 @Query("page") page: Int, @Query("size") size: Int,
+                 @Query("keyword") keyword: String): Observable<ResultModel<ZwjyModel<Any>>>
 
     /**
      * 采伐运输

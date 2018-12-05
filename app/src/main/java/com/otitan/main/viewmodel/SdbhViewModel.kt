@@ -40,14 +40,13 @@ class SdbhViewModel() : BaseViewModel() {
     }
 
     fun getData() {
-        var auth = TitanApplication.loginResult?.access_token
-        if (auth == null) {
+        val info = TitanApplication.loginResult
+        if (info?.access_token == null) {
             mContext?.toast("登录信息验证失败")
             return
         }
-        auth = "Bearer $auth"
-        showDialog("加载中...")
-        dataRepository.sdbh(auth, "330000",
+        val auth = "Bearer ${info.access_token}"
+        dataRepository.sdbh(auth, info.code ?: "",
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         dismissDialog()

@@ -10,12 +10,11 @@ import com.otitan.data.Injection
 import com.otitan.data.local.LocalDataSource
 import com.otitan.data.remote.RemoteDataSource
 import com.otitan.model.EventModel
-import com.otitan.model.LycyModel
 import com.otitan.ui.mview.IEventList
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import org.jetbrains.anko.toast
-import java.util.ArrayList
+import java.util.*
 
 /**
  * 事件列表

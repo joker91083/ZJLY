@@ -53,7 +53,7 @@
                 android:drawableTop="@drawable/radiobutton_bg_zjjc"
                 android:gravity="center"
                 android:text="@string/main_zjjc"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:textColor="@drawable/radiobutton_textcolor" />
 
             <View

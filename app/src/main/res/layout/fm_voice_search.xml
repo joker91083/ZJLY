@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.otitan.main.viewmodel.VoiceSearchViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_text"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@drawable/ic_search_white"
+                    android:hint="请输入搜索内容"
+                    android:imeOptions="actionSearch"
+                    android:text="@={viewmodel.searchText}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="@{()->viewmodel.close()}"
+                    android:padding="10dp"
+                    android:text="取消"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@{viewmodel.hint}"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <com.otitan.customview.WaveView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:visibility="@{viewmodel.isRecording?View.VISIBLE:View.INVISIBLE}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/ftb"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:onClick="@{()->viewmodel.startOrStop()}"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:elevation="5dp"
+                    app:pressedTranslationZ="10dp"
+                    app:srcCompat="@drawable/ic_mic_white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@{viewmodel.isRecording?@string/voice_stop_search:@string/voice_search}"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

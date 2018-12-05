@@ -100,9 +100,6 @@ class LoginModel() : BaseViewModel(), ILoginView {
 //        } else {
 //            onFail("登录失败,用户名和密码错误")
 //        }
-
-
     }
-
 
 }

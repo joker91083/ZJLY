@@ -10,7 +10,6 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.lling.photopicker.PhotoPickerActivity
 import com.otitan.base.BaseFragment
 import com.otitan.main.adapter.Recyc_imageAdapter
-import com.otitan.main.model.ActionModel
 import com.otitan.main.viewmodel.UpEventViewModel
 import com.otitan.permissions.PermissionsActivity
 import com.otitan.permissions.PermissionsChecker
@@ -20,7 +19,7 @@ import com.otitan.util.ScreenTool
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmUpEventBinding
-import com.otitan.zjly.util.MaterialDialogUtil
+import com.otitan.util.MaterialDialogUtil
 import com.titan.baselibrary.util.ToastUtil
 import com.titan.medialibrary.activity.AudioRecorderActivity
 import com.titan.medialibrary.activity.VideoRecorderActivity

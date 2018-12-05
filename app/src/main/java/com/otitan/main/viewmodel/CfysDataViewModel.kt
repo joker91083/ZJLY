@@ -17,7 +17,7 @@ import org.jetbrains.anko.toast
 
 class CfysDataViewModel() : BaseViewModel() {
 
-    var data: ResultModel<CfysModel<CfysModel.Sjgl>>? = null
+    var data: ResultModel<CfysModel<Any>>? = null
     //请求返回列表数据集合
     val items = ArrayList<Any>()
     val dataRepository = Injection.provideDataRepository()
@@ -77,7 +77,7 @@ class CfysDataViewModel() : BaseViewModel() {
 
                     override fun onSuccess(result: Any) {
 //                        dismissDialog()
-                        data = result as ResultModel<CfysModel<CfysModel.Sjgl>>
+                        data = result as ResultModel<CfysModel<Any>>
                         when (requestCode) {
                             1 -> {
                                 items.clear()

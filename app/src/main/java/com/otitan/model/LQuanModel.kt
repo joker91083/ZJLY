@@ -20,8 +20,8 @@ class LQuanModel<T> : Serializable {
         var count: String = ""
     }
 
-    class Sjgl {
-        /**林权证本*/
+    /**林权证本*/
+    class Lqzb {
         //林权证编号
         var Number: String = ""
         //林证字_年
@@ -47,16 +47,31 @@ class LQuanModel<T> : Serializable {
         //林证字
         var LqWord: String = ""
         //批次
-        var BatcString = ""
+        var Batch = ""
         //行政名称
         var CodeName: String = ""
         //行政代码
         var AdminCode: String = ""
         //签名证书公钥
         var Qmzsgy: String = ""
+    }
 
-
-        /**登记表*/
+    /**登记表*/
+    class Djb {
+        //编号
+        var Number: String = ""
+        //签名证书公钥
+        var Qmzsgy: String = ""
+        //签名摘要
+        var Qmzy: String = ""
+        //时间戳
+        var Sjc: String = ""
+        //签名值
+        var Qmz: String = ""
+        //性质
+        var Kind: String = ""
+        //行政名称
+        var CodeName: String = ""
         //页码
         var Page: String = ""
         //南
@@ -143,6 +158,5 @@ class LQuanModel<T> : Serializable {
         var ForestFee: String = ""
         //登记类型
         var BookType: String = ""
-
     }
 }

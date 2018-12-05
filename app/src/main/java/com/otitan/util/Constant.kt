@@ -17,7 +17,10 @@ object Constant{
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.CAMERA,
-            Manifest.permission.RECORD_AUDIO)
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.ACCESS_NETWORK_STATE,
+            Manifest.permission.INTERNET,
+            Manifest.permission.READ_PHONE_STATE)
     /*存储*/
     val STORAGE = arrayOf(
             Manifest.permission.READ_EXTERNAL_STORAGE,

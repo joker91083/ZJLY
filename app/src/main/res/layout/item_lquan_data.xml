@@ -31,7 +31,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/lqzbh+viewmodel.sjgl.Number}"
+                    android:text="@{@string/lqzbh+viewmodel.lqzb.Number}"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -44,7 +44,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/zhlx+viewmodel.sjgl.Kind}"
+                        android:text="@{@string/zhlx+viewmodel.lqzb.Kind}"
                         android:textSize="14sp" />
 
                     <TextView
@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/zt+viewmodel.sjgl.State}"
+                        android:text="@{@string/zt+viewmodel.lqzb.State}"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/lzz+viewmodel.sjgl.LqWord}"
+                        android:text="@{@string/lzz+viewmodel.lqzb.LqWord}"
                         android:textSize="14sp" />
 
                     <TextView
@@ -74,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/lzzn+viewmodel.sjgl.LqYear}"
+                        android:text="@{@string/lzzn+viewmodel.lqzb.LqYear}"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -82,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/fzsj+viewmodel.sjgl.AwardTimeText}"
+                    android:text="@{@string/fzsj+viewmodel.lqzb.AwardTimeText}"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -96,21 +96,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/lqzbh+viewmodel.sjgl.Number}"
+                    android:text="@{@string/lqzbh+viewmodel.djb.Number}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/ldsyqqlr+viewmodel.sjgl.Obligee}"
+                    android:text="@{@string/ldsyqqlr+viewmodel.djb.Obligee}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/zl+viewmodel.sjgl.Stand}"
+                    android:text="@{@string/zl+viewmodel.djb.Stand}"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -123,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/xdm+viewmodel.sjgl.SmallArea}"
+                        android:text="@{@string/xdm+viewmodel.djb.SmallArea}"
                         android:textSize="14sp" />
 
                     <TextView
@@ -131,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/xz+viewmodel.sjgl.Kind}"
+                        android:text="@{@string/xz+viewmodel.djb.Kind}"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -139,21 +139,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/dw+viewmodel.sjgl.Unit}"
+                    android:text="@{@string/dw+viewmodel.djb.Unit}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/zl+viewmodel.sjgl.Stand}"
+                    android:text="@{@string/zl+viewmodel.djb.Stand}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/cm+viewmodel.sjgl.TownName}"
+                    android:text="@{@string/cm+viewmodel.djb.TownName}"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -166,7 +166,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/xzmc+viewmodel.sjgl.CodeName}"
+                        android:text="@{@string/xzmc+viewmodel.djb.CodeName}"
                         android:textSize="14sp" />
 
                     <TextView
@@ -174,7 +174,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/djlx+viewmodel.sjgl.BookType}"
+                        android:text="@{@string/djlx+viewmodel.djb.BookType}"
                         android:textSize="14sp" />
                 </LinearLayout>
 

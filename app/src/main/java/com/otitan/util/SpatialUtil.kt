@@ -1,6 +1,7 @@
 package com.otitan.util
 
 
+import android.util.Log
 import com.esri.arcgisruntime.geometry.SpatialReference
 
 /**
@@ -19,6 +20,8 @@ class SpatialUtil {
             } else SpatialReference.create(3857)
             set(s) {
                 if (s != null) {
+                    val k = s.wkid
+                    Log.e("tag","wkid:$k")
                     spatialReference = s
                 }
             }

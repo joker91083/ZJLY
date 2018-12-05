@@ -46,14 +46,14 @@ class YzlViewModel() : BaseViewModel() {
     }
 
     fun getData(type: Int, year: Int) {
-        var auth = TitanApplication.loginResult?.access_token
-        if (auth == null) {
+        val info = TitanApplication.loginResult
+        if (info?.access_token == null) {
             mContext?.toast("登录信息验证失败")
             return
         }
-        auth = "Bearer $auth"
+        val auth = "Bearer ${info.access_token}"
         showDialog("加载中...")
-        dataRepository.yzl(auth, type, "330000", year,
+        dataRepository.yzl(auth, type, info.code ?: "", year,
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         dismissDialog()

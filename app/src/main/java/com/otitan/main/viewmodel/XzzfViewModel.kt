@@ -44,14 +44,14 @@ class XzzfViewModel() : BaseViewModel() {
     }
 
     fun getData(year: Int) {
-        var auth = TitanApplication.loginResult?.access_token
-        if (auth == null) {
+        val info = TitanApplication.loginResult
+        if (info?.access_token == null) {
             mContext?.toast("登录信息验证失败")
             return
         }
-        auth = "Bearer $auth"
+        val auth = "Bearer ${info.access_token}"
         showDialog("加载中...")
-        dataRepository.xzzf(auth, "330000", year,
+        dataRepository.xzzf(auth, info.code ?: "", year,
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         dismissDialog()

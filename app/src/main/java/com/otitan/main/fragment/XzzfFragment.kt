@@ -1,38 +1,26 @@
 package com.otitan.main.fragment
 
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.*
 import android.widget.AdapterView
 import android.widget.Spinner
 import com.bin.david.form.data.column.Column
 import com.bin.david.form.data.table.TableData
-import com.github.mikephil.charting.components.*
-import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import com.otitan.TitanApplication
 import com.otitan.base.BaseFragment
-import com.otitan.main.viewmodel.SlfhViewModel
 import com.otitan.main.viewmodel.XzzfViewModel
-import com.otitan.main.viewmodel.YhswViewModel
 import com.otitan.main.widgets.BarChartInit
 import com.otitan.main.widgets.SmartTableStyle
-import com.otitan.model.*
-import com.otitan.ui.mview.ISlfh
+import com.otitan.model.XzzfModel
 import com.otitan.ui.mview.IXzzf
-import com.otitan.ui.mview.IYhsw
 import com.otitan.util.GsonUtil
-import com.otitan.util.ScreenTool
 import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
-import com.otitan.zjly.databinding.FmSlfhBinding
 import com.otitan.zjly.databinding.FmXzzfBinding
-import com.otitan.zjly.databinding.FmYhswBinding
 import org.jetbrains.anko.collections.forEachWithIndex
 
 /**
@@ -98,7 +86,10 @@ class XzzfFragment : BaseFragment<FmXzzfBinding, XzzfViewModel>(), IXzzf {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.data_manage -> {
-                startContainerActivity(XzzfDataFragment::class.java.canonicalName)
+                val menu = TitanApplication.loginResult?.menu
+                if (Utils.checkPermission(activity, menu?.APP_LQGL_XZZF_SJCX)) {
+                    startContainerActivity(XzzfDataFragment::class.java.canonicalName)
+                }
             }
         }
         return true
@@ -111,7 +102,7 @@ class XzzfFragment : BaseFragment<FmXzzfBinding, XzzfViewModel>(), IXzzf {
         val obj = viewmodel?.data?.data?.get(0) ?: return
         val gson = GsonUtil.getIntGson()
         val json = gson.toJson(obj)
-        val xzzf = gson.fromJson(json,XzzfModel::class.java)
+        val xzzf = gson.fromJson(json, XzzfModel::class.java)
         val s = "${viewmodel?.year}年浙江省行政处罚案件共${xzzf.Count}宗," +
                 "其中森林火灾案${xzzf.SLHZA}宗,毁坏林木、苗木${xzzf.HHLM}宗," +
                 "滥伐林木${xzzf.LFLM}宗,滥伐森林或者其他林木${xzzf.LFLMQT}宗,盗伐林木${xzzf.DFLM}宗," +

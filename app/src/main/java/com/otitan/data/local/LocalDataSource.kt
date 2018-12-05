@@ -55,4 +55,9 @@ interface LocalDataSource {
      * 删除本地事件
      */
     fun delEvent(id: Long, callback: Callback)
+
+    /**
+     * poi查询
+     */
+    fun queryPOI(name: String, callback: Callback)
 }

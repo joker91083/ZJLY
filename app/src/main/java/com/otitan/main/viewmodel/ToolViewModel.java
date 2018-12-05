@@ -53,7 +53,9 @@ public class ToolViewModel extends BaseViewModel {
 
     /*当前位置定位*/
     public void myLocation(Location location){
-        location.getMapView().setViewpointCenterAsync(location.getMappoint(), Constant.INSTANCE.getDefalutScale());
+        if (location!=null&&location.getMappoint()!=null){
+            location.getMapView().setViewpointCenterAsync(location.getMappoint(), Constant.INSTANCE.getDefalutScale());
+        }
     }
 
     /*清除所有标会*/

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -56,6 +57,14 @@
                 android:background="@drawable/map_tools_bg2"
                 android:contentDescription="@null"
                 android:src="@drawable/icon_tj" />
+
+            <ImageButton
+                android:id="@+id/ib_loc_edit"
+                style="@style/mapTool_imageButton"
+                android:layout_width="wrap_content"
+                android:background="@drawable/map_tools_bg2"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_loc_edit" />
 
             <ImageButton
                 android:id="@+id/ib_clean"

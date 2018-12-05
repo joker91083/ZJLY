@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">浙江林业</string>
+    <!--讯飞语音-->
+    <string name="app_id">5bf766f2</string>
 
     <!--顶部菜单-->
     <string name="classEdit_layer">图层控制</string>
@@ -27,6 +29,7 @@
 
     <!--在线地图-->
     <string name="World_Imagery">http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer</string>
+    <string name="ChinaOnline">http://map.geoq.cn/arcgis/rest/services/ChinaOnlineCommunity/MapServer</string>
     <string name="World_Street_Map">http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer</string>
     <string name="updata_url">http://101.201.54.143:8031/apk/zjly/zjly_version.xml</string>
     <!--后台接口地址-->
@@ -254,5 +257,281 @@
     <string name="loc_save">本地保存</string>
     <string name="up_event">在线上报</string>
     <string name="search">搜索</string>
+
+    <string name="voice_search">点我  说出你想搜的</string>
+    <string name="voice_stop_search">点我  结束聆听</string>
+
+
+    <!--///// 字典数据 /////-->
+    <!--森林防火-->
+    <string name="Year">年份</string>
+    <string name="CityName">市</string>
+    <string name="DistrictName">区县</string>
+    <string name="VillageName">乡</string>
+    <string name="Remark_slfh">火灾名称</string>
+    <string name="FireGrade">火灾等级</string>
+    <string name="FireArea">火场面积</string>
+    <string name="LossArea">损失面积</string>
+    <string name="Money">扑火经费</string>
+    <string name="MinorCount">轻伤人员</string>
+    <!--<string name="CorrectMinorCount">校正轻伤人员</string>-->
+    <string name="SeriousCount">重伤人员</string>
+    <!--<string name="CorrectSeriousCount">校正重伤人员</string>-->
+    <string name="DeathCount">死亡人员</string>
+    <!--<string name="CorrectDeathCount">校正死亡人员</string>-->
+    <string name="ForestAccumulation">成林蓄积</string>
+    <!--<string name="CorrectForestAccumulation">校正成林蓄积</string>-->
+    <string name="RecordTime">登记时间</string>
+    <string name="FireNo">火灾编号</string>
+    <string name="StartTime">火灾开始时间</string>
+    <string name="EndTime">火灾扑灭时间</string>
+    <string name="JDD">经度(度)</string>
+    <string name="JDF">经度(分)</string>
+    <string name="JDM">经度(秒)</string>
+    <string name="WDD">纬度(度)</string>
+    <string name="WDF">纬度(分)</string>
+    <string name="WDM">纬度(秒)</string>
+    <string name="PD">坡度</string>
+    <string name="HXDJ">火险等级</string>
+    <string name="GHMJ">过火面积</string>
+    <string name="SHSLMJ">受害森林面积</string>
+    <string name="TRLMJ">天然林面积</string>
+    <string name="RGLMJ">人工林面积</string>
+    <string name="QHXXYY">起火详细原因</string>
+    <string name="ZSZXM">肇事者姓名</string>
+    <string name="ZSZXB">肇事者性别</string>
+    <string name="ZSZNL">肇事者年龄</string>
+    <string name="CLXXJG">处理详细结果</string>
+    <string name="GCJY">扑火过程简述及经验教训</string>
+    <string name="QHYY">起火原因</string>
+    <string name="SBR">上报人</string>
+    <string name="DCR">调查人</string>
+    <!--<string name="Seedling">幼苗株数</string>-->
+    <!--<string name="CorrectSeedling">校正幼苗株数</string>-->
+
+    <!--行政执法-->
+    <string name="No">案件编号</string>
+    <string name="CaseNo">案件文号</string>
+    <string name="PutUnder">案件归口</string>
+    <string name="CaseType">案件类别</string>
+    <string name="CaseTime">报案时间</string>
+    <string name="Sponsor">主办人</string>
+    <string name="Status">案件状态</string>
+    <string name="Remark_xzzf">报案内容</string>
+    <string name="CallType">报案方式</string>
+    <string name="DetailRemark">详细地址</string>
+
+    <!--林地征占-->
+    <string name="ApplicationId">编号</string>
+    <string name="AreaType">类型</string>
+    <string name="ApprovalAuthority">审批权限</string>
+    <string name="ProjectName">项目名称</string>
+    <string name="Approve">项目批准机关</string>
+    <string name="ApprovalNumber">批准文号</string>
+    <string name="ShouldForestVegetationRestorationCosts">森林植被恢复费</string>
+
+    <!--营造林-->
+    <string name="AdminstativeName">地区</string>
+    <string name="Area">造林面积</string>
+    <string name="SlashArea">迹地更新面积</string>
+    <string name="TendingArea">森林抚育</string>
+    <string name="ForestTendingArea">森林抚育</string>
+    <string name="SealingArea">封山育林面积</string>
+    <string name="ThourTree">四旁(零星)植树</string>
+    <string name="NurseryStock">当年苗木产量</string>
+    <string name="GrowArea">育苗面积</string>
+    <string name="NewBreedingArea">新育苗面积</string>
+    <string name="ReforestationArea">人工造林面积</string>
+    <string name="LowForestArea">低效林改造</string>
+
+    <!--有害生物-->
+    <string name="AdminstrativeName">地区</string>
+    <string name="Name">指标</string>
+    <string name="HappenArea">发生面积</string>
+    <string name="PreventionArea">防治面积</string>
+    <string name="PreventionControlArea">防治作业面积</string>
+    <string name="DisasterArea">成灾面积</string>
+    <string name="Money_yhsw">防治费用</string>
+    <string name="Area_yhsw">寄主树种面积</string>
+
+    <!--湿地保护-->
+    <string name="DistributeName">区县</string>
+    <string name="Name_sdbh">湿地名称</string>
+    <string name="ProType">保护形式</string>
+    <string name="Grade">级别</string>
+    <string name="ProTypeName">保护区类型</string>
+    <string name="IsPoint">是否重点</string>
+    <string name="AllArea">总面积</string>
+    <string name="WetArea">湿地面积</string>
+    <string name="NaturalWetArea">自然湿地面积</string>
+    <string name="ProObject">主要保护对象</string>
+    <string name="CreateTime">建立时间</string>
+    <string name="Unit">主管单位</string>
+
+    <!--林业科技-->
+    <string name="Name_lykj_1">项目名称</string>
+    <string name="No_lykj_1">项目编号</string>
+    <string name="Unit_lykj_1">承担单位</string>
+    <string name="BraceUnit">技术支撑单位</string>
+    <string name="HostUser">主持人</string>
+    <string name="Funds">总经费</string>
+    <string name="Subsidy">财政补助</string>
+    <string name="Reamrk">备注</string>
+    <string name="Name_lykj">中文标准名称</string>
+    <string name="No_lykj">标准号</string>
+    <string name="PubTime">发布日期</string>
+    <string name="ImplementTime">实施日期</string>
+    <string name="Dep">主管部门</string>
+    <string name="DraftUnit">起草单位</string>
+    <string name="PutUnit">归口单位</string>
+    <string name="Nature">起草性质</string>
+    <string name="Time">起草性质</string>
+    <string name="Area_lykj">地区</string>
+
+    <!--林权-->
+    <!--林权证本-->
+    <string name="Number">林权证编号</string>
+    <string name="LqYear">林证字_年</string>
+    <string name="Qmzy">签名摘要</string>
+    <string name="Kind">证号类型</string>
+    <string name="AwardTimeText">发证时间</string>
+    <string name="LqCode">林证字_号</string>
+    <string name="LqWord">林证字</string>
+    <string name="Batch">批次</string>
+    <string name="CodeName">行政名称</string>
+    <string name="Qmzsgy">签名证书公钥</string>
+    <!--登记表-->
+    <string name="Kind_lq_2">性质</string>
+    <string name="South">南</string>
+    <string name="West">西</string>
+    <string name="East">东</string>
+    <string name="North">北</string>
+    <string name="HandlePerson">经办人</string>
+    <string name="HandlePersonDateText">经办人_日期</string>
+    <string name="ChargePerson">负责人</string>
+    <string name="ChargePersonDateText">负责人_日期</string>
+    <string name="IdCard">身份证</string>
+    <string name="Zj">注记</string>
+    <string name="ApprovalMode">审批状态</string>
+    <string name="ValidMode">状态</string>
+    <string name="LinZhong">林种</string>
+    <string name="ZhuShu">株数</string>
+    <string name="ShuZhong">树种</string>
+    <string name="UseTime">使用期</string>
+    <string name="EndDate">终止日期</string>
+    <string name="VillageId">村编号</string>
+    <string name="Area_lq">面积</string>
+    <string name="XiaoBan">小班</string>
+    <!--<string name="LQCardId">林权证编号</string>-->
+    <string name="GroupName">组名</string>
+    <string name="GroupId">组编号</string>
+    <string name="VillageName_lq_2">村名</string>
+    <string name="TownName">乡镇名</string>
+    <string name="TownId">镇编号</string>
+    <string name="Unit_lq_2">单位</string>
+    <string name="Corporation">法人</string>
+    <string name="LinBan">林班</string>
+    <string name="SmallArea">小地名</string>
+    <string name="Obligee">林地所有权权利人</string>
+    <string name="Stand">座落</string>
+    <string name="WordUsufruct">林木使用权</string>
+    <string name="TerraUsufruct">林地使用权</string>
+    <string name="WoodFee">林木所有权</string>
+    <string name="ForestFee">林地所有权</string>
+    <string name="BookType">登记类型</string>
+
+
+    <!--采伐运输-->
+    <!--采伐-->
+    <string name="CAI_FA_ZH">采伐证号</string>
+    <string name="SHEN_QIN_REN">申请人</string>
+    <string name="IS_XIANE">限额类型</string>
+    <string name="BIAN_XIAN_DWMC">编限单位名称</string>
+    <string name="GUI_KOU_DWMC">归口单位名称</string>
+    <string name="ZUO_YE_HAO">作业号</string>
+    <string name="LIN_QUAN_ZH">林权证号</string>
+    <string name="LIN_CHANG">林场</string>
+    <string name="GONG_ZUO_QU">工作区</string>
+    <string name="LIN_BAN">林班</string>
+    <string name="XIAO_BAN">小班</string>
+    <string name="XIAO_DI_MING">小地名</string>
+    <string name="SBJ_DONG">四边界东</string>
+    <string name="SBJ_XI">四边界西</string>
+    <string name="SBJ_NAN">四边界南</string>
+    <string name="SBJ_BEI">四边界北</string>
+    <string name="LIN_QUAN_MC">林权名称</string>
+    <string name="LIN_QUAN_DM">林权代码</string>
+    <string name="QI_YUAN_MC">起源名称</string>
+    <string name="QI_YUAN_DM">起源代码</string>
+    <string name="SEN_LIN_LBMC">森林类别名称</string>
+    <string name="LIN_ZHONG_MC">林种名称</string>
+    <string name="SHU_ZHONG_MC">树种名称</string>
+    <string name="CAI_FA_LXMC">采伐类型名称</string>
+    <string name="CAI_FA_FSMC">采伐方式名称</string>
+    <string name="SHU_LING_MC">树龄名称</string>
+    <string name="XIAO_BAN_XJ">小班蓄积</string>
+    <string name="CAI_FA_MJ">采伐面积</string>
+    <string name="MIAN_JI_DW">面积单位</string>
+    <string name="XU_JI_QD">蓄积强度</string>
+    <string name="ZHU_SHU_QD">株数强度</string>
+    <string name="YU_BI_DU">郁闭度</string>
+    <string name="CAI_FA_ZS">采伐株数</string>
+    <string name="CAI_FA_QXQText">采伐期限开始时间</string>
+    <string name="CAI_FA_QXZText">采伐期限终止时间</string>
+    <string name="GENG_XING_FSMC">更新方式名称</string>
+    <string name="GENG_XING_MJDW">更新面积单位</string>
+    <string name="GENG_XING_MJ">更新面积</string>
+    <string name="GENG_XING_ZS">更新株数</string>
+    <string name="GENG_XING_QX">更新期限</string>
+    <string name="GENG_XING_SZ">更新树种</string>
+    <string name="BEI_ZHU">备注</string>
+    <string name="SHEN_QING_SJText">申请时间</string>
+    <string name="SHEN_HE_REN">申请人</string>
+    <string name="SHEN_HE_YJ">审核意见</string>
+    <string name="SHEN_HE_SJ">审核时间</string>
+    <string name="SHEN_HE_SJText">审核时间</string>
+    <string name="QIAN_FA_REN">签发人</string>
+    <string name="QIAN_FA_SJText">签发时间</string>
+    <string name="ZHUANG_TAI">状态</string>
+    <string name="CAI_FA_XJ">采伐蓄积</string>
+    <string name="CAI_FA_CC">采伐出材</string>
+    <string name="SJCF_ZHU_SHU">实际采伐株数</string>
+    <string name="SJCF_MIAN_JI">实际采伐面积</string>
+    <string name="SJCF_CHU_CAI">实际采伐出材</string>
+    <string name="SHEN_QING_CZR">申请人姓名</string>
+    <string name="PI_ZHUN_CZR">批准人姓名</string>
+    <string name="SJCF_XU_JI">实际采伐蓄积</string>
+    <string name="YIN_SHUA_H">印刷号</string>
+    <string name="LING_ZHENG_REN">领证人</string>
+    <string name="ZUO_FEI_SJText">作废时间</string>
+    <string name="CAI_ZI">采字</string>
+    <string name="SHU_ZHONG_ZMC">树种名称</string>
+    <string name="QI_TA_CFMC">其它采伐名称</string>
+    <string name="YU_LIU1">采伐证号（证上号码）</string>
+    <string name="APPLY_CARDTYPE">申报者证件类型</string>
+    <string name="APPLY_CARDNUMBER">申报者证件号码</string>
+    <string name="TIMBER_TYPE">采伐证类型</string>
+    <!--运输-->
+    <string name="YSZ_BH">运输证编号</string>
+    <string name="HUO_ZHU_BH">货主编号</string>
+    <string name="HUO_ZHU_MC">货主名称</string>
+    <string name="CHENG_YUN_R">承运人</string>
+    <string name="YUN_SHU_FS">运输方式</string>
+    <string name="YUN_SHU_FSQT">运输其他方式</string>
+    <string name="YOU_XIAO_QText">有效期限开始日期</string>
+    <string name="YOU_XIAO_ZText">有效期限终止日期</string>
+    <string name="LING_ZHENG_R">领证人</string>
+    <string name="YUN_SHU_QSMC">运输起运地点省名称</string>
+    <string name="YUN_SHU_QXMC">运输起运地点县名称</string>
+    <string name="YUN_SHU_ZSMC">运输终止地点省名称</string>
+    <string name="YUN_SHU_ZXMC">运输终止地点县名称</string>
+    <string name="SHEN_QING_RQText">申请日期</string>
+    <string name="QIAN_FA_RQText">签发日期</string>
+    <string name="QIAN_FA_DH">签发电话</string>
+    <string name="LAI_YUAN">来源</string>
+    <string name="LIU_XIANG">流向</string>
+    <string name="ZUO_FEI_YY">作废原因</string>
+    <string name="LU_RU_RXM">录入人姓名</string>
+    <string name="CHAN_DI">木材产地</string>
 
 </resources>

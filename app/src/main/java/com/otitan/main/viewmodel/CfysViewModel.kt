@@ -48,14 +48,14 @@ class CfysViewModel() : BaseViewModel() {
     }
 
     fun getData(type: Int, year: Int) {
-        var auth = TitanApplication.loginResult?.access_token
-        if (auth == null) {
+        val info = TitanApplication.loginResult
+        if (info?.access_token == null) {
             mContext?.toast("登录信息验证失败")
             return
         }
-        auth = "Bearer $auth"
+        val auth = "Bearer ${info.access_token}"
         showDialog("加载中...")
-        dataRepository.cfys(auth, type, "330000", year, searchType,
+        dataRepository.cfys(auth, type, info.code ?: "", year, searchType,
                 object : RemoteDataSource.mCallback {
                     override fun onFailure(info: String) {
                         dismissDialog()

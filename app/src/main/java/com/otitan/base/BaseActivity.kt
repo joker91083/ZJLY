@@ -36,11 +36,20 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompat
         viewModel.onCreate()
     }
 
+    override fun onPause() {
+        super.onPause()
+        viewModel.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.onResume()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         viewModel.onDestroy()
         binding.unbind()
-
     }
 
     fun initViewDataBinding(savedInstanceState: Bundle?) {
@@ -78,7 +87,7 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompat
     /**
      * 初始化数据
      */
-    override fun initData(){}
+    override fun initData() {}
 
     override fun initParam() {}
 

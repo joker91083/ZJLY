@@ -34,3 +34,5 @@
 -keep class com.youth.banner.** {
     *;
  }
+# 百度语音
+ -keep class com.baidu.speech.**{*;}

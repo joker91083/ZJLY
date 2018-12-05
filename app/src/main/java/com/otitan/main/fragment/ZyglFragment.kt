@@ -134,8 +134,8 @@ class ZyglFragment : BaseFragment<FmMapBinding, MapViewModel>(), TrackManagerFra
                 "LOADED" -> {
                     Log.e("tag", "图层加载完成")
                     Log.e("tag", "WKID" + binding.mvMap.spatialReference?.wkid)
-                    SpatialUtil.defaultSpatialReference = binding.mvMap.spatialReference
-                    spatialReferences = SpatialUtil.defaultSpatialReference
+//                    SpatialUtil.defaultSpatialReference = binding.mvMap.spatialReference
+//                    spatialReferences = SpatialUtil.defaultSpatialReference
                 }
                 else -> {
                 }

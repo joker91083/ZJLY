@@ -6,6 +6,7 @@
 
     <color name="blue">#368bc1</color>
     <color name="white">#FFFFFF</color>
+    <color name="whitesmoke">#f5f5f5</color>
     <!-- LIST BORDER COLOR -->
     <color name="rounded_container_border">#ffb7babb</color>
 
@@ -70,7 +71,7 @@
     <color name="water">#B5D6F1</color>
     <color name="bug_open">#F00</color>
     <color name="bug_closed">#00F</color>
-    <color name="button_grey">#DCDCDC</color>
+    <color name="button_gray">#DCDCDC</color>
 
     <!-- copied -->
     <drawable name="screen_background_black">#ff000000</drawable>

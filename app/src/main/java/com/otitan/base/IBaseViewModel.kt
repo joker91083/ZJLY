@@ -11,4 +11,7 @@ interface IBaseViewModel {
      */
     fun onDestroy()
 
+    fun onResume()
+
+    fun onPause()
 }

@@ -2,12 +2,17 @@ package com.otitan.util;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.support.v4.content.ContextCompat;
 
+import com.esri.arcgisruntime.mapping.view.Graphic;
 import com.esri.arcgisruntime.symbology.MarkerSymbol;
+import com.esri.arcgisruntime.symbology.PictureMarkerSymbol;
 import com.esri.arcgisruntime.symbology.SimpleFillSymbol;
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol;
 import com.esri.arcgisruntime.symbology.TextSymbol;
+import com.otitan.zjly.R;
 
 /**
  * Created by whs on 2017/6/30
@@ -71,6 +76,11 @@ public class SymbolUtil {
 
     public static TextSymbol getAreaText(String text){
         return new TextSymbol(20,text,Color.RED, TextSymbol.HorizontalAlignment.CENTER, TextSymbol.VerticalAlignment.MIDDLE);
+    }
 
+    public static MarkerSymbol getLocSymbol(Context context){
+        PictureMarkerSymbol pictureMarkerSymbol = new PictureMarkerSymbol((BitmapDrawable) ContextCompat.getDrawable(context, R.drawable.icon_gcoding));
+        pictureMarkerSymbol.setOffsetY(20);
+        return pictureMarkerSymbol;
     }
 }

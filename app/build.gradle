@@ -46,7 +46,9 @@ android {
     dataBinding {
         enabled true
     }
-
+    dexOptions {
+        javaMaxHeapSize "1g"
+    }
     //multiDexEnabled true
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
@@ -64,7 +66,7 @@ android {
 
     greendao {
         schemaVersion 1 //数据库版本号
-        daoPackage 'com.titan.zjly.greendao'// 设置DaoMaster、DaoSession、Dao 包名
+        daoPackage 'com.otitan.greendao'// 设置DaoMaster、DaoSession、Dao 包名
         targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
     }
 
@@ -96,6 +98,7 @@ dependencies {
 
     // 提示框
     implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
+//    implementation 'com.afollestad.material-dialogs:core:2.0.0-rc2'
 
     // arcgis
     implementation 'com.esri.arcgisruntime:arcgis-android:100.3.0'

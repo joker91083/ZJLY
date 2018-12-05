@@ -39,6 +39,7 @@ import kotlinx.android.synthetic.main.share_tckz.*
 import org.jetbrains.anko.toast
 import java.io.File
 import java.io.FileNotFoundException
+import java.lang.Exception
 import kotlin.properties.Delegates
 
 /**
@@ -110,6 +111,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
         when (type) {
             1 -> {
                 iMap.getOpenStreetLayer()?.isVisible = check
+                iMap.getTiledLayer()?.isVisible = check
             }
             2 -> {
                 val list = ResourcesManager.getInstances(activity).getImgTitlePath()
@@ -165,7 +167,11 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
     override fun setExtent(type: Int) {
         when (type) {
             1 -> {
-                activity.mapview.setViewpointGeometryAsync(iMap.getOpenStreetLayer()?.fullExtent)
+                if (iMap.getOpenStreetLayer() != null) {
+                    activity.mapview.setViewpointGeometryAsync(iMap.getOpenStreetLayer()?.fullExtent)
+                } else {
+                    activity.mapview.setViewpointGeometryAsync(iMap.getTiledLayer()?.fullExtent)
+                }
             }
             2 -> {
                 if (imgLayer != null) {
@@ -203,8 +209,10 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
     }
 
     override fun setExtent(file: File) {
-        val geometrys = ArrayList<Geometry>()
-        val layers = iMap.getLayers()
+        try {
+
+            val geometrys = ArrayList<Geometry>()
+            val layers = iMap.getLayers()
 //        layers.forEach { it ->
 //            val pPath = file.parent.split("/")
 //            if (it.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == it.getpName()) {
@@ -214,20 +222,24 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
 //                }
 //            }
 //        }
-        for (myLayer in layers) {
-            val pPath = file.parent.split("/")
-            if (myLayer.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == myLayer.getpName()) {
-                val g = myLayer.layer?.fullExtent
-                g?.let {
-                    geometrys.add(g)
+            for (myLayer in layers) {
+                val pPath = file.parent.split("/")
+                if (myLayer.getcName() == file.name.split(".")[0] && pPath[pPath.size - 1] == myLayer.getpName()) {
+                    val g = myLayer.layer?.fullExtent
+                    g?.let {
+                        geometrys.add(g)
+                    }
                 }
             }
-        }
-        if (geometrys.isNotEmpty()) {
-            val totalExtent = GeometryEngine.combineExtents(geometrys)
-            totalExtent.let {
-                activity.mapview.setViewpointGeometryAsync(it)
+            if (geometrys.isNotEmpty()) {
+                val totalExtent = GeometryEngine.combineExtents(geometrys)
+                if (totalExtent != null) {
+                    activity.mapview.setViewpointGeometryAsync(totalExtent)
+                }
             }
+        } catch (e: Exception) {
+            activity.toast("定位错误：$e")
+            Log.e("tag", "定位错误：$e")
         }
     }
 
@@ -236,7 +248,6 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
     }
 
     fun addLayers(file: File) {
-
         if (file.exists() && file.name.endsWith("geodatabase")) {
             addGeodatabase(file)
         } else if (file.exists() && file.name.endsWith("shp")) {
@@ -254,7 +265,7 @@ class LayerManagerView() : ILayerManager, ILayerManagerItem {
                 for (table in list) {
                     val layer = FeatureLayer(table)
                     layer.isVisible = true
-                    if (iMap.getOpenStreetLayer() != null) {
+                    if (iMap.getOpenStreetLayer() != null || iMap.getTiledLayer() != null) {
 //                        val sp1 = iMap.getOpenStreetLayer()?.spatialReference!!.wkid
 //                        val sp2 = layer.spatialReference?.wkid
 //                        if (sp1 != sp2) {

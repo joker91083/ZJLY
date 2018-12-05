@@ -5,6 +5,7 @@ import android.util.Log
 import com.otitan.TitanApplication
 import com.otitan.main.model.TrackPoint
 import com.otitan.model.EventModel
+import com.otitan.model.POIModel
 import com.otitan.util.Format
 import com.otitan.util.ResourcesManager
 import jsqlite.Callback
@@ -84,6 +85,53 @@ class LocalDataSourceImpl() : LocalDataSource {
             e.printStackTrace()
             Log.e("tag", "查询轨迹异常:$e")
             callback.onFailure("查询轨迹异常:$e")
+        }
+    }
+
+    override fun queryPOI(name: String, callback: LocalDataSource.Callback) {
+        val list = ArrayList<POIModel>()
+        try {
+            val context: Context = TitanApplication.instances
+            val databaseName = ResourcesManager.getInstances(context).getDataBase("ZJPOI.sqlite")
+            Class.forName("jsqlite.JDBCDriver").newInstance()
+            val db = jsqlite.Database()
+            db.open(databaseName, jsqlite.Constants.SQLITE_OPEN_READWRITE)
+            val sql = ("select * from tp_area_0_0 where name like '%$name%'")
+            db.exec(sql, object : Callback {
+                override fun newrow(array: Array<out String>?): Boolean {
+                    val poi = POIModel()
+                    if (array != null) {
+                        poi.id = array[0]
+                        poi.parent_id = array[1]
+                        poi.name = array[2]
+                        poi.area_code = array[3]
+                        poi.city_code = array[4]
+                        poi.merger_name = array[5]
+                        poi.short_name = array[6]
+                        poi.zip_code = array[7]
+                        poi.level = array[8]
+                        poi.lng = array[9]
+                        poi.lat = array[10]
+                        poi.pinyin = array[11]
+                        poi.first = array[12]
+                        list.add(poi)
+                    }
+                    return false
+                }
+
+                override fun columns(p0: Array<out String>?) {
+
+                }
+
+                override fun types(p0: Array<out String>?) {
+                }
+            })
+            db.close()
+            callback.onSuccess(list)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Log.e("tag", "poi查询异常:$e")
+            callback.onFailure("poi查询异常:$e")
         }
     }
 

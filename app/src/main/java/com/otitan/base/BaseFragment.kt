@@ -35,6 +35,16 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel> : Fragment(
         viewModel.onCreate()
     }
 
+    override fun onPause() {
+        super.onPause()
+        viewModel.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.onResume()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         viewModel.onDestroy()
@@ -92,5 +102,19 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel> : Fragment(
         }
     }
 
+    /**
+     * 跳转容器页面
+     *
+     * @param canonicalName 规范名 : Fragment.class.getCanonicalName()
+     * @param bundle        跳转所携带的信息
+     */
+    fun startContainerActivity(canonicalName: String, bundle: Bundle) {
+        context?.let {
+            val intent = Intent(it, ContainerActivity::class.java)
+            intent.putExtra(ContainerActivity.FRAGMENT, canonicalName)
+            intent.putExtra(ContainerActivity.BUNDLE, bundle)
+            it.startActivity(intent)
+        }
+    }
 
 }

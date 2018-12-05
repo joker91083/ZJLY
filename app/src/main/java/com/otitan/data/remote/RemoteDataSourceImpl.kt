@@ -72,7 +72,8 @@ class RemoteDataSourceImpl() : RemoteDataSource {
         loginInfo.username = username
         val gson = Gson()
         val body = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), gson.toJson(loginInfo))
-        val observable = RetrofitHelper.instance.server.login(username, password)
+        val observable = RetrofitHelper.instance.server
+                .login(username, password, "浙江省智慧林业云平台移动端")
         observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<ResultModel<LoginResult>> {
                     override fun onError(e: Throwable?) {
@@ -87,7 +88,7 @@ class RemoteDataSourceImpl() : RemoteDataSource {
                         when {
 //                            t!=null->callback.onSuccess(t)
                             t?.responseMsg != "success" -> callback.onFailure(t?.responseMsg?.toString()!!)
-                            t.data.access_token != null -> callback.onSuccess(t)
+                            t.data.token?.access_token != null -> callback.onSuccess(t)
                             else -> callback.onFailure("登录失败")
                         }
                     }
@@ -185,6 +186,62 @@ class RemoteDataSourceImpl() : RemoteDataSource {
 
                     override fun onNext(t: ResultModel<Any>?) {
                         callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 林业动态
+     */
+    override fun forestydynamic(callback: RemoteDataSource.mCallback) {
+        val observer = RetrofitHelper.instance.server.forestydynamic()
+        observer.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<List<LydtModel>>> {
+                    override fun onError(e: Throwable?) {
+                        if (e?.message == null) {
+                            callback.onFailure(e.toString())
+                        } else {
+                            callback.onFailure(e.message!!)
+                        }
+                    }
+
+                    override fun onNext(t: ResultModel<List<LydtModel>>?) {
+                        if (t != null) {
+                            callback.onSuccess(t.data)
+                        } else {
+                            callback.onFailure("林业动态获取失败")
+                        }
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
+    /**
+     * 决策信息订阅
+     */
+    override fun subscription(type: Int, callback: RemoteDataSource.mCallback) {
+        val observer = RetrofitHelper.instance.server.subscription(type)
+        observer.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<List<LydtModel>>> {
+                    override fun onError(e: Throwable?) {
+                        if (e?.message == null) {
+                            callback.onFailure(e.toString())
+                        } else {
+                            callback.onFailure(e.message!!)
+                        }
+                    }
+
+                    override fun onNext(t: ResultModel<List<LydtModel>>?) {
+                        if (t != null) {
+                            callback.onSuccess(t.data)
+                        } else {
+                            callback.onFailure("决策信息获取失败")
+                        }
                     }
 
                     override fun onCompleted() {

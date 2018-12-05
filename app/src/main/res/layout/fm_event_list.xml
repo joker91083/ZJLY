@@ -52,9 +52,9 @@
                 android:checked="@={viewmodel.listType}"
                 android:gravity="center"
                 android:padding="10dp"
-                android:onClick="@{()->viewmodel.refresh()}"
+                android:onClick="@{()->viewmodel.getList(1)}"
                 android:text="已上报" />
-            <!--android:onClick="@{()->viewmodel.getList(1)}"-->
+            <!--android:onClick="@{()->viewmodel.refresh()}"-->
         </RadioGroup>
 
         <LinearLayout

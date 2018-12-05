@@ -31,49 +31,49 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/cfzh+viewmodel.sjgl.CAI_FA_ZH}"
+                    android:text="@{@string/cfzh+viewmodel.cfz.CAI_FA_ZH}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/sqr+viewmodel.sjgl.SHEN_QIN_REN}"
+                    android:text="@{@string/sqr+viewmodel.cfz.SHEN_QIN_REN}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/bxdwmc+viewmodel.sjgl.BIAN_XIAN_DWMC}"
+                    android:text="@{@string/bxdwmc+viewmodel.cfz.BIAN_XIAN_DWMC}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/gkdwmc+viewmodel.sjgl.GUI_KOU_DWMC}"
+                    android:text="@{@string/gkdwmc+viewmodel.cfz.GUI_KOU_DWMC}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/zyh+viewmodel.sjgl.ZUO_YE_HAO}"
+                    android:text="@{@string/zyh+viewmodel.cfz.ZUO_YE_HAO}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/lqzh+viewmodel.sjgl.LIN_QUAN_ZH}"
+                    android:text="@{@string/lqzh+viewmodel.cfz.LIN_QUAN_ZH}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/lc+viewmodel.sjgl.LIN_CHANG}"
+                    android:text="@{@string/lc+viewmodel.cfz.LIN_CHANG}"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -86,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/gzq+viewmodel.sjgl.GONG_ZUO_QU}"
+                        android:text="@{@string/gzq+viewmodel.cfz.GONG_ZUO_QU}"
                         android:textSize="14sp" />
 
                     <TextView
@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/lb+viewmodel.sjgl.LIN_BAN}"
+                        android:text="@{@string/lb+viewmodel.cfz.LIN_BAN}"
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -109,14 +109,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/yszbh+viewmodel.sjgl.YSZ_BH}"
+                    android:text="@{@string/yszbh+viewmodel.ysz.YSZ_BH}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/hzmc+viewmodel.sjgl.HUO_ZHU_MC}"
+                    android:text="@{@string/hzmc+viewmodel.ysz.HUO_ZHU_MC}"
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -129,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/cyr+viewmodel.sjgl.CHENG_YUN_R}"
+                        android:text="@{@string/cyr+viewmodel.ysz.CHENG_YUN_R}"
                         android:textSize="14sp" />
 
                     <TextView
@@ -137,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:text="@{@string/ysfs+viewmodel.sjgl.YUN_SHU_FS}"
+                        android:text="@{@string/ysfs+viewmodel.ysz.YUN_SHU_FS}"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -145,14 +145,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/ysqtfs+viewmodel.sjgl.YUN_SHU_FSQT}"
+                    android:text="@{@string/ysqtfs+viewmodel.ysz.YUN_SHU_FSQT}"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@{@string/lzr+viewmodel.sjgl.LING_ZHENG_R}"
+                    android:text="@{@string/lzr+viewmodel.ysz.LING_ZHENG_R}"
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>

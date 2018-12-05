@@ -55,6 +55,16 @@ interface RemoteDataSource {
     fun eventList(auth: String, fromTime: String, toTime: String, callback: mCallback)
 
     /**
+     * 林业动态
+     */
+    fun forestydynamic(callback: mCallback)
+
+    /**
+     * 决策信息订阅
+     */
+    fun subscription(type: Int, callback: mCallback)
+
+    /**
      * 资源管护
      */
     fun resourceManage(auth: String, type: Int, dqcode: String, year: Int, callback: RemoteDataSource.mCallback)

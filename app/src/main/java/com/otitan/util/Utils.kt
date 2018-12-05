@@ -13,6 +13,7 @@ import android.widget.ExpandableListView
 import android.widget.LinearLayout
 import com.otitan.TitanApplication
 import com.otitan.base.ContainerActivity
+import org.jetbrains.anko.toast
 import java.io.*
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
@@ -44,6 +45,50 @@ class Utils {
         fun getZeroTime(): Long {
             val current = System.currentTimeMillis();//当前时间毫秒数
             return current / (1000 * 3600 * 24) * (1000 * 3600 * 24) - TimeZone.getDefault().rawOffset
+        }
+
+        /**
+         * 获取当前时间的一年之前的时间
+         */
+        fun getBeforeYearTime(count: Int): Long {
+            val c = Calendar.getInstance()
+            c.time = Date()
+            c.add(Calendar.YEAR, -count)
+            val y = c.time
+            return y.time
+        }
+
+        /**
+         * 获取当前时间的一月之前的时间
+         */
+        fun getBeforeMonthTime(count: Int): Long {
+            val c = Calendar.getInstance()
+            c.time = Date()
+            c.add(Calendar.MONTH, -count)
+            val y = c.time
+            return y.time
+        }
+
+        /**
+         * 获取当前时间的一周之前的时间
+         */
+        fun getBeforeWeekTime(count: Int): Long {
+            val c = Calendar.getInstance()
+            c.time = Date()
+            c.add(Calendar.DATE, -count * 7)
+            val y = c.time
+            return y.time
+        }
+
+        /**
+         * 获取当前时间的一天之前的时间
+         */
+        fun getBeforeDayTime(count: Int): Long {
+            val c = Calendar.getInstance()
+            c.time = Date()
+            c.add(Calendar.DATE, -count)
+            val y = c.time
+            return y.time
         }
 
         fun dp2px(value: Float, context: Context): Float {
@@ -150,5 +195,18 @@ class Utils {
                 Html.fromHtml(s1)
             }
         }
+
+
+        /**
+         * 检测按钮权限
+         */
+        fun checkPermission(mContext: Context?, code: Boolean?): Boolean {
+            if (code == true) {
+                return true
+            }
+            mContext?.toast("不具备当前菜单权限")
+            return false
+        }
+
     }
 }

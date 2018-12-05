@@ -7,6 +7,7 @@ import com.bin.david.form.data.column.Column
 import com.bin.david.form.data.table.TableData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.otitan.TitanApplication
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.SlgyViewModel
 import com.otitan.main.widgets.BarChartInit
@@ -61,7 +62,10 @@ class SlgyFragment : BaseFragment<FmSlgyBinding, SlgyViewModel>(), ISlgy {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.data_manage -> {
-                startContainerActivity(SlgyDataFragment::class.java.canonicalName)
+                val menu = TitanApplication.loginResult?.menu
+                if (Utils.checkPermission(activity, menu?.APP_LQGL_SLGY_SJCX)) {
+                    startContainerActivity(SlgyDataFragment::class.java.canonicalName)
+                }
             }
         }
         return true
@@ -71,8 +75,7 @@ class SlgyFragment : BaseFragment<FmSlgyBinding, SlgyViewModel>(), ISlgy {
         if (viewmodel?.hasData?.get() != true) {
             return
         }
-        val obj = viewmodel?.data?.data?.get(0) ?: return
-        val s = "浙江省森林公园共:${obj["Count"]}个,面积${obj["Area"]}公顷"
+        val s = "浙江省森林公园共:${viewmodel?.slgy?.Count}个,面积${String.format("%.2f", viewmodel?.slgy?.Area)}公顷"
         binding.pestTvDes.text = Utils.getSpanned(s)
     }
 

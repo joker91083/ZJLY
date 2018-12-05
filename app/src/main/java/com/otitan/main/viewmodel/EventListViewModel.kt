@@ -17,6 +17,7 @@ import com.otitan.data.remote.RemoteDataSource
 import com.otitan.model.ResultModel
 import com.otitan.ui.mview.IEventList
 import com.otitan.util.FormatUtil
+import com.otitan.util.Utils
 import org.jetbrains.anko.toast
 import java.util.*
 
@@ -45,6 +46,8 @@ class EventListViewModel() : BaseViewModel() {
 
     override fun onCreate() {
         super.onCreate()
+        startTime.set(FormatUtil.dateFormatNYR(Utils.getBeforeMonthTime(1)))
+        endTime.set(FormatUtil.dateFormatNYR(Date().time))
         onRefresh.execute()
     }
 
@@ -84,7 +87,7 @@ class EventListViewModel() : BaseViewModel() {
 
     fun setTime(type: Int) {
         TimePickerBuilder(mContext, OnTimeSelectListener { date, view ->
-            val s = FormatUtil.dateFormat(date)
+            val s = FormatUtil.dateFormatNYR(date.time)
             if (type == 0) {
                 startTime.set(s)
             } else {

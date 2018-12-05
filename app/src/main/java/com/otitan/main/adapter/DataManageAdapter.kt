@@ -59,26 +59,26 @@ class DataManageAdapter() : BaseAdapter() {
     override fun getLayoutViewModel(position: Int): Any {
         when (title) {
             "森林防火" -> {
-                val viewmodel = SlfhDataItemViewModel()
+                val viewmodel = SlfhDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.sjgl.set(sjgl as SlfhModel.Sjgl?)
                 viewmodel.type.set(type ?: 1)
                 return viewmodel
             }
             "行政执法" -> {
-                val viewmodel = XzzfDataItemViewModel()
+                val viewmodel = XzzfDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.sjgl.set(sjgl as XzzfModel.Sjgl?)
                 return viewmodel
             }
             "林地征占" -> {
-                val viewmodel = LdzzDataItemViewModel()
+                val viewmodel = LdzzDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.sjgl.set(sjgl as LdzzModel.Sjgl?)
                 return viewmodel
             }
             "营造林" -> {
-                val viewmodel = YzlDataItemViewModel()
+                val viewmodel = YzlDataItemViewModel(context)
                 viewmodel.type.set(type ?: 0)
                 val obj = getObj(items!![position])
                 if (type == 1) {
@@ -89,13 +89,13 @@ class DataManageAdapter() : BaseAdapter() {
                 return viewmodel
             }
             "有害生物" -> {
-                val viewmodel = YhswDataItemViewModel()
+                val viewmodel = YhswDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.sjgl.set(sjgl as YhswModel.Sjgl?)
                 return viewmodel
             }
             "国有林场" -> {
-                val viewmodel = GylcDataItemViewModel()
+                val viewmodel = GylcDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.sjgl.set(sjgl as GylcModel.Sjgl?)
                 return viewmodel
@@ -107,34 +107,40 @@ class DataManageAdapter() : BaseAdapter() {
                 return viewmodel
             }
             "湿地保护" -> {
-                val viewmodel = SdbhDataItemViewModel()
+                val viewmodel = SdbhDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.sjgl.set(sjgl as SdbhModel.Sjgl?)
                 return viewmodel
             }
             "林权" -> {
-                val viewmodel = LQuanDataItemViewModel()
+                val viewmodel = LQuanDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.type.set(type ?: 0)
-                viewmodel.sjgl.set(sjgl as LQuanModel.Sjgl?)
+                when (type) {
+                    1 -> viewmodel.lqzb.set(sjgl as LQuanModel.Lqzb?)
+                    else -> viewmodel.djb.set(sjgl as LQuanModel.Djb?)
+                }
                 return viewmodel
             }
             "植物检疫" -> {
-                val viewmodel = ZwjyDataItemViewModel()
+                val viewmodel = ZwjyDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.type.set(type ?: 0)
                 viewmodel.sjgl.set(sjgl as ZwjyModel.Sjgl?)
                 return viewmodel
             }
             "采伐运输" -> {
-                val viewmodel = CfysDataItemViewModel()
+                val viewmodel = CfysDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.type.set(type ?: 0)
-                viewmodel.sjgl.set(sjgl as CfysModel.Sjgl?)
+                when (type) {
+                    1 -> viewmodel.cfz.set(sjgl as CfysModel.Cfz?)
+                    else -> viewmodel.ysz.set(sjgl as CfysModel.Ysz?)
+                }
                 return viewmodel
             }
             "林业产业" -> {
-                val viewmodel = LycyDataItemViewModel()
+                val viewmodel = LycyDataItemViewModel(context)
                 val sjgl = getObj(items!![position])
                 viewmodel.sjgl.set(sjgl as LycyModel.Sjgl?)
                 return viewmodel
@@ -159,7 +165,16 @@ class DataManageAdapter() : BaseAdapter() {
                 return viewmodel
             }
             else -> {
-                val viewmodel = LykjItemViewModel()
+                val viewmodel = LykjItemViewModel(context)
+                val sjgl = getObj(items!![position])
+                when (type) {
+                    1 -> viewmodel.syhzxm.set(sjgl as LykjModel.Syhzxm)
+                    2 -> viewmodel.sfzjxm.set(sjgl as LykjModel.Sfzjxm)
+                    3 -> viewmodel.gjbz.set(sjgl as LykjModel.Gjbz)
+                    4 -> viewmodel.hybz.set(sjgl as LykjModel.Hybz)
+                    5 -> viewmodel.sjdfbz.set(sjgl as LykjModel.Sjdfbz)
+                    6 -> viewmodel.zjzzbz.set(sjgl as LykjModel.Zjzzbz)
+                }
                 viewmodel.xmmc.set((items!![position] as LinkedTreeMap<String, Any>)["Name"].toString())
                 viewmodel.xmbh.set((items!![position] as LinkedTreeMap<String, Any>)["No"].toString())
                 viewmodel.zcr.set((items!![position] as LinkedTreeMap<String, Any>)["HostUser"].toString())
@@ -192,10 +207,30 @@ class DataManageAdapter() : BaseAdapter() {
             "国有林场" -> object : TypeToken<GylcModel.Sjgl>() {}.type
             "森林公园" -> object : TypeToken<SlgyModel.Sjgl>() {}.type
             "湿地保护" -> object : TypeToken<SdbhModel.Sjgl>() {}.type
+            "林业科技" -> {
+                when (type) {
+                    1 -> object : TypeToken<LykjModel.Syhzxm>() {}.type
+                    2 -> object : TypeToken<LykjModel.Sfzjxm>() {}.type
+                    3 -> object : TypeToken<LykjModel.Gjbz>() {}.type
+                    4 -> object : TypeToken<LykjModel.Hybz>() {}.type
+                    5 -> object : TypeToken<LykjModel.Sjdfbz>() {}.type
+                    else -> object : TypeToken<LykjModel.Zjzzbz>() {}.type
+                }
+            }
+            "林权" -> {
+                when (type) {
+                    1 -> object : TypeToken<LQuanModel.Lqzb>() {}.type
+                    else -> object : TypeToken<LQuanModel.Djb>() {}.type
+                }
+            }
             "林业产业" -> object : TypeToken<LycyModel.Sjgl>() {}.type
-            "林权" -> object : TypeToken<LQuanModel.Sjgl>() {}.type
             "植物检疫" -> object : TypeToken<ZwjyModel.Sjgl>() {}.type
-            "采伐运输" -> object : TypeToken<CfysModel.Sjgl>() {}.type
+            "采伐运输" -> {
+                when (type) {
+                    1 -> object : TypeToken<CfysModel.Cfz>() {}.type
+                    else -> object : TypeToken<CfysModel.Ysz>() {}.type
+                }
+            }
             "事件列表" -> object : TypeToken<EventModel.EventResult>() {}.type
             else -> object : TypeToken<Any>() {}.type
         }

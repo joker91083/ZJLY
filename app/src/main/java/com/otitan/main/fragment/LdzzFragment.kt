@@ -1,28 +1,21 @@
 package com.otitan.main.fragment
 
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.*
 import android.widget.AdapterView
 import android.widget.Spinner
 import com.bin.david.form.data.column.Column
 import com.bin.david.form.data.table.TableData
-import com.github.mikephil.charting.components.*
-import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import com.otitan.TitanApplication
 import com.otitan.base.BaseFragment
 import com.otitan.main.viewmodel.LdzzViewModel
 import com.otitan.main.widgets.BarChartInit
 import com.otitan.main.widgets.SmartTableStyle
-import com.otitan.model.*
+import com.otitan.model.LdzzModel
 import com.otitan.ui.mview.ILdzz
-import com.otitan.ui.mview.IYhsw
-import com.otitan.util.ScreenTool
 import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
@@ -100,7 +93,10 @@ class LdzzFragment : BaseFragment<FmLdzzBinding, LdzzViewModel>(), ILdzz {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.data_manage -> {
-                startContainerActivity(LdzzDataFragment::class.java.canonicalName)
+                val menu = TitanApplication.loginResult?.menu
+                if (Utils.checkPermission(activity, menu?.APP_LQGL_LDZZ_SJCX)) {
+                    startContainerActivity(LdzzDataFragment::class.java.canonicalName)
+                }
             }
         }
         return true

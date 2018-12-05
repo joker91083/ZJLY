@@ -7,17 +7,13 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.*
 import android.widget.AdapterView
 import android.widget.Spinner
-import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
 import com.otitan.base.BaseFragment
 import com.otitan.main.adapter.DataManageAdapter
 import com.otitan.main.viewmodel.LykjViewModel
 import com.otitan.ui.mview.ILykj
-import com.otitan.util.TitanItemDecoration
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
 import com.otitan.zjly.databinding.FmLykjBinding

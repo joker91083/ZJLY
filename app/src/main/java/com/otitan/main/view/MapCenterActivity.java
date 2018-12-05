@@ -7,8 +7,10 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
@@ -47,38 +49,43 @@ import com.google.gson.Gson;
 import com.otitan.TitanApplication;
 import com.otitan.base.ContainerActivity;
 import com.otitan.base.ValueCallBack;
+import com.otitan.customview.ClearEditText;
 import com.otitan.data.DataRepository;
 import com.otitan.data.Injection;
 import com.otitan.data.remote.RemoteDataSource;
+import com.otitan.main.dialog.EditLocationDialog;
 import com.otitan.main.fragment.TrackManagerFragment;
 import com.otitan.main.fragment.UpEventFragment;
 import com.otitan.main.listener.ArcgisLocation;
 import com.otitan.main.listener.GeometryChangedListener;
 import com.otitan.main.model.ActionModel;
 import com.otitan.main.model.Location;
-import com.otitan.main.model.MainModel;
 import com.otitan.main.model.TrackPoint;
 import com.otitan.main.viewmodel.BootViewModel;
 import com.otitan.main.viewmodel.CalloutViewModel;
 import com.otitan.main.viewmodel.GeoViewModel;
 import com.otitan.main.viewmodel.InitViewModel;
+import com.otitan.main.viewmodel.POISearchViewModel;
 import com.otitan.main.viewmodel.SketchEditorViewModel;
 import com.otitan.main.viewmodel.ToolViewModel;
 import com.otitan.main.viewmodel.TrackManagerViewModel;
+import com.otitan.model.LoginResult;
 import com.otitan.model.MyLayer;
 import com.otitan.ui.mview.IMap;
 import com.otitan.ui.view.ImgManagerView;
 import com.otitan.ui.view.LayerManagerView;
+import com.otitan.ui.view.POISearchView;
 import com.otitan.ui.vm.LayerManagerViewModel;
 import com.otitan.util.Constant;
 import com.otitan.util.ConverterUtils;
+import com.otitan.util.MaterialDialogUtil;
 import com.otitan.util.SpatialUtil;
 import com.otitan.util.SymbolUtil;
+import com.otitan.util.Utils;
+import com.otitan.zjly.BR;
 import com.otitan.zjly.R;
-import com.otitan.zjly.util.MaterialDialogUtil;
-import com.titan.baselibrary.util.ToastUtil;
 import com.otitan.zjly.databinding.ShareTckzBinding;
-import com.titan.eventlibrary.EventActivity;
+import com.titan.baselibrary.util.ToastUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -93,8 +100,10 @@ import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
+import static org.jetbrains.anko.DialogsKt.toast;
+
 public class MapCenterActivity extends AppCompatActivity implements ValueCallBack<Object>,
-        ArcgisLocation, IMap, TrackManagerFragment.TrackManagerDialogListener {
+        ArcgisLocation, IMap, TrackManagerFragment.TrackManagerDialogListener, EditLocationDialog.IEditLoc {
 
 
     @BindView(R.id.mapview)
@@ -123,18 +132,6 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     TextView titleTextView;
     @BindView(R.id.close_tuceng)
     AppCompatImageView closeTuceng;
-    //    @BindView(R.id.cb_sl)
-//    CheckBox cbSl;
-//    @BindView(R.id.tile_extent)
-//    ImageView tileExtent;
-//    @BindView(R.id.cb_ys)
-//    CheckBox cbYs;
-//    @BindView(R.id.image_extent)
-//    ImageView imageExtent;
-//    @BindView(R.id.cb_dxt)
-//    CheckBox cbDxt;
-//    @BindView(R.id.dxt_extent)
-//    ImageView dxtExtent;add
     @BindView(R.id.tckzExplv)
     ExpandableListView tckzExplv;
     @BindView(R.id.imgClose)
@@ -145,9 +142,14 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     ImageButton shareTckz;
     @BindView(R.id.addfeature)
     RadioButton addFeature;
+    @BindView(R.id.tv_search)
+    TextView tvSearch;
+    @BindView(R.id.ed_search)
+    ClearEditText edSearch;
+
 
     /*include*/
-    public View include_icTckz, include_img, include_edit;
+    public View include_icTckz, include_img, include_edit, include_poi;
 
     private SketchEditor sketchEditor;
     private ToolViewModel toolViewModel;
@@ -177,10 +179,16 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
     //轨迹查询对话框
     private TrackManagerFragment mTrackManager;
     public SpatialReference spatialReference;
-    //绘制图层
+    //绘制图层 行进轨迹等需要较长时间保留
     public GraphicsOverlay mGraphicsOverlay;
+    //展示图层 查询数据等仅用于临时展示的数据
+    public GraphicsOverlay showGraphicsOverlay;
     //轨迹状态 0查询轨迹
     int guijiState = -1;
+    //poi搜索
+    private POISearchView searchView;
+    private POISearchViewModel searchViewModel;
+    LoginResult.Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -196,16 +204,21 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         include_icTckz = findViewById(R.id.icTckz);
         include_img = findViewById(R.id.icImg);
         include_edit = findViewById(R.id.ic_feature_edit);
+        include_poi = findViewById(R.id.ic_poi_search);
     }
 
     void initData() {
-
+        if (TitanApplication.Companion.getLoginResult() != null) {
+            menu = TitanApplication.Companion.getLoginResult().getMenu();
+        }
         sbh = TitanApplication.Companion.getInstances().getSbh();
         mapView.setAttributionTextVisible(false);
         mapView.addSpatialReferenceChangedListener(new SpatialReferenceChangedListener() {
             @Override
             public void spatialReferenceChanged(SpatialReferenceChangedEvent spatialReferenceChangedEvent) {
                 spatialReference = spatialReferenceChangedEvent.getSource().getSpatialReference();
+                SpatialUtil.Companion.setDefaultSpatialReference(spatialReference);
+                Log.e("tag", "spatial:" + spatialReference.toJson());
             }
         });
 
@@ -229,17 +242,24 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         bootViewModel = BootViewModel.getInstance(this, this);
         sketchEditorViewModel = new SketchEditorViewModel(mapView);
 
-        //initViewModel.addTileLayer(mapView, this);
+//        gisTiledLayer= initViewModel.addTileLayer(mapView);
         tiledLayer = initViewModel.addOpenStreetMapLayer(mapView);
         location = gisLocation(mapView);
         mGraphicsOverlay = new GraphicsOverlay();
         mapView.getGraphicsOverlays().add(mGraphicsOverlay);
+        showGraphicsOverlay = new GraphicsOverlay();
+        mapView.getGraphicsOverlays().add(showGraphicsOverlay);
 
         layerManagerView = new LayerManagerView(this, this);
         LayerManagerViewModel managerViewModel = new LayerManagerViewModel(this, layerManagerView);
         layerManagerView.setViewModel(managerViewModel);
         binding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.share_tckz, null, false);
         binding.setViewmodel(managerViewModel);
+        searchView = new POISearchView(this, include_poi);
+        searchViewModel = new POISearchViewModel(this, searchView);
+        searchView.setViewmodel(searchViewModel);
+        searchView.getBinding().setVariable(BR.viewmodel, searchViewModel);
+        searchView.initView();
 //        include_icTckz = binding.getRoot();
 
         imgManager = new ImgManagerView(this, this);
@@ -262,9 +282,9 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
 
     @OnClick({R.id.share_isearch, R.id.ib_location, R.id.ib_clean, R.id.ib_distance,
-            R.id.ib_sketch, R.id.share_xcxxsb, R.id.tckz_imageview, R.id.close_tuceng,
+            R.id.ib_sketch, R.id.ib_loc_edit, R.id.share_xcxxsb, R.id.tckz_imageview, R.id.close_tuceng,
             R.id.addfeature, R.id.selectButton, R.id.xiubanButton, R.id.share_tcxr,
-            R.id.imgClose})
+            R.id.imgClose, R.id.tv_search})
     public void showInfo(View view) {
         switch (view.getId()) {
             case R.id.share_isearch:
@@ -272,7 +292,6 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 toolViewModel.cleanSketch(mapView);
                 actionModel = ActionModel.IQUERY;
                 toolViewModel.showInfo(mapView);
-
                 break;
             case R.id.ib_location:
                 toolViewModel.myLocation(location);
@@ -293,27 +312,63 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 actionModel = ActionModel.AREA;
                 toolViewModel.area(mapView);
                 break;
+            case R.id.ib_loc_edit:
+                //手动定位坐标
+                EditLocationDialog dialog = EditLocationDialog.Companion.getInstance();
+                dialog.setListener(this);
+                dialog.setLocPoint(location.getMappoint());
+                dialog.show(getSupportFragmentManager(), "editlocdialog");
+                break;
             case R.id.share_xcxxsb:
-//                startActivity(EventActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("lon", ConverterUtils.toString(location.getGpspoint().getX()));
-                bundle.putString("lat", ConverterUtils.toString(location.getGpspoint().getY()));
-                Intent intent = new Intent(this, ContainerActivity.class);
-                intent.putExtra(ContainerActivity.BUNDLE, bundle);
-                intent.putExtra(ContainerActivity.FRAGMENT, UpEventFragment.class.getCanonicalName());
-                startActivity(intent);
+                if (menu == null) {
+                    toast(this, "不具备当前菜单权限");
+                    break;
+                }
+                if (Utils.Companion.checkPermission(this, menu.getAPP_LYXJ_SJSB())) {
+                    //startActivity(EventActivity.class);
+                    Intent intent = new Intent(this, ContainerActivity.class);
+                    if (location != null && location.getMappoint() != null) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("lon", ConverterUtils.toString(location.getMappoint().getX()));
+                        bundle.putString("lat", ConverterUtils.toString(location.getMappoint().getY()));
+                        intent.putExtra(ContainerActivity.BUNDLE, bundle);
+                    }
+                    intent.putExtra(ContainerActivity.FRAGMENT, UpEventFragment.class.getCanonicalName());
+                    startActivity(intent);
+                }
                 break;
             case R.id.tckz_imageview:
-                bootViewModel.layerManger();
+                if (menu == null) {
+                    toast(this, "不具备当前菜单权限");
+                    break;
+                }
+                if (Utils.Companion.checkPermission(this, menu.getAPP_LYXJ_TCKZ())) {
+                    bootViewModel.layerManger();
+                }
                 break;
             case R.id.share_tcxr:
-                bootViewModel.xbbj();
+                if (menu == null) {
+                    toast(this, "不具备当前菜单权限");
+                    break;
+                }
+                if (Utils.Companion.checkPermission(this, menu.getAPP_LYXJ_XBBJ())) {
+                    bootViewModel.xbbj();
+                }
                 break;
             case R.id.close_tuceng:
                 layerManagerView.close();
                 break;
             case R.id.imgClose:
                 imgManager.close();
+                break;
+            case R.id.tv_search:
+                //poi搜索
+                searchViewModel.isVisible().set(true);
+                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    edSearch.requestFocus();
+                    imm.showSoftInput(edSearch, 0);
+                }
                 break;
         }
     }
@@ -718,8 +773,10 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
      * @param location
      */
     void addPoint(Location location) {
-        final String lon = ConverterUtils.toString(location.getGpspoint().getX());
-        final String lat = ConverterUtils.toString(location.getGpspoint().getY());
+//        final String lon = ConverterUtils.toString(location.getGpspoint().getX());
+//        final String lat = ConverterUtils.toString(location.getGpspoint().getY());
+        final String lon = ConverterUtils.toString(location.getMappoint().getX());
+        final String lat = ConverterUtils.toString(location.getMappoint().getY());
         String auth = TitanApplication.Companion.getSharedPreferences().getString("auth", null);
         if (auth == null) {
             ToastUtil.setToast(this, "登录信息验证失败");
@@ -800,8 +857,12 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
     @Override
     public void showTckz() {
-        include_icTckz.setVisibility(View.VISIBLE);
-        layerManagerView.initView();
+        if (include_icTckz.getVisibility() == View.VISIBLE) {
+            include_icTckz.setVisibility(View.GONE);
+        } else {
+            include_icTckz.setVisibility(View.VISIBLE);
+            layerManagerView.initView();
+        }
     }
 
     @Override
@@ -880,6 +941,23 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                 sketchEditorViewModel.queryFeature(myLayer, geometry, features);
             }
         }
+    }
 
+    @Override
+    public void setPoint(@NotNull Point point) {
+        Graphic graphic = new Graphic(point, SymbolUtil.getLocSymbol(this));
+        showGraphicsOverlay.getGraphics().clear();
+        showGraphicsOverlay.getGraphics().add(graphic);
+        mapView.setViewpointCenterAsync(point, Constant.INSTANCE.getDefalutScale());
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (searchViewModel.isVisible().get()) {
+            searchViewModel.isVisible().set(false);
+            return;
+        }
+        super.onBackPressed();
     }
 }

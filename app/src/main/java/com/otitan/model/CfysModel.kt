@@ -19,8 +19,8 @@ class CfysModel<T> : Serializable {
         var count: String = ""
     }
 
-    class Sjgl {
-        /**林木采伐证信息*/
+    /**林木采伐证信息*/
+    class Cfz {
         //GUID
         var GUID: String = ""
         //采伐证号
@@ -203,8 +203,16 @@ class CfysModel<T> : Serializable {
         var APPLY_CARDNUMBER: String = ""
         //采伐证类型，1：一般林木  2， 珍贵树木、 3，沿海保护林带
         var TIMBER_TYPE: String = ""
+    }
 
-        /**木材运输证信息*/
+    /**木材运输证信息*/
+    class Ysz {
+        //备注
+        var BEI_ZHU: String = ""
+        //状态
+        var ZHUANG_TAI: String = ""
+        //印刷号
+        var YIN_SHUA_H: String = ""
         //运输证编号
         var YSZ_BH: String = ""
         //货主编号
@@ -265,6 +273,7 @@ class CfysModel<T> : Serializable {
         var LU_RU_RXM: String = ""
         //木材产地
         var CHAN_DI: String = ""
+
     }
 
 }

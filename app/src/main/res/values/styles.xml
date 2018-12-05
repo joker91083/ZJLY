@@ -231,4 +231,11 @@
         <item name="android:layout_weight">1</item>
     </style>
 
+    <style name="DialogFragment" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/balck</item>
+        <!--是否允许背景变暗-->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
 </resources>

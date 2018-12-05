@@ -42,10 +42,10 @@ public class InitViewModel extends BaseViewModel{
 
     public ArcGISTiledLayer addTileLayer(final MapView mapView){
         String path = ResourcesManager.Companion.getInstances(mContext).getTitlePath();
-        if(path.equals("") || path.equals(Constant.INSTANCE.getFilePath())){
-            path = mContext.getResources().getString(R.string.World_Imagery);
-        }
-
+//        if(path.equals("") || path.equals(Constant.INSTANCE.getFilePath())){
+//            path = mContext.getResources().getString(R.string.World_Imagery);
+//        }
+//        String path = mContext.getResources().getString(R.string.ChinaOnline);
         ArcGISTiledLayer tiledLayer = new ArcGISTiledLayer(path);
         Basemap basemap = new Basemap(tiledLayer);
         ArcGISMap gisMap = new ArcGISMap(basemap);

@@ -415,4 +415,12 @@
     <item>征占用林地</item>
     <item>捕杀野生动物</item>
     </string-array>
+    
+    <string-array name="permission">
+        <item>APP-LYXJ</item>
+        <item>APP-LQGL-ZYGL-SJCX</item>
+        <item>APP-LQGL</item>
+        <item>APP-LQGL-SLFH</item>
+        <item>APP-ZYGL</item>
+    </string-array>
 </resources>

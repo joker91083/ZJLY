@@ -10,18 +10,16 @@ import com.bin.david.form.data.column.Column
 import com.bin.david.form.data.table.TableData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.otitan.TitanApplication
 import com.otitan.base.BaseFragment
-import com.otitan.main.viewmodel.LQuanViewModel
 import com.otitan.main.viewmodel.ZwjyViewModel
 import com.otitan.main.widgets.BarChartInit
 import com.otitan.main.widgets.SmartTableStyle
 import com.otitan.model.LQuanModel
 import com.otitan.ui.mview.IInfoBase
-import com.otitan.ui.mview.ILQuan
 import com.otitan.util.Utils
 import com.otitan.zjly.BR
 import com.otitan.zjly.R
-import com.otitan.zjly.databinding.FmLquanBinding
 import com.otitan.zjly.databinding.FmZwjyBinding
 
 /**
@@ -107,7 +105,10 @@ class ZwjyFragment : BaseFragment<FmZwjyBinding, ZwjyViewModel>(), IInfoBase {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.data_manage -> {
-                startContainerActivity(ZwjyDataFragment::class.java.canonicalName)
+                val menu = TitanApplication.loginResult?.menu
+                if (Utils.checkPermission(activity, menu?.APP_LQGL_ZWJY_SJCX)) {
+                    startContainerActivity(ZwjyDataFragment::class.java.canonicalName)
+                }
             }
         }
         return true
