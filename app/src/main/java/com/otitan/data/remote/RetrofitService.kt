@@ -61,6 +61,14 @@ interface RetrofitService {
     @GET("/api/event")
     fun eventList(@Header("Authorization") auth: String, @Query("fromTime") fromTime: String, @Query("toTime") toTime: String): Observable<ResultModel<Any>>
 
+    /**------------- 语音识别 -----------------*/
+
+    /**
+     * 语音识别
+     */
+    @GET("/api/speech/GetResult")
+    fun speech(@Query("phrase") phrase: String): Observable<ResultModel<Any>>
+
     /**------------- 指尖决策 -----------------*/
 
     /**

@@ -1,5 +1,6 @@
 package com.otitan.main.fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.otitan.TitanApplication;
 import com.otitan.base.BaseFragment;
 import com.otitan.main.viewmodel.SettingViewModel;
 import com.otitan.zjly.BR;
@@ -56,5 +58,8 @@ public class SettingFragment extends BaseFragment<FmSettingBinding, SettingViewM
                 }
             });
         }
+        SharedPreferences sp = TitanApplication.Companion.getSharedPreferences();
+        viewModel.guiji.set(sp.getBoolean("guiji", true));
+        viewModel.showLine.set(sp.getBoolean("showLine", false));
     }
 }

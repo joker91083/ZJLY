@@ -23,6 +23,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static org.jetbrains.anko.DialogsKt.toast;
+
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
     @BindView(R.id.main_viewpager)
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     }
 
     @OnClick(R.id.main_zybj)
-    public void toActivity(){
+    public void toActivity() {
         startToActivity(MapCenterActivity.class);
     }
 
@@ -126,4 +128,23 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         Intent intent = new Intent(MainActivity.this, cls);
         startActivity(intent);
     }
+
+
+    /**
+     * 手机返回键监听
+     */
+    long firstTime = 0;
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        long secondTime = System.currentTimeMillis();
+        if (secondTime - firstTime > 800) { // 两次点击间隔大于800毫秒，不退出
+            toast(this, "再按一次退出程序");
+            firstTime = secondTime; // 更新firstTime
+        } else {
+            System.exit(0); // 退出APP
+        }
+    }
+
 }

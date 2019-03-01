@@ -13,7 +13,7 @@ import org.jetbrains.anko.toast
 
 /**
  * Created by hanyw on 2018/2/3.
- * 登录
+ * 轨迹查询
  */
 class TrackManagerViewModel() : BaseViewModel() {
 

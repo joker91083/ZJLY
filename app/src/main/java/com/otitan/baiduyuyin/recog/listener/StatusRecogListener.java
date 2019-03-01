@@ -63,7 +63,7 @@ public class StatusRecogListener implements IRecogListener, IStatus {
     @Override
     public void onAsrFinishError(int errorCode, int subErrorCode,  String descMessage,
                                  RecogResult recogResult) {
-        status = STATUS_FINISHED;
+        status = STATUS_FINISHEDERROR;
     }
 
     @Override

@@ -31,8 +31,10 @@ public class SymbolUtil {
     public static MarkerSymbol firepoint;
     /**测量起点样式*/
     public static MarkerSymbol startpoint=new SimpleMarkerSymbol(SimpleMarkerSymbol.Style.CIRCLE,Color.BLUE,5);
-    /**测量线样式*/
+    //轨迹采集
     public static SimpleLineSymbol measureline=new SimpleLineSymbol(SimpleLineSymbol.Style.SOLID,Color.RED,3, SimpleLineSymbol.MarkerStyle.NONE, SimpleLineSymbol.MarkerPlacement.END);
+    //轨迹查询
+    public static SimpleLineSymbol guijiline=new SimpleLineSymbol(SimpleLineSymbol.Style.SOLID,Color.BLUE,3, SimpleLineSymbol.MarkerStyle.NONE, SimpleLineSymbol.MarkerPlacement.END);
 
     //节点样式
     public static MarkerSymbol vertexSymbol =new SimpleMarkerSymbol(SimpleMarkerSymbol.Style.CIRCLE, Color.GREEN,5);

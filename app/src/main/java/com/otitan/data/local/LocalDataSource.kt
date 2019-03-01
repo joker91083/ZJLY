@@ -46,10 +46,16 @@ interface LocalDataSource {
      */
     fun saveEvent(eventModel: EventModel, callback: Callback)
 
+    //保存附件
+    fun saveAtt(atts: List<EventModel.Att>, callback: Callback)
+
     /**
      * 查询本地事件
      */
     fun queryEvent(callback: Callback)
+
+    //查询附件
+    fun queryAtt(callback: Callback)
 
     /**
      * 删除本地事件

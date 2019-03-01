@@ -3,6 +3,7 @@ package com.otitan.util
 import android.content.Context
 import android.database.Observable
 import android.os.storage.StorageManager
+import com.titan.baselibrary.util.Util
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.Serializable
@@ -53,6 +54,27 @@ class ResourcesManager : Serializable {
         }
 
         return paths
+    }
+
+    /**根据设备是否root获取跟目路 */
+    @Throws(jsqlite.Exception::class)
+    fun getTootPath(): String {
+        var dataPath = "文件夹可用地址"
+        val memoryPath = getMemoryPath()
+        val flag = Util.isRoot()
+        if (flag) {
+            val file = File(getFilePath("/test"))
+            file.mkdirs()
+            if (file.exists()) {
+                dataPath = memoryPath!![1]
+                file.delete()
+            } else {
+                dataPath = memoryPath!![0]
+            }
+        } else {
+            dataPath = memoryPath!![0]
+        }
+        return dataPath
     }
 
     /** 取文件可用地址  */

@@ -63,6 +63,7 @@ class UpEventViewModel() : BaseViewModel() {
             }
 
             override fun onSuccess(result: Any?) {
+//                dataRepository.saveAtt()
                 mContext?.toast("保存成功")
             }
         })

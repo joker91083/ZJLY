@@ -560,7 +560,15 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                     location.setMappoint(map);
                 }
 
-                addPoint(location);
+//                double x = 37481883.839335;
+//                double y = 3439739.615180;
+//                Point p = new Point(x,y,SpatialUtil.Companion.getSpatialWgs3857());
+//                Point p1 = (Point) GeometryEngine.project(p,SpatialUtil.Companion.getSpatialWgs4326());
+                if (TitanApplication.Companion.getSharedPreferences().getBoolean("guiji", false)) {
+                    addPoint(location);
+                }
+                showTravelLine(point);
+//                Log.e("tag","x:"+p1.getX()+", y:"+p1.getY());
             }
         });
         display.startAsync();
@@ -732,6 +740,7 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         return flag;
     }
 
+
     private boolean setMyLayer(Feature feature) {
         String tableName = feature.getFeatureTable().getTableName();
         myLayer = null;
@@ -773,10 +782,10 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
      * @param location
      */
     void addPoint(Location location) {
-//        final String lon = ConverterUtils.toString(location.getGpspoint().getX());
-//        final String lat = ConverterUtils.toString(location.getGpspoint().getY());
-        final String lon = ConverterUtils.toString(location.getMappoint().getX());
-        final String lat = ConverterUtils.toString(location.getMappoint().getY());
+        final String lon = ConverterUtils.toString(location.getGpspoint().getX());
+        final String lat = ConverterUtils.toString(location.getGpspoint().getY());
+//        final String lon = ConverterUtils.toString(location.getMappoint().getX());
+//        final String lat = ConverterUtils.toString(location.getMappoint().getY());
         String auth = TitanApplication.Companion.getSharedPreferences().getString("auth", null);
         if (auth == null) {
             ToastUtil.setToast(this, "登录信息验证失败");
@@ -821,19 +830,63 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
 
     }
 
+
+    PointCollection points;
+    PolylineBuilder mPolylineBuilder;
+    Polyline travelLine;
+    Graphic mGraphic;
+
+    //显示轨迹
+    private void showTravelLine(Point gpspoint) {
+        try {
+            boolean flag = TitanApplication.Companion.getSharedPreferences().getBoolean("showLine", false);
+            if (flag) {
+//            Point point;
+//            if (mapView.getSpatialReference() != null) {
+//                point = (Point) GeometryEngine.project(gpspoint, SpatialUtil.Companion.getDefaultSpatialReference());
+//            } else {
+//                point = (Point) GeometryEngine.project(gpspoint, mapView.getSpatialReference());
+//            }
+                if (gpspoint.isEmpty()) {
+                    return;
+                }
+                if (points == null) {
+                    points = new PointCollection(SpatialUtil.Companion.getSpatialWgs4326());
+                }
+                points.add(gpspoint);
+                mPolylineBuilder = new PolylineBuilder(points);
+                if (mPolylineBuilder.isSketchValid()) {
+                    mGraphic = new Graphic(mPolylineBuilder.toGeometry(), SymbolUtil.measureline);
+                }
+                if (mGraphic != null) {
+                    mGraphicsOverlay.getGraphics().remove(mGraphic);
+                    mGraphicsOverlay.getGraphics().add(mGraphic);
+                }
+            } else {
+                travelLine = null;
+                points = null;
+                mPolylineBuilder = null;
+                mGraphic = null;
+            }
+        } catch (Exception e) {
+            Log.e("tag", "err:" + e.getMessage());
+        }
+    }
+
     @Override
     public void drawTrackLine(@NotNull List<? extends TrackPoint> list) {
         PointCollection points = new PointCollection(spatialReference);
         for (TrackPoint tp : list) {
-            Point point;
 //            if (mapView.getSpatialReference() != null && mapView.getSpatialReference().getWkid() == 4326) {
-            if (spatialReference != null && spatialReference.getWkid() == 4326) {
-                point = (Point) GeometryEngine.project(new Point(Double.parseDouble(tp.getLon()),
-                                Double.parseDouble(tp.getLat()), SpatialUtil.Companion.getSpatialWgs4326()),
-                        spatialReference);
-            } else {
-                point = new Point(Double.parseDouble(tp.getLon()), Double.parseDouble(tp.getLat()));
-            }
+//            if (spatialReference != null && spatialReference.getWkid() == 4326) {
+//                point = (Point) GeometryEngine.project(new Point(Double.parseDouble(tp.getLon()),
+//                                Double.parseDouble(tp.getLat()), SpatialUtil.Companion.getSpatialWgs3857()),
+//                        spatialReference);
+//            } else {
+//                point = new Point(Double.parseDouble(tp.getLon()), Double.parseDouble(tp.getLat()));
+//            }
+            Point temp = new Point(Double.parseDouble(tp.getLon()), Double.parseDouble(tp.getLat()), SpatialUtil.Companion.getSpatialWgs4326());
+            Point point = (Point) GeometryEngine.project(temp, SpatialUtil.Companion.getDefaultSpatialReference());
             if (!point.isEmpty()) {
                 points.add(point);
             }
@@ -841,9 +894,9 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
         if (points.size() > 0) {
             PolylineBuilder polyline = new PolylineBuilder(points);
             if (polyline.isSketchValid()) {
-                Graphic graphic = new Graphic(polyline.toGeometry(), SymbolUtil.measureline);
-                mGraphicsOverlay.getGraphics().add(graphic);
-                mapView.setViewpointGeometryAsync(graphic.getGeometry());
+                Graphic graphic = new Graphic(polyline.toGeometry(), SymbolUtil.guijiline);
+                showGraphicsOverlay.getGraphics().add(graphic);
+                mapView.setViewpointGeometryAsync(graphic.getGeometry(), 10000.0);
             }
         } else {
             ToastUtil.setToast(this, "未查询到轨迹点");

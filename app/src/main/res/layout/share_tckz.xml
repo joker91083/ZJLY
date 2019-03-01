@@ -39,8 +39,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/background_view_rounded_image"
                 android:contentDescription="@null"
+                android:background="@drawable/background_view_rounded_image"
                 android:onClick="@{()->viewmodel.closeView()}"
                 android:padding="4dp"
                 app:srcCompat="@drawable/ic_close_black_24dp" />

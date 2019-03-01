@@ -13,6 +13,7 @@ public interface IStatus {
     int STATUS_RECOGNITION = 5;
 
     int STATUS_FINISHED = 6;
+    int STATUS_FINISHEDERROR = 66666;
     int STATUS_LONG_SPEECH_FINISHED = 7;
     int STATUS_STOPPED = 10;
 

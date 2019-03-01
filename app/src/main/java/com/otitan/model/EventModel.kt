@@ -63,7 +63,13 @@ class EventModel {
     }
 
     //附件信息
+//    @Entity
     class Att {
+        //本地数据库id
+//        @Id
+        var locId: Long? = null
+        //本地数据库父级id
+        var gId: Long? = null
         //主键标识
         var ID: String? = null
         //	附件类型（1：图片，2：视频，3：音频）

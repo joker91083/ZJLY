@@ -13,7 +13,9 @@ import com.otitan.data.remote.RemoteDataSource
 import com.otitan.main.model.RepealInfo
 import com.otitan.model.LoginResult
 import com.otitan.model.MyObjectBox
+import com.otitan.util.ResourcesManager
 import com.otitan.util.ToastUtil
+import com.otitan.util.ZIPUtil
 import com.otitan.zjly.R
 import com.tencent.bugly.Bugly
 import com.titan.baselibrary.util.MobileInfoUtil
@@ -21,6 +23,8 @@ import com.titan.baselibrary.util.ScreenTool
 import io.objectbox.BoxStore
 import io.objectbox.android.AndroidObjectBrowser
 import io.objectbox.android.BuildConfig
+import org.jetbrains.anko.async
+import java.io.*
 import kotlin.properties.Delegates
 
 class TitanApplication : Application() {
@@ -73,6 +77,11 @@ class TitanApplication : Application() {
         screen = ScreenTool.getScreenPix(this)
 
         sbh = MobileInfoUtil.getMAC(this)
+
+        async {
+            val path = ResourcesManager.getInstances(applicationContext).getTootPath()
+            copyDatabase(path, "maps.zip", "maps.zip")
+        }
     }
 
     /**
@@ -100,4 +109,67 @@ class TitanApplication : Application() {
         })
     }
 
+    /** 复制默认数据到本地  */
+    private fun copyDatabase(fileDir: String, assetPath: String, filename: String) {
+        val file = File("$fileDir/$filename")
+        if (file.exists() && file.isFile) {
+            UnZipTFolder(fileDir, filename)
+            return
+        }
+        try {
+            val db = resources.assets.open(assetPath) ?: return
+            val fos = FileOutputStream("$fileDir/$filename")
+
+            var read:Int = -1
+            db.use { input->
+                fos.use {
+                    while ({read = input.read();read}()!=-1){
+                        it.write(read)
+                    }
+                }
+            }
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        UnZipTFolder(fileDir, filename)
+    }
+
+
+    /**解压文件并删除zip文件 */
+    fun UnZipTFolder(fileDir: String, filename: String) {
+        try {
+            //ZIPUtil.UnZipFolder(fileDir+"/"+filename, fileDir+"/");
+            ZIPUtil.unzip("$fileDir/$filename", "$fileDir/")
+        } catch (e: Exception) {//java.io.FileNotFoundException: /storage/emulated/0/maps.zip: open failed: ENOENT (No such file or directory)
+            e.printStackTrace()
+        }
+
+        //删除本地的zip压缩文件
+        File("$fileDir/$filename").delete()
+    }
+
+    inline fun <T : Closeable?, R> T.use(block: (T) -> R): R {
+        var exception: Throwable? = null
+        try {
+            return block(this)
+        } catch (e: Throwable) {
+            exception = e
+            throw  e
+        } finally {
+            when {
+                this == null -> {
+                }
+                exception == null -> close()
+                else ->
+                    try {
+                        close()
+                    } catch (closeException: Throwable) {
+                        Log.e("tag", "closeErr:$closeException")
+                    }
+            }
+        }
+    }
 }

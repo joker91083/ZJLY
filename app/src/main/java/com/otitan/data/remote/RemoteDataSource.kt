@@ -60,6 +60,11 @@ interface RemoteDataSource {
     fun forestydynamic(callback: mCallback)
 
     /**
+     * 语音识别
+     */
+    fun speech(phrase: String, callback: mCallback)
+
+    /**
      * 决策信息订阅
      */
     fun subscription(type: Int, callback: mCallback)

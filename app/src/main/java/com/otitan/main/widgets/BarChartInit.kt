@@ -5,14 +5,18 @@ import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
+import com.github.mikephil.charting.formatter.IValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import com.github.mikephil.charting.utils.ViewPortHandler
 import com.otitan.zjly.R
 import java.lang.Exception
 
@@ -51,7 +55,12 @@ class BarChartInit {
                 }
             }
             val yAxisFormat = IAxisValueFormatter { value, axis ->
-                value.toString()
+                if (value.compareTo(value.toLong()) == 0) {
+                    val l = value.toLong()
+                    l.toString()
+                } else {
+                    value.toString()
+                }
             }
             val leftYAxis = barChart.axisLeft
             //        rightYaxis = barChart.axisRight
@@ -105,6 +114,14 @@ class BarChartInit {
                     val dataSets = ArrayList<IBarDataSet>()
                     dataSets.add(barDataset!!)
                     val barData = BarData(dataSets)
+                    barData.setValueFormatter { value, entry, dataSetIndex, viewPortHandler ->
+                        if (value.compareTo(value.toLong()) == 0) {
+                            val l = value.toLong()
+                            l.toString()
+                        } else {
+                            value.toString()
+                        }
+                    }
                     barData.barWidth = 0.9f
                     barData.setValueTextSize(10f)
                     barChart.data = barData

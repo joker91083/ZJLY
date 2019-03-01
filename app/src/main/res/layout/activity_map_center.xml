@@ -65,7 +65,8 @@
                 android:id="@+id/ic_poi_search"
                 layout="@layout/include_poi_search"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
 
         </RelativeLayout>
     </FrameLayout>

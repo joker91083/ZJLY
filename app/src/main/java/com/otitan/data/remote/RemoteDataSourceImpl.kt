@@ -221,6 +221,23 @@ class RemoteDataSourceImpl() : RemoteDataSource {
                 })
     }
 
+    override fun speech(phrase: String, callback: RemoteDataSource.mCallback) {
+        val observable = RetrofitHelper.instance.server.speech(phrase)
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<ResultModel<Any>> {
+                    override fun onError(e: Throwable?) {
+                        errInfo(e, callback)
+                    }
+
+                    override fun onNext(t: ResultModel<Any>?) {
+                        callback.onSuccess(t!!)
+                    }
+
+                    override fun onCompleted() {
+                    }
+                })
+    }
+
     /**
      * 决策信息订阅
      */

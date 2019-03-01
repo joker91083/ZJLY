@@ -68,6 +68,14 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
         localDataSource.queryEvent(callback)
     }
 
+    override fun saveAtt(atts: List<EventModel.Att>, callback: LocalDataSource.Callback) {
+        localDataSource.saveAtt(atts, callback)
+    }
+
+    override fun queryAtt(callback: LocalDataSource.Callback) {
+        localDataSource.queryAtt(callback)
+    }
+
     override fun login(username: String, password: String, type: String, callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.login(username, password, type, callback)
     }
@@ -90,6 +98,10 @@ class DataRepository private constructor(private val localDataSource: LocalDataS
 
     override fun forestydynamic(callback: RemoteDataSource.mCallback) {
         mRemoteDataSource.forestydynamic(callback)
+    }
+
+    override fun speech(phrase: String, callback: RemoteDataSource.mCallback) {
+        mRemoteDataSource.speech(phrase, callback)
     }
 
     override fun subscription(type: Int, callback: RemoteDataSource.mCallback) {

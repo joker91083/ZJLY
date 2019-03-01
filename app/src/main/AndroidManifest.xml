@@ -69,15 +69,25 @@
             android:name="com.baidu.speech.VoiceRecognitionService"
             android:exported="false" />
 
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.otitan.zjly.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity
             android:name="com.otitan.login.LoginActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name="com.otitan.base.ContainerActivity"
@@ -87,7 +97,13 @@
             android:configChanges="screenSize|keyboardHidden|orientation" />
         <activity
             android:name="com.otitan.main.view.MainActivity"
-            android:configChanges="screenSize|keyboardHidden|orientation" />
+            android:configChanges="screenSize|keyboardHidden|orientation" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+        
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.otitan.main.view.MapCenterActivity"
             android:configChanges="screenSize|keyboardHidden|orientation">

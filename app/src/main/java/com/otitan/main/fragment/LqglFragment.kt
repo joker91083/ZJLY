@@ -64,6 +64,11 @@ class LqglFragment : BaseFragment<FmLqglBinding, LqglViewModel>(), ILQGL {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        refresh()
+    }
+
     override fun initData() {
         super.initData()
         binding.ftbLqgl.setOnClickListener { view ->

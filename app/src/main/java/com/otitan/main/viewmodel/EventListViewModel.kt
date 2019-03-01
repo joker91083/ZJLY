@@ -135,7 +135,6 @@ class EventListViewModel() : BaseViewModel() {
                         isFinishRefreshing.set(!isFinishRefreshing.get())
                     }
                     2 -> {
-                        ysbList.clear()
                         isFinishLoading.set(!isFinishLoading.get())
                     }
                 }

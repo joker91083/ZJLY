@@ -6,11 +6,9 @@ import com.otitan.TitanApplication
 import com.otitan.main.model.TrackPoint
 import com.otitan.model.EventModel
 import com.otitan.model.POIModel
-import com.otitan.util.Format
+import com.otitan.util.FormatUtil
 import com.otitan.util.ResourcesManager
 import jsqlite.Callback
-import java.util.*
-import kotlin.collections.ArrayList
 
 
 class LocalDataSourceImpl() : LocalDataSource {
@@ -23,6 +21,7 @@ class LocalDataSourceImpl() : LocalDataSource {
     companion object {
         val instances: LocalDataSourceImpl by lazy { Holder.single }
         val eventBox = TitanApplication.boxStore?.boxFor(EventModel::class.java)
+//        val attBox = TitanApplication.boxStore?.boxFor(EventModel.Att::class.java)
     }
 
 
@@ -34,7 +33,7 @@ class LocalDataSourceImpl() : LocalDataSource {
             Class.forName("jsqlite.JDBCDriver").newInstance()
             val db = jsqlite.Database()
             db.open(databaseName, jsqlite.Constants.SQLITE_OPEN_READWRITE)
-            var time = Format.timeFormat()
+            val time = FormatUtil.dateFormat()
             val sql = ("insert into point values(null," + lon + "," + lat
                     + ",'" + sbh + "','" + time + "'," + state
                     + ",geomfromtext('POINT(" + lon + " " + lat + ")',2343))")
@@ -57,8 +56,8 @@ class LocalDataSourceImpl() : LocalDataSource {
             val db = jsqlite.Database()
             db.open(databaseName, jsqlite.Constants.SQLITE_OPEN_READWRITE)
             val sql = ("SELECT * FROM point WHERE sbh ='" + sbh
-                    + "' and time <= datetime('" + stratime
-                    + "') and time >=('" + endtime
+                    + "' and time >= datetime('" + stratime
+                    + "') and time <=('" + endtime
                     + "') order by datetime(time) desc")
             db.exec(sql, object : Callback {
 
@@ -144,6 +143,7 @@ class LocalDataSourceImpl() : LocalDataSource {
         }
     }
 
+
     override fun queryEvent(callback: LocalDataSource.Callback) {
         try {
             val list = eventBox?.all
@@ -151,6 +151,19 @@ class LocalDataSourceImpl() : LocalDataSource {
         } catch (e: Exception) {
             callback.onFailure("查询事件异常$e")
         }
+    }
+
+    override fun saveAtt(atts: List<EventModel.Att>, callback: LocalDataSource.Callback) {
+        try {
+//            val id = attBox?.put(atts)
+//            callback.onSuccess(id)
+        } catch (e: Exception) {
+            callback.onFailure("事件保存失败")
+        }
+    }
+
+    override fun queryAtt(callback: LocalDataSource.Callback) {
+
     }
 
     override fun delEvent(id: Long, callback: LocalDataSource.Callback) {

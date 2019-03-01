@@ -21,6 +21,9 @@ import com.baidu.speech.asr.SpeechConstant
 import com.otitan.baiduyuyin.recog.IStatus
 import com.otitan.baiduyuyin.recog.RecogResult
 import com.otitan.baiduyuyin.recog.listener.IRecogListener
+import com.otitan.data.Injection
+import com.otitan.data.remote.RemoteDataSource
+import com.otitan.model.ResultModel
 import com.otitan.zjly.databinding.FmVoiceSearchBinding
 import org.jetbrains.anko.toast
 
@@ -83,10 +86,14 @@ class VoiceSearchFragment : BaseFragment<FmVoiceSearchBinding, VoiceSearchViewMo
                         IStatus.STATUS_RECOGNITION -> {
                             viewmodel?.hint?.set(msg.obj.toString())
                         }
+                        IStatus.STATUS_FINISHEDERROR -> {
+                            viewmodel?.hint?.set(msg.obj.toString())
+                        }
                         IStatus.STATUS_FINISHED -> {
-//                            viewmodel?.hint?.set("正在搜索...")
+                            viewmodel?.hint?.set("正在搜索...")
                             binding.etSearch.setText(msg.obj.toString())
                             viewmodel?.isRecording?.set(false)
+                            speech(msg.obj.toString())
                         }
                     }
                 }
@@ -172,5 +179,24 @@ class VoiceSearchFragment : BaseFragment<FmVoiceSearchBinding, VoiceSearchViewMo
         myRecognizer?.release()
         Log.i("tag", "onDestory")
         super.onDestroy()
+    }
+
+    fun speech(phrase: String) {
+        Injection.provideDataRepository().speech(phrase, object : RemoteDataSource.mCallback {
+            override fun onFailure(info: String) {
+                activity?.toast(info)
+                viewmodel?.hint?.set("搜索错误，请重试")
+            }
+
+            override fun onSuccess(result: Any) {
+                if ((result as ResultModel<Any>).isResponseResult) {
+                    if (result.data == null) {
+                        viewmodel?.hint?.set("没有搜索到内容，请重试")
+                    } else {
+                        viewmodel?.hint?.set(result.data.toString())
+                    }
+                }
+            }
+        })
     }
 }

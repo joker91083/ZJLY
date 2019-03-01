@@ -92,7 +92,7 @@ class Utils {
         }
 
         fun dp2px(value: Float, context: Context): Float {
-            return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, value, context.resources.displayMetrics)
+            return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, context.resources.displayMetrics)
         }
 
         /**动态设置控件的高度 */
