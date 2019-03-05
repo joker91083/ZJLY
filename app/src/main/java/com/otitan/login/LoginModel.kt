@@ -2,6 +2,7 @@ package com.otitan.login
 
 import android.databinding.ObservableField
 import android.util.Log
+import com.baidu.speech.utils.MD5Util
 import com.esri.arcgisruntime.geometry.Geometry
 import com.google.gson.Gson
 import com.otitan.TitanApplication
@@ -14,6 +15,7 @@ import com.otitan.main.view.MainActivity
 import com.otitan.model.LoginInfo
 import com.otitan.model.LoginResult
 import com.otitan.model.ResultModel
+import com.otitan.util.MD5
 import com.otitan.util.ToastUtil
 import okhttp3.MediaType
 import okhttp3.RequestBody
@@ -63,7 +65,12 @@ class LoginModel() : BaseViewModel(), ILoginView {
         loginInfo.username = name!!.get()
 
         showDialog("登陆中...")
-        dataRepository.login(name!!.get()!!, password!!.get()!!, "password", object : RemoteDataSource.mCallback {
+
+        val name = name!!.get()
+        val psw = password!!.get()
+        val password = MD5.encryption(psw)
+
+        dataRepository.login(name!!, password, "password", object : RemoteDataSource.mCallback {
             override fun onFailure(info: String) {
                 dismissDialog()
                 onFail("登录失败:$info")
@@ -76,8 +83,8 @@ class LoginModel() : BaseViewModel(), ILoginView {
                 if (checked!!.get()!!) {
                     val edit = TitanApplication.sharedPreferences.edit()
                     edit.putBoolean("remember ", true).apply()
-                    edit.putString("name", name!!.get()).apply()
-                    edit.putString("password", password!!.get()).apply()
+                    edit.putString("name", name).apply()
+                    edit.putString("password", psw).apply()
                     edit.putString("auth", result.data.access_token).apply()
                 }
                 startActivity(MainActivity::class.java)

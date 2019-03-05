@@ -42,7 +42,6 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
     dataBinding {
         enabled true
     }
@@ -62,14 +61,12 @@ android {
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
     }
-
-
     greendao {
         schemaVersion 1 //数据库版本号
         daoPackage 'com.otitan.greendao'// 设置DaoMaster、DaoSession、Dao 包名
         targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
     }
-
+    buildToolsVersion '28.0.2'
 }
 
 dependencies {
@@ -98,7 +95,8 @@ dependencies {
 
     // 提示框
     implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
-//    implementation 'com.afollestad.material-dialogs:core:2.0.0-rc2'
+
+    //    implementation 'com.afollestad.material-dialogs:core:2.0.0-rc2'
 
     // arcgis
     implementation 'com.esri.arcgisruntime:arcgis-android:100.3.0'
@@ -162,12 +160,17 @@ dependencies {
     implementation('com.lcodecorex:tkrefreshlayout:1.0.7') {
         exclude group: 'com.android.support'
     }
+
     /*Objectbox*/
+
     // all below should be added automatically by the plugin
     implementation "io.objectbox:objectbox-android:$objectboxVersion"
+
     // some useful Kotlin extension functions
     implementation "io.objectbox:objectbox-kotlin:$objectboxVersion"
+
     //annotationProcessor "io.objectbox:objectbox-processor:$objectboxVersion"
+
     //When using Kotlin use kapt instead:
     kapt "io.objectbox:objectbox-processor:$objectboxVersion"
 }

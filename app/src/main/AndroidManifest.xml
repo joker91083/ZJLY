@@ -51,14 +51,14 @@
             android:value="14935464" />
         <meta-data
             android:name="com.baidu.speech.API_KEY"
-            android:value="Xhz2btksiQwF00rBHYOkOYdR" />
+            android:value="LqwYPyPSkE2yvwkuX9aaaiVb" />
         <meta-data
             android:name="com.baidu.speech.SECRET_KEY"
-            android:value="PLICGavqGqMXjH9Z5GOFa1FWxTBEG71t" />
+            android:value="E7yNeMG9NAjT9cs3XCSRzntrurlMGGxO" />
         <!--百度定位-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="CPObBjFHrtBKUqG9gD49WjUYHm9XBbEu" />
+            android:value="nDOXSQLEIRO2ox7ncfdOG45TW5Nl8GIG" />
 
         <service
             android:name="com.baidu.location.f"
@@ -80,7 +80,7 @@
         </provider>
 
         <activity
-            android:name="com.otitan.login.LoginActivity"
+            android:name="com.otitan.main.view.MainActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
             android:windowSoftInputMode="stateHidden">
             <!--<intent-filter>-->
@@ -96,7 +96,7 @@
             android:name="com.otitan.permissions.PermissionsActivity"
             android:configChanges="screenSize|keyboardHidden|orientation" />
         <activity
-            android:name="com.otitan.main.view.MainActivity"
+            android:name="com.otitan.login.LoginActivity"
             android:configChanges="screenSize|keyboardHidden|orientation" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

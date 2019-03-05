@@ -82,6 +82,7 @@ public class InitViewModel extends BaseViewModel{
         map.getBasemap().getBaseLayers().add(layer);
         mapView.setMap(map);
 
+
         map.addLoadStatusChangedListener(new LoadStatusChangedListener() {
             @Override
             public void loadStatusChanged(LoadStatusChangedEvent loadStatusChangedEvent) {
