@@ -329,8 +329,8 @@ public class MapCenterActivity extends AppCompatActivity implements ValueCallBac
                     Intent intent = new Intent(this, ContainerActivity.class);
                     if (location != null && location.getMappoint() != null) {
                         Bundle bundle = new Bundle();
-                        bundle.putString("lon", ConverterUtils.toString(location.getMappoint().getX()));
-                        bundle.putString("lat", ConverterUtils.toString(location.getMappoint().getY()));
+                        bundle.putString("lon", ConverterUtils.toString(Constant.INSTANCE.getSFormat().format(location.getMappoint().getX())));
+                        bundle.putString("lat", ConverterUtils.toString(Constant.INSTANCE.getSFormat().format(location.getMappoint().getY())));
                         intent.putExtra(ContainerActivity.BUNDLE, bundle);
                     }
                     intent.putExtra(ContainerActivity.FRAGMENT, UpEventFragment.class.getCanonicalName());

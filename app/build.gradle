@@ -13,7 +13,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "1.01"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         //向上兼容矢量动画
@@ -136,7 +136,6 @@ dependencies {
     implementation project(':LibraryManager:baselibrary')
     implementation project(':LibraryManager:photopicker')
     implementation project(':LibraryManager:medialibrary')
-    implementation project(':LibraryManager:eventlibrary')
 
     /*图片轮播*/
     implementation 'com.youth.banner:banner:1.4.10'

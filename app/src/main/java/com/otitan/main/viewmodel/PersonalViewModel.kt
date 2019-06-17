@@ -16,6 +16,7 @@ import com.otitan.zjly.R
 import com.titan.versionupdata.VersionUpdata
 
 class PersonalViewModel() : BaseViewModel(), ValueCallBack<Any> {
+
     override fun onGeometry(geometry: Geometry) {
     }
 
@@ -41,19 +42,21 @@ class PersonalViewModel() : BaseViewModel(), ValueCallBack<Any> {
     override fun onCreate() {
         super.onCreate()
 
-        versioncode = VersionUpdata.getVersionCode(this.fragment!!.activity).toString()
+        versioncode = "版本更新    "+VersionUpdata.getVersionCode(this.fragment!!.activity).toString()
 
     }
 
 
     /*个人中心===版本更新*/
     fun updataVersion() {
-        var url = this.mContext?.getString(R.string.updata_url)
+        Thread(Runnable {
+            var url = this.mContext?.getString(R.string.updata_url)
 
-        var flag = VersionUpdata(this.fragment?.activity!!).checkVersion(url)
-        if (!flag) {
-            ToastUtil.setToast(this.fragment!!.activity, "已经是最新版本")
-        }
+            var flag = VersionUpdata(this.fragment?.activity!!).checkVersion(url)
+            if (!flag) {
+                ToastUtil.setToast(this.fragment!!.activity, "已经是最新版本")
+            }
+        }).start()
     }
 
     /*个人中心===密码修改*/

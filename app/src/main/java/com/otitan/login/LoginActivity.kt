@@ -73,11 +73,14 @@ class LoginActivity : BaseFragmentActivity() {
 
     /*版本更新*/
     fun checkUpdata(){
-        var url = this.getString(R.string.updata_url)
-        var flag = VersionUpdata(loginFragment!!.activity).checkVersion(url)
-        if(!flag){
+
+        Thread(Runnable {
+            var url = this.getString(R.string.updata_url)
+            var flag = VersionUpdata(loginFragment!!.activity).checkVersion(url)
+            if(!flag){
 //            ToastUtil.setToast(this.mContext,"已经是最新版本")
-        }
+            }
+        }).start()
     }
 
 }

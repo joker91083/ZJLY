@@ -43,12 +43,10 @@ public class UpInfoActivity extends BaseFragmentActivity implements BDLocationLi
         mybdListener = new MybdListener();
         mybdListener.initBdlocation(this);
 
-        double lon = this.getIntent().getDoubleExtra("lon",0);
-        double lat = this.getIntent().getDoubleExtra("lat",0);
-        upinfoViewModel.lon.set(Constant.INSTANCE.getSFormat().format(lon));
-        upinfoViewModel.lat.set(Constant.INSTANCE.getSFormat().format(lat));
-
-
+        String lon = Constant.INSTANCE.getSFormat().format(this.getIntent().getDoubleExtra("lon",0));
+        String lat = Constant.INSTANCE.getSFormat().format(this.getIntent().getDoubleExtra("lat",0));
+        upinfoViewModel.lon.set(lon);
+        upinfoViewModel.lat.set(lat);
     }
 
     @NotNull

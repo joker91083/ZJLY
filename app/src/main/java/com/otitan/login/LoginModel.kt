@@ -70,7 +70,7 @@ class LoginModel() : BaseViewModel(), ILoginView {
         val psw = password!!.get()
         val password = MD5.encryption(psw)
 
-        dataRepository.login(name!!, password, "password", object : RemoteDataSource.mCallback {
+        dataRepository.login(name!!, psw!!, "password", object : RemoteDataSource.mCallback {
             override fun onFailure(info: String) {
                 dismissDialog()
                 onFail("登录失败:$info")

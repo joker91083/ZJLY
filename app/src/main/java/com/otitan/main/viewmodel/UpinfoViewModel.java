@@ -5,6 +5,8 @@ import android.databinding.ObservableField;
 
 import com.otitan.base.BaseViewModel;
 import com.otitan.main.model.UpInfo;
+import com.otitan.util.Constant;
+import com.otitan.util.ConverterUtils;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -54,8 +56,8 @@ public class UpinfoViewModel extends BaseViewModel{
 
     /*确定按钮*/
     public void sure(){
-        upInfo.setLon(lon.get());
-        upInfo.setLat(lat.get());
+        upInfo.setLon(Constant.INSTANCE.getSFormat().format(ConverterUtils.toDouble(lon.get())));
+        upInfo.setLat(Constant.INSTANCE.getSFormat().format(ConverterUtils.toDouble(lat.get())));
         upInfo.setAddr(addr.get());
         upInfo.setDiscrip(discrip.get());
         upInfo.setRemark(remark.get());
